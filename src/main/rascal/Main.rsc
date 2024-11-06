@@ -14,7 +14,7 @@ import Location;
 int main(int testArgument=0) {
     // smallsql0.21_src
     // hsqldb-2.3.1
-    loc projectLocation = |home:///Documents/se/smallsql0.21_src|;
+    loc projectLocation = |home:///Documents/UVA_SE/SE/series0/smallsql0.21_src|;
     list[Declaration] asts = getASTs(projectLocation);
     
     int volume = calculateVolume(asts);
@@ -25,6 +25,10 @@ int main(int testArgument=0) {
     for (methodName <- domain(unitSizes)) {
         println("  - <methodName>: <unitSizes[methodName]> lines");
     }
+    tuple[real percentage, int totalLines, int duplicateLines] duplicationResult = calculateDuplication(asts);
+    println("Duplication percentage: <precision(duplicationResult.percentage, 2)>%");
+    println("Total lines analyzed: <duplicationResult.totalLines>");
+    println("Duplicate lines found: <duplicationResult.duplicateLines>");
     
     return testArgument;
 }
@@ -34,87 +38,6 @@ list[Declaration] getASTs(loc projectLocation) {
     list[Declaration] asts = [createAstFromFile(f, true)
         | f <- files(model.containment), isCompilationUnit(f)];
     return asts;
-}
-
-int getNumberOfInterfaces(list[Declaration] asts){
-    int interfaces = 0;
-    visit(asts){
-        case \interface(_, _, _, _): interfaces += 1;
-    }
-    return interfaces;
-}
-
-int getNumberOfInterfaces(list[Declaration] asts){
-    int interfaces = 0;
-    visit(asts){
-        case \interface(_, _, _, _): interfaces += 1;
-    }
-    return interfaces;
-}  
-
-int getNumberOfForLoops(list[Declaration] asts){
-    int forLoops = 0;
-    visit(asts) {
-        case \for(_, _, _, _): forLoops += 1;
-    }
-    return forLoops;
-}
-
-tuple[int, list[str]] mostOccurringVariables(list[Declaration] asts) {
-    map[str, int] variableCountMap = ();
-
-    visit(asts) {
-        case \variable(varName, _):
-            variableCountMap[varName] = (varName in variableCountMap) ? variableCountMap[varName] + 1 : 1;
-        case \variable(varName, _, _):
-            variableCountMap[varName] = (varName in variableCountMap) ? variableCountMap[varName] + 1 : 1;
-    }
-
-    // Extract counts from the map by iterating over the keys using domain()
-    list[int] counts = [variableCountMap[name] | str name <- domain(variableCountMap)];
-
-    // Find the maximum count if counts is not empty
-    int maxCount = counts != [] ? max(counts) : 0;
-
-    // Find the variable names that have the maximum count
-    list[str] mostFrequent = [name | str name <- domain(variableCountMap), variableCountMap[name] == maxCount];
-
-    // Return the maximum count and the list of most occurring variables
-    return <maxCount, mostFrequent>;
-}
-
-tuple[int, list[str]] mostOccurringNumber(list[Declaration] asts) {
-    map[str, int] numberLiteralCountMap = ();
-    
-    // Visit the ASTs to count number literals
-    visit(asts) {
-        case \number(str numberValue):
-            numberLiteralCountMap[numberValue] = 
-                (numberValue in numberLiteralCountMap) ? numberLiteralCountMap[numberValue] + 1 : 1;
-    }
-    
-    // Extract counts by iterating over the map's key-value pairs
-    list[int] counts = [numberLiteralCountMap[number] | str number <- domain(numberLiteralCountMap)];
-    
-    // Find the maximum count if counts is not empty
-    int maxCount = counts != [] ? max(counts) : 0;
-    
-    // Find the number literals that have the maximum count
-    list[str] mostFrequent = [number | str number <- domain(numberLiteralCountMap), numberLiteralCountMap[number] == maxCount];
-    
-    // Return the maximum count and the list of most occurring numbers
-    return <maxCount, mostFrequent>;
-}
-
-list[loc] findNullReturned(list[Declaration] asts) {
-    list[loc] nullReturnLocations = [];
-    
-    visit(asts) {
-        case \return(x: \null()):
-            nullReturnLocations += x.src;
-    }
-    
-    return nullReturnLocations;
 }
 
 int calculateVolume(list[Declaration] asts) {
@@ -145,4 +68,75 @@ map[str, int] calculateUnitSize(list[Declaration] asts) {
     }
     
     return methodSizes;
+}
+
+str removeComments(str source) {
+    // Remove multi-line comments
+    source = visit(source) {
+        case /\/\*.*?\*\//s => ""
+    }
+    // Remove single-line comments
+    source = visit(source) {
+        case /\/\/.*$/ => ""
+    }
+    return source;
+}
+
+tuple[real percentage, int totalLines, int duplicateLines] calculateDuplication(list[Declaration] asts) {
+    /*
+    First pass: 
+        - Sliding window algorithm
+        - Map all 6-line blocks to their locations using a map
+    Second pass:
+        - Sort blocks by their first occurrence
+        - Process blocks in order, marking duplicated lines
+        - Use a set to ensure each line is only counted once
+        This should handle overlapping duplicates (more accurately).
+        For example, if lines 1-10 are duplicated somewhere else, 
+        all those lines will be marked as duplicates only once, 
+        even though they're part of multiple 6-line blocks.
+    */
+    // Get all source lines from ASTs, trimmed of leading whitespace
+    list[str] allLines = [];
+    visit(asts) {
+        case \method(_, _, _, _, impl): {
+            str methodSource = readFile(impl.src);
+            methodSource = removeComments(methodSource);
+            allLines += [trim(l) | l <- split("\n", methodSource), trim(l) != ""];
+        }
+    }
+    
+    // First pass: Store blocks and their locations
+    map[str, list[int]] blockLocations = (); 
+    int totalLines = size(allLines);
+    
+    // Map all 6-line blocks
+    for (i <- [0..totalLines-5]) {
+        str block = intercalate("\n", allLines[i..i+6]);
+        blockLocations[block] = (block in blockLocations) ? blockLocations[block] + [i] : [i];
+    }
+    
+    // Second pass: Track duplicated lines, handling overlaps
+    set[int] duplicatedLineIndices = {};
+    
+    // Sort blocks by their first occurrence to handle overlaps properly
+    list[tuple[str block, list[int] locations]] sortedBlocks = 
+        sort([<block, locs> | block <- blockLocations, list[int] locs := blockLocations[block], size(locs) > 1],
+             bool(tuple[str, list[int]] a, tuple[str, list[int]] b) { 
+                 return min(a[1]) < min(b[1]); 
+             });
+    
+    // Process blocks in order
+    for (<block, locations> <- sortedBlocks) {
+        for (startIndex <- locations) {
+            // Only add these lines if they're not already marked as duplicates
+            set[int] newLines = {startIndex + k | k <- [0..6]};
+            duplicatedLineIndices += newLines;
+        }
+    }
+    
+    // Calculate duplication percentage using unique duplicated lines
+    int duplicateLines = size(duplicatedLineIndices);
+    real percentage = totalLines > 0 ? (toReal(duplicateLines) / totalLines) * 100 : 0.0;
+    return <percentage, totalLines, duplicateLines>;
 }

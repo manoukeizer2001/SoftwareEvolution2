@@ -18,9 +18,12 @@ int main(int testArgument=0) {
     int volume = calculateVolumeWithoutComments(asts);
     tuple[int, int, int, int, int, int, int, int] unit_sizes = calculateUnitSizes(asts);
     
+    tuple[real, real, real, real] complexity = calculateComplexityDistribution(unit_sizes, volume);
+    
     println("Total lines of code excluding comments and empty lines: <volume>");
     println("Unit counts [low, moderate, high, very high]: \<<unit_sizes[0]>, <unit_sizes[1]>, <unit_sizes[2]>, <unit_sizes[3]>\>");
     println("Lines per category [low, moderate, high, very high]: \<<unit_sizes[4]>, <unit_sizes[5]>, <unit_sizes[6]>, <unit_sizes[7]>\>");
+    println("Complexity distribution [low%, moderate%, high%, very high%]: \<<complexity[0]>, <complexity[1]>, <complexity[2]>, <complexity[3]>\>");
     return testArgument;
 }
 
@@ -95,32 +98,23 @@ tuple[real, real, real, real] calculateComplexityDistribution(tuple[int, int, in
     return <percent_low, percent_moderate, percent_high, percent_veryHigh>;
 }
 
-list[str] cleanCode(list[str] lines) {
-    list[str] cleanedLines = [];
-    bool inMultiLineComment = false;
-    
-    for (str line <- lines) {
-        str trimmedLine = trim(line);
-        
-        // Skip empty lines
-        if (trimmedLine == "") continue;
-        
-        // Handle multi-line comments
-        if (startsWith(trimmedLine, "/*")) {
-            inMultiLineComment = true;
-            continue;
-        }
-        if (endsWith(trimmedLine, "*/")) {
-            inMultiLineComment = false;
-            continue;
-        }
-        if (inMultiLineComment) continue;
-        
-        // Skip single-line comments
-        if (startsWith(trimmedLine, "//")) continue;
-        
-        cleanedLines += trimmedLine;
+str removeComments(str source) {
+    // Remove multi-line comments
+    source = visit(source) {
+        case /\/\.?\*\//s => ""
     }
+    // Remove single-line comments
+    source = visit(source) {
+        case /\/\/.*$/ => ""
+    }
+    return source;
+}
+
+list[str] cleanCode(list[str] lines) {
+    // First join lines and remove all comments
+    str source = intercalate("\n", lines);
+    source = removeComments(source);
     
-    return cleanedLines;
+    // Then split back into lines and clean
+    return [trim(l) | l <- split("\n", source), trim(l) != ""];
 }

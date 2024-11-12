@@ -45,11 +45,26 @@ list[Declaration] getASTs(loc projectLocation) {
     return asts;
 }
 
+
+// Simple method to get volume
 int calculateVolumeWithoutComments(list[Declaration] asts) {
-    return (0 | it + size(cleanCode(readFileLines(types[0].src))) | 
-        /\compilationUnit(_, list[Declaration] types) := asts) +
-        (0 | it + size(cleanCode(readFileLines(types[0].src))) | 
-        /\compilationUnit(_, _, list[Declaration] types) := asts);
+    return size(getAllLines(asts));
+}
+
+// Reusable method to get clean lines from AST
+list[str] getAllLines(list[Declaration] asts) {
+    list[str] allLines = [];
+    visit(asts) {
+        case \compilationUnit(_, list[Declaration] decls): {
+            loc sourceFile = decls[0].src.top;
+            allLines += cleanCode(readFileLines(sourceFile));
+        }
+        case \compilationUnit(_, _, list[Declaration] decls): {
+            loc sourceFile = decls[0].src.top;
+            allLines += cleanCode(readFileLines(sourceFile));
+        }
+    }
+    return allLines;
 }
 
 map[str, int] calculateUnitSize(list[Declaration] asts) {
@@ -156,21 +171,7 @@ tuple[int, int, int, int, int, int, int, int] calculateComplexity(list[Declarati
         case m:\method(Type \return, str name, list[Declaration] parameters, list[Expression] exceptions): {
             count_low += 1;
             lines_low += countMethodLines(m@src);
-        }
-        
-        // Handle constructors
-        case c:\constructor(str name, list[Declaration] parameters, list[Expression] exceptions, Statement impl): {
-            int complexity = calculateMethodComplexity(impl);
-            int methodSize = countMethodLines(c@src);
-            categorizeUnit(complexity, methodSize);
-        }
-        
-        // Handle initializers (static and instance)
-        case i:\initializer(Statement impl): {
-            int complexity = calculateMethodComplexity(impl);
-            int blockSize = countMethodLines(i@src);
-            categorizeUnit(complexity, blockSize);
-        }
+        }   
     }
     
     return <count_low, count_moderate, count_high, count_veryHigh,
@@ -212,18 +213,7 @@ tuple[real percentage, int totalLines, int duplicateLines] calculateDuplication(
         even though they're part of multiple 6-line blocks.
     */
     // Get all source lines from ASTs
-    list[str] allLines = [];
-    // Process entire compilation units instead of individual methods
-    visit(asts) {
-        case \compilationUnit(_, list[Declaration] decls): {
-            loc sourceFile = decls[0].src.top;
-            allLines += cleanCode(readFileLines(sourceFile));
-        }
-        case \compilationUnit(_, _, list[Declaration] decls): {
-            loc sourceFile = decls[0].src.top;
-            allLines += cleanCode(readFileLines(sourceFile));
-        }
-    }
+    list[str] allLines = getAllLines(asts);
     // First pass: Store blocks and their locations
     map[str, list[int]] blockLocations = (); 
     int totalLines = size(allLines);

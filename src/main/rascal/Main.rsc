@@ -17,14 +17,17 @@ int main(int testArgument=0) {
     loc projectLocation = |home:///Documents/UVA_SE/SE/series0/smallsql0.21_src|;
     list[Declaration] asts = getASTs(projectLocation);
     
-    int volume = calculateVolume(asts);
+    // int volume = calculateVolume(asts);
+    int volume = calculateVolumeWithoutComments(asts);
     map[str, int] unitSizes = calculateUnitSize(asts);
+
+    println("Volume without comments: <volume>");
     
-    println("Total lines of code (volume): <volume>");
-    println("Unit sizes per method:");
-    for (methodName <- domain(unitSizes)) {
-        println("  - <methodName>: <unitSizes[methodName]> lines");
-    }
+    // println("Total lines of code (volume): <volume>");
+    // println("Unit sizes per method:");
+    // for (methodName <- domain(unitSizes)) {
+    //     println("  - <methodName>: <unitSizes[methodName]> lines");
+    // }
     tuple[real percentage, int totalLines, int duplicateLines] duplicationResult = calculateDuplication(asts);
     println("Duplication percentage: <precision(duplicationResult.percentage, 2)>%");
     println("Total lines analyzed: <duplicationResult.totalLines>");
@@ -40,17 +43,11 @@ list[Declaration] getASTs(loc projectLocation) {
     return asts;
 }
 
-int calculateVolume(list[Declaration] asts) {
-    int totalLinesOfCode = 0;
-    
-    visit(asts) {
-        case \compilationUnit(_, list[Declaration] types):
-            totalLinesOfCode += (types[0].src.end.line - types[0].src.begin.line) + 1;
-        case \compilationUnit(_, _, list[Declaration] types):
-            totalLinesOfCode += (types[0].src.end.line - types[0].src.begin.line) + 1;
-    }
-    
-    return totalLinesOfCode;
+int calculateVolumeWithoutComments(list[Declaration] asts) {
+    return (0 | it + size(cleanCode(readFileLines(types[0].src))) | 
+        /\compilationUnit(_, list[Declaration] types) := asts) +
+        (0 | it + size(cleanCode(readFileLines(types[0].src))) | 
+        /\compilationUnit(_, _, list[Declaration] types) := asts);
 }
 
 map[str, int] calculateUnitSize(list[Declaration] asts) {
@@ -70,6 +67,8 @@ map[str, int] calculateUnitSize(list[Declaration] asts) {
     return methodSizes;
 }
 
+
+
 str removeComments(str source) {
     // Remove multi-line comments
     source = visit(source) {
@@ -81,6 +80,50 @@ str removeComments(str source) {
     }
     return source;
 }
+
+list[str] cleanCode(list[str] lines) {
+    // First join lines and remove all comments
+    str source = intercalate("\n", lines);
+    source = removeComments(source);
+    
+    // Then split back into lines and clean
+    return [trim(l) | l <- split("\n", source), trim(l) != ""];
+}
+
+// str removeComments(str source) {
+//     // First remove all block comments (handles nested and multi-line)
+//     source = visit(source) {
+//         case /\/\*([^*]|\*+[^*\/])*\*+\// => ""
+//     }
+    
+//     // Then handle single line comments and clean up
+//     list[str] lines = split("\n", source);
+//     list[str] cleanedLines = [];
+    
+//     for (str line <- lines) {
+//         // Remove everything after // if it exists
+//         if (/\/\// := line) {
+//             line = substring(line, 0, findFirst(line, "//"));
+//         }
+        
+//         // Only add non-empty lines
+//         if (trim(line) != "") {
+//             cleanedLines += trim(line);
+//         }
+//     }
+    
+//     return intercalate("\n", cleanedLines);
+// }
+
+// list[str] cleanCode(list[str] lines) {
+//     // Skip empty input
+//     if (size(lines) == 0) return [];
+    
+//     // Process the code
+//     str source = intercalate("\n", lines);
+//     source = removeComments(source);
+//     return [trim(l) | l <- split("\n", source), trim(l) != ""];
+// }
 
 tuple[real percentage, int totalLines, int duplicateLines] calculateDuplication(list[Declaration] asts) {
     /*
@@ -96,19 +139,23 @@ tuple[real percentage, int totalLines, int duplicateLines] calculateDuplication(
         all those lines will be marked as duplicates only once, 
         even though they're part of multiple 6-line blocks.
     */
-    // Get all source lines from ASTs, trimmed of leading whitespace
+    // Get all source lines from ASTs
     list[str] allLines = [];
+    // Process entire compilation units instead of individual methods
     visit(asts) {
-        case \method(_, _, _, _, impl): {
-            str methodSource = readFile(impl.src);
-            methodSource = removeComments(methodSource);
-            allLines += [trim(l) | l <- split("\n", methodSource), trim(l) != ""];
+        case \compilationUnit(_, list[Declaration] decls): {
+            loc sourceFile = decls[0].src.top;
+            allLines += cleanCode(readFileLines(sourceFile));
+        }
+        case \compilationUnit(_, _, list[Declaration] decls): {
+            loc sourceFile = decls[0].src.top;
+            allLines += cleanCode(readFileLines(sourceFile));
         }
     }
-    
     // First pass: Store blocks and their locations
     map[str, list[int]] blockLocations = (); 
     int totalLines = size(allLines);
+    println("Total lines: <totalLines>");
     
     // Map all 6-line blocks
     for (i <- [0..totalLines-5]) {
@@ -129,13 +176,11 @@ tuple[real percentage, int totalLines, int duplicateLines] calculateDuplication(
     // Process blocks in order
     for (<block, locations> <- sortedBlocks) {
         for (startIndex <- locations) {
-            // Only add these lines if they're not already marked as duplicates
             set[int] newLines = {startIndex + k | k <- [0..6]};
             duplicatedLineIndices += newLines;
         }
     }
     
-    // Calculate duplication percentage using unique duplicated lines
     int duplicateLines = size(duplicatedLineIndices);
     real percentage = totalLines > 0 ? (toReal(duplicateLines) / totalLines) * 100 : 0.0;
     return <percentage, totalLines, duplicateLines>;

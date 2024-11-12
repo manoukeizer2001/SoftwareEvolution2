@@ -12,31 +12,24 @@ import Location;
 
 
 int main(int testArgument=0) {
-    // smallsql0.21_src
-    // hsqldb-2.3.1
     loc projectLocation = |home:///Documents/se/smallsql0.21_src|;
     list[Declaration] asts = getASTs(projectLocation);
     
+    // Calculate all metrics
     int volume = calculateVolumeWithoutComments(asts);
     map[str, int] unitSizes = calculateUnitSize(asts);
-
-    println("Volume without comments: <volume>");
-    
     tuple[real percentage, int totalLines, int duplicateLines] duplicationResult = calculateDuplication(asts);
-    println("Duplication percentage: <precision(duplicationResult.percentage, 2)>%");
-    println("Total lines analyzed: <duplicationResult.totalLines>");
-    println("Duplicate lines found: <duplicationResult.duplicateLines>");
-
     tuple[int, int, int, int, int, int, int, int] complexity = calculateComplexity(asts);
-    
     tuple[real, real, real, real] complexity_dist = calculateComplexityDistribution(complexity, volume);
     
-    println("Unit counts [low, moderate, high, very high]: \<<complexity[0]>, <complexity[1]>, <complexity[2]>, <complexity[3]>\>");
-    println("Lines per category [low, moderate, high, very high]: \<<complexity[4]>, <complexity[5]>, <complexity[6]>, <complexity[7]>\>");
-    println("Complexity distribution [low%, moderate%, high%, very high%]: \<<complexity_dist[0]>, <complexity_dist[1]>, <complexity_dist[2]>, <complexity_dist[3]>\>");
-    
+    // Calculate maintainability scores
     str analysabilityScore = calculateAnalysabilityScore(volume, complexity_dist, duplicationResult, unitSizes);
-    println("Analysability Score: <analysabilityScore>");
+    str changeabilityScore = calculateChangeabilityScore(complexity_dist, duplicationResult);
+    str testabilityScore = calculateTestabilityScore(complexity_dist, unitSizes);
+    
+    println("Analysability score:  <analysabilityScore>");
+    println("Changeability score:  <changeabilityScore>");
+    println("Testability score:    <testabilityScore>");
     
     return testArgument;
 }
@@ -247,12 +240,17 @@ tuple[real percentage, int totalLines, int duplicateLines] calculateDuplication(
     return <percentage, totalLines, duplicateLines>;
 }
 
-str calculateAnalysabilityScore(int volume, tuple[real, real, real, real] complexity_dist, tuple[real percentage, int totalLines, int duplicateLines] duplication, map[str, int] unitSizes) {
-    // Get individual ratings
+str calculateAnalysabilityScore(int volume, tuple[real, real, real, real] complexity_dist, 
+    tuple[real percentage, int totalLines, int duplicateLines] duplication, map[str, int] unitSizes) {
+    
+    // Volume rating
     str volumeRating = rateVolume(volume);
+    
+    // Duplication rating
     str duplicationRating = rateDuplication(duplication.percentage);
+    
+    // Unit size rating
     str unitSizeRating = rateUnitSize(unitSizes);
-    str complexityRating = rateComplexity(complexity_dist);
     
     // Convert ratings to numbers for averaging
     map[str, int] ratingToNum = (
@@ -266,8 +264,7 @@ str calculateAnalysabilityScore(int volume, tuple[real, real, real, real] comple
     // Calculate average (rounded down as per Heitlager)
     int avgScore = (ratingToNum[volumeRating] + 
                     ratingToNum[duplicationRating] + 
-                    ratingToNum[unitSizeRating] + 
-                    ratingToNum[complexityRating]) / 4;
+                    ratingToNum[unitSizeRating]) / 3;
     
     // Convert back to rating
     map[int, str] numToRating = (
@@ -340,4 +337,72 @@ private str rateComplexity(tuple[real, real, real, real] complexity_dist) {
     if (moderate <= 40 && high <= 10 && veryHigh == 0) return "o";
     if (moderate <= 50 && high <= 15 && veryHigh <= 5) return "-";
     return "--";
+}
+
+str calculateChangeabilityScore(tuple[real, real, real, real] complexity_dist,
+    tuple[real percentage, int totalLines, int duplicateLines] duplication) {
+    
+    // Complexity rating
+    str complexityRating = rateComplexity(complexity_dist);
+    
+    // Duplication rating
+    str duplicationRating = rateDuplication(duplication.percentage);
+    
+    // Convert ratings to numbers for averaging
+    map[str, int] ratingToNum = (
+        "++" : 5,
+        "+" : 4,
+        "o" : 3,
+        "-" : 2,
+        "--" : 1
+    );
+    
+    // Calculate average (rounded down as per Heitlager)
+    int avgScore = (ratingToNum[complexityRating] + 
+                    ratingToNum[duplicationRating]) / 2;
+    
+    // Convert back to rating
+    map[int, str] numToRating = (
+        5 : "++",
+        4 : "+",
+        3 : "o",
+        2 : "-",
+        1 : "--"
+    );
+    
+    return numToRating[avgScore];
+}
+
+str calculateTestabilityScore(tuple[real, real, real, real] complexity_dist,
+    map[str, int] unitSizes) {
+    
+    // Complexity rating
+    str complexityRating = rateComplexity(complexity_dist);
+    
+    // Unit size rating
+    str unitSizeRating = rateUnitSize(unitSizes);
+    
+    // Convert ratings to numbers for averaging
+    map[str, int] ratingToNum = (
+        "++" : 5,
+        "+" : 4,
+        "o" : 3,
+        "-" : 2,
+        "--" : 1
+    );
+    
+    // Calculate average (rounded down as per Heitlager)
+    int avgScore = (ratingToNum[complexityRating] + 
+                    ratingToNum[unitSizeRating]) / 2;
+    
+    // Convert back to rating
+    map[int, str] numToRating = (
+        5 : "++",
+        4 : "+",
+        3 : "o",
+        2 : "-",
+        1 : "--"
+    );
+    
+    return numToRating[avgScore];
 }

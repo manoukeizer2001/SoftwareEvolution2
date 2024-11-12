@@ -17,21 +17,23 @@ int main(int testArgument=0) {
     loc projectLocation = |home:///Documents/UVA_SE/SE/series0/smallsql0.21_src|;
     list[Declaration] asts = getASTs(projectLocation);
     
-    // int volume = calculateVolume(asts);
     int volume = calculateVolumeWithoutComments(asts);
     map[str, int] unitSizes = calculateUnitSize(asts);
 
     println("Volume without comments: <volume>");
     
-    // println("Total lines of code (volume): <volume>");
-    // println("Unit sizes per method:");
-    // for (methodName <- domain(unitSizes)) {
-    //     println("  - <methodName>: <unitSizes[methodName]> lines");
-    // }
     tuple[real percentage, int totalLines, int duplicateLines] duplicationResult = calculateDuplication(asts);
     println("Duplication percentage: <precision(duplicationResult.percentage, 2)>%");
     println("Total lines analyzed: <duplicationResult.totalLines>");
     println("Duplicate lines found: <duplicationResult.duplicateLines>");
+
+    tuple[int, int, int, int, int, int, int, int] complexity = calculateComplexity(asts);
+    
+    tuple[real, real, real, real] complexity_dist = calculateComplexityDistribution(complexity, volume);
+    
+    println("Unit counts [low, moderate, high, very high]: \<<complexity[0]>, <complexity[1]>, <complexity[2]>, <complexity[3]>\>");
+    println("Lines per category [low, moderate, high, very high]: \<<complexity[4]>, <complexity[5]>, <complexity[6]>, <complexity[7]>\>");
+    println("Complexity distribution [low%, moderate%, high%, very high%]: \<<complexity_dist[0]>, <complexity_dist[1]>, <complexity_dist[2]>, <complexity_dist[3]>\>");
     
     return testArgument;
 }
@@ -67,8 +69,6 @@ map[str, int] calculateUnitSize(list[Declaration] asts) {
     return methodSizes;
 }
 
-
-
 str removeComments(str source) {
     // Remove multi-line comments
     source = visit(source) {
@@ -90,41 +90,128 @@ list[str] cleanCode(list[str] lines) {
     return [trim(l) | l <- split("\n", source), trim(l) != ""];
 }
 
-// str removeComments(str source) {
-//     // First remove all block comments (handles nested and multi-line)
-//     source = visit(source) {
-//         case /\/\*([^*]|\*+[^*\/])*\*+\// => ""
-//     }
+int calculateMethodComplexity(Statement impl) {
+    int complexity = 1;  // Base complexity is 1
     
-//     // Then handle single line comments and clean up
-//     list[str] lines = split("\n", source);
-//     list[str] cleanedLines = [];
-    
-//     for (str line <- lines) {
-//         // Remove everything after // if it exists
-//         if (/\/\// := line) {
-//             line = substring(line, 0, findFirst(line, "//"));
-//         }
+    visit(impl) {
+        // Count conditional statements
+        case \if(_, _): complexity += 1;
+        case \if(_, _, _): complexity += 1;
+        case \case(_): complexity += 1;
         
-//         // Only add non-empty lines
-//         if (trim(line) != "") {
-//             cleanedLines += trim(line);
-//         }
-//     }
+        // Count exception handling
+        case \try(_, list[Statement] catches): {
+            // Each catch block represents a new path
+            complexity += size(catches);
+        }
+        case \catch(_, _): complexity += 1;
+        case \finally(_): complexity += 1;  // finally block adds another path
+        
+        // Count loops
+        case \while(_, _): complexity += 1;
+        case \for(_, _, _, _): complexity += 1;
+        case \for(_, _, _): complexity += 1;
+        case \foreach(_, _, _): complexity += 1;
+        case \do(_, _): complexity += 1;
+        
+        // Count switch statements
+        case \switch(_, list[Statement] statements): {
+            // Each case in a switch creates a new path
+            for (/\case(_) := statements) {
+                complexity += 1;
+            }
+            // Default case also creates a new path
+            for (/\defaultCase() := statements) {
+                complexity += 1;
+            }
+        }
+         // Count logical operations that create new paths
+        case \infix(_, "&&", _): complexity += 1;
+        case \infix(_, "||", _): complexity += 1;
+    }
     
-//     return intercalate("\n", cleanedLines);
-// }
+    return complexity;
+}
 
-// list[str] cleanCode(list[str] lines) {
-//     // Skip empty input
-//     if (size(lines) == 0) return [];
+tuple[int, int, int, int, int, int, int, int] calculateComplexity(list[Declaration] asts) {
+    // Risk categories: [count_low, count_moderate, count_high, count_veryHigh, 
+    //                  lines_low, lines_moderate, lines_high, lines_veryHigh]
+    int count_low = 0, count_moderate = 0, count_high = 0, count_veryHigh = 0;
+    int lines_low = 0, lines_moderate = 0, lines_high = 0, lines_veryHigh = 0;
     
-//     // Process the code
-//     str source = intercalate("\n", lines);
-//     source = removeComments(source);
-//     return [trim(l) | l <- split("\n", source), trim(l) != ""];
-// }
+    void categorizeUnit(int complexity, int size) {
+        // Categorize based on cyclomatic complexity thresholds from Heitlager2007
+        if (complexity <= 10) { 
+            count_low += 1; 
+            lines_low += size; 
+        }
+        else if (complexity <= 20) { 
+            count_moderate += 1; 
+            lines_moderate += size; 
+        }
+        else if (complexity <= 50) { 
+            count_high += 1; 
+            lines_high += size; 
+        }
+        else { 
+            count_veryHigh += 1; 
+            lines_veryHigh += size; 
+        }
+    }
 
+    visit(asts) {
+        // Handle methods with implementation
+        case m:\method(Type \return, str name, list[Declaration] parameters, list[Expression] exceptions, Statement impl): {
+            int complexity = calculateMethodComplexity(impl);
+            int methodSize = countMethodLines(m@src);
+            categorizeUnit(complexity, methodSize);
+        }
+        
+        // Handle interface methods (no implementation)
+        case m:\method(Type \return, str name, list[Declaration] parameters, list[Expression] exceptions): {
+            count_low += 1;
+            lines_low += countMethodLines(m@src);
+        }
+        
+        // Handle constructors
+        case c:\constructor(str name, list[Declaration] parameters, list[Expression] exceptions, Statement impl): {
+            int complexity = calculateMethodComplexity(impl);
+            int methodSize = countMethodLines(c@src);
+            categorizeUnit(complexity, methodSize);
+        }
+        
+        // Handle initializers (static and instance)
+        case i:\initializer(Statement impl): {
+            int complexity = calculateMethodComplexity(impl);
+            int blockSize = countMethodLines(i@src);
+            categorizeUnit(complexity, blockSize);
+        }
+    }
+    
+    return <count_low, count_moderate, count_high, count_veryHigh,
+            lines_low, lines_moderate, lines_high, lines_veryHigh>;
+}
+
+int countMethodLines(loc methodLocation) {
+    return size(cleanCode(readFileLines(methodLocation)));
+}
+
+tuple[real, real, real, real] calculateComplexityDistribution(tuple[int, int, int, int, int, int, int, int] unit_sizes, int totalLines) {
+    // Extract lines per category from the tuple
+    int lines_low = unit_sizes[4];
+    int lines_moderate = unit_sizes[5];
+    int lines_high = unit_sizes[6];
+    int lines_veryHigh = unit_sizes[7];
+    
+    // Calculate percentages (handle division by zero)
+    real percent_low = totalLines > 0 ? (lines_low * 100.0) / totalLines : 0.0;
+    real percent_moderate = totalLines > 0 ? (lines_moderate * 100.0) / totalLines : 0.0;
+    real percent_high = totalLines > 0 ? (lines_high * 100.0) / totalLines : 0.0;
+    real percent_veryHigh = totalLines > 0 ? (lines_veryHigh * 100.0) / totalLines : 0.0;
+    
+    return <percent_low, percent_moderate, percent_high, percent_veryHigh>;
+}
+        
 tuple[real percentage, int totalLines, int duplicateLines] calculateDuplication(list[Declaration] asts) {
     /*
     First pass: 

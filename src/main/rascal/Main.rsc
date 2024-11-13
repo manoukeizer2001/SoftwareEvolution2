@@ -17,33 +17,47 @@ int main(int testArgument=0) {
     loc projectLocation = |home:///Documents/UVA_SE/SE/series0/smallsql0.21_src|;
     list[Declaration] asts = getASTs(projectLocation);
     
+    // Calculate volume
     int volume = calculateVolumeWithoutComments(asts);
 
     println("Volume without comments: <volume>");
 
-    // Calculate unit sizes
+     // Calculate unit sizes
     map[str, int] unitSizes = calculateUnitSize(asts);
     
-    // Get distribution for unit sizes across risk categories
-    tuple[int low, int moderate, int high, int veryHigh] sizeDistribution = calculateUnitSizeDistribution(unitSizes);
+    // Get distribution of units and lines for unit sizes
+    tuple[int count_low, int count_moderate, int count_high, int count_veryHigh,
+          int lines_low, int lines_moderate, int lines_high, int lines_veryHigh] unitSizeDistribution = 
+        calculateUnitSizeDistribution(unitSizes);
     
-    println("Unit size distribution [low, moderate, high, very high]: " + 
-        "\<<sizeDistribution.low>, <sizeDistribution.moderate>, " +
-        "<sizeDistribution.high>, <sizeDistribution.veryHigh>\>");
-
+    // Calculate percentages for risk categories of unit sizes
+    tuple[real, real, real, real] unitSizePercentages = calculateUnitSizePercentages(unitSizeDistribution, volume);
     
+    println("\nUnit Size Analysis:");
+    println("Unit counts [low, moderate, high, very high]: " + 
+        "\<<unitSizeDistribution[0]>, <unitSizeDistribution[1]>, " +
+        "<unitSizeDistribution[2]>, <unitSizeDistribution[3]>\>");
+    println("Lines per category [low, moderate, high, very high]: " + 
+        "\<<unitSizeDistribution[4]>, <unitSizeDistribution[5]>, " +
+        "<unitSizeDistribution[6]>, <unitSizeDistribution[7]>\>");
+    println("Unit size distribution [low%, moderate%, high%, very high%]: " + 
+        "\<<unitSizePercentages[0]>, <unitSizePercentages[1]>, <unitSizePercentages[2]>, <unitSizePercentages[3]>\>");
+    
+    // Calculate duplication
     tuple[real percentage, int totalLines, int duplicateLines] duplicationResult = calculateDuplication(asts);
     println("Duplication percentage: <precision(duplicationResult.percentage, 2)>%");
     println("Total lines analyzed: <duplicationResult.totalLines>");
     println("Duplicate lines found: <duplicationResult.duplicateLines>");
 
-    tuple[int, int, int, int, int, int, int, int] complexityRiskCategories = calculateComplexityRiskCategories(asts);
+    // Calculate complexity distribution
+    tuple[int, int, int, int, int, int, int, int] complexityDistribution = calculateComplexityDistribution(asts);
     
-    tuple[real, real, real, real] complexity_dist = calculateComplexityDistribution(complexityRiskCategories, volume);
+    // Calculate percentages for risk categories of complexity
+    tuple[real, real, real, real] complexityPercentages = calculateComplexityPercentages(complexityDistribution, volume);
     
-    println("Unit counts [low, moderate, high, very high]: \<<complexityRiskCategories[0]>, <complexityRiskCategories[1]>, <complexityRiskCategories[2]>, <complexityRiskCategories[3]>\>");
-    println("Lines per category [low, moderate, high, very high]: \<<complexityRiskCategories[4]>, <complexityRiskCategories[5]>, <complexityRiskCategories[6]>, <complexityRiskCategories[7]>\>");
-    println("Complexity distribution [low%, moderate%, high%, very high%]: \<<complexity_dist[0]>, <complexity_dist[1]>, <complexity_dist[2]>, <complexity_dist[3]>\>");
+    println("Unit counts [low, moderate, high, very high]: \<<complexityDistribution[0]>, <complexityDistribution[1]>, <complexityDistribution[2]>, <complexityDistribution[3]>\>");
+    println("Lines per category [low, moderate, high, very high]: \<<complexityDistribution[4]>, <complexityDistribution[5]>, <complexityDistribution[6]>, <complexityDistribution[7]>\>");
+    println("Complexity distribution [low%, moderate%, high%, very high%]: \<<complexityPercentages[0]>, <complexityPercentages[1]>, <complexityPercentages[2]>, <complexityPercentages[3]>\>");
     
     return testArgument;
 }
@@ -118,28 +132,53 @@ list[str] cleanCode(list[str] lines) {
     return [trim(l) | l <- split("\n", source), trim(l) != ""];
 }
 
-// Calculate distribution of unit sizes across risk categories
-tuple[int low, int moderate, int high, int veryHigh] calculateUnitSizeDistribution(map[str, int] unitSizes) {
-    int low = 0, moderate = 0, high = 0, veryHigh = 0;
+// Calculate unit counts and lines per risk category for unit sizes
+tuple[int count_low, int count_moderate, int count_high, int count_veryHigh,
+      int lines_low, int lines_moderate, int lines_high, int lines_veryHigh] 
+calculateUnitSizeDistribution(map[str, int] unitSizes) {
+    int count_low = 0, count_moderate = 0, count_high = 0, count_veryHigh = 0;
+    int lines_low = 0, lines_moderate = 0, lines_high = 0, lines_veryHigh = 0;
     
-    // Categorize each unit based on its size
+    // Categorize each unit and sum up lines
     for (methodName <- unitSizes) {
         int size = unitSizes[methodName];
         if (size <= 15) {
-            low += 1;
+            count_low += 1;
+            lines_low += size;
         }
         else if (size <= 30) {
-            moderate += 1;
+            count_moderate += 1;
+            lines_moderate += size;
         }
         else if (size <= 60) {
-            high += 1;
+            count_high += 1;
+            lines_high += size;
         }
         else {
-            veryHigh += 1;
+            count_veryHigh += 1;
+            lines_veryHigh += size;
         }
     }
     
-    return <low, moderate, high, veryHigh>;
+    return <count_low, count_moderate, count_high, count_veryHigh,
+            lines_low, lines_moderate, lines_high, lines_veryHigh>;
+}
+
+// Calculate percentage distribution
+tuple[real, real, real, real] calculateUnitSizePercentages(tuple[int, int, int, int, int, int, int, int] unit_sizes, int totalLines) {
+    // Extract lines per category from the tuple
+    int lines_low = unit_sizes[4];
+    int lines_moderate = unit_sizes[5];
+    int lines_high = unit_sizes[6];
+    int lines_veryHigh = unit_sizes[7];
+    
+    // Calculate percentages (handle division by zero)
+    real percent_low = totalLines > 0 ? (lines_low * 100.0) / totalLines : 0.0;
+    real percent_moderate = totalLines > 0 ? (lines_moderate * 100.0) / totalLines : 0.0;
+    real percent_high = totalLines > 0 ? (lines_high * 100.0) / totalLines : 0.0;
+    real percent_veryHigh = totalLines > 0 ? (lines_veryHigh * 100.0) / totalLines : 0.0;
+    
+    return <percent_low, percent_moderate, percent_high, percent_veryHigh>;
 }
 
 private int calculateMethodComplexity(Statement impl) {
@@ -172,7 +211,7 @@ private int calculateMethodComplexity(Statement impl) {
 }
 
 // Calculate number of units for each complexity risk category
-tuple[int, int, int, int, int, int, int, int] calculateComplexityRiskCategories(list[Declaration] asts) {
+tuple[int, int, int, int, int, int, int, int] calculateComplexityDistribution(list[Declaration] asts) {
     // Risk categories: [count_low, count_moderate, count_high, count_veryHigh, 
     //                  lines_low, lines_moderate, lines_high, lines_veryHigh]
     int count_low = 0, count_moderate = 0, count_high = 0, count_veryHigh = 0;
@@ -221,7 +260,7 @@ int countMethodLines(loc methodLocation) {
     return size(cleanCode(readFileLines(methodLocation)));
 }
 
-tuple[real, real, real, real] calculateComplexityDistribution(tuple[int, int, int, int, int, int, int, int] unit_sizes, int totalLines) {
+tuple[real, real, real, real] calculateComplexityPercentages(tuple[int, int, int, int, int, int, int, int] unit_sizes, int totalLines) {
     // Extract lines per category from the tuple
     int lines_low = unit_sizes[4];
     int lines_moderate = unit_sizes[5];

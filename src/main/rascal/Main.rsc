@@ -18,21 +18,31 @@ int main(int testArgument=0) {
     list[Declaration] asts = getASTs(projectLocation);
     
     int volume = calculateVolumeWithoutComments(asts);
-    map[str, int] unitSizes = calculateUnitSize(asts);
 
     println("Volume without comments: <volume>");
+
+    // Calculate unit sizes
+    map[str, int] unitSizes = calculateUnitSize(asts);
+    
+    // Get distribution for unit sizes across risk categories
+    tuple[int low, int moderate, int high, int veryHigh] sizeDistribution = calculateUnitSizeDistribution(unitSizes);
+    
+    println("Unit size distribution [low, moderate, high, very high]: " + 
+        "\<<sizeDistribution.low>, <sizeDistribution.moderate>, " +
+        "<sizeDistribution.high>, <sizeDistribution.veryHigh>\>");
+
     
     tuple[real percentage, int totalLines, int duplicateLines] duplicationResult = calculateDuplication(asts);
     println("Duplication percentage: <precision(duplicationResult.percentage, 2)>%");
     println("Total lines analyzed: <duplicationResult.totalLines>");
     println("Duplicate lines found: <duplicationResult.duplicateLines>");
 
-    tuple[int, int, int, int, int, int, int, int] complexity = calculateComplexity(asts);
+    tuple[int, int, int, int, int, int, int, int] complexityRiskCategories = calculateComplexityRiskCategories(asts);
     
-    tuple[real, real, real, real] complexity_dist = calculateComplexityDistribution(complexity, volume);
+    tuple[real, real, real, real] complexity_dist = calculateComplexityDistribution(complexityRiskCategories, volume);
     
-    println("Unit counts [low, moderate, high, very high]: \<<complexity[0]>, <complexity[1]>, <complexity[2]>, <complexity[3]>\>");
-    println("Lines per category [low, moderate, high, very high]: \<<complexity[4]>, <complexity[5]>, <complexity[6]>, <complexity[7]>\>");
+    println("Unit counts [low, moderate, high, very high]: \<<complexityRiskCategories[0]>, <complexityRiskCategories[1]>, <complexityRiskCategories[2]>, <complexityRiskCategories[3]>\>");
+    println("Lines per category [low, moderate, high, very high]: \<<complexityRiskCategories[4]>, <complexityRiskCategories[5]>, <complexityRiskCategories[6]>, <complexityRiskCategories[7]>\>");
     println("Complexity distribution [low%, moderate%, high%, very high%]: \<<complexity_dist[0]>, <complexity_dist[1]>, <complexity_dist[2]>, <complexity_dist[3]>\>");
     
     return testArgument;
@@ -45,7 +55,6 @@ list[Declaration] getASTs(loc projectLocation) {
     return asts;
 }
 
-
 // Simple method to get volume
 int calculateVolumeWithoutComments(list[Declaration] asts) {
     return size(getAllLines(asts));
@@ -55,6 +64,7 @@ int calculateVolumeWithoutComments(list[Declaration] asts) {
 list[str] getAllLines(list[Declaration] asts) {
     list[str] allLines = [];
     visit(asts) {
+        // Visit each compilation unit (each .java file)
         case \compilationUnit(_, list[Declaration] decls): {
             loc sourceFile = decls[0].src.top;
             allLines += cleanCode(readFileLines(sourceFile));
@@ -67,17 +77,20 @@ list[str] getAllLines(list[Declaration] asts) {
     return allLines;
 }
 
+// Calculate size of each unit (method)
 map[str, int] calculateUnitSize(list[Declaration] asts) {
     map[str, int] methodSizes = ();
     
     visit(asts) {
-        case \method(_, name, _, _, impl): {
-            int linesOfCode = (impl.src.end.line - impl.src.begin.line) + 1;
-            methodSizes[name] = linesOfCode;
+        // Visit each method
+        case m:\method(Type \return, str name, list[Declaration] parameters, list[Expression] exceptions, Statement impl): {
+            list[str] methodLines = cleanCode(readFileLines(m@src));
+            methodSizes[name] = size(methodLines);
         }
-        case \constructor(name, _, _, impl): {
-            int linesOfCode = (impl.src.end.line - impl.src.begin.line) + 1;
-            methodSizes[name] = linesOfCode;
+        
+        case m:\method(Type \return, str name, list[Declaration] parameters, list[Expression] exceptions): {
+            list[str] methodLines = cleanCode(readFileLines(m@src));
+            methodSizes[name] = size(methodLines);
         }
     }
     
@@ -103,6 +116,30 @@ list[str] cleanCode(list[str] lines) {
     
     // Then split back into lines and clean
     return [trim(l) | l <- split("\n", source), trim(l) != ""];
+}
+
+// Calculate distribution of unit sizes across risk categories
+tuple[int low, int moderate, int high, int veryHigh] calculateUnitSizeDistribution(map[str, int] unitSizes) {
+    int low = 0, moderate = 0, high = 0, veryHigh = 0;
+    
+    // Categorize each unit based on its size
+    for (methodName <- unitSizes) {
+        int size = unitSizes[methodName];
+        if (size <= 15) {
+            low += 1;
+        }
+        else if (size <= 30) {
+            moderate += 1;
+        }
+        else if (size <= 60) {
+            high += 1;
+        }
+        else {
+            veryHigh += 1;
+        }
+    }
+    
+    return <low, moderate, high, veryHigh>;
 }
 
 private int calculateMethodComplexity(Statement impl) {
@@ -133,7 +170,9 @@ private int calculateMethodComplexity(Statement impl) {
     
     return complexity;
 }
-tuple[int, int, int, int, int, int, int, int] calculateComplexity(list[Declaration] asts) {
+
+// Calculate number of units for each complexity risk category
+tuple[int, int, int, int, int, int, int, int] calculateComplexityRiskCategories(list[Declaration] asts) {
     // Risk categories: [count_low, count_moderate, count_high, count_veryHigh, 
     //                  lines_low, lines_moderate, lines_high, lines_veryHigh]
     int count_low = 0, count_moderate = 0, count_high = 0, count_veryHigh = 0;
@@ -141,15 +180,15 @@ tuple[int, int, int, int, int, int, int, int] calculateComplexity(list[Declarati
     
     void categorizeUnit(int complexity, int size) {
         // Categorize based on cyclomatic complexity thresholds from Heitlager2007
-        if (complexity <= 15) { 
+        if (complexity <= 10) { 
             count_low += 1; 
             lines_low += size; 
         }
-        else if (complexity <= 30) { 
+        else if (complexity <= 20) { 
             count_moderate += 1; 
             lines_moderate += size; 
         }
-        else if (complexity <= 60) { 
+        else if (complexity <= 50) { 
             count_high += 1; 
             lines_high += size; 
         }

@@ -10,16 +10,19 @@ import util::Math;
 import Map;
 import Location;
 import BasicMetricsCalculation;
-import MaintainabilityAspectsScores;
+import MetricScores;
 
 int main(int testArgument=0) {
     // smallsql0.21_src
     // hsqldb-2.3.1
-    loc projectLocation = |home:///Documents/UVA_SE/SE/series0/smallsql0.21_src|;
+    loc projectLocation = |home:///Documents/UVA_SE/SE/series0/hsqldb-2.3.1|;
     list[Declaration] asts = getASTs(projectLocation);
+
+    // All code lines without comments and blank lines
+    list[str] allLines = getAllLines(asts);
     
     // Calculate volume
-    int volume = calculateVolumeWithoutComments(asts);
+    int volume = calculateVolumeWithoutComments(allLines);
 
     println("Volume without comments: <volume>");
 
@@ -55,19 +58,35 @@ int main(int testArgument=0) {
     println("Complexity distribution [low%, moderate%, high%, very high%]: \<<complexityPercentages[0]>, <complexityPercentages[1]>, <complexityPercentages[2]>, <complexityPercentages[3]>\>");
     
     // Calculate duplication
-    tuple[real percentage, int totalLines, int duplicateLines] duplicationResult = calculateDuplication(asts);
+    tuple[real percentage, int totalLines, int duplicateLines] duplicationResult = calculateDuplication(allLines);
     println("Duplication percentage: <duplicationResult.percentage>");
     println("Duplicate lines found: <duplicationResult.duplicateLines>");
 
-    // Calculate maintainability scores
+    // Individual metric scores
+
+    // Volume
+    println("\nIndividual Metric Scores:");
+    println("Volume: <rateVolume(volume)>");
+    
+    // Unit Size
+    println("Unit Size: <rateUnitSize(unitSizePercentages)>");
+    
+    // Complexity
+    println("Unit Complexity: <rateComplexity(complexityPercentages)>");
+    
+    // Duplication
+    println("Duplication: <rateDuplication(duplicationResult[0])>");
+    
+    // Maintainability scores
     str analysabilityScore = calculateAnalysabilityScore(volume, duplicationResult, unitSizePercentages);
     str changeabilityScore = calculateChangeabilityScore(complexityPercentages, duplicationResult);
     str testabilityScore = calculateTestabilityScore(complexityPercentages, unitSizePercentages);
+    str maintainabilityScore = calculateMaintainabilityScore(analysabilityScore, changeabilityScore, testabilityScore);
     
     println("Analysability score:  <analysabilityScore>");
     println("Changeability score:  <changeabilityScore>");
     println("Testability score:    <testabilityScore>");
-
+    println("Maintainability score: <maintainabilityScore>");
     return testArgument;
 }
 

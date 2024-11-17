@@ -18,8 +18,8 @@ list[Declaration] getASTs(loc projectLocation) {
 }
 
 // Simple method to get volume
-int calculateVolumeWithoutComments(list[Declaration] asts) {
-    return size(getAllLines(asts));
+int calculateVolumeWithoutComments(list[str] allLines) {
+    return size(allLines);
 }
 
 // Reusable method to get clean lines from AST
@@ -224,7 +224,7 @@ tuple[real, real, real, real] calculateComplexityPercentages(tuple[int, int, int
     return <percent_low, percent_moderate, percent_high, percent_veryHigh>;
 }
         
-tuple[real percentage, int totalLines, int duplicateLines] calculateDuplication(list[Declaration] asts) {
+tuple[real percentage, int totalLines, int duplicateLines] calculateDuplication(list[str] allLines) {
     /*
     First pass: 
         - Sliding window algorithm
@@ -238,8 +238,7 @@ tuple[real percentage, int totalLines, int duplicateLines] calculateDuplication(
         all those lines will be marked as duplicates only once, 
         even though they're part of multiple 6-line blocks.
     */
-    // Get all source lines from ASTs
-    list[str] allLines = getAllLines(asts);
+
     // First pass: Store blocks and their locations
     map[str, list[int]] blockLocations = (); 
     int totalLines = size(allLines);

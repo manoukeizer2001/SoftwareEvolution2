@@ -1,4 +1,4 @@
-module MaintainabilityAspectsScores
+module MetricScores
 
 import lang::java::m3::Core;
 import lang::java::m3::AST;
@@ -10,9 +10,24 @@ import util::Math;
 import Map;
 import Location;
 
+map[str, int] ratingToNum = (
+        "++" : 5,
+        "+" : 4,
+        "o" : 3,
+        "-" : 2,
+        "--" : 1
+    );
 
-
-private str rateVolume(int volume) {
+map[int, str] numToRating = (
+        5 : "++",
+        4 : "+",
+        3 : "o",
+        2 : "-",
+        1 : "--"
+    );
+    
+// Rate volume
+str rateVolume(int volume) {
     if (volume < 66000) return "++";
     if (volume < 246000) return "+";
     if (volume < 665000) return "o";
@@ -20,7 +35,8 @@ private str rateVolume(int volume) {
     return "--";
 }
 
-private str rateDuplication(real percentage) {
+// Rate duplication
+str rateDuplication(real percentage) {
     if (percentage <= 3) return "++";
     if (percentage <= 5) return "+";
     if (percentage <= 10) return "o";
@@ -28,7 +44,8 @@ private str rateDuplication(real percentage) {
     return "--";
 }
 
-private str rateUnitSize(tuple[real, real, real, real] unit_size_dist) {
+// Rate unit size
+str rateUnitSize(tuple[real, real, real, real] unit_size_dist) {
     // Extract percentages [low, moderate, high, very high]
     real moderate = unit_size_dist[1];
     real high = unit_size_dist[2];
@@ -42,7 +59,8 @@ private str rateUnitSize(tuple[real, real, real, real] unit_size_dist) {
     return "--";
 }
 
-private str rateComplexity(tuple[real, real, real, real] complexity_dist) {
+// Rate complexity
+str rateComplexity(tuple[real, real, real, real] complexity_dist) {
     // Extract percentages [low, moderate, high, very high]
     real moderate = complexity_dist[1];
     real high = complexity_dist[2];
@@ -56,6 +74,7 @@ private str rateComplexity(tuple[real, real, real, real] complexity_dist) {
     return "--";
 }
 
+// Calculate analysability score
 str calculateAnalysabilityScore(
     int volume,                                    // total volume
     tuple[real, int, int] duplicationResult,       // percentage, total, duplicate
@@ -70,32 +89,15 @@ str calculateAnalysabilityScore(
     // Unit size rating
     str unitSizeRating = rateUnitSize(unitSizePerc);
     
-    // Convert ratings to numbers for averaging
-    map[str, int] ratingToNum = (
-        "++" : 5,
-        "+" : 4,
-        "o" : 3,
-        "-" : 2,
-        "--" : 1
-    );
-    
     // Calculate average (rounded down as per Heitlager)
     int avgScore = (ratingToNum[volumeRating] + 
                     ratingToNum[duplicationRating] + 
                     ratingToNum[unitSizeRating]) / 3;
     
-    // Convert back to rating
-    map[int, str] numToRating = (
-        5 : "++",
-        4 : "+",
-        3 : "o",
-        2 : "-",
-        1 : "--"
-    );
-    
     return numToRating[avgScore];
 }
 
+// Calculate changeability score
 str calculateChangeabilityScore(
     tuple[real, real, real, real] complexityPerc,     // percentages [low, moderate, high, very high]
     tuple[real, int, int] duplicationResult           // percentage, total, duplicate
@@ -107,31 +109,14 @@ str calculateChangeabilityScore(
     // Duplication rating
     str duplicationRating = rateDuplication(duplicationResult[0]);
     
-    // Convert ratings to numbers for averaging
-    map[str, int] ratingToNum = (
-        "++" : 5,
-        "+" : 4,
-        "o" : 3,
-        "-" : 2,
-        "--" : 1
-    );
-    
     // Calculate average (rounded down as per Heitlager)
     int avgScore = (ratingToNum[complexityRating] + 
                     ratingToNum[duplicationRating]) / 2;
     
-    // Convert back to rating
-    map[int, str] numToRating = (
-        5 : "++",
-        4 : "+",
-        3 : "o",
-        2 : "-",
-        1 : "--"
-    );
-    
     return numToRating[avgScore];
 }
 
+// Calculate testability score
 str calculateTestabilityScore(
     tuple[real, real, real, real] complexityPerc,    // percentages [low, moderate, high, very high]
     tuple[real, real, real, real] unitSizePerc       // percentages [low, moderate, high, very high]
@@ -143,27 +128,22 @@ str calculateTestabilityScore(
     // Unit size rating
     str unitSizeRating = rateUnitSize(unitSizePerc);
     
-    // Convert ratings to numbers for averaging
-    map[str, int] ratingToNum = (
-        "++" : 5,
-        "+" : 4,
-        "o" : 3,
-        "-" : 2,
-        "--" : 1
-    );
-    
     // Calculate average (rounded down as per Heitlager)
     int avgScore = (ratingToNum[complexityRating] + 
                     ratingToNum[unitSizeRating]) / 2;
     
-    // Convert back to rating
-    map[int, str] numToRating = (
-        5 : "++",
-        4 : "+",
-        3 : "o",
-        2 : "-",
-        1 : "--"
-    );
+    return numToRating[avgScore];
+}
+
+// Calculate maintainability score
+str calculateMaintainabilityScore(str analysabilityScore, str changeabilityScore, str testabilityScore) {
+    // Convert ratings to numbers using the map
+    int analysabilityNumber = ratingToNum[analysabilityScore];
+    int changeabilityNumber = ratingToNum[changeabilityScore];
+    int testabilityNumber = ratingToNum[testabilityScore];
     
+    // Calculate average
+    int avgScore = (analysabilityNumber + changeabilityNumber + testabilityNumber) / 3;
+    // Return rating based on rounded down average
     return numToRating[avgScore];
 }

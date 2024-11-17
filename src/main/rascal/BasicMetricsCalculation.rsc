@@ -42,17 +42,29 @@ list[str] getAllLines(list[Declaration] asts) {
 // Calculate size of each unit (method)
 map[str, int] calculateUnitSize(list[Declaration] asts) {
     map[str, int] methodSizes = ();
+    int overloadCount = 0;
     
     visit(asts) {
-        // Visit each method
         case m:\method(Type \return, str name, list[Declaration] parameters, list[Expression] exceptions, Statement impl): {
             list[str] methodLines = cleanCode(readFileLines(m@src));
-            methodSizes[name] = size(methodLines);
+            // Add unique identifier for overloaded methods
+            str uniqueName = name;
+            if (uniqueName in methodSizes) {
+                uniqueName = name + "_" + toString(overloadCount);
+                overloadCount += 1;
+            }
+            methodSizes[uniqueName] = size(methodLines);
         }
         
         case m:\method(Type \return, str name, list[Declaration] parameters, list[Expression] exceptions): {
             list[str] methodLines = cleanCode(readFileLines(m@src));
-            methodSizes[name] = size(methodLines);
+            // Add unique identifier for overloaded methods
+            str uniqueName = name;
+            if (uniqueName in methodSizes) {
+                uniqueName = name + "_" + toString(overloadCount);
+                overloadCount += 1;
+            }
+            methodSizes[uniqueName] = size(methodLines);
         }
     }
     
@@ -185,18 +197,36 @@ tuple[int, int, int, int, int, int, int, int] calculateComplexityDistribution(li
         }
     }
 
+    // visit(asts) {
+    //     // Handle methods with implementation
+    //     case m:\method(Type \return, str name, list[Declaration] parameters, list[Expression] exceptions, Statement impl): {
+    //         int complexity = calculateMethodComplexity(impl);
+    //         int methodSize = countMethodLines(m@src);
+    //         categorizeUnit(complexity, methodSize);
+    //     }
+        
+    //     // Handle interface methods (no implementation)
+    //     case m:\method(Type \return, str name, list[Declaration] parameters, list[Expression] exceptions): {
+    //         count_low += 1;
+    //         lines_low += countMethodLines(m@src);
+    //     }   
+    // }
+
     visit(asts) {
         // Handle methods with implementation
         case m:\method(Type \return, str name, list[Declaration] parameters, list[Expression] exceptions, Statement impl): {
             int complexity = calculateMethodComplexity(impl);
-            int methodSize = countMethodLines(m@src);
+            list[str] methodLines = cleanCode(readFileLines(m@src));
+            int methodSize = size(methodLines);
             categorizeUnit(complexity, methodSize);
         }
         
         // Handle interface methods (no implementation)
         case m:\method(Type \return, str name, list[Declaration] parameters, list[Expression] exceptions): {
+            list[str] methodLines = cleanCode(readFileLines(m@src));
+            int methodSize = size(methodLines);
             count_low += 1;
-            lines_low += countMethodLines(m@src);
+            lines_low += methodSize;
         }   
     }
     

@@ -12,10 +12,15 @@ import Location;
 import BasicMetricsCalculation;
 import MetricScores;
 
-int main(int testArgument=0) {
+// Define project location based on the project path
+int main(loc projectLocation = |home:///Documents/UVA_SE/SE/series0/hsqldb-2.3.1|) {
     // smallsql0.21_src
     // hsqldb-2.3.1
-    loc projectLocation = |home:///Documents/UVA_SE/SE/series0/hsqldb-2.3.1|;
+
+    if (!exists(projectLocation)) {
+        println("Error: Project path does not exist: <projectLocation>");
+        return 1;
+    }
     list[Declaration] asts = getASTs(projectLocation);
 
     // All code lines without comments and blank lines
@@ -87,6 +92,6 @@ int main(int testArgument=0) {
     println("Changeability score:  <changeabilityScore>");
     println("Testability score:    <testabilityScore>");
     println("Maintainability score: <maintainabilityScore>");
-    return testArgument;
+    return 0;
 }
 

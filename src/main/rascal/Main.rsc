@@ -47,7 +47,6 @@ int main(int testArgument=0) {
     // Calculate duplication
     tuple[real percentage, int totalLines, int duplicateLines] duplicationResult = calculateDuplication(asts);
     println("Duplication percentage: <precision(duplicationResult.percentage, 2)>%");
-    println("Total lines analyzed: <duplicationResult.totalLines>");
     println("Duplicate lines found: <duplicationResult.duplicateLines>");
 
     // Calculate complexity distribution
@@ -60,6 +59,15 @@ int main(int testArgument=0) {
     println("Lines per category [low, moderate, high, very high]: \<<complexityDistribution[4]>, <complexityDistribution[5]>, <complexityDistribution[6]>, <complexityDistribution[7]>\>");
     println("Complexity distribution [low%, moderate%, high%, very high%]: \<<complexityPercentages[0]>, <complexityPercentages[1]>, <complexityPercentages[2]>, <complexityPercentages[3]>\>");
     
+    // Calculate maintainability scores
+    str analysabilityScore = calculateAnalysabilityScore(volume, duplicationResult, unitSizes);
+    str changeabilityScore = calculateChangeabilityScore(complexity_dist, duplicationResult);
+    str testabilityScore = calculateTestabilityScore(complexity_dist, unitSizes);
+    
+    println("Analysability score:  <analysabilityScore>");
+    println("Changeability score:  <changeabilityScore>");
+    println("Testability score:    <testabilityScore>");
+
     return testArgument;
 }
 

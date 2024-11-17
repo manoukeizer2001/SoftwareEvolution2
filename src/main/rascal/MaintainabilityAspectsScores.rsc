@@ -28,34 +28,17 @@ private str rateDuplication(real percentage) {
     return "--";
 }
 
-private str rateUnitSize(map[str, int] unitSizes) {
-    // Calculate total lines
-    int totalLines = sum(range(unitSizes));
-    if (totalLines == 0) return "++";  // Handle empty case
+private str rateUnitSize(tuple[real, real, real, real] unit_size_dist) {
+    // Extract percentages [low, moderate, high, very high]
+    real moderate = unit_size_dist[1];
+    real high = unit_size_dist[2];
+    real veryHigh = unit_size_dist[3];
     
-    // Calculate percentages for each risk category
-    real veryHighRisk = 0.0;
-    real highRisk = 0.0;
-    real moderateRisk = 0.0;
-    
-    // Iterate over values directly
-    for (int size <- range(unitSizes)) {
-        if (size > 100) {
-            veryHighRisk += (toReal(size) / totalLines) * 100;
-        }
-        else if (size > 50) {
-            highRisk += (toReal(size) / totalLines) * 100;
-        }
-        else if (size > 20) {
-            moderateRisk += (toReal(size) / totalLines) * 100;
-        }
-    }
-    
-    // Apply Heitlager's thresholds
-    if (moderateRisk <= 25 && highRisk == 0 && veryHighRisk == 0) return "++";
-    if (moderateRisk <= 30 && highRisk <= 5 && veryHighRisk == 0) return "+";
-    if (moderateRisk <= 40 && highRisk <= 10 && veryHighRisk == 0) return "o";
-    if (moderateRisk <= 50 && highRisk <= 15 && veryHighRisk <= 5) return "-";
+    // Apply Heitlager's thresholds (same as complexity)
+    if (moderate <= 25 && high == 0 && veryHigh == 0) return "++";
+    if (moderate <= 30 && high <= 5 && veryHigh == 0) return "+";
+    if (moderate <= 40 && high <= 10 && veryHigh == 0) return "o";
+    if (moderate <= 50 && high <= 15 && veryHigh <= 5) return "-";
     return "--";
 }
 
@@ -73,17 +56,19 @@ private str rateComplexity(tuple[real, real, real, real] complexity_dist) {
     return "--";
 }
 
-str calculateAnalysabilityScore(int volume,  
-    tuple[real percentage, int totalLines, int duplicateLines] duplication, map[str, int] unitSizes) {
+str calculateAnalysabilityScore(
+    int volume,                                    // total volume
+    tuple[real, int, int] duplicationResult,       // percentage, total, duplicate
+    tuple[real, real, real, real] unitSizePerc     // percentages [low, moderate, high, very high]
+) {
     
     // Volume rating
     str volumeRating = rateVolume(volume);
-    
     // Duplication rating
-    str duplicationRating = rateDuplication(duplication.percentage);
-    
+    str duplicationRating = rateDuplication(duplicationResult[0]);
+   
     // Unit size rating
-    str unitSizeRating = rateUnitSize(unitSizes);
+    str unitSizeRating = rateUnitSize(unitSizePerc);
     
     // Convert ratings to numbers for averaging
     map[str, int] ratingToNum = (
@@ -111,14 +96,16 @@ str calculateAnalysabilityScore(int volume,
     return numToRating[avgScore];
 }
 
-tr calculateChangeabilityScore(tuple[real, real, real, real] complexity_dist,
-    tuple[real percentage, int totalLines, int duplicateLines] duplication) {
+str calculateChangeabilityScore(
+    tuple[real, real, real, real] complexityPerc,     // percentages [low, moderate, high, very high]
+    tuple[real, int, int] duplicationResult           // percentage, total, duplicate
+) {
     
     // Complexity rating
-    str complexityRating = rateComplexity(complexity_dist);
+    str complexityRating = rateComplexity(complexityPerc);
     
     // Duplication rating
-    str duplicationRating = rateDuplication(duplication.percentage);
+    str duplicationRating = rateDuplication(duplicationResult[0]);
     
     // Convert ratings to numbers for averaging
     map[str, int] ratingToNum = (
@@ -145,14 +132,16 @@ tr calculateChangeabilityScore(tuple[real, real, real, real] complexity_dist,
     return numToRating[avgScore];
 }
 
-str calculateTestabilityScore(tuple[real, real, real, real] complexity_dist,
-    map[str, int] unitSizes) {
+str calculateTestabilityScore(
+    tuple[real, real, real, real] complexityPerc,    // percentages [low, moderate, high, very high]
+    tuple[real, real, real, real] unitSizePerc       // percentages [low, moderate, high, very high]
+) {
     
     // Complexity rating
-    str complexityRating = rateComplexity(complexity_dist);
+    str complexityRating = rateComplexity(complexityPerc);
     
     // Unit size rating
-    str unitSizeRating = rateUnitSize(unitSizes);
+    str unitSizeRating = rateUnitSize(unitSizePerc);
     
     // Convert ratings to numbers for averaging
     map[str, int] ratingToNum = (

@@ -35,7 +35,7 @@ int main(int testArgument=0) {
     tuple[real, real, real, real] unitSizePercentages = calculateUnitSizePercentages(unitSizeDistribution, volume);
     
     println("\nUnit Size Analysis:");
-    println("Unit counts [low, moderate, high, very high]: " + 
+    println("Unit size counts [low, moderate, high, very high]: " + 
         "\<<unitSizeDistribution[0]>, <unitSizeDistribution[1]>, " +
         "<unitSizeDistribution[2]>, <unitSizeDistribution[3]>\>");
     println("Lines per category [low, moderate, high, very high]: " + 
@@ -43,11 +43,6 @@ int main(int testArgument=0) {
         "<unitSizeDistribution[6]>, <unitSizeDistribution[7]>\>");
     println("Unit size distribution [low%, moderate%, high%, very high%]: " + 
         "\<<unitSizePercentages[0]>, <unitSizePercentages[1]>, <unitSizePercentages[2]>, <unitSizePercentages[3]>\>");
-    
-    // Calculate duplication
-    tuple[real percentage, int totalLines, int duplicateLines] duplicationResult = calculateDuplication(asts);
-    println("Duplication percentage: <precision(duplicationResult.percentage, 2)>%");
-    println("Duplicate lines found: <duplicationResult.duplicateLines>");
 
     // Calculate complexity distribution
     tuple[int, int, int, int, int, int, int, int] complexityDistribution = calculateComplexityDistribution(asts);
@@ -55,14 +50,19 @@ int main(int testArgument=0) {
     // Calculate percentages for risk categories of complexity
     tuple[real, real, real, real] complexityPercentages = calculateComplexityPercentages(complexityDistribution, volume);
     
-    println("Unit counts [low, moderate, high, very high]: \<<complexityDistribution[0]>, <complexityDistribution[1]>, <complexityDistribution[2]>, <complexityDistribution[3]>\>");
+    println("Unit complexity counts [low, moderate, high, very high]: \<<complexityDistribution[0]>, <complexityDistribution[1]>, <complexityDistribution[2]>, <complexityDistribution[3]>\>");
     println("Lines per category [low, moderate, high, very high]: \<<complexityDistribution[4]>, <complexityDistribution[5]>, <complexityDistribution[6]>, <complexityDistribution[7]>\>");
     println("Complexity distribution [low%, moderate%, high%, very high%]: \<<complexityPercentages[0]>, <complexityPercentages[1]>, <complexityPercentages[2]>, <complexityPercentages[3]>\>");
     
+    // Calculate duplication
+    tuple[real percentage, int totalLines, int duplicateLines] duplicationResult = calculateDuplication(asts);
+    println("Duplication percentage: <duplicationResult.percentage>");
+    println("Duplicate lines found: <duplicationResult.duplicateLines>");
+
     // Calculate maintainability scores
-    str analysabilityScore = calculateAnalysabilityScore(volume, duplicationResult, unitSizes);
-    str changeabilityScore = calculateChangeabilityScore(complexity_dist, duplicationResult);
-    str testabilityScore = calculateTestabilityScore(complexity_dist, unitSizes);
+    str analysabilityScore = calculateAnalysabilityScore(volume, duplicationResult, unitSizePercentages);
+    str changeabilityScore = calculateChangeabilityScore(complexityPercentages, duplicationResult);
+    str testabilityScore = calculateTestabilityScore(complexityPercentages, unitSizePercentages);
     
     println("Analysability score:  <analysabilityScore>");
     println("Changeability score:  <changeabilityScore>");

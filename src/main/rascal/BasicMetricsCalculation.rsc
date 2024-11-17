@@ -243,7 +243,7 @@ tuple[real percentage, int totalLines, int duplicateLines] calculateDuplication(
     // First pass: Store blocks and their locations
     map[str, list[int]] blockLocations = (); 
     int totalLines = size(allLines);
-    println("Total lines: <totalLines>");
+    // println("Total lines: <totalLines>");
     
     // Map all 6-line blocks
     for (i <- [0..totalLines-5]) {

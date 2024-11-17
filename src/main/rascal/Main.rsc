@@ -23,7 +23,7 @@ int main(int testArgument=0) {
     tuple[real, real, real, real] complexity_dist = calculateComplexityDistribution(complexity, volume);
     
     // Calculate maintainability scores
-    str analysabilityScore = calculateAnalysabilityScore(volume, complexity_dist, duplicationResult, unitSizes);
+    str analysabilityScore = calculateAnalysabilityScore(volume, duplicationResult, unitSizes);
     str changeabilityScore = calculateChangeabilityScore(complexity_dist, duplicationResult);
     str testabilityScore = calculateTestabilityScore(complexity_dist, unitSizes);
     
@@ -240,7 +240,7 @@ tuple[real percentage, int totalLines, int duplicateLines] calculateDuplication(
     return <percentage, totalLines, duplicateLines>;
 }
 
-str calculateAnalysabilityScore(int volume, tuple[real, real, real, real] complexity_dist, 
+str calculateAnalysabilityScore(int volume,  
     tuple[real percentage, int totalLines, int duplicateLines] duplication, map[str, int] unitSizes) {
     
     // Volume rating

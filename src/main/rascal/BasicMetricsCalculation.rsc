@@ -17,6 +17,30 @@ list[Declaration] getASTs(loc projectLocation) {
     return asts;
 }
 
+// list[Declaration] getDeclarationTypeASTs(list[Declaration] asts) {
+//     list[Declaration] declarations = [];
+//     visit(asts) {
+//         case d: Declaration => declarations += [d];
+//     }
+//     return declarations;
+// }
+
+// list[Expression] getExpressionASTs(list[Declaration] asts) {
+//     list[Expression] expressions = [];
+//     visit(asts) {
+//         case e: Expression => expressions += [e];
+//     }
+//     return expressions;
+// }
+
+// list[Statement] getStatementASTs(list[Declaration] asts) {
+//     list[Statement] statements = [];
+//     visit(asts) {
+//         case s: Statement => statements += [s];
+//     }
+//     return statements;
+// }
+
 // Simple method to get volume
 int calculateVolumeWithoutComments(list[str] allLines) {
     return size(allLines);

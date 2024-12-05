@@ -27,13 +27,13 @@ int main(loc projectLocation = |home:///Documents/UVA_SE/SE/series0/smallsql0.21
     list[Declaration] asts = getASTs(projectLocation);
     println("Number of ASTs: <size(asts)>");
     
-    // Print some info about the first AST
-    if (size(asts) > 0) {
-        println("First AST type: <getNodeType(asts[0])>");
-        if (asts[0]@src?) {
-            println("First AST location: <asts[0]@src>");
-        }
-    }
+    // // Print some info about the first AST
+    // if (size(asts) > 0) {
+    //     println("First AST type: <getNodeType(asts[0])>");
+    //     if (asts[0]@src?) {
+    //         println("First AST location: <asts[0]@src>");
+    //     }
+    // }
 
     // Detect type 1 clones using suffix trees
     list[CloneResult] type1Clones = detectClones(asts);

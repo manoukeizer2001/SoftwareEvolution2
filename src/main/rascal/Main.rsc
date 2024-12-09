@@ -15,7 +15,8 @@ import CloneDetection;
 // Define project location based on the project path
 // smallsql0.21_src
 // hsqldb-2.3.1
-int main(loc projectLocation = |home:///Documents/UVA_SE/SE/series0/smallsql0.21_src|) {
+// dummy_project
+int main(loc projectLocation = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/dummy_project|) {
 
     if (!exists(projectLocation)) {
         println("Error: Project path does not exist: <projectLocation>");
@@ -35,16 +36,21 @@ int main(loc projectLocation = |home:///Documents/UVA_SE/SE/series0/smallsql0.21
     //     }
     // }
 
-    // Detect type 1 clones using suffix trees
+  
     list[CloneResult] type1Clones = detectClones(asts);
     println("Type 1 Clones Detected: <size(type1Clones)>");
     
     if (size(type1Clones) > 0) {
         println("\nFirst clone pair details:");
         CloneResult firstClone = type1Clones[0];
-        println("Location 1: <firstClone[0]>");
-        println("Location 2: <firstClone[2]>");
-        println("Number of nodes: <size(firstClone[1])>");
+        
+        if (size(firstClone) >= 3) {
+            println("Location 1: <firstClone[0]>");
+            println("Location 2: <firstClone[1]>");
+            println("Number of nodes: <size(firstClone[2])>");
+        } else {
+            println("Error: CloneResult does not contain enough elements.");
+        }
     }
 
     return 0;

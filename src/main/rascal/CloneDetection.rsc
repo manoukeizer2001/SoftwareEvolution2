@@ -25,112 +25,81 @@ list[Declaration] getASTs(loc projectLocation) {
 }
 
 SerializedNode serializeAst(node ast) {
-    // println("Serializing AST node: <ast>");
-    switch(ast) {
-        // Generic handling for all Declaration types
-        
-        case Declaration d: {
-            str nodeType = getName(d);
-            int childCount = 1;  // Base count for the node itself
-            list[SerializedNode] children = [];
-            
-            // Get all child nodes that can be serialized
-            for (child <- getChildren(d)) {
-                if (Declaration _ := child || Expression _ := child || Statement _ := child || Type _ := child) {
-                    children += serializeAst(child);
-                    childCount += 1;
-                }
+    list[SerializedNode] result = [];
+    
+    // Collect all nodes with source locations
+    visit(ast) {
+        case node n: {
+            if (n@src?) {
+                result += serialNode(getName(n), 1, []);
             }
-            
-            
-            return serialNode(nodeType, childCount, children);
-        }
-        
-        // Handle Expression nodes
-        case Expression e: {
-            str nodeType = getName(e);
-            int childCount = 1; // Base count for the node itself
-            list[SerializedNode] children = [];
-            
-            // Serialize all relevant child nodes
-            for (child <- getChildren(e)) {
-                if (Declaration _ := child || Expression _ := child || Statement _ := child || Type _ := child) {
-                    children += serializeAst(child);
-                    childCount += 1;
-                }
-            }
-            
-            return serialNode(nodeType, childCount, children);
-        }
-        
-        // Handle Statement nodes
-        case Statement s: {
-            str nodeType = getName(s);
-            int childCount = 1; // Base count for the node itself
-            list[SerializedNode] children = [];
-            
-            // Serialize all relevant child nodes
-            for (child <- getChildren(s)) {
-                if (Declaration _ := child || Expression _ := child || Statement _ := child || Type _ := child) {
-                    children += serializeAst(child);
-                    childCount += 1;
-                }
-            }
-            
-            return serialNode(nodeType, childCount, children);
-        }
-        
-        // case Type t: {
-        //     return serialNode(getName(t), 1, []);
-        // }
-        
-        default: {
-            return serialNode(getName(ast), 1, []);
         }
     }
+    
+    return serialNode("root", 1, result);
 }
 
-// SerializedNode serializeAst(list[Declaration] asts) {
-//     list[SerializedNode] serializedNodes = [];
+bool areNodesEqual(SerializedNode a, SerializedNode b) {
+    if (size(a.children) != size(b.children)) return false;
     
-//     visit(asts) {
-//         // Handle Method Declarations
-//         case m:\method(Type \return, str name, list[Declaration] parameters, list[Expression] exceptions, Statement impl): {
-//             println("Visiting method: <name>");
-//             list[SerializedNode] methodChildren = [];
-            
-//             // Serialize parameters
-//             for (param <- parameters) {
-//                 methodChildren += serializeAst(param);
-//             }
-            
-//             // Serialize method implementation
-//             if (impl != null) {
-//                 methodChildren += serializeAst(impl);
-//             }
-            
-//             serializedNodes += serialNode("method", size(methodChildren) + 1, methodChildren);
-//         }
+    for (i <- [0..size(a.children)]) {
+        if (a.children[i].nodeType != b.children[i].nodeType ||
+            a.children[i].size != b.children[i].size) {
+            return false;
+        }
+    }
+    return true;
+}
+
+set[tuple[loc, loc]] findType1Clones(list[Declaration] asts) {
+    // Convert ASTs to serialized form
+    list[SerializedNode] serializedAsts = [serializeAst(ast) | ast <- asts];
+    set[tuple[loc, loc]] clones = {};
+    
+    // Extract methods from each AST
+    list[SerializedNode] extractMethods(SerializedNode ast) {
+        list[SerializedNode] methods = [];
+        // Find all method nodes in the AST
+        visit(ast) {
+            case n:serialNode("method", _, children): {
+                list[SerializedNode] methodBody = [c | c <- children, c.nodeType == "block"];
+                methods += serialNode("method", 1, methodBody);
+            }
+        }
+        return methods;
+    }
+    
+    // Get all methods from all files
+    list[SerializedNode] allMethods = [];
+    for(ast <- serializedAsts) {
+        allMethods += extractMethods(ast);
+    }
+    
+    println("Found <size(allMethods)> methods to compare");
+    
+    // Compare method bodies
+    for(i <- [0..size(allMethods)], j <- [i+1..size(allMethods)]) {
+        SerializedNode method1 = allMethods[i];
+        SerializedNode method2 = allMethods[j];
         
-//         // Handle Class Declarations
-//         case c:\class(list[Modifier] modifiers, str name, list[Declaration] typeParameters, list[Type] extends, list[Type] implements, list[Declaration] body): {
-//             println("Visiting class: <name>");
-//             list[SerializedNode] classChildren = [];
-            
-//             // Serialize class body
-//             for (decl <- body) {
-//                 classChildren += serializeAst(decl);
-//             }
-            
-//             serializedNodes += serialNode("class", size(classChildren) + 1, classChildren);
-//         }
-//     }
+        // Compare the structure and operations
+        bool areMethodsEqual = true;
+        if(size(method1.children) == size(method2.children)) {
+            for(k <- [0..size(method1.children)]) {
+                if(method1.children[k].nodeType != method2.children[k].nodeType) {
+                    areMethodsEqual = false;
+                    break;
+                }
+            }
+            if(areMethodsEqual) {
+                clones += <|dummy:///method1|, |dummy:///method2|>;
+                println("Found clone between methods!");
+            }
+        }
+    }
     
-//     // Combine everything under a "compilationUnit" root
-//     return serialNode("compilationUnit", size(serializedNodes) + 1, serializedNodes);
-// }
-
-
+    return clones;
+}
 
 /* Uncomment for normalization if needed in the future
 str normalizeNodeType(str nodeType) {
@@ -154,9 +123,16 @@ str normalizeNodeType(str nodeType) {
 
 
 // Helper function to flatten SerializedNode into string sequence
-list[str] flattenTree(SerializedNode serializedNode) {
-    return ["<serializedNode.nodeType>(<serializedNode.subtreeSize>)"] + 
-           [s | child <- serializedNode.children, s <- flattenTree(child)];
+list[str] flattenTree(SerializedNode node1) {
+    // Start with current node
+    list[str] result = ["<node1.nodeType>(<node1.subtreeSize>)"];
+    
+    // Add all children's sequences
+    for (child <- node1.children) {
+        result += flattenTree(child);
+    }
+    
+    return result;
 }
 
 // Suffix tree node with position tracking

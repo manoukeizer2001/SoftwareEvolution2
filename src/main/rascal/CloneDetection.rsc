@@ -45,6 +45,7 @@ SerializedNode serializeAst(node ast) {
     visit(ast) {
         case node n: {
             if (n@src?) {
+                println("Node <getName(n)> has source location: <n@src>");
                 result += serialNode(getName(n), 1, []);
             }
         }
@@ -62,6 +63,52 @@ SerializedNode serializeAst(node ast) {
     
     return serialNode("root", totalSize, result);
 }
+
+// SerializedNode serializeAst(node ast) {
+//     list[SerializedNode] result = [];
+    
+//     // Collect all nodes with source locations
+//     visit(ast) {
+//         case node n: {
+//             if (n@src?) {
+//                 // Log the current node's name and source location
+//                 loc nodeLoc = n@src;
+//                 println("Node <getName(n)> has source location: <nodeLoc>");
+                
+//                 // Count all immediate children and their children
+//                 int subtreeSize = 0;
+//                 visit(n) {
+//                     case node child: {
+//                         if (child@src?) {
+//                             // loc childLoc = child@src;
+//                             println("  Child node <getName(child)> has source location: <childLoc>");
+//                             if (childLoc == nodeLoc) {
+//                                 println("  Child node <getName(child)> shares the same source location as its parent.");
+//                             } else {
+//                                 println("  Child node <getName(child)> has a different source location from its parent.");
+//                             }
+//                             subtreeSize += 1;
+//                         }
+//                     }
+//                 }
+//                 result += serialNode(getName(n), subtreeSize, []);
+//             }
+//         }
+//     }
+    
+//     // Count total size for root
+//     int totalSize = 0;
+//     visit(ast) {
+//         case node n: {
+//             if (n@src?) {
+//                 totalSize += 1;
+//             }
+//         }
+//     }
+    
+//     return serialNode("root", totalSize, result);
+// }
+
 
 bool areNodesEqual(SerializedNode a, SerializedNode b) {
     if (size(a.children) != size(b.children)) return false;

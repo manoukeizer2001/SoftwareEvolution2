@@ -24,14 +24,37 @@ list[Declaration] getASTs(loc projectLocation) {
         | f <- files(model.containment), isCompilationUnit(f)];
 }
 
+// Helper function to extract identifiers from nodes
+str extractIdentifier(node n) {
+    switch(n) {
+        case \method(_, name, _, _, _): return "<name>";
+        case \constructor(name, _, _, _): return "<name>";
+        case \variable(name, _): return "<name>";
+        case \variable(name, _, _): return "<name>";
+        case \parameter(_, name, _): return "<name>";
+        case \field(_, name): return "<name>";
+        case \id(name): return "<name>";
+        default: return "";
+    }
+}
+
+// Modify serializeAst to include identifiers
 SerializedNode serializeAst(node ast) {
     list[SerializedNode] result = [];
     
-    // Collect all nodes with source locations
     visit(ast) {
         case node n: {
             if (n@src?) {
-                // Count all immediate children and their children
+                // Extract identifier if present
+                str nodeType = getName(n);
+                str identifier = extractIdentifier(n);
+                
+                // Append identifier to nodeType if it exists
+                if (identifier != "") {
+                    nodeType += ":" + identifier;
+                }
+                
+                // Count subtree size
                 int subtreeSize = 0;
                 visit(n) {
                     case node child: {
@@ -40,7 +63,7 @@ SerializedNode serializeAst(node ast) {
                         }
                     }
                 }
-                result += serialNode(getName(n), subtreeSize, []);
+                result += serialNode(nodeType, subtreeSize, []);
             }
         }
     }
@@ -137,33 +160,49 @@ list[str] flattenTree(SerializedNode node1) {
 data SuffixTreeNode = suffixNode(str label, map[str, SuffixTreeNode] children, map[loc, list[int]] positions);
 
 // Build suffix tree and track positions
-void addSuffix(SuffixTreeNode current, list[str] suffix, loc file, int pos, int minSize) {
-    if (size(suffix) < minSize) return; // Skip short sequences
-    
+SuffixTreeNode addSuffix(SuffixTreeNode current, list[str] suffix, loc file, int pos, int minSize) {
+    if (size(suffix) < minSize) return current;
+
     str first = suffix[0];
-    if (first notin current.children) {
-        current.children[first] = suffixNode(first, (), ());
+    println("Adding node with label: <first>");
+    
+    // Create a new map for positions and children to avoid mutation issues
+    map[loc, list[int]] newPositions = current.positions;
+    map[str, SuffixTreeNode] newChildren = current.children;
+    
+    // Update positions for current node
+    if (file notin newPositions) {
+        newPositions[file] = [pos];
+    } else if (pos notin newPositions[file]) {
+        newPositions[file] += [pos];
     }
     
-    if (file notin current.children[first].positions) {
-        current.children[first].positions[file] = [];
+    // Create new node if it doesn't exist
+    if (first notin newChildren) {
+        println("Creating new node for: <first>");
+        newChildren[first] = suffixNode(first, (), ());
     }
-    current.children[first].positions[file] += [pos];
     
+    // Recursively process the rest of the suffix
     if (size(suffix) > 1) {
-        addSuffix(current.children[first], suffix[1..], file, pos + 1, minSize);
+        println("Processing rest of suffix: <suffix[1..]>");
+        newChildren[first] = addSuffix(newChildren[first], suffix[1..], file, pos + 1, minSize);
     }
+    
+    println("Returning node with children: <size(newChildren)>");
+    return suffixNode(current.label, newChildren, newPositions);
 }
 
 // Find clones with minimum size requirement
 list[CloneResult] findClones(SuffixTreeNode currentNode, int minSize) {
     list[CloneResult] clones = [];
-    
+    println("Current Node: <currentNode.label>");
+
     // Only consider nodes with positions in multiple files
     if (size(currentNode.positions) > 1) {
-        list[loc] files = [f | f <- keys(currentNode.positions)];
+        list[loc] files = toList(domain(currentNode.positions));
         for (int i <- [0..size(files)-1]) {
-            for (int j <- [i+1..size(files)-1]) {
+            for (int j <- [i+1..size(files)]) {
                 list[int] pos1 = currentNode.positions[files[i]];
                 list[int] pos2 = currentNode.positions[files[j]];
                 
@@ -175,7 +214,7 @@ list[CloneResult] findClones(SuffixTreeNode currentNode, int minSize) {
     }
     
     // Recursively process children
-    for (str key <- currentNode.children) {
+    for (str key <- domain(currentNode.children)) {
         clones += findClones(currentNode.children[key], minSize);
     }
     
@@ -185,13 +224,12 @@ list[CloneResult] findClones(SuffixTreeNode currentNode, int minSize) {
 
 // Main clone detection function
 list[CloneResult] detectClones(list[Declaration] asts) {
-    int minCloneSize = 3; // Minimum size of clone (adjustable)
+    int minCloneSize = 3;
     
     list[tuple[loc, list[str]]] serializedAsts = [];
     for (Declaration astNode <- asts) {
         if (astNode@src?) {
             SerializedNode serialized = serializeAst(astNode);
-            println("Serialized Node: <serialized>");
             list[str] flattened = flattenTree(serialized);
             serializedAsts += <astNode@src, flattened>;
         }
@@ -202,20 +240,9 @@ list[CloneResult] detectClones(list[Declaration] asts) {
         loc file = astInfo[0];
         list[str] sequence = astInfo[1];
         for (int i <- [0..size(sequence)-1]) {
-            addSuffix(root, sequence[i..], file, i, minCloneSize);
+            root = addSuffix(root, sequence[i..], file, i, minCloneSize);
         }
     }
     
     return findClones(root, minCloneSize);
-}
-
-// Example usage
-void main(loc projectLocation) {
-    list[Declaration] asts = getASTs(projectLocation);
-    list[CloneResult] clones = detectClones(asts);
-    
-    println("Detected Clones:");
-    for (CloneResult clone <- clones) {
-        println("<clone>");
-    }
 }

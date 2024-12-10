@@ -31,12 +31,31 @@ SerializedNode serializeAst(node ast) {
     visit(ast) {
         case node n: {
             if (n@src?) {
-                result += serialNode(getName(n), 1, []);
+                // Count all immediate children and their children
+                int subtreeSize = 0;
+                visit(n) {
+                    case node child: {
+                        if (child@src?) {
+                            subtreeSize += 1;
+                        }
+                    }
+                }
+                result += serialNode(getName(n), subtreeSize, []);
             }
         }
     }
     
-    return serialNode("root", 1, result);
+    // Count total size for root
+    int totalSize = 0;
+    visit(ast) {
+        case node n: {
+            if (n@src?) {
+                totalSize += 1;
+            }
+        }
+    }
+    
+    return serialNode("root", totalSize, result);
 }
 
 bool areNodesEqual(SerializedNode a, SerializedNode b) {
@@ -100,27 +119,6 @@ set[tuple[loc, loc]] findType1Clones(list[Declaration] asts) {
     
     return clones;
 }
-
-/* Uncomment for normalization if needed in the future
-str normalizeNodeType(str nodeType) {
-    switch(nodeType) {
-        case "Identifier": return "id"; // Normalize identifiers to "id"
-        case "Literal": return "const"; // Normalize literals to "const"
-        default: return nodeType; // Keep other node types as-is
-    }
-}
-*/
-
-str normalizeNodeType(str nodeType) {
-    switch(nodeType) {
-        case "Identifier": return "id"; // Normalize identifiers
-        case "Literal": return "const"; // Normalize literals
-        case "Method": return "method"; // Normalize method names
-        case "Class": return "class"; // Normalize class names
-        default: return nodeType; // Keep other node types as-is
-    }
-}
-
 
 // Helper function to flatten SerializedNode into string sequence
 list[str] flattenTree(SerializedNode node1) {

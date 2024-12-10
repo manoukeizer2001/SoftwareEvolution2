@@ -24,23 +24,28 @@ list[Declaration] getASTs(loc projectLocation) {
         | f <- files(model.containment), isCompilationUnit(f)];
 }
 
+// Helper function to extract identifiers from nodes
+str extractIdentifier(node n) {
+    switch(n) {
+        case \method(_, name, _, _, _): return "<name>";
+        case \constructor(name, _, _, _): return "<name>";
+        case \variable(name, _): return "<name>";
+        case \variable(name, _, _): return "<name>";
+        case \parameter(_, name, _): return "<name>";
+        case \field(_, name): return "<name>";
+        case \id(name): return "<name>";
+        default: return "";
+    }
+}
+
+// Modify serializeAst to include identifiers
 SerializedNode serializeAst(node ast) {
     list[SerializedNode] result = [];
     
-    // Collect all nodes with source locations
     visit(ast) {
         case node n: {
             if (n@src?) {
-                // Count all immediate children and their children
-                int subtreeSize = 0;
-                visit(n) {
-                    case node child: {
-                        if (child@src?) {
-                            subtreeSize += 1;
-                        }
-                    }
-                }
-                result += serialNode(getName(n), subtreeSize, []);
+                result += serialNode(getName(n), 1, []);
             }
         }
     }

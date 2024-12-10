@@ -40,21 +40,18 @@ int main(loc projectLocation = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/d
     list[CloneResult] type1Clones = detectClones(asts);
     println("Type 1 Clones Detected: <size(type1Clones)>");
     
-    if (size(type1Clones) > 0) {
-        println("\nFirst clone pair details:");
-        CloneResult firstClone = type1Clones[0];
+    // if (size(type1Clones) > 0) {
+    //     println("\nFirst clone pair details:");
+    //     CloneResult firstClone = type1Clones[0];
         
-        if (size(firstClone) >= 3) {
-            println("Location 1: <firstClone[0]>");
-            println("Location 2: <firstClone[1]>");
-            println("Number of nodes: <size(firstClone[2])>");
-        } else {
-            println("Error: CloneResult does not contain enough elements.");
-        }
-    }
+    //     if (size(firstClone) >= 3) {
+    //         println("Location 1: <firstClone[0]>");
+    //         println("Location 2: <firstClone[1]>");
+    //         println("Number of nodes: <size(firstClone[2])>");
+    //     } else {
+    //         println("Error: CloneResult does not contain enough elements.");
+    //     }
+    // }
 
     return 0;
 }
-
-// Helper function to get node type name - simplified version
-str getNodeType(node n) = getName(n);

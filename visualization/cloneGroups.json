@@ -1,30 +1,77 @@
 {
     "cloneGroups": {
         "1": {
+            "name": "Basic Addition Clone",
             "files": [
                 {
-                    "path": "dummy_project/src/Calculator.java",
-                    "startLine": 5,
+                    "path": "dummy_project/src/AddTwoNumbers.java",
+                    "startLine": 6,
                     "endLine": 8
                 },
                 {
-                    "path": "dummy_project/src/MathUtils.java",
+                    "path": "dummy_project/src/SumTwoNumbers.java",
                     "startLine": 6,
-                    "endLine": 9
+                    "endLine": 8
                 }
             ]
         },
         "2": {
+            "name": "Input Validation Clone",
             "files": [
                 {
                     "path": "dummy_project/src/Calculator.java",
                     "startLine": 12,
-                    "endLine": 15
+                    "endLine": 19
                 },
                 {
                     "path": "dummy_project/src/MathUtils.java",
+                    "startLine": 11,
+                    "endLine": 18
+                }
+            ]
+        },
+        "3": {
+            "name": "Operation Logging Clone",
+            "files": [
+                {
+                    "path": "dummy_project/src/Calculator.java",
+                    "startLine": 3,
+                    "endLine": 9
+                },
+                {
+                    "path": "dummy_project/src/MathUtils.java",
+                    "startLine": 3,
+                    "endLine": 9
+                }
+            ]
+        },
+        "4": {
+            "name": "Error Handling Clone",
+            "files": [
+                {
+                    "path": "dummy_project/src/Calculator.java",
+                    "startLine": 22,
+                    "endLine": 30
+                },
+                {
+                    "path": "dummy_project/src/StringUtils.java",
+                    "startLine": 15,
+                    "endLine": 23
+                }
+            ]
+        },
+        "5": {
+            "name": "Data Validation Clone",
+            "files": [
+                {
+                    "path": "dummy_project/src/DataValidator.java",
                     "startLine": 8,
-                    "endLine": 11
+                    "endLine": 18
+                },
+                {
+                    "path": "dummy_project/src/InputChecker.java",
+                    "startLine": 12,
+                    "endLine": 22
                 }
             ]
         }

@@ -1,22 +1,52 @@
 {
     "files": {
-        "src/Calculator.java": {
-            "clonedLines": 50,
-            "totalLines": 200,
-            "clonePercentage": 25,
-            "cloneIds": ["1", "2", "3"]
+        "dummy_project/src/Calculator.java": {
+            "clonedLines": 22,
+            "totalLines": 120,
+            "clonePercentage": 18,
+            "cloneIds": ["2", "3", "4"]
         },
-        "src/MathUtils.java": {
-            "clonedLines": 30,
-            "totalLines": 150,
-            "clonePercentage": 20,
+        "dummy_project/src/MathUtils.java": {
+            "clonedLines": 15,
+            "totalLines": 80,
+            "clonePercentage": 19,
             "cloneIds": ["2", "3"]
         },
-        "src/Utils.java": {
-            "clonedLines": 20,
-            "totalLines": 100,
-            "clonePercentage": 20,
+        "dummy_project/src/AddTwoNumbers.java": {
+            "clonedLines": 3,
+            "totalLines": 40,
+            "clonePercentage": 8,
             "cloneIds": ["1"]
+        },
+        "dummy_project/src/SumTwoNumbers.java": {
+            "clonedLines": 3,
+            "totalLines": 35,
+            "clonePercentage": 9,
+            "cloneIds": ["1"]
+        },
+        "dummy_project/src/StringUtils.java": {
+            "clonedLines": 9,
+            "totalLines": 75,
+            "clonePercentage": 12,
+            "cloneIds": ["4"]
+        },
+        "dummy_project/src/DataValidator.java": {
+            "clonedLines": 11,
+            "totalLines": 60,
+            "clonePercentage": 18,
+            "cloneIds": ["5"]
+        },
+        "dummy_project/src/InputChecker.java": {
+            "clonedLines": 11,
+            "totalLines": 55,
+            "clonePercentage": 20,
+            "cloneIds": ["5"]
+        },
+        "dummy_project/src/UniqueImplementation.java": {
+            "clonedLines": 0,
+            "totalLines": 45,
+            "clonePercentage": 0,
+            "cloneIds": []
         }
     }
 } 

@@ -6,10 +6,18 @@
         },
         {
             "lineCount": 7,
-            "frequency": 4
+            "frequency": 2
         },
         {
             "lineCount": 8,
+            "frequency": 2
+        },
+        {
+            "lineCount": 9,
+            "frequency": 2
+        },
+        {
+            "lineCount": 11,
             "frequency": 2
         }
     ]

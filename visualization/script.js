@@ -48,6 +48,7 @@ async function getJavaFiles(directoryPath) {
 }
 
 function createTreemapData(fileCloneData) {
+    console.log('Creating treemap data from:', fileCloneData);
     const values = [
         {
             "id": "root",
@@ -57,9 +58,11 @@ function createTreemapData(fileCloneData) {
     ];
 
     Object.entries(fileCloneData).forEach(([path, data]) => {
+        const shortPath = path.split('/').pop(); // Get just the filename
+        console.log(`Processing file: ${shortPath}, Clone Percentage: ${data.clonePercentage}`);
         values.push({
             "id": path,
-            "name": path,
+            "name": shortPath,
             "parent": "root",
             "size": data.clonedLines,
             "totalLines": data.totalLines,
@@ -69,8 +72,10 @@ function createTreemapData(fileCloneData) {
         });
     });
 
+    console.log('Generated treemap data:', values);
     return { values };
 }
+
 async function createTreemap() {
     try {
         console.log('Fetching treemap data...');
@@ -91,6 +96,10 @@ async function createTreemap() {
             "width": width,
             "height": height,
             "padding": 5,
+            
+            "signals": [
+                {"name": "selectedLineCount", "value": null}
+            ],
 
             "data": [
                 {
@@ -117,8 +126,20 @@ async function createTreemap() {
                 {
                     "name": "color",
                     "type": "sequential",
-                    "domain": {"data": "tree", "field": "size"},
-                    "range": {"scheme": "reds"}
+                    "domain": {"data": "tree", "field": "clonePercentage"},
+                    "range": [
+                        "#2ecc71",  // green (0%)
+                        "#86df8c",  // light green
+                        "#bfeb98",  // lighter green
+                        "#e4f5a3",  // very light green
+                        "#f8edaa",  // very light yellow
+                        "#fcd884",  // light yellow
+                        "#fdc161",  // yellow
+                        "#fca54a",  // light orange
+                        "#f98836",  // orange
+                        "#f56b2d",  // dark orange
+                        "#e74c3c"   // red (100%)
+                    ]
                 }
             ],
 
@@ -136,214 +157,47 @@ async function createTreemap() {
                             "y": {"field": "y0"},
                             "x2": {"field": "x1"},
                             "y2": {"field": "y1"},
-                            "fill": {"scale": "color", "field": "size"},
+                            "fill": {"scale": "color", "field": "clonePercentage"},
                             "tooltip": {
                                 "signal": "{'File': datum.name, 'Clone Lines': datum.size, 'Total Lines': datum.totalLines, 'Clone Percentage': datum.clonePercentage + '%', 'Clone Groups': datum.cloneGroups}"
-                            }
+                            },
+                            "opacity": [
+                                {
+                                    "test": "selectedLineCount === null || datum.size === selectedLineCount",
+                                    "value": 1
+                                },
+                                {"value": 0.3}
+                            ]
                         },
                         "hover": {
                             "strokeWidth": {"value": 3}
-                        }
-                    }
-                },
-                {
-                    "type": "text",
-                    "from": {"data": "tree"},
-                    "encode": {
-                        "enter": {
-                            "align": {"value": "center"},
-                            "baseline": {"value": "middle"},
-                            "fill": {"value": "#000"},
-                            "text": {"field": "name"},
-                            "fontSize": {"value": 11},
-                            "fontWeight": {"value": "bold"}
-                        },
-                        "update": {
-                            "x": {"signal": "(datum.x0 + datum.x1) / 2"},
-                            "y": {"signal": "(datum.y0 + datum.y1) / 2"},
-                            "opacity": {"signal": "datum.x1 - datum.x0 > 50 && datum.y1 - datum.y0 > 30 ? 1 : 0"}
                         }
                     }
                 }
             ]
         };
 
-        try {
-            await vegaEmbed('#treemap', spec, {
-                actions: false,
-                renderer: 'svg'
-            });
-            console.log('Treemap created successfully');
-        } catch (error) {
-            console.error('Error creating treemap:', error);
-        }
+        // Add debug logging for the data
+        console.log('Tree data values:', treeData.values);
+        treeData.values.forEach(item => {
+            if (item.clonePercentage !== undefined) {
+                console.log(`File: ${item.name}, Clone %: ${item.clonePercentage}`);
+            }
+        });
+
+        const result = await vegaEmbed('#treemap', spec, {
+            actions: false,
+            renderer: 'svg'
+        });
+
+        // Store the view reference on the DOM element
+        document.querySelector('#treemap').__vega_view = result.view;
+
+        console.log('Treemap created successfully');
     } catch (error) {
         console.error('Error loading treemap data:', error);
         console.error('Error details:', error.message);
     }
-}
-
-// Replace generateDummyCloneGroups with actual clone data
-function generateCloneGroups() {
-    return {
-        "1": {
-            name: "Basic Addition Clone",
-            files: [
-                {
-                    path: "dummy_project/src/AddTwoNumbers.java",
-                    startLine: 6,
-                    endLine: 8,
-                    code: `package dummy_project.src;
-
-public class AddTwoNumbers {
-
-    // Method 1: Adds two integers
-    public int add(int a, int b) {
-        return a + b;
-    }
-
-    // Method 2: Multiplies two integers (not a clone)
-    public int multiply(int a, int b) {
-        return a * b;
-    }
-
-    public int divide(int a, int b) {
-        return a / b;
-    }
-}`
-                },
-                {
-                    path: "dummy_project/src/SumTwoNumbers.java",
-                    startLine: 6,
-                    endLine: 8,
-                    code: `package dummy_project.src;
-
-public class SumTwoNumbers {
-
-    // Method 1: Adds two integers (Type 1 clone of AddTwoNumbers.add)
-    public int sum(int a, int b) {
-        return a + b;
-    }
-
-    // Method 2: Subtracts two integers (not a clone)
-    public int subtract(int a, int b) {
-        return a - b;
-    }
-}`
-                }
-            ]
-        },
-        "2": {
-            name: "Input Validation Clone",
-            files: [
-                {
-                    path: "dummy_project/src/Calculator.java",
-                    startLine: 12,
-                    endLine: 19,
-                    code: `public class Calculator {
-    // Clone pattern 1: Basic arithmetic operation
-    public int add(int a, int b) {
-        System.out.println("Performing addition");
-        int result = a + b;
-        System.out.println("Result: " + result);
-        return result;
-    }
-
-    // Clone pattern 2: Input validation
-    private void validateInput(int value) {
-        if (value < 0) {
-            throw new IllegalArgumentException("Value cannot be negative");
-        }
-        if (value > 1000) {
-            throw new IllegalArgumentException("Value too large");
-        }
-        System.out.println("Input validated: " + value);
-    }
-}`
-                },
-                {
-                    path: "dummy_project/src/MathUtils.java",
-                    startLine: 11,
-                    endLine: 18,
-                    code: `public class MathUtils {
-    // Clone pattern 1: Similar arithmetic operation
-    public int multiply(int a, int b) {
-        System.out.println("Performing multiplication");
-        int result = a * b;
-        System.out.println("Result: " + result);
-        return result;
-    }
-
-    // Clone pattern 2: Similar input validation
-    private void checkNumber(int value) {
-        if (value < 0) {
-            throw new IllegalArgumentException("Value cannot be negative");
-        }
-        if (value > 1000) {
-            throw new IllegalArgumentException("Value too large");
-        }
-        System.out.println("Input validated: " + value);
-    }
-}`
-                }
-            ]
-        },
-        "3": {
-            name: "Operation Logging Clone",
-            files: [
-                {
-                    path: "dummy_project/src/Calculator.java",
-                    startLine: 3,
-                    endLine: 9,
-                    code: `public class Calculator {
-    // Clone pattern 1: Basic arithmetic operation
-    public int add(int a, int b) {
-        System.out.println("Performing addition");
-        int result = a + b;
-        System.out.println("Result: " + result);
-        return result;
-    }
-
-    // Clone pattern 2: Input validation
-    private void validateInput(int value) {
-        if (value < 0) {
-            throw new IllegalArgumentException("Value cannot be negative");
-        }
-        if (value > 1000) {
-            throw new IllegalArgumentException("Value too large");
-        }
-        System.out.println("Input validated: " + value);
-    }
-}`
-                },
-                {
-                    path: "dummy_project/src/MathUtils.java",
-                    startLine: 3,
-                    endLine: 9,
-                    code: `public class MathUtils {
-    // Clone pattern 1: Similar arithmetic operation
-    public int multiply(int a, int b) {
-        System.out.println("Performing multiplication");
-        int result = a * b;
-        System.out.println("Result: " + result);
-        return result;
-    }
-
-    // Clone pattern 2: Similar input validation
-    private void checkNumber(int value) {
-        if (value < 0) {
-            throw new IllegalArgumentException("Value cannot be negative");
-        }
-        if (value > 1000) {
-            throw new IllegalArgumentException("Value too large");
-        }
-        System.out.println("Input validated: " + value);
-    }
-}`
-                }
-            ]
-        }
-    };
 }
 
 async function initializeCloneDropdown() {
@@ -422,41 +276,34 @@ async function displayCloneGroup(groupData) {
                 fileButton.className = 'file-button';
                 fileButton.textContent = file.path;
 
-                // Create code container
+                // Create code container (initially hidden)
                 const codeContainer = document.createElement('div');
                 codeContainer.className = 'code-container';
                 codeContainer.style.display = 'none';
-                codeContainer.style.height = '300px'; // Fixed height for scrolling
-                codeContainer.style.overflowY = 'auto'; // Enable vertical scrolling
 
-                const table = document.createElement('table');
-                table.className = 'code-table';
+                const pre = document.createElement('pre');
+                const code = document.createElement('code');
+                code.className = 'language-java';
                 
                 const lines = fileContent.split('\n');
+                let html = '';
                 
-                // Add all lines to enable full scrolling
-                lines.forEach((line, index) => {
-                    const lineNumber = index + 1;
+                // Calculate the context window
+                const contextLines = 4;
+                const startContext = Math.max(0, file.startLine - contextLines - 1);
+                const endContext = Math.min(lines.length, file.endLine + contextLines);
+                
+                // Add line numbers and content for the context window
+                for (let i = startContext; i < endContext; i++) {
+                    const lineNumber = i + 1;
                     const isHighlighted = lineNumber >= file.startLine && lineNumber <= file.endLine;
-                    const row = document.createElement('tr');
-                    row.className = isHighlighted ? 'highlighted' : '';
-                    
-                    // Line number cell
-                    const lineNumberCell = document.createElement('td');
-                    lineNumberCell.className = 'line-number';
-                    lineNumberCell.textContent = lineNumber;
-                    
-                    // Code content cell
-                    const codeCell = document.createElement('td');
-                    codeCell.className = 'code-content';
-                    codeCell.textContent = line;
-                    
-                    row.appendChild(lineNumberCell);
-                    row.appendChild(codeCell);
-                    table.appendChild(row);
-                });
+                    const lineClass = isHighlighted ? 'line highlighted' : 'line';
+                    html += `<div class="${lineClass}"><span class="line-number">${lineNumber}</span>${lines[i]}</div>`;
+                }
                 
-                codeContainer.appendChild(table);
+                code.innerHTML = html;
+                pre.appendChild(code);
+                codeContainer.appendChild(pre);
 
                 // Add click handler to toggle code visibility
                 fileButton.addEventListener('click', () => {
@@ -465,13 +312,16 @@ async function displayCloneGroup(groupData) {
                     fileButton.classList.toggle('active');
 
                     if (isHidden) {
-                        // Calculate scroll position to show context
-                        const contextLines = 4;
-                        const targetLine = file.startLine - contextLines;
-                        const rows = table.getElementsByTagName('tr');
-                        if (rows[targetLine - 1]) {
-                            rows[targetLine - 1].scrollIntoView({ behavior: 'smooth' });
-                        }
+                        // Scroll to the first highlighted line when showing code
+                        setTimeout(() => {
+                            const highlightedLine = code.querySelector('.highlighted');
+                            if (highlightedLine) {
+                                highlightedLine.scrollIntoView({ 
+                                    behavior: 'smooth', 
+                                    block: 'center'
+                                });
+                            }
+                        }, 100);
                     }
                 });
 
@@ -528,7 +378,15 @@ async function createBarChart() {
             "mark": {
                 "type": "bar",
                 "cornerRadius": 4,
+                "cursor": "pointer",
                 "color": "#10436c"
+            },
+            "selection": {
+                "clicked": {
+                    "type": "single",
+                    "empty": "all",
+                    "toggle": true
+                }
             },
             "encoding": {
                 "x": {
@@ -548,6 +406,10 @@ async function createBarChart() {
                         "tickMinStep": 1
                     }
                 },
+                "opacity": {
+                    "condition": {"selection": "clicked", "value": 1},
+                    "value": 0.3
+                },
                 "tooltip": [
                     {"field": "lineCount", "title": "Number of Lines"},
                     {"field": "frequency", "title": "Frequency"}
@@ -555,19 +417,76 @@ async function createBarChart() {
             }
         };
 
-        try {
-            await vegaEmbed('#barchart', spec, {
-                actions: false,
-                renderer: 'svg'
-            });
-            console.log('Bar chart created successfully');
-        } catch (error) {
-            console.error('Error creating bar chart:', error);
-        }
+        const result = await vegaEmbed('#barchart', spec, {
+            actions: false,
+            renderer: 'svg'
+        });
+
+        let currentSelection = null;
+
+        // Add click handler
+        result.view.addEventListener('click', function(event, item) {
+            if (item && item.datum) {
+                const lineCount = item.datum.lineCount;
+                console.log('Selected line count:', lineCount);
+                
+                // Toggle selection
+                if (currentSelection === lineCount) {
+                    // Deselect
+                    currentSelection = null;
+                    result.view.signal('clicked_tuple', null);
+                    result.view.run();
+                    highlightTreemapFiles(null);
+                } else {
+                    // Select new bar
+                    currentSelection = lineCount;
+                    highlightTreemapFiles(lineCount);
+                }
+            }
+        });
+
+        console.log('Bar chart created successfully');
     } catch (error) {
-        console.error('Error loading bar chart data:', error);
+        console.error('Error creating bar chart:', error);
         console.error('Error details:', error.message);
     }
+}
+
+// Update the highlightTreemapFiles function
+function highlightTreemapFiles(lineCount) {
+    console.log('Highlighting files with line count:', lineCount);
+    
+    // Get the treemap view and its Vega view instance
+    const treemapContainer = document.querySelector('#treemap');
+    const vegaView = treemapContainer.__vega_view;
+    if (!vegaView) {
+        console.error('Treemap Vega view not found');
+        return;
+    }
+
+    // Update the treemap marks
+    vegaView.signal('selectedLineCount', lineCount);
+    
+    // Get the scenegraph nodes for the rectangles
+    const rects = vegaView.scenegraph().root.items[0].items[0].items;
+    
+    rects.forEach(rect => {
+        // Store the original opacity if we haven't yet
+        if (rect.originalOpacity === undefined) {
+            rect.originalOpacity = rect.opacity || 1;
+        }
+
+        if (lineCount === null) {
+            // Reset opacity for all rectangles
+            rect.opacity = rect.originalOpacity;
+        } else {
+            // Check if this rectangle's size matches the selected line count
+            rect.opacity = (rect.datum.size === lineCount) ? rect.originalOpacity : 0.3;
+        }
+    });
+
+    // Update the view to reflect the changes
+    vegaView.run();
 }
 
 async function loadAndDisplayStats() {
@@ -639,8 +558,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         await initializeCloneDropdown();
         console.log('Clone dropdown initialized');
         
-        const cloneGroups = generateCloneGroups();
-        await createBarChart(cloneGroups);
+        await createBarChart();
     } catch (error) {
         console.error('Error during initialization:', error);
     }

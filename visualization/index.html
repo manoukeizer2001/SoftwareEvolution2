@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clone Detection</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div class="banner">
+    <h1>Clone Detection Visualization</h1>
+  </div>
+
+  <div class="stats-banner">
+    <div class="stat-item">
+      <span class="stat-label">Duplicated Lines:</span>
+      <span class="stat-value">23%</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">Number of Clones:</span>
+      <span class="stat-value">42</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">Clone Classes:</span>
+      <span class="stat-value">15</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">Biggest Clone:</span>
+      <span class="stat-value">28 lines</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">Biggest Clone Class:</span>
+      <span class="stat-value">5 members</span>
+    </div>
+  </div>
+
+  <div class="main-container">
+    <div class="clone-section">
+      <div class="clone-selection">
+        <h2>Clone Selection</h2>
+        <div class="select-wrapper">
+          <select id="cloneDropdown">
+            <!-- Options will be populated by JavaScript -->
+          </select>
+          <div class="select-arrow"></div>
+        </div>
+      </div>
+      <div id="fileList">
+        <!-- Files will be displayed here -->
+      </div>
+    </div>
+    <div class="treemap-section">
+      <div id="treemap"></div>
+    </div>
+    <div class="clone-viewer">
+        <select id="cloneSelect">
+            <option value="">Select a clone group...</option>
+        </select>
+        <div id="fileList" style="display: none;">
+            <h3>Files containing this clone:</h3>
+            <ul id="fileListItems"></ul>
+        </div>
+        <div id="codeViewer" style="display: none;">
+            <h3 id="currentFile"></h3>
+            <div class="code-container">
+                <table id="codeTable"></table>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

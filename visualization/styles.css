@@ -1,0 +1,329 @@
+/* styles.css */
+
+/* Container for the entire code viewer */
+.code-viewer {
+    display: table;
+    width: 100%;
+    max-width: 800px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    table-layout: fixed;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.code-line {
+    display: table-row;
+}
+
+.line-number {
+    display: table-cell;
+    text-align: right;
+    padding: 0 1em;
+    width: 3em;
+    background-color: #eaeaea;
+    color: #888;
+    border-right: 1px solid #ccc;
+    font-family: monospace;
+    user-select: none;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+}
+
+.code-text {
+    display: table-cell;
+    padding: 0 1em;
+    white-space: pre;
+    font-family: monospace;
+}
+
+.highlight {
+    background-color: #ffeb3b;
+    display: inline-block;
+    width: 100%;
+}
+
+/* New styles for the banner */
+.banner {
+    background-color: #10436c;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Update body font */
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Style for file buttons */
+.file-button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    transition: background-color 0.2s;
+}
+
+.file-button:hover {
+    background-color: #e0e0e0;
+}
+
+.file-button.active {
+    background-color: #10436c;
+    color: white;
+}
+
+h2 {
+    color: #333;
+    margin: 20px 0 10px 0;
+}
+
+.stats-banner {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.stat-label {
+    font-weight: bold;
+    color: #555;
+}
+
+.stat-value {
+    color: #2196F3;
+    font-size: 1.1em;
+}
+
+/* Add a subtle fade effect for scroll indication */
+.code-viewer::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(transparent, rgba(249, 249, 249, 0.9));
+    pointer-events: none;
+}
+
+/* Webkit scrollbar styling */
+.code-viewer::-webkit-scrollbar {
+    width: 12px;
+}
+
+.code-viewer::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 0 5px 5px 0;
+}
+
+.code-viewer::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+    border: 3px solid #f1f1f1;
+}
+
+.code-viewer::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+.main-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.clone-section {
+    flex: 0 0 55%;
+    max-width: 55%;
+}
+
+.treemap-section {
+    width: 100%;
+    height: 400px;
+    margin: 20px 0;
+}
+
+#treeMap {
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }  
+
+.vega-embed {
+    width: 100%;
+    height: 100%;
+    padding: 0 !important;
+}
+
+/* Make tooltips more readable */
+#vg-tooltip-element {
+    font-size: 14px;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 8px;
+    border-radius: 4px;
+}
+
+#treemap {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+}
+
+/* Fancy Select Styling */
+.select-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 10px 0;
+}
+
+.select-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  padding: 12px 45px 12px 15px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  background-color: #ffffff;
+  border: 2px solid #4a90e2;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.select-wrapper select:hover {
+  border-color: #357abd;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+.select-wrapper select:focus {
+  outline: none;
+  border-color: #2c5282;
+  box-shadow: 0 0 0 3px rgba(74,144,226,0.3);
+}
+
+.select-arrow {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #4a90e2;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.select-wrapper:hover .select-arrow {
+  border-top-color: #357abd;
+}
+
+/* Optional: Add animation when opening the dropdown */
+.select-wrapper select:focus + .select-arrow {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* Style the options when dropdown is open */
+.select-wrapper select option {
+  padding: 12px;
+  font-size: 16px;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.select-wrapper select option:hover {
+  background-color: #f0f7ff;
+}
+
+/* Add some spacing and styling to the clone selection section */
+.clone-selection {
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.clone-selection h2 {
+  color: #2d3748;
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.clone-viewer {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.code-container {
+    max-height: 500px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#codeTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: monospace;
+}
+
+#codeTable td {
+    padding: 2px 8px;
+    white-space: pre;
+}
+
+.line-number {
+    color: #666;
+    text-align: right;
+    user-select: none;
+    padding-right: 16px;
+    border-right: 1px solid #ccc;
+}
+
+.highlighted {
+    background-color: #fff3cd;
+}
+
+#fileListItems li {
+    cursor: pointer;
+    color: #0066cc;
+    margin: 5px 0;
+}
+
+#fileListItems li:hover {
+    text-decoration: underline;
+}
+  

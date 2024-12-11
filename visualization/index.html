@@ -51,24 +51,15 @@
       <div id="fileList">
         <!-- Files will be displayed here -->
       </div>
+      <div id="codeViewer" style="display: none;">
+        <h3 id="currentFile"></h3>
+        <div class="code-container">
+          <table id="codeTable"></table>
+        </div>
+      </div>
     </div>
     <div class="treemap-section">
       <div id="treemap"></div>
-    </div>
-    <div class="clone-viewer">
-        <select id="cloneSelect">
-            <option value="">Select a clone group...</option>
-        </select>
-        <div id="fileList" style="display: none;">
-            <h3>Files containing this clone:</h3>
-            <ul id="fileListItems"></ul>
-        </div>
-        <div id="codeViewer" style="display: none;">
-            <h3 id="currentFile"></h3>
-            <div class="code-container">
-                <table id="codeTable"></table>
-            </div>
-        </div>
     </div>
   </div>
 

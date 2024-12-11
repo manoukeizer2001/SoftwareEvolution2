@@ -1,78 +1,8 @@
-// Add this at the very top of your script.js
+// Add these console logs at the top of the file
+console.log('Script loaded');
 console.log('Vega available:', typeof vega !== 'undefined');
 console.log('Vega-Lite available:', typeof vegaLite !== 'undefined');
 console.log('Vega-Embed available:', typeof vegaEmbed !== 'undefined');
-
-// Extended test data structure
-const cloneData = {
-    "1": {
-        files: [
-            {
-                path: "src/Calculator.java",
-                startLine: 15,
-                endLine: 25,
-                code: `public class Calculator {
-    private int value;
-    
-    public Calculator() {
-        this.value = 0;
-    }
-    
-    public int add(int a, int b) {
-        return a + b;
-    }
-    
-    public int subtract(int a, int b) {
-        return a - b;
-    }
-    // ... more code ...
-}`
-            },
-            {
-                path: "src/MathUtils.java",
-                startLine: 30,
-                endLine: 40,
-                code: `public class MathUtils {
-    public static int add(int a, int b) {
-        return a + b;
-    }
-    
-    public static int subtract(int a, int b) {
-        return a - b;
-    }
-    
-    public static int multiply(int a, int b) {
-        return a * b;
-    }
-    // ... more code ...
-}`
-            }
-        ]
-    },
-    // Add more clone groups as needed
-};
-
-// Test data
-const fileCloneData = {
-    "src/Calculator.java": {
-        filename: "src/Calculator.java",
-        cloneIds: ["1", "3"],
-        clonedLines: 25,
-        totalLines: 100
-    },
-    "src/MathUtils.java": {
-        filename: "src/MathUtils.java",
-        cloneIds: ["1", "2", "4"],
-        clonedLines: 40,
-        totalLines: 80
-    },
-    "src/Utils.java": {
-        filename: "src/Utils.java",
-        cloneIds: ["2"],
-        clonedLines: 10,
-        totalLines: 50
-    }
-};
 
 // Add config variable at the top
 let config;
@@ -141,6 +71,7 @@ function createTreemapData(fileCloneData) {
 }
 
 async function createTreemap(fileCloneData) {
+    console.log('Treemap data:', fileCloneData);
     const treeData = createTreemapData(fileCloneData);
     const container = document.getElementById('treemap');
     const width = container.clientWidth || 960;
@@ -239,82 +170,264 @@ async function createTreemap(fileCloneData) {
     }
 }
 
+// Replace generateDummyCloneGroups with actual clone data
+function generateCloneGroups() {
+    return {
+        "1": {
+            name: "Basic Addition Clone",
+            files: [
+                {
+                    path: "dummy_project/src/AddTwoNumbers.java",
+                    startLine: 6,
+                    endLine: 8,
+                    code: `package dummy_project.src;
+
+public class AddTwoNumbers {
+
+    // Method 1: Adds two integers
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    // Method 2: Multiplies two integers (not a clone)
+    public int multiply(int a, int b) {
+        return a * b;
+    }
+
+    public int divide(int a, int b) {
+        return a / b;
+    }
+}`
+                },
+                {
+                    path: "dummy_project/src/SumTwoNumbers.java",
+                    startLine: 6,
+                    endLine: 8,
+                    code: `package dummy_project.src;
+
+public class SumTwoNumbers {
+
+    // Method 1: Adds two integers (Type 1 clone of AddTwoNumbers.add)
+    public int sum(int a, int b) {
+        return a + b;
+    }
+
+    // Method 2: Subtracts two integers (not a clone)
+    public int subtract(int a, int b) {
+        return a - b;
+    }
+}`
+                }
+            ]
+        },
+        "2": {
+            name: "Input Validation Clone",
+            files: [
+                {
+                    path: "dummy_project/src/Calculator.java",
+                    startLine: 12,
+                    endLine: 19,
+                    code: `public class Calculator {
+    // Clone pattern 1: Basic arithmetic operation
+    public int add(int a, int b) {
+        System.out.println("Performing addition");
+        int result = a + b;
+        System.out.println("Result: " + result);
+        return result;
+    }
+
+    // Clone pattern 2: Input validation
+    private void validateInput(int value) {
+        if (value < 0) {
+            throw new IllegalArgumentException("Value cannot be negative");
+        }
+        if (value > 1000) {
+            throw new IllegalArgumentException("Value too large");
+        }
+        System.out.println("Input validated: " + value);
+    }
+}`
+                },
+                {
+                    path: "dummy_project/src/MathUtils.java",
+                    startLine: 11,
+                    endLine: 18,
+                    code: `public class MathUtils {
+    // Clone pattern 1: Similar arithmetic operation
+    public int multiply(int a, int b) {
+        System.out.println("Performing multiplication");
+        int result = a * b;
+        System.out.println("Result: " + result);
+        return result;
+    }
+
+    // Clone pattern 2: Similar input validation
+    private void checkNumber(int value) {
+        if (value < 0) {
+            throw new IllegalArgumentException("Value cannot be negative");
+        }
+        if (value > 1000) {
+            throw new IllegalArgumentException("Value too large");
+        }
+        System.out.println("Input validated: " + value);
+    }
+}`
+                }
+            ]
+        },
+        "3": {
+            name: "Operation Logging Clone",
+            files: [
+                {
+                    path: "dummy_project/src/Calculator.java",
+                    startLine: 3,
+                    endLine: 9,
+                    code: `public class Calculator {
+    // Clone pattern 1: Basic arithmetic operation
+    public int add(int a, int b) {
+        System.out.println("Performing addition");
+        int result = a + b;
+        System.out.println("Result: " + result);
+        return result;
+    }
+
+    // Clone pattern 2: Input validation
+    private void validateInput(int value) {
+        if (value < 0) {
+            throw new IllegalArgumentException("Value cannot be negative");
+        }
+        if (value > 1000) {
+            throw new IllegalArgumentException("Value too large");
+        }
+        System.out.println("Input validated: " + value);
+    }
+}`
+                },
+                {
+                    path: "dummy_project/src/MathUtils.java",
+                    startLine: 3,
+                    endLine: 9,
+                    code: `public class MathUtils {
+    // Clone pattern 1: Similar arithmetic operation
+    public int multiply(int a, int b) {
+        System.out.println("Performing multiplication");
+        int result = a * b;
+        System.out.println("Result: " + result);
+        return result;
+    }
+
+    // Clone pattern 2: Similar input validation
+    private void checkNumber(int value) {
+        if (value < 0) {
+            throw new IllegalArgumentException("Value cannot be negative");
+        }
+        if (value > 1000) {
+            throw new IllegalArgumentException("Value too large");
+        }
+        System.out.println("Input validated: " + value);
+    }
+}`
+                }
+            ]
+        }
+    };
+}
+
 function initializeCloneDropdown() {
-    // Use the existing dropdown
-    const select = document.querySelector('.clone-selection select') || document.querySelector('select');
+    const select = document.querySelector('#cloneDropdown');
+    console.log('Found dropdown element:', select);
     const fileList = document.getElementById('fileList');
-    const fileListItems = document.getElementById('fileListItems');
-    const codeViewer = document.getElementById('codeViewer');
+    
+    if (!select) {
+        console.error('Clone dropdown not found');
+        return;
+    }
     
     // Clear existing options
     select.innerHTML = '<option value="">Select a clone group...</option>';
     
-    // Populate dropdown with clone groups
-    Object.keys(cloneData).forEach(cloneId => {
+    // Use actual clone data
+    const cloneGroups = generateCloneGroups();
+    
+    Object.entries(cloneGroups).forEach(([cloneId, group]) => {
         const option = document.createElement('option');
         option.value = cloneId;
-        option.textContent = `Clone Group ${cloneId}`;
+        option.textContent = `Clone Group ${cloneId}: ${group.name}`;
         select.appendChild(option);
     });
     
     // Handle clone selection
-    select.addEventListener('change', (e) => {
+    select.addEventListener('change', async (e) => {
         const selectedClone = e.target.value;
         if (selectedClone) {
-            showFileList(selectedClone);
-            codeViewer.style.display = 'none';
+            await showFileList(selectedClone, cloneGroups[selectedClone]);
         } else {
             fileList.style.display = 'none';
-            codeViewer.style.display = 'none';
         }
     });
 }
 
-function showFileList(cloneId) {
+async function showFileList(cloneId, cloneGroup) {
     const fileList = document.getElementById('fileList');
-    const fileListItems = document.getElementById('fileListItems');
-    fileListItems.innerHTML = '';
+    fileList.innerHTML = ''; // Clear existing content
     
-    cloneData[cloneId].files.forEach(file => {
-        const li = document.createElement('li');
-        li.textContent = file.path;
-        li.addEventListener('click', () => showCode(file));
-        fileListItems.appendChild(li);
-    });
+    for (const fileInfo of cloneGroup.files) {
+        // Create button for each file
+        const button = document.createElement('button');
+        button.className = 'file-button';
+        button.textContent = fileInfo.path;
+        
+        // Create container for code viewer (initially hidden)
+        const codeContainer = document.createElement('div');
+        codeContainer.className = `code-viewer-${cloneId}-${fileInfo.path.replace(/[\/\.]/g, '-')}`;
+        codeContainer.style.display = 'none';
+        
+        button.addEventListener('click', async () => {
+            // Toggle code visibility
+            const isVisible = codeContainer.style.display !== 'none';
+            if (isVisible) {
+                codeContainer.style.display = 'none';
+                button.classList.remove('active');
+            } else {
+                if (codeContainer.children.length === 0) {
+                    // Load code if not already loaded
+                    showCode(fileInfo, codeContainer);
+                }
+                codeContainer.style.display = 'block';
+                button.classList.add('active');
+            }
+        });
+        
+        fileList.appendChild(button);
+        fileList.appendChild(codeContainer);
+    }
     
     fileList.style.display = 'block';
 }
 
-function showCode(fileData) {
-    const codeViewer = document.getElementById('codeViewer');
-    const currentFile = document.getElementById('currentFile');
-    const codeTable = document.getElementById('codeTable');
+function showCode(fileData, container) {
+    const codeViewer = document.createElement('div');
+    codeViewer.className = 'code-viewer';
     
-    currentFile.textContent = fileData.path;
-    codeTable.innerHTML = '';
+    const codeContainer = document.createElement('div');
+    codeContainer.className = 'code-container';
     
-    // Split code into lines
+    const codeTable = document.createElement('table');
+    codeTable.className = 'code-table';
+    
     const lines = fileData.code.split('\n');
-    const contextLines = 4; // Number of lines to show before and after
     
-    // Calculate visible range
-    const startLine = Math.max(1, fileData.startLine - contextLines);
-    const endLine = Math.min(lines.length, fileData.endLine + contextLines);
-    
-    // Create table rows
-    for (let i = startLine - 1; i < endLine; i++) {
+    for (let i = 0; i < lines.length; i++) {
         const row = document.createElement('tr');
         
-        // Line number cell
         const lineNum = document.createElement('td');
         lineNum.className = 'line-number';
         lineNum.textContent = i + 1;
         
-        // Code cell
         const code = document.createElement('td');
+        code.className = 'code-content';
         code.textContent = lines[i] || '';
         
-        // Highlight clone lines
         if (i + 1 >= fileData.startLine && i + 1 <= fileData.endLine) {
             row.className = 'highlighted';
         }
@@ -324,18 +437,43 @@ function showCode(fileData) {
         codeTable.appendChild(row);
     }
     
-    codeViewer.style.display = 'block';
-}
-
-// Simplified initializeCloneViewer function
-async function initializeCloneViewer() {
-    // Create initial treemap with test data
-    await createTreemap(fileCloneData);
+    codeContainer.appendChild(codeTable);
+    codeViewer.appendChild(codeContainer);
+    container.appendChild(codeViewer);
     
-    // Initialize clone dropdown
-    initializeCloneDropdown();
+    // Scroll to the highlighted section
+    setTimeout(() => {
+        const highlightedRow = codeContainer.querySelector('.highlighted');
+        if (highlightedRow) {
+            highlightedRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }, 100);
 }
 
 // Initialize when the page loads
-document.addEventListener('DOMContentLoaded', initializeCloneViewer);
+document.addEventListener('DOMContentLoaded', async () => {
+    console.log('DOM Content Loaded');
+    try {
+        // Check if fileCloneData exists
+        if (typeof fileCloneData === 'undefined') {
+            console.error('fileCloneData is not defined');
+            // Add some dummy data for testing
+            window.fileCloneData = {
+                "src/Calculator.java": { clonedLines: 50, totalLines: 200 },
+                "src/MathUtils.java": { clonedLines: 30, totalLines: 150 },
+                "src/Utils.java": { clonedLines: 20, totalLines: 100 }
+            };
+        }
+        
+        console.log('Creating treemap...');
+        await createTreemap(fileCloneData);
+        console.log('Treemap created');
+        
+        console.log('Initializing clone dropdown...');
+        initializeCloneDropdown();
+        console.log('Clone dropdown initialized');
+    } catch (error) {
+        console.error('Error during initialization:', error);
+    }
+});
   

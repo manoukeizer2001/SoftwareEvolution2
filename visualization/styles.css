@@ -2,94 +2,93 @@
 
 /* Container for the entire code viewer */
 .code-viewer {
-    display: table;
-    width: 100%;
-    max-width: 800px;
-    margin: 10px 0;
+    margin: 0 0 10px 20px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    table-layout: fixed;
-    max-height: 200px;
-    overflow-y: auto;
+    border-radius: 4px;
+    background: white;
 }
 
-.code-line {
-    display: table-row;
+/* Code container with scrollbar */
+.code-container {
+    height: 300px;
+    overflow-y: scroll;
+    background: white;
 }
 
-.line-number {
-    display: table-cell;
-    text-align: right;
-    padding: 0 1em;
-    width: 3em;
-    background-color: #eaeaea;
-    color: #888;
-    border-right: 1px solid #ccc;
+/* Table styling */
+.code-table {
+    width: 100%;
+    border-collapse: collapse;
     font-family: monospace;
+}
+
+/* Line number column */
+.line-number {
+    color: #666;
+    text-align: right;
+    padding-right: 16px;
+    border-right: 1px solid #ccc;
     user-select: none;
+    min-width: 40px;
     position: sticky;
     left: 0;
-    z-index: 1;
+    background: white;
 }
 
-.code-text {
-    display: table-cell;
-    padding: 0 1em;
+/* Code content column */
+.code-content {
+    padding-left: 16px;
     white-space: pre;
-    font-family: monospace;
 }
 
-.highlight {
-    background-color: #ffeb3b;
-    display: inline-block;
-    width: 100%;
+/* Highlight for clone sections */
+.highlighted {
+    background-color: #fff3cd;
 }
 
-/* New styles for the banner */
-.banner {
-    background-color: #10436c;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-/* Update body font */
-body {
-    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-}
-
-/* Style for file buttons */
+/* File button styles */
 .file-button {
-    background-color: #f0f0f0;
-    border: none;
-    padding: 10px 15px;
-    margin: 5px 0;
-    border-radius: 4px;
-    cursor: pointer;
     width: 100%;
     text-align: left;
+    padding: 10px;
+    margin: 5px 0;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
     transition: background-color 0.2s;
 }
 
 .file-button:hover {
-    background-color: #e0e0e0;
+    background: #e5e5e5;
 }
 
 .file-button.active {
-    background-color: #10436c;
+    background: #10436c;
     color: white;
 }
 
-h2 {
-    color: #333;
-    margin: 20px 0 10px 0;
+/* Scrollbar styling */
+.code-container::-webkit-scrollbar {
+    width: 12px;
 }
 
+.code-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.code-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+    border: 3px solid #f1f1f1;
+}
+
+.code-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Stats banner */
 .stats-banner {
     display: flex;
     justify-content: space-around;
@@ -117,38 +116,17 @@ h2 {
     font-size: 1.1em;
 }
 
-/* Add a subtle fade effect for scroll indication */
-.code-viewer::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 20px;
-    background: linear-gradient(transparent, rgba(249, 249, 249, 0.9));
-    pointer-events: none;
+/* Banner styling */
+.banner {
+    background-color: #10436c;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Webkit scrollbar styling */
-.code-viewer::-webkit-scrollbar {
-    width: 12px;
-}
-
-.code-viewer::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 0 5px 5px 0;
-}
-
-.code-viewer::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
-    border-radius: 10px;
-    border: 3px solid #f1f1f1;
-}
-
-.code-viewer::-webkit-scrollbar-thumb:hover {
-    background: #a8a8a8;
-}
-
+/* Main container layout */
 .main-container {
     display: flex;
     gap: 20px;
@@ -166,120 +144,93 @@ h2 {
     margin: 20px 0;
 }
 
-#treeMap {
-    width: 100%;
-    max-width: 800px;
-    height: 400px;
-    margin-top: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }  
-
-.vega-embed {
-    width: 100%;
-    height: 100%;
-    padding: 0 !important;
-}
-
-/* Make tooltips more readable */
-#vg-tooltip-element {
-    font-size: 14px;
-    background: white;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    padding: 8px;
-    border-radius: 4px;
-}
-
+/* Treemap styling */
 #treemap {
     width: 100%;
     height: 100%;
     border: 1px solid #ccc;
 }
 
-/* Fancy Select Styling */
+/* Clone selection dropdown */
 .select-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-  margin: 10px 0;
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 10px 0;
 }
 
 .select-wrapper select {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 100%;
-  padding: 12px 45px 12px 15px;
-  font-size: 16px;
-  font-weight: 500;
-  color: #333;
-  background-color: #ffffff;
-  border: 2px solid #4a90e2;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    appearance: none;
+    width: 100%;
+    padding: 12px 45px 12px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    background-color: #ffffff;
+    border: 2px solid #4a90e2;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .select-wrapper select:hover {
-  border-color: #357abd;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    border-color: #357abd;
 }
 
 .select-wrapper select:focus {
-  outline: none;
-  border-color: #2c5282;
-  box-shadow: 0 0 0 3px rgba(74,144,226,0.3);
+    outline: none;
+    border-color: #2c5282;
+    box-shadow: 0 0 0 3px rgba(74,144,226,0.3);
 }
 
 .select-arrow {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 8px solid #4a90e2;
-  pointer-events: none;
-  transition: all 0.3s ease;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid #4a90e2;
+    pointer-events: none;
+    transition: all 0.3s ease;
 }
 
 .select-wrapper:hover .select-arrow {
-  border-top-color: #357abd;
+    border-top-color: #357abd;
 }
 
 /* Optional: Add animation when opening the dropdown */
 .select-wrapper select:focus + .select-arrow {
-  transform: translateY(-50%) rotate(180deg);
+    transform: translateY(-50%) rotate(180deg);
 }
 
 /* Style the options when dropdown is open */
 .select-wrapper select option {
-  padding: 12px;
-  font-size: 16px;
-  background-color: #ffffff;
-  color: #333;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #ffffff;
+    color: #333;
 }
 
 .select-wrapper select option:hover {
-  background-color: #f0f7ff;
+    background-color: #f0f7ff;
 }
 
 /* Add some spacing and styling to the clone selection section */
 .clone-selection {
-  padding: 20px;
-  background: #f8f9fa;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .clone-selection h2 {
-  color: #2d3748;
-  margin-bottom: 15px;
-  font-size: 1.5em;
-  font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    font-weight: 600;
 }
 
 .clone-viewer {
@@ -288,10 +239,9 @@ h2 {
 }
 
 .code-container {
-    max-height: 500px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    height: 300px;
+    overflow-y: scroll;
+    background: white;
 }
 
 #codeTable {
@@ -308,9 +258,13 @@ h2 {
 .line-number {
     color: #666;
     text-align: right;
-    user-select: none;
     padding-right: 16px;
     border-right: 1px solid #ccc;
+    user-select: none;
+    min-width: 40px;
+    position: sticky;
+    left: 0;
+    background: white;
 }
 
 .highlighted {
@@ -325,5 +279,68 @@ h2 {
 
 #fileListItems li:hover {
     text-decoration: underline;
+}
+
+/* Code viewer styles */
+.code-viewer {
+    margin: 0 0 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+}
+
+.code-container {
+    height: 300px;
+    overflow-y: scroll;
+    background: white;
+}
+
+.code-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: monospace;
+}
+
+.line-number {
+    color: #666;
+    text-align: right;
+    padding-right: 16px;
+    border-right: 1px solid #ccc;
+    user-select: none;
+    min-width: 40px;
+    position: sticky;
+    left: 0;
+    background: white;
+}
+
+.code-content {
+    padding-left: 16px;
+    white-space: pre;
+}
+
+.highlighted {
+    background-color: #fff3cd;
+}
+
+.show-more-button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin: 4px 0;
+    background: #f0f0f0;
+    border: none;
+    border-radius: 4px;
+    color: #666;
+    cursor: pointer;
+    text-align: center;
+}
+
+.show-more-button:hover {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.context-hidden {
+    display: none;
 }
   

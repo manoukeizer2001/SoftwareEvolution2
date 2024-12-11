@@ -24,19 +24,18 @@ map[node, list[loc]] gatherSubtrees(list[Declaration] asts) {
     for (Declaration ast <- asts) {
         visit(ast) {
             case node n: {
-                println("Visiting node: <getName(n)>");
+                // println("Visiting node: <getName(n)>");
+                // println("Visiting node: <getName(n)> with source location: <n@src?>");
                 if (n@src?) {
                     if (loc srcLoc := n@src) {
-                        println("Node <getName(n)> has source location: <srcLoc>");
-                        if (n notin subtreeMap) {
-                            subtreeMap[n] = [srcLoc];
+                        // println("Node <getName(n)> has source location: <srcLoc>");
+                        node normalized = unsetRec(n);
+                        if (normalized notin subtreeMap) {
+                            subtreeMap[normalized] = [srcLoc];
                         } else {
-                            subtreeMap[n] += srcLoc;
+                            subtreeMap[normalized] += srcLoc;
                         }
                     }
-                }
-                else {
-                    println("Node <getName(n)> does not have a source location.");
                 }
             }
         }
@@ -48,6 +47,8 @@ map[node, list[loc]] gatherSubtrees(list[Declaration] asts) {
     // return (n : subtreeMap[n] | n <- subtreeMap, size(subtreeMap[n]) > 1);
     return subtreeMap;
 }
+
+
 
 
 // Step 3: Detect Clones by traversing ASTs
@@ -75,18 +76,3 @@ list[CloneResult] detectClones(list[Declaration] asts) {
 }
 
 // Example usage
-void main(loc projectLocation) {
-    list[Declaration] asts = getASTs(projectLocation);
-    map[node, list[loc]] subtrees = gatherSubtrees(asts);
-    list[CloneResult] clones = detectClones(asts);
-
-    println("Total unique subtrees found: <size(subtrees)>");
-    for (node n <- domain(subtrees)) {
-        println("Subtree: <n> found at locations: <subtrees[n]>");
-    }
-
-    println("Detected Clones:");
-    for (CloneResult clone <- clones) {
-        println("<clone>");
-    }
-}

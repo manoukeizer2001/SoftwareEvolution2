@@ -16,7 +16,7 @@ import CloneDetection;
 // smallsql0.21_src
 // hsqldb-2.3.1
 // dummy_project
-int main(loc projectLocation = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/dummy_project|) {
+int main(loc projectLocation = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/smallsql0.21_src|) {
 
     if (!exists(projectLocation)) {
         println("Error: Project path does not exist: <projectLocation>");

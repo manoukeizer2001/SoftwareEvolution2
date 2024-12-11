@@ -15,26 +15,7 @@
   </div>
 
   <div class="stats-banner">
-    <div class="stat-item">
-      <span class="stat-label">Duplicated Lines:</span>
-      <span class="stat-value">23%</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-label">Number of Clones:</span>
-      <span class="stat-value">42</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-label">Clone Classes:</span>
-      <span class="stat-value">15</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-label">Biggest Clone:</span>
-      <span class="stat-value">28 lines</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-label">Biggest Clone Class:</span>
-      <span class="stat-value">5 members</span>
-    </div>
+    <!-- Stats will be dynamically populated by JavaScript -->
   </div>
 
   <div class="main-container">
@@ -45,21 +26,15 @@
           <select id="cloneDropdown">
             <!-- Options will be populated by JavaScript -->
           </select>
-          <div class="select-arrow"></div>
         </div>
       </div>
       <div id="fileList">
         <!-- Files will be displayed here -->
       </div>
-      <div id="codeViewer" style="display: none;">
-        <h3 id="currentFile"></h3>
-        <div class="code-container">
-          <table id="codeTable"></table>
-        </div>
-      </div>
     </div>
-    <div class="treemap-section">
+    <div class="visualization-section">
       <div id="treemap"></div>
+      <div id="barchart"></div>
     </div>
   </div>
 

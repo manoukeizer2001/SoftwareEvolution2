@@ -1,23 +1,172 @@
 /* styles.css */
 
-/* Global font */
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+/* Global layout */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #f5f7fa;
 }
 
-/* Container for the entire code viewer */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+/* Main container layout */
+.main-container {
+    display: flex;
+    gap: 40px;
+    padding: 30px;
+    min-height: calc(100vh - 200px);
+}
+
+/* Clone section */
+.clone-section {
+    flex: 0 0 55%;
+    max-width: 55%;
+    overflow-y: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Visualization section */
+.visualization-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Visualizations */
+#treemap {
+    width: 100%;
+    height: 400px;
+    border: 1px solid #eaeaea;
+    border-radius: 6px;
+}
+
+#barchart {
+    width: 100%;
+    height: 300px;
+    border: 1px solid #eaeaea;
+    border-radius: 6px;
+}
+
+/* Clone selection heading */
+.clone-selection h2 {
+    margin: 0 0 20px 0;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+/* Banner styling */
+.banner {
+    background-color: #10436c;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.banner h1 {
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Stats banner */
+.stats-banner {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 15px 30px;
+    margin: 0 30px 30px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stat-label {
+    color: #555;
+    font-weight: 500;
+}
+
+.stat-value {
+    color: #2196F3;
+    font-weight: 600;
+}
+
+/* Code viewer styles */
 .code-viewer {
-    margin: 0 0 10px 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    margin: 15px 0;
+    border: 1px solid #eaeaea;
+    border-radius: 6px;
     background: white;
 }
 
-/* Code container with scrollbar */
 .code-container {
     height: 300px;
     overflow-y: scroll;
     background: white;
+    border-radius: 6px;
+}
+
+/* File button styles */
+.file-button {
+    width: 100%;
+    text-align: left;
+    padding: 12px 15px;
+    margin: 5px 0;
+    background: #f8f9fa;
+    border: 1px solid #eaeaea;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.file-button:hover {
+    background: #f0f2f5;
+    border-color: #ddd;
+}
+
+.file-button.active {
+    background: #10436c;
+    color: white;
+    border-color: #10436c;
+}
+
+/* Scrollbar styling */
+.code-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+.code-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.code-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+    border: 3px solid #f1f1f1;
+}
+
+.code-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
 }
 
 /* Table styling */
@@ -53,117 +202,6 @@ body {
 /* Highlight for clone sections */
 .highlighted {
     background-color: #fff3cd;
-}
-
-/* File button styles */
-.file-button {
-    width: 100%;
-    text-align: left;
-    padding: 10px;
-    margin: 5px 0;
-    background: #f5f5f5;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.2s;
-    font-family: inherit;
-}
-
-.file-button:hover {
-    background: #e5e5e5;
-}
-
-.file-button.active {
-    background: #10436c;
-    color: white;
-}
-
-/* Scrollbar styling */
-.code-container::-webkit-scrollbar {
-    width: 12px;
-}
-
-.code-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-.code-container::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
-    border-radius: 10px;
-    border: 3px solid #f1f1f1;
-}
-
-.code-container::-webkit-scrollbar-thumb:hover {
-    background: #a8a8a8;
-}
-
-/* Stats banner */
-.stats-banner {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #f0f0f0;
-    padding: 1em;
-    margin: 1em 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.stat-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-}
-
-.stat-label {
-    font-weight: 500;
-    color: #555;
-}
-
-.stat-value {
-    color: #2196F3;
-    font-size: 1.1em;
-}
-
-/* Banner styling */
-.banner {
-    background-color: #10436c;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.banner h1 {
-    margin: 0;
-    font-weight: 500;
-}
-
-/* Main container layout */
-.main-container {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-}
-
-.clone-section {
-    flex: 0 0 55%;
-    max-width: 55%;
-}
-
-.treemap-section {
-    width: 100%;
-    height: 400px;
-    margin: 20px 0;
-}
-
-/* Treemap styling */
-#treemap {
-    width: 100%;
-    height: 100%;
-    border: 1px solid #ccc;
 }
 
 /* Clone selection dropdown */
@@ -296,47 +334,6 @@ body {
     text-decoration: underline;
 }
 
-/* Code viewer styles */
-.code-viewer {
-    margin: 0 0 10px 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background: white;
-}
-
-.code-container {
-    height: 300px;
-    overflow-y: scroll;
-    background: white;
-}
-
-.code-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: monospace;
-}
-
-.line-number {
-    color: #666;
-    text-align: right;
-    padding-right: 16px;
-    border-right: 1px solid #ccc;
-    user-select: none;
-    min-width: 40px;
-    position: sticky;
-    left: 0;
-    background: white;
-}
-
-.code-content {
-    padding-left: 16px;
-    white-space: pre;
-}
-
-.highlighted {
-    background-color: #fff3cd;
-}
-
 .show-more-button {
     display: block;
     width: 100%;
@@ -357,5 +354,17 @@ body {
 
 .context-hidden {
     display: none;
+}
+
+.barchart-section {
+    width: 100%;
+    height: 300px;
+    margin: 20px 0;
+}
+
+#barchart {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
 }
   

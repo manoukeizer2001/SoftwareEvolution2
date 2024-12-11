@@ -1,0 +1,22 @@
+{
+    "files": {
+        "src/Calculator.java": {
+            "clonedLines": 50,
+            "totalLines": 200,
+            "clonePercentage": 25,
+            "cloneIds": ["1", "2", "3"]
+        },
+        "src/MathUtils.java": {
+            "clonedLines": 30,
+            "totalLines": 150,
+            "clonePercentage": 20,
+            "cloneIds": ["2", "3"]
+        },
+        "src/Utils.java": {
+            "clonedLines": 20,
+            "totalLines": 100,
+            "clonePercentage": 20,
+            "cloneIds": ["1"]
+        }
+    }
+} 

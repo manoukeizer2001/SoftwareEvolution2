@@ -63,110 +63,123 @@ function createTreemapData(fileCloneData) {
             "parent": "root",
             "size": data.clonedLines,
             "totalLines": data.totalLines,
-            "details": `${data.clonedLines}/${data.totalLines} lines`
+            "clonePercentage": data.clonePercentage,
+            "cloneIds": data.cloneIds,
+            "cloneGroups": data.cloneIds.join(", ")
         });
     });
 
     return { values };
 }
-
-async function createTreemap(fileCloneData) {
-    console.log('Treemap data:', fileCloneData);
-    const treeData = createTreemapData(fileCloneData);
-    const container = document.getElementById('treemap');
-    const width = container.clientWidth || 960;
-    const height = 500;
-
-    const spec = {
-        "$schema": "https://vega.github.io/schema/vega/v5.json",
-        "width": width,
-        "height": height,
-        "padding": 5,
-
-        "data": [
-            {
-                "name": "tree",
-                "values": treeData.values,
-                "transform": [
-                    {
-                        "type": "stratify",
-                        "key": "id",
-                        "parentKey": "parent"
-                    },
-                    {
-                        "type": "treemap",
-                        "field": "size",
-                        "size": [{"signal": "width"}, {"signal": "height"}],
-                        "padding": 2,
-                        "as": ["x0", "y0", "x1", "y1"]
-                    }
-                ]
-            }
-        ],
-
-        "scales": [
-            {
-                "name": "color",
-                "type": "sequential",
-                "domain": {"data": "tree", "field": "size"},
-                "range": {"scheme": "reds"}
-            }
-        ],
-
-        "marks": [
-            {
-                "type": "rect",
-                "from": {"data": "tree"},
-                "encode": {
-                    "enter": {
-                        "stroke": {"value": "#ffffff"},
-                        "strokeWidth": {"value": 2}
-                    },
-                    "update": {
-                        "x": {"field": "x0"},
-                        "y": {"field": "y0"},
-                        "x2": {"field": "x1"},
-                        "y2": {"field": "y1"},
-                        "fill": {"scale": "color", "field": "size"},
-                        "tooltip": {
-                            "signal": "{'File': datum.name, 'Clone Lines': datum.size, 'Total Lines': datum.totalLines}"
-                        }
-                    },
-                    "hover": {
-                        "strokeWidth": {"value": 3}
-                    }
-                }
-            },
-            {
-                "type": "text",
-                "from": {"data": "tree"},
-                "encode": {
-                    "enter": {
-                        "align": {"value": "center"},
-                        "baseline": {"value": "middle"},
-                        "fill": {"value": "#000"},
-                        "text": {"field": "name"},
-                        "fontSize": {"value": 11},
-                        "fontWeight": {"value": "bold"}
-                    },
-                    "update": {
-                        "x": {"signal": "(datum.x0 + datum.x1) / 2"},
-                        "y": {"signal": "(datum.y0 + datum.y1) / 2"},
-                        "opacity": {"signal": "datum.x1 - datum.x0 > 50 && datum.y1 - datum.y0 > 30 ? 1 : 0"}
-                    }
-                }
-            }
-        ]
-    };
-
+async function createTreemap() {
     try {
-        await vegaEmbed('#treemap', spec, {
-            actions: false,
-            renderer: 'svg'
-        });
-        console.log('Treemap created successfully');
+        console.log('Fetching treemap data...');
+        const response = await fetch('/api/treemapData');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const fileCloneData = await response.json();
+        console.log('Received treemap data:', fileCloneData);
+
+        const treeData = createTreemapData(fileCloneData.files);
+        const container = document.getElementById('treemap');
+        const width = container.clientWidth || 960;
+        const height = 500;
+
+        const spec = {
+            "$schema": "https://vega.github.io/schema/vega/v5.json",
+            "width": width,
+            "height": height,
+            "padding": 5,
+
+            "data": [
+                {
+                    "name": "tree",
+                    "values": treeData.values,
+                    "transform": [
+                        {
+                            "type": "stratify",
+                            "key": "id",
+                            "parentKey": "parent"
+                        },
+                        {
+                            "type": "treemap",
+                            "field": "size",
+                            "size": [{"signal": "width"}, {"signal": "height"}],
+                            "padding": 2,
+                            "as": ["x0", "y0", "x1", "y1"]
+                        }
+                    ]
+                }
+            ],
+
+            "scales": [
+                {
+                    "name": "color",
+                    "type": "sequential",
+                    "domain": {"data": "tree", "field": "size"},
+                    "range": {"scheme": "reds"}
+                }
+            ],
+
+            "marks": [
+                {
+                    "type": "rect",
+                    "from": {"data": "tree"},
+                    "encode": {
+                        "enter": {
+                            "stroke": {"value": "#ffffff"},
+                            "strokeWidth": {"value": 2}
+                        },
+                        "update": {
+                            "x": {"field": "x0"},
+                            "y": {"field": "y0"},
+                            "x2": {"field": "x1"},
+                            "y2": {"field": "y1"},
+                            "fill": {"scale": "color", "field": "size"},
+                            "tooltip": {
+                                "signal": "{'File': datum.name, 'Clone Lines': datum.size, 'Total Lines': datum.totalLines, 'Clone Percentage': datum.clonePercentage + '%', 'Clone Groups': datum.cloneGroups}"
+                            }
+                        },
+                        "hover": {
+                            "strokeWidth": {"value": 3}
+                        }
+                    }
+                },
+                {
+                    "type": "text",
+                    "from": {"data": "tree"},
+                    "encode": {
+                        "enter": {
+                            "align": {"value": "center"},
+                            "baseline": {"value": "middle"},
+                            "fill": {"value": "#000"},
+                            "text": {"field": "name"},
+                            "fontSize": {"value": 11},
+                            "fontWeight": {"value": "bold"}
+                        },
+                        "update": {
+                            "x": {"signal": "(datum.x0 + datum.x1) / 2"},
+                            "y": {"signal": "(datum.y0 + datum.y1) / 2"},
+                            "opacity": {"signal": "datum.x1 - datum.x0 > 50 && datum.y1 - datum.y0 > 30 ? 1 : 0"}
+                        }
+                    }
+                }
+            ]
+        };
+
+        try {
+            await vegaEmbed('#treemap', spec, {
+                actions: false,
+                renderer: 'svg'
+            });
+            console.log('Treemap created successfully');
+        } catch (error) {
+            console.error('Error creating treemap:', error);
+        }
     } catch (error) {
-        console.error('Error creating treemap:', error);
+        console.error('Error loading treemap data:', error);
+        console.error('Error details:', error.message);
     }
 }
 
@@ -333,125 +346,278 @@ public class SumTwoNumbers {
     };
 }
 
-function initializeCloneDropdown() {
-    const select = document.querySelector('#cloneDropdown');
-    console.log('Found dropdown element:', select);
-    const fileList = document.getElementById('fileList');
-    
-    if (!select) {
-        console.error('Clone dropdown not found');
-        return;
-    }
-    
-    // Clear existing options
-    select.innerHTML = '<option value="">Select a clone group...</option>';
-    
-    // Use actual clone data
-    const cloneGroups = generateCloneGroups();
-    
-    Object.entries(cloneGroups).forEach(([cloneId, group]) => {
-        const option = document.createElement('option');
-        option.value = cloneId;
-        option.textContent = `Clone Group ${cloneId}: ${group.name}`;
-        select.appendChild(option);
-    });
-    
-    // Handle clone selection
-    select.addEventListener('change', async (e) => {
-        const selectedClone = e.target.value;
-        if (selectedClone) {
-            await showFileList(selectedClone, cloneGroups[selectedClone]);
-        } else {
-            fileList.style.display = 'none';
+async function initializeCloneDropdown() {
+    try {
+        console.log('Fetching clone groups...');
+        const response = await fetch('/api/cloneGroups');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-    });
-}
+        const data = await response.json();
+        console.log('Received clone groups:', data);
 
-async function showFileList(cloneId, cloneGroup) {
-    const fileList = document.getElementById('fileList');
-    fileList.innerHTML = ''; // Clear existing content
-    
-    for (const fileInfo of cloneGroup.files) {
-        // Create button for each file
-        const button = document.createElement('button');
-        button.className = 'file-button';
-        button.textContent = fileInfo.path;
-        
-        // Create container for code viewer (initially hidden)
-        const codeContainer = document.createElement('div');
-        codeContainer.className = `code-viewer-${cloneId}-${fileInfo.path.replace(/[\/\.]/g, '-')}`;
-        codeContainer.style.display = 'none';
-        
-        button.addEventListener('click', async () => {
-            // Toggle code visibility
-            const isVisible = codeContainer.style.display !== 'none';
-            if (isVisible) {
-                codeContainer.style.display = 'none';
-                button.classList.remove('active');
-            } else {
-                if (codeContainer.children.length === 0) {
-                    // Load code if not already loaded
-                    showCode(fileInfo, codeContainer);
-                }
-                codeContainer.style.display = 'block';
-                button.classList.add('active');
+        const dropdown = document.getElementById('cloneDropdown');
+        if (!dropdown) {
+            console.error('Clone dropdown element not found');
+            return;
+        }
+
+        // Clear existing options
+        dropdown.innerHTML = '';
+
+        // Add default option
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = 'Select a clone group...';
+        dropdown.appendChild(defaultOption);
+
+        // Add options for each clone group
+        Object.entries(data.cloneGroups).forEach(([id, group]) => {
+            const option = document.createElement('option');
+            option.value = id;
+            option.textContent = `Clone Group ${id}`;
+            dropdown.appendChild(option);
+        });
+
+        // Add event listener for selection changes
+        dropdown.addEventListener('change', async function() {
+            const selectedGroup = this.value;
+            if (selectedGroup) {
+                const groupData = data.cloneGroups[selectedGroup];
+                await displayCloneGroup(groupData);
             }
         });
-        
-        fileList.appendChild(button);
-        fileList.appendChild(codeContainer);
+
+        console.log('Clone dropdown initialized successfully');
+    } catch (error) {
+        console.error('Error initializing clone dropdown:', error);
+        console.error('Error details:', error.message);
     }
-    
-    fileList.style.display = 'block';
 }
 
-function showCode(fileData, container) {
-    const codeViewer = document.createElement('div');
-    codeViewer.className = 'code-viewer';
-    
-    const codeContainer = document.createElement('div');
-    codeContainer.className = 'code-container';
-    
-    const codeTable = document.createElement('table');
-    codeTable.className = 'code-table';
-    
-    const lines = fileData.code.split('\n');
-    
-    for (let i = 0; i < lines.length; i++) {
-        const row = document.createElement('tr');
-        
-        const lineNum = document.createElement('td');
-        lineNum.className = 'line-number';
-        lineNum.textContent = i + 1;
-        
-        const code = document.createElement('td');
-        code.className = 'code-content';
-        code.textContent = lines[i] || '';
-        
-        if (i + 1 >= fileData.startLine && i + 1 <= fileData.endLine) {
-            row.className = 'highlighted';
+async function displayCloneGroup(groupData) {
+    try {
+        console.log('Displaying clone group:', groupData);
+        const fileList = document.getElementById('fileList');
+        if (!fileList) {
+            console.error('File list element not found');
+            return;
         }
         
-        row.appendChild(lineNum);
-        row.appendChild(code);
-        codeTable.appendChild(row);
+        fileList.innerHTML = '';
+
+        for (const file of groupData.files) {
+            console.log('Processing file:', file);
+            try {
+                const fileContent = await fetchFileContent(file.path);
+                console.log('File content received:', fileContent ? 'Content length: ' + fileContent.length : 'no content');
+                
+                if (!fileContent) {
+                    console.error('No content received for file:', file.path);
+                    continue;
+                }
+
+                // Create file button
+                const fileButton = document.createElement('button');
+                fileButton.className = 'file-button';
+                fileButton.textContent = file.path;
+
+                // Create code container
+                const codeContainer = document.createElement('div');
+                codeContainer.className = 'code-container';
+                codeContainer.style.display = 'none';
+                codeContainer.style.height = '300px'; // Fixed height for scrolling
+                codeContainer.style.overflowY = 'auto'; // Enable vertical scrolling
+
+                const table = document.createElement('table');
+                table.className = 'code-table';
+                
+                const lines = fileContent.split('\n');
+                
+                // Add all lines to enable full scrolling
+                lines.forEach((line, index) => {
+                    const lineNumber = index + 1;
+                    const isHighlighted = lineNumber >= file.startLine && lineNumber <= file.endLine;
+                    const row = document.createElement('tr');
+                    row.className = isHighlighted ? 'highlighted' : '';
+                    
+                    // Line number cell
+                    const lineNumberCell = document.createElement('td');
+                    lineNumberCell.className = 'line-number';
+                    lineNumberCell.textContent = lineNumber;
+                    
+                    // Code content cell
+                    const codeCell = document.createElement('td');
+                    codeCell.className = 'code-content';
+                    codeCell.textContent = line;
+                    
+                    row.appendChild(lineNumberCell);
+                    row.appendChild(codeCell);
+                    table.appendChild(row);
+                });
+                
+                codeContainer.appendChild(table);
+
+                // Add click handler to toggle code visibility
+                fileButton.addEventListener('click', () => {
+                    const isHidden = codeContainer.style.display === 'none';
+                    codeContainer.style.display = isHidden ? 'block' : 'none';
+                    fileButton.classList.toggle('active');
+
+                    if (isHidden) {
+                        // Calculate scroll position to show context
+                        const contextLines = 4;
+                        const targetLine = file.startLine - contextLines;
+                        const rows = table.getElementsByTagName('tr');
+                        if (rows[targetLine - 1]) {
+                            rows[targetLine - 1].scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                });
+
+                // Add both elements to the file list
+                fileList.appendChild(fileButton);
+                fileList.appendChild(codeContainer);
+                
+                console.log('File display created for:', file.path);
+            } catch (error) {
+                console.error('Error processing file:', file.path, error);
+            }
+        }
+    } catch (error) {
+        console.error('Error displaying clone group:', error);
     }
-    
-    codeContainer.appendChild(codeTable);
-    codeViewer.appendChild(codeContainer);
-    container.appendChild(codeViewer);
-    
-    // Scroll to the highlighted section
-    setTimeout(() => {
-        const highlightedRow = codeContainer.querySelector('.highlighted');
-        if (highlightedRow) {
-            highlightedRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+async function fetchFileContent(filePath) {
+    try {
+        console.log('Fetching content for:', filePath);
+        const response = await fetch(`/api/file?path=${filePath}`);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-    }, 100);
+        
+        const content = await response.text();
+        console.log('Content received for:', filePath, 'Length:', content.length);
+        return content;
+    } catch (error) {
+        console.error('Error fetching file content:', error);
+        return null;
+    }
+}
+
+async function createBarChart() {
+    try {
+        console.log('Fetching bar chart data...');
+        const response = await fetch('/api/barChartData');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        console.log('Received bar chart data:', data);
+
+        const spec = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "width": "container",
+            "height": 250,
+            "padding": 20,
+            "data": {
+                "values": data.cloneSizes
+            },
+            "mark": {
+                "type": "bar",
+                "cornerRadius": 4,
+                "color": "#10436c"
+            },
+            "encoding": {
+                "x": {
+                    "field": "lineCount",
+                    "type": "ordinal",
+                    "title": "Number of Lines in Clone",
+                    "axis": {
+                        "labelAngle": 0
+                    }
+                },
+                "y": {
+                    "field": "frequency",
+                    "type": "quantitative",
+                    "title": "Frequency",
+                    "axis": {
+                        "grid": false,
+                        "tickMinStep": 1
+                    }
+                },
+                "tooltip": [
+                    {"field": "lineCount", "title": "Number of Lines"},
+                    {"field": "frequency", "title": "Frequency"}
+                ]
+            }
+        };
+
+        try {
+            await vegaEmbed('#barchart', spec, {
+                actions: false,
+                renderer: 'svg'
+            });
+            console.log('Bar chart created successfully');
+        } catch (error) {
+            console.error('Error creating bar chart:', error);
+        }
+    } catch (error) {
+        console.error('Error loading bar chart data:', error);
+        console.error('Error details:', error.message);
+    }
+}
+
+async function loadAndDisplayStats() {
+    try {
+        console.log('Fetching stats...');
+        const response = await fetch('/api/stats');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const stats = await response.json();
+        console.log('Received stats:', stats);
+        
+        const statsBanner = document.querySelector('.stats-banner');
+        if (!statsBanner) {
+            console.error('Stats banner element not found');
+            return;
+        }
+        
+        statsBanner.innerHTML = ''; // Clear existing content
+        
+        Object.values(stats.projectStats).forEach(stat => {
+            const statItem = document.createElement('div');
+            statItem.className = 'stat-item';
+            
+            const label = document.createElement('span');
+            label.className = 'stat-label';
+            label.style.color = '#1e4d6b';  // Match banner blue color
+            label.textContent = stat.label + ':';
+            
+            const value = document.createElement('span');
+            value.className = 'stat-value';
+            value.style.color = '#1e4d6b';  // Match banner blue color
+            value.textContent = stat.value;
+            
+            statItem.appendChild(label);
+            statItem.appendChild(value);
+            statsBanner.appendChild(statItem);
+        });
+        
+        console.log('Stats banner HTML after update:', statsBanner.innerHTML);
+    } catch (error) {
+        console.error('Error loading stats:', error);
+        console.error('Error details:', error.message);
+    }
 }
 
 // Initialize when the page loads
 document.addEventListener('DOMContentLoaded', async () => {
+    console.log('DOM loaded, initializing stats...');
+    await loadAndDisplayStats();
     console.log('DOM Content Loaded');
     try {
         // Check if fileCloneData exists
@@ -470,8 +636,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log('Treemap created');
         
         console.log('Initializing clone dropdown...');
-        initializeCloneDropdown();
+        await initializeCloneDropdown();
         console.log('Clone dropdown initialized');
+        
+        const cloneGroups = generateCloneGroups();
+        await createBarChart(cloneGroups);
     } catch (error) {
         console.error('Error during initialization:', error);
     }

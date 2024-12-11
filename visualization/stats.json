@@ -1,0 +1,24 @@
+{
+    "projectStats": {
+        "duplicatedLines": {
+            "value": "24%",
+            "label": "Duplicated Lines"
+        },
+        "numberOfClones": {
+            "value": "101",
+            "label": "Number of Clones"
+        },
+        "cloneClasses": {
+            "value": "16",
+            "label": "Clone Classes"
+        },
+        "biggestClone": {
+            "value": "28 lines",
+            "label": "Biggest Clone"
+        },
+        "biggestCloneClass": {
+            "value": "5 members",
+            "label": "Biggest Clone Class"
+        }
+    }
+} 

@@ -1,0 +1,32 @@
+{
+    "cloneGroups": {
+        "1": {
+            "files": [
+                {
+                    "path": "dummy_project/src/Calculator.java",
+                    "startLine": 5,
+                    "endLine": 8
+                },
+                {
+                    "path": "dummy_project/src/MathUtils.java",
+                    "startLine": 6,
+                    "endLine": 9
+                }
+            ]
+        },
+        "2": {
+            "files": [
+                {
+                    "path": "dummy_project/src/Calculator.java",
+                    "startLine": 12,
+                    "endLine": 15
+                },
+                {
+                    "path": "dummy_project/src/MathUtils.java",
+                    "startLine": 8,
+                    "endLine": 11
+                }
+            ]
+        }
+    }
+} 

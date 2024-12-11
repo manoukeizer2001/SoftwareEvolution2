@@ -52,24 +52,89 @@ app.get('/api/file', async (req, res) => {
   const filePath = req.query.path;
   
   if (!filePath) {
+    console.error('No file path provided');
     return res.status(400).json({ error: 'No file path provided' });
   }
 
-  const fullPath = path.join(__dirname, config.sourceDirectory, filePath.replace(config.sourceDirectory + '/', ''));
-  console.log('Reading file:', fullPath);
+  // Get the full path
+  const fullPath = path.join(__dirname, filePath);
+  console.log('Attempting to read file:', fullPath);
 
   try {
     const content = await fs.readFile(fullPath, 'utf8');
+    console.log('File content loaded successfully for:', filePath);
     res.send(content);
   } catch (error) {
-    console.error('Error reading file:', error);
-    res.status(500).json({ error: 'Failed to read file' });
+    console.error('Error reading file:', filePath, error);
+    res.status(500).json({ error: `Failed to read file: ${error.message}` });
   }
 });
 
 // Add this new endpoint after your existing endpoints
 app.get('/api/config', (req, res) => {
   res.json(config);
+});
+
+app.get('/api/stats', (req, res) => {
+    // Clear require cache for stats.json
+    delete require.cache[require.resolve('./visualization/stats.json')];
+    const stats = require('./visualization/stats.json');
+    
+    // Set headers to prevent caching
+    res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+    res.set('Expires', '-1');
+    res.set('Pragma', 'no-cache');
+    
+    res.json(stats);
+});
+
+// Add this with your other endpoints
+app.get('/api/barChartData', (req, res) => {
+    // Clear require cache
+    delete require.cache[require.resolve('./visualization/barChartData.json')];
+    const barChartData = require('./visualization/barChartData.json');
+    
+    // Set headers to prevent caching
+    res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+    res.set('Expires', '-1');
+    res.set('Pragma', 'no-cache');
+    
+    res.json(barChartData);
+});
+
+app.get('/api/treemapData', (req, res) => {
+    // Clear require cache
+    delete require.cache[require.resolve('./visualization/treemapData.json')];
+    const treemapData = require('./visualization/treemapData.json');
+    
+    // Set headers to prevent caching
+    res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+    res.set('Expires', '-1');
+    res.set('Pragma', 'no-cache');
+    
+    res.json(treemapData);
+});
+
+app.get('/api/cloneGroups', async (req, res) => {
+    try {
+        // Get the source directory from config
+        const config = require('./config.json');
+        const sourceDir = config.sourceDirectory;
+        
+        // Clear require cache
+        delete require.cache[require.resolve('./visualization/cloneGroups.json')];
+        const cloneGroups = require('./visualization/cloneGroups.json');
+        
+        // Set headers to prevent caching
+        res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+        res.set('Expires', '-1');
+        res.set('Pragma', 'no-cache');
+        
+        res.json(cloneGroups);
+    } catch (error) {
+        console.error('Error loading clone groups:', error);
+        res.status(500).json({ error: 'Failed to load clone groups' });
+    }
 });
 
 const PORT = process.env.PORT || config.port;

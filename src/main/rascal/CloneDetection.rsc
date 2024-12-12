@@ -187,15 +187,16 @@ public list[CloneClass] detectClones(list[Declaration] asts) {
 
     // Convert directly to clone classes
     list[CloneClass] cloneClasses = buildCloneClasses(filteredSubtrees);
+
     println("Detected <size(cloneClasses)> clone classes:");
-    for (CloneClass cls <- cloneClasses) {
-        println("\nClone Class:");
-        println("  Pattern: <cls.pattern>");
-        println("  Locations:");
-        for (loc location <- cls.locations) {
-            println("    - <location>");
-        }
-    }
+    // for (CloneClass cls <- cloneClasses) {
+    //     println("\nClone Class:");
+    //     println("  Pattern: <cls.pattern>");
+    //     println("  Locations:");
+    //     for (loc location <- cls.locations) {
+    //         println("    - <location>");
+    //     }
+    // }
 
     return cloneClasses;
 }

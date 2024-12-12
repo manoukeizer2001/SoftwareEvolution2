@@ -78,6 +78,14 @@ function createTreemapData(fileCloneData) {
 
 async function createTreemap() {
     try {
+        // Add title and explanation div before the treemap
+        const treemapContainer = document.getElementById('treemap');
+        const titleDiv = document.createElement('div');
+        titleDiv.className = 'viz-title';
+        titleDiv.innerHTML = '<h3>Code Clone Treemap</h3>' +
+                           '<p>Rectangles sized by clone lines, colored by % of cloned code (green=0%, red=100%)</p>';
+        treemapContainer.parentNode.insertBefore(titleDiv, treemapContainer);
+
         console.log('Fetching treemap data...');
         const response = await fetch('/api/treemapData');
         if (!response.ok) {
@@ -115,7 +123,7 @@ async function createTreemap() {
                             "type": "treemap",
                             "field": "size",
                             "size": [{"signal": "width"}, {"signal": "height"}],
-                            "padding": 2,
+                            "padding": 0,
                             "as": ["x0", "y0", "x1", "y1"]
                         }
                     ]
@@ -129,16 +137,16 @@ async function createTreemap() {
                     "domain": {"data": "tree", "field": "clonePercentage"},
                     "range": [
                         "#2ecc71",  // green (0%)
-                        "#86df8c",  // light green
-                        "#bfeb98",  // lighter green
-                        "#e4f5a3",  // very light green
-                        "#f8edaa",  // very light yellow
-                        "#fcd884",  // light yellow
-                        "#fdc161",  // yellow
-                        "#fca54a",  // light orange
-                        "#f98836",  // orange
-                        "#f56b2d",  // dark orange
-                        "#e74c3c"   // red (100%)
+                        "#fff68f",  // light yellow
+                        "#ffd700",  // yellow
+                        "#ffa500",  // orange
+                        "#ff8c00",  // dark orange
+                        "#ff4500",  // red-orange
+                        "#ff0000",  // red
+                        "#dc143c",  // crimson
+                        "#b22222",  // fire brick
+                        "#8b0000",  // dark red
+                        "#4a0000"   // very dark red
                     ]
                 }
             ],
@@ -150,7 +158,7 @@ async function createTreemap() {
                     "encode": {
                         "enter": {
                             "stroke": {"value": "#ffffff"},
-                            "strokeWidth": {"value": 2}
+                            "strokeWidth": {"value": 0.5}
                         },
                         "update": {
                             "x": {"field": "x0"},
@@ -359,6 +367,14 @@ async function fetchFileContent(filePath) {
 
 async function createBarChart() {
     try {
+        // Add title and explanation div before the barchart
+        const barchartContainer = document.getElementById('barchart');
+        const titleDiv = document.createElement('div');
+        titleDiv.className = 'viz-title';
+        titleDiv.innerHTML = '<h3>Clone Size Distribution</h3>' +
+                           '<p>Frequency of clones by line count. Click bars to highlight matching clones in treemap.</p>';
+        barchartContainer.parentNode.insertBefore(titleDiv, barchartContainer);
+
         console.log('Fetching bar chart data...');
         const response = await fetch('/api/barChartData');
         if (!response.ok) {
@@ -507,18 +523,26 @@ async function loadAndDisplayStats() {
         
         statsBanner.innerHTML = ''; // Clear existing content
         
-        Object.values(stats.projectStats).forEach(stat => {
+        const formattedStats = [
+            { label: 'Duplicated Lines', value: stats.duplicatedLinesPercentage.toFixed(1) + '%' },
+            { label: 'Number of Clones', value: stats.numberOfClones.toLocaleString() },
+            { label: 'Clone Classes', value: stats.numberOfCloneClasses.toLocaleString() },
+            { label: 'Biggest Clone', value: stats.biggestCloneSize + ' lines' },
+            { label: 'Largest Clone Class', value: stats.biggestCloneClassSize + ' instances' }
+        ];
+        
+        formattedStats.forEach(stat => {
             const statItem = document.createElement('div');
             statItem.className = 'stat-item';
             
             const label = document.createElement('span');
             label.className = 'stat-label';
-            label.style.color = '#1e4d6b';  // Match banner blue color
+            label.style.color = '#1e4d6b';
             label.textContent = stat.label + ':';
             
             const value = document.createElement('span');
             value.className = 'stat-value';
-            value.style.color = '#1e4d6b';  // Match banner blue color
+            value.style.color = '#1e4d6b';
             value.textContent = stat.value;
             
             statItem.appendChild(label);
@@ -526,7 +550,7 @@ async function loadAndDisplayStats() {
             statsBanner.appendChild(statItem);
         });
         
-        console.log('Stats banner HTML after update:', statsBanner.innerHTML);
+        console.log('Stats banner updated successfully');
     } catch (error) {
         console.error('Error loading stats:', error);
         console.error('Error details:', error.message);
@@ -539,19 +563,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     await loadAndDisplayStats();
     console.log('DOM Content Loaded');
     try {
-        // Check if fileCloneData exists
-        if (typeof fileCloneData === 'undefined') {
-            console.error('fileCloneData is not defined');
-            // Add some dummy data for testing
-            window.fileCloneData = {
-                "src/Calculator.java": { clonedLines: 50, totalLines: 200 },
-                "src/MathUtils.java": { clonedLines: 30, totalLines: 150 },
-                "src/Utils.java": { clonedLines: 20, totalLines: 100 }
-            };
-        }
-        
         console.log('Creating treemap...');
-        await createTreemap(fileCloneData);
+        await createTreemap();
         console.log('Treemap created');
         
         console.log('Initializing clone dropdown...');

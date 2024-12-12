@@ -7,6 +7,7 @@ import List;
 import CloneDetection;
 import Statistics;
 import JSONExport;
+import DataExtraction;
 
 int main(loc projectLocation = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/smallsql0.21_src|) {
     if (!exists(projectLocation)) {
@@ -25,8 +26,12 @@ int main(loc projectLocation = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/s
     // Calculate statistics
     CloneStats stats = calculateStatistics(cloneClasses, asts);
     
+    // Add treemap data extraction
+    list[CloneClassWithId] cloneClassesWithIds = assignCloneIds(cloneClasses, "clone");
+    map[str, FileCloneData] fileCloneData = extractFileCloneData(cloneClassesWithIds, projectLocation);
+    
     // Export results to JSON files
-    exportJSON(cloneClasses, stats);
+    exportJSON(cloneClasses, stats, fileCloneData);
     
     return 0;
 }

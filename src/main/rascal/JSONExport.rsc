@@ -8,6 +8,7 @@ import CloneDetection;
 import Statistics;
 import BarChartData;
 import lang::java::m3::AST;
+import DataExtraction;
 
 // Helper function to ensure directory exists
 void ensureDirectoryExists(loc dir) {
@@ -25,8 +26,8 @@ void writeJSONFile(loc file, str content) {
     writeFile(file, content);
 }
 
-public void exportJSON(list[CloneClass] cloneClasses, CloneStats stats) {
-    loc visualizationDir = |home:///Documents/se/SoftwareEvolution2/visualization/test|;
+public void exportJSON(list[CloneClass] cloneClasses, CloneStats stats, map[str, FileCloneData] fileCloneData) {
+    loc visualizationDir = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/visualization/test|;
     ensureDirectoryExists(visualizationDir);
     
     // Stats.json (unchanged)
@@ -68,4 +69,21 @@ public void exportJSON(list[CloneClass] cloneClasses, CloneStats stats) {
     str barChartJSON = "{\"cloneSizes\": [" + intercalate(",", entries) + "]}";
     println("Debug: Final JSON: <barChartJSON>");
     writeJSONFile(visualizationDir + "/barChartData.json", barChartJSON);
+    
+    // Add TreemapData.json export
+    list[str] treeMapEntries = [];
+    for (str filePath <- domain(fileCloneData)) {
+        FileCloneData clonedata = fileCloneData[filePath];
+        str entry = "{
+            '  \"name\": \"<filePath>\",
+            '  \"clonedLines\": <clonedata.clonedLines>,
+            '  \"totalLines\": <clonedata.totalLines>,
+            '  \"clonePercentage\": <clonedata.clonePercentage>,
+            '  \"cloneIds\": [\"<intercalate("\",\"", clonedata.cloneIds)>\"]
+            '}";
+        treeMapEntries += entry;
+    }
+    
+    str treeMapJSON = "{\"files\": [" + intercalate(",", treeMapEntries) + "]}";
+    writeJSONFile(visualizationDir + "/treemapData.json", treeMapJSON);
 }

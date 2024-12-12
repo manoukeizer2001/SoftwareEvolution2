@@ -5,7 +5,7 @@ import List;
 import Map;
 import String;
 import CloneDetection;
-import DataExtraction;
+import TreeMapData;
 
 // Function to get a descriptive name for a clone pattern
 private str getCloneName(str pattern) {
@@ -32,7 +32,7 @@ private str getCloneName(str pattern) {
 }
 
 // Function to generate clone groups JSON
-public void exportCloneGroups(list[CloneClass] cloneClasses, loc projectLoc) {
+public void exportCloneGroupsData(list[CloneClass] cloneClasses, loc projectLoc) {
     // Create the visualization directory if it doesn't exist
     loc visualizationDir = |project://clone-detection/visualization|;
     if (!exists(visualizationDir)) {

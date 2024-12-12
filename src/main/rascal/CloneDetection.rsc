@@ -7,7 +7,6 @@ import List;
 import Map;
 import Location;
 import Node;
-import DataExtraction;
 
 // New type alias for clone classes
 alias CloneClass = tuple[str pattern, list[loc] locations];

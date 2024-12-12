@@ -8,7 +8,7 @@ import CloneDetection;
 import Statistics;
 import BarChartData;
 import lang::java::m3::AST;
-import DataExtraction;
+import TreeMapData;
 import CloneGroupsExport;
 
 // Helper function to ensure directory exists
@@ -159,16 +159,4 @@ public void exportJSON(list[CloneClass] cloneClasses, CloneStats stats, map[str,
         '}";
     
     writeJSONFile(visualizationDir + "/cloneGroups.json", cloneGroupsJSON);
-}
-
-public void exportAll(loc projectLoc) {
-    // Get ASTs and detect clones
-    list[Declaration] asts = getASTs(projectLoc);
-    list[CloneClass] cloneClasses = detectClones(asts);
-    
-    // Export all visualizations
-    exportStats(cloneClasses, projectLoc);
-    exportTreemapData(cloneClasses, projectLoc);
-    exportBarChartData(cloneClasses, projectLoc);
-    exportCloneGroups(cloneClasses, projectLoc);
 }

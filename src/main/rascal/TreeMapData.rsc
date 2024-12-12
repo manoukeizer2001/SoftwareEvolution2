@@ -1,4 +1,4 @@
-module DataExtraction
+module TreeMapData
 
 import CloneDetection;
 import IO;
@@ -48,8 +48,13 @@ public map[str, FileCloneData] extractFileCloneData(list[CloneClassWithId] clone
 
         // Iterate over locations
         for (loc l <- locations) {
-            // Extract only the relative path within the project
-            str filePath = substring(l.path, findLast(l.path, "/") + 1);
+            // Extract the full relative path including project name
+            str fullPath = l.path;
+            str projectName = substring(projectLocation.path, findLast(projectLocation.path, "/") + 1);
+            int projectIndex = findLast(fullPath, projectName);
+            str filePath = projectName + "/" + substring(fullPath, projectIndex + size(projectName) + 1);
+            
+            // println("File path: <filePath>");
             
             // Calculate lines covered by this location
             int clonedLines = getLineCoverage(l);
@@ -70,20 +75,14 @@ public map[str, FileCloneData] extractFileCloneData(list[CloneClassWithId] clone
         }
     }
 
-    // println("Intermediate file data: <fileData>");
-
     // Now, for each file, get total lines and calculate clonePercentage
     for (str filePath <- domain(fileData)) {
         loc fileLocation = [l | CloneClassWithId cls <- cloneClassesWithIds, loc l <- cls.locations, endsWith(l.path, filePath)][0];
         
         str fullPath = fileLocation.path;
-
         int projectIndex = findLast(fullPath, projectName);
         str relativePath = substring(fullPath, projectIndex + size(projectName) + 1);
-        str relativePathWithProjectName = projectName + "/" + substring(fullPath, projectIndex + size(projectName) + 1);
         loc fullFileLocation = projectLocation + relativePath;
-
-        // println("Full file location: <fullFileLocation>");
 
         list[str] lines = readFileLines(fullFileLocation);
         int totalLines = size(lines);
@@ -102,29 +101,3 @@ public map[str, FileCloneData] extractFileCloneData(list[CloneClassWithId] clone
     return fileData;
 }
 
-// // Detect Clones by traversing ASTs and extract clone data
-// public map[str, FileCloneData] detectCloneData(loc projectLocation) {
-//     println("Starting clone detection using gathered subtrees.");
-    
-//     list[CloneClass] cloneClasses = detectClones(projectLocation);
-//     println("Detected <size(cloneClasses)> clone classes.");
-    
-//     // Assign unique IDs to clone classes
-//     list[CloneClassWithId] cloneClassesWithIds = assignCloneIds(cloneClasses);
-//     println("Assigned IDs to <size(cloneClassesWithIds)> clone classes.");
-
-//     // Extract per-file clone data
-//     map[str, FileCloneData] fileCloneData = extractFileCloneData(cloneClassesWithIds, projectLocation);
-    
-//     println("Detected clone data for <size(fileCloneData)> files.");
-//     for (str filePath <- domain(fileCloneData)) {
-//         tuple[int clonedLines, int totalLines, int clonePercentage, list[str] cloneIds] = fileCloneData[filePath];
-//         println("File: <filePath>");
-//         println("  Cloned Lines: <clonedLines>");
-//         println("  Total Lines: <totalLines>");
-//         println("  Clone Percentage: <clonePercentage>%");
-//         println("  Clone IDs: <cloneIds>");
-//     }
-    
-//     return fileCloneData;
-// }

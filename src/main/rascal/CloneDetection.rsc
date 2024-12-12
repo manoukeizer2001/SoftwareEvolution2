@@ -7,9 +7,7 @@ import List;
 import Map;
 import Location;
 import Node;
-
-// Type alias for clone results
-alias CloneResult = tuple[loc location1, loc location2];
+import DataExtraction;
 
 // New type alias for clone classes
 alias CloneClass = tuple[str pattern, list[loc] locations];
@@ -22,7 +20,7 @@ list[Declaration] getASTs(loc projectLocation) {
 }
 
 // Minimum subtree size in terms of nodes
-int MIN_NODE_SIZE = 4;
+int MIN_SUBTREE_SIZE = 4;
 
 // Count the number of nodes in a subtree
 int countNodes(node n) {
@@ -35,7 +33,7 @@ int countNodes(node n) {
 
 // Step 2: Gather all subtrees into a map[str, list[loc]]
 // We now use str as the key, obtained by toString(normalized) of the node.
-map[str, list[loc]] gatherNodes(list[Declaration] asts) {
+map[str, list[loc]] gatherSubtrees(list[Declaration] asts) {
     map[str, list[loc]] subtreeMap = ();
 
     for (Declaration ast <- asts) {
@@ -46,7 +44,7 @@ map[str, list[loc]] gatherNodes(list[Declaration] asts) {
                         node normalized = unsetRec(n);
                         int size = countNodes(normalized);
                         // Only store if meets the minimum size requirement
-                        if (size >= MIN_NODE_SIZE) {
+                        if (size >= MIN_SUBTREE_SIZE) {
                             str subtreeId = toString(normalized);
                             if (subtreeId notin subtreeMap) {
                                 subtreeMap[subtreeId] = [srcLoc];
@@ -60,7 +58,8 @@ map[str, list[loc]] gatherNodes(list[Declaration] asts) {
         }
     }
 
-    return subtreeMap;
+    // Filter the map to only keep entries with more than one location
+    return (key : subtreeMap[key] | key <- subtreeMap, size(subtreeMap[key]) > 1);
 }
 
 // Utility: get the length of a pattern by one of its occurrences
@@ -77,13 +76,6 @@ int getLength(str key, map[str, list[loc]] nodes) {
     int length = first.end - first.begin; // works if first is offset-based
     return length;
 }
-
-
-
-// A safe wrapper that checks URIs before calling isStrictlyContainedIn
-// bool safeIsStrictlyContainedIn(loc inner, loc outer) {
-//     return uri(inner) == uri(outer) && isStrictlyContainedIn(inner, outer);
-// }
 
 // Check if all occurrences of 'smaller' are contained in some occurrences of 'larger'
 bool isAlwaysContained(str smaller, str larger, map[str, list[loc]] nodes) {
@@ -106,13 +98,12 @@ bool isAlwaysContained(str smaller, str larger, map[str, list[loc]] nodes) {
 }
 
 // Filter out subtree patterns that are strictly and exclusively contained within larger patterns
-map[str, list[loc]] filterContainedSubtrees(map[str, list[loc]] nodes) {
+map[str, list[loc]] filterContainedSubtrees(map[str, list[loc]] subtrees) {
     // Sort patterns by size (descending)
     // println("Nodes: <domain(nodes)>");
-    // list[str] patterns = toList(domain(nodes));
 
     // println("Patterns:");
-    list[str] patterns = [ k | k <- domain(nodes) ];
+    list[str] patterns = [ k | k <- domain(subtrees) ];
 
     // patterns = sort(patterns, (str k1, str k2) {
     //     return getLength(k2, nodes) - getLength(k1, nodes);
@@ -130,11 +121,11 @@ map[str, list[loc]] filterContainedSubtrees(map[str, list[loc]] nodes) {
             if (smallKey in discard) continue;
             
             // Check if smaller is always contained in the larger
-            if (isAlwaysContained(smallKey, largeKey, nodes)) {
+            if (isAlwaysContained(smallKey, largeKey, subtrees)) {
                 // Before discarding, check if smallKey appears somewhere outside largeKey
                 bool appearsOutside = false;
-                list[loc] smallerLocs = nodes[smallKey];
-                list[loc] largerLocs = nodes[largeKey];
+                list[loc] smallerLocs = subtrees[smallKey];
+                list[loc] largerLocs = subtrees[largeKey];
 
                 // Check if there's an occurrence of smallKey not contained by largeKey
                 for (loc sLoc <- smallerLocs) {
@@ -161,21 +152,21 @@ map[str, list[loc]] filterContainedSubtrees(map[str, list[loc]] nodes) {
 
     // Rebuild nodes without discarded ones
     map[str, list[loc]] filtered = ();
-    for (str k <- nodes) {
+    for (str k <- subtrees) {
         if (k notin discard) {
-            filtered[k] = nodes[k];
+            filtered[k] = subtrees[k];
         }
     }
     return filtered;
 }
 
 // New function to build clone classes
-list[CloneClass] buildCloneClasses(map[str, list[loc]] nodes) {
+list[CloneClass] buildCloneClasses(map[str, list[loc]] subtrees) {
     list[CloneClass] classes = [];
     
     // Each list of locations for a pattern becomes a clone class with its pattern
-    for (str pattern <- nodes) {
-        list[loc] locations = nodes[pattern];
+    for (str pattern <- subtrees) {
+        list[loc] locations = subtrees[pattern];
         if (size(locations) > 1) {  // Only include if there are actual clones
             classes += [<pattern, locations>];
         }
@@ -188,14 +179,14 @@ list[CloneClass] buildCloneClasses(map[str, list[loc]] nodes) {
 public list[CloneClass] detectClones(list[Declaration] asts) {
     println("Starting clone detection using gathered subtrees.");
 
-    map[str, list[loc]] nodes = gatherNodes(asts);
-    println("Gathered <size(nodes)> unique nodes.");
+    map[str, list[loc]] subtrees = gatherSubtrees(asts);
+    println("Gathered <size(subtrees)> unique subtrees.");
 
     // Filter out smaller clones fully contained in larger ones
-    map[str, list[loc]] filteredNodes = filterContainedSubtrees(nodes);
+    map[str, list[loc]] filteredSubtrees = filterContainedSubtrees(subtrees);
 
     // Convert directly to clone classes
-    list[CloneClass] cloneClasses = buildCloneClasses(filteredNodes);
+    list[CloneClass] cloneClasses = buildCloneClasses(filteredSubtrees);
     println("Detected <size(cloneClasses)> clone classes:");
     for (CloneClass cls <- cloneClasses) {
         println("\nClone Class:");

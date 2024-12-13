@@ -48,12 +48,28 @@ private list[str] createTreeMapEntries(map[str, FileCloneData] treeMapData) {
     list[str] treeMapEntries = [];
     for (str filePath <- domain(treeMapData)) {
         FileCloneData clonedata = treeMapData[filePath];
+        
+        // Extract the filename from the path
+        str fileName = last(split("/", filePath));
+        
+        // Format clone groups for display
+        str cloneClasses = (size(clonedata.cloneIds) > 0) ? 
+            intercalate(", ", clonedata.cloneIds) : "None";
+        
+        // Format clone percentage to ensure proper JSON number format
+        str formattedPercentage = "<clonedata.clonePercentage>.0";
+        if (endsWith(formattedPercentage, ".0.0")) {
+            formattedPercentage = substring(formattedPercentage, 0, size(formattedPercentage) - 2);
+        }
+        
         str entry = "{
-            '  \"name\": \"<filePath>\",
+            '  \"name\": \"<fileName>\",
+            '  \"fullPath\": \"<filePath>\",
+            '  \"size\": <clonedata.totalLines>,
             '  \"clonedLines\": <clonedata.clonedLines>,
             '  \"totalLines\": <clonedata.totalLines>,
-            '  \"clonePercentage\": <clonedata.clonePercentage>,
-            '  \"cloneIds\": [\"<intercalate("\",\"", clonedata.cloneIds)>\"]
+            '  \"clonePercentage\": <formattedPercentage>,
+            '  \"cloneClasses\": \"<cloneClasses>\"
             '}";
         treeMapEntries += entry;
     }

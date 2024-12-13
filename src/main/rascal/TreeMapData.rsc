@@ -7,7 +7,7 @@ import Map;
 import Location;
 import Node;
 import String;
-
+import Util;
 // Type alias for clone classes with IDs
 alias CloneClassWithId = tuple[str id, str pattern, list[loc] locations];
 
@@ -48,12 +48,8 @@ public map[str, FileCloneData] extractTreeMapData(list[CloneClassWithId] cloneCl
 
         // Iterate over locations
         for (loc l <- locations) {
-            // Extract the full relative path including project name
-            str fullPath = l.path;
-            str projectName = substring(projectLocation.path, findLast(projectLocation.path, "/") + 1);
-            int projectIndex = findLast(fullPath, projectName);
-            str filePath = projectName + "/" + substring(fullPath, projectIndex + size(projectName) + 1); // relative path
-            
+            // Get the relative path of the file
+            str filePath = getRelativePath(l, projectLocation);
             // println("File path: <filePath>");
             
             // Calculate lines covered by this location
@@ -78,17 +74,13 @@ public map[str, FileCloneData] extractTreeMapData(list[CloneClassWithId] cloneCl
     // Now, for each file, get total lines and calculate clonePercentage
     for (str filePath <- domain(fileData)) {
         loc fileLocation = [l | CloneClassWithId cls <- cloneClassesWithIds, loc l <- cls.locations, endsWith(l.path, filePath)][0];
-        
-        str fullPath = fileLocation.path;
-        int projectIndex = findLast(fullPath, projectName);
-        str relativePath = substring(fullPath, projectIndex + size(projectName) + 1);
-        loc fullFileLocation = projectLocation + relativePath;
+        loc fullFileLocation = getFullPath(fileLocation, projectLocation);
+        // println("Full file location: <fullFileLocation>");
 
         list[str] lines = readFileLines(fullFileLocation);
         int totalLines = size(lines);
         // println("Total lines: <totalLines>");
 
-        // println("Total lines: <totalLines>");
         FileCloneData currentData = fileData[filePath];
 
         // Calculate clonePercentage

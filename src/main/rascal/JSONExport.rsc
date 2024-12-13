@@ -27,36 +27,66 @@ void writeJSONFile(loc file, str content) {
     writeFile(file, content);
 }
 
-// Helper function to get a descriptive name for a clone pattern
-private str getCloneName(str pattern) {
-    // Extract method name if it exists
-    if (/method\((.*?)\)/ := pattern) {
-        return "Method Clone: <pattern>";
+public list[str] createBarChartEntries(map[int, int] frequencies) {
+    list[str] entries = [];
+    
+    // Convert the map to a list of tuples and sort it
+    list[tuple[int,int]] sortedFreqs = [<k, frequencies[k]> | k <- domain(frequencies)];
+    sortedFreqs = sort(sortedFreqs, bool(tuple[int,int] a, tuple[int,int] b) { 
+        return a[0] < b[0]; 
+    });
+    
+    for (<lineCount, freq> <- sortedFreqs) {
+        str entry = "{\"lineCount\": <lineCount>, \"frequency\": <freq>}";
+        entries += entry;
     }
-    // Extract class name if it exists
-    else if (/class\((.*?)\)/ := pattern) {
-        return "Class Clone: <pattern>";
-    }
-    // Extract block type if it exists
-    else if (/block\((.*?)\)/ := pattern) {
-        return "Block Clone: <pattern>";
-    }
-    // Extract statement type if it exists
-    else if (/statement\((.*?)\)/ := pattern) {
-        return "Statement Clone: <pattern>";
-    }
-    // Default case
-    else {
-        return "Code Clone: <pattern>";
-    }
+    
+    return entries;
 }
 
-public void exportJSON(list[CloneClass] cloneClasses, CloneStats stats, map[str, FileCloneData] fileCloneData) {
+private list[str] createTreeMapEntries(map[str, FileCloneData] treeMapData) {
+    list[str] treeMapEntries = [];
+    for (str filePath <- domain(treeMapData)) {
+        FileCloneData clonedata = treeMapData[filePath];
+        str entry = "{
+            '  \"name\": \"<filePath>\",
+            '  \"clonedLines\": <clonedata.clonedLines>,
+            '  \"totalLines\": <clonedata.totalLines>,
+            '  \"clonePercentage\": <clonedata.clonePercentage>,
+            '  \"cloneIds\": [\"<intercalate("\",\"", clonedata.cloneIds)>\"]
+            '}";
+        treeMapEntries += entry;
+    }
+    println("Done creating tree map entries");
+    return treeMapEntries;
+}
+
+private list[str] createCloneClassEntries(list[CloneClassInfo] cloneClassData) {
+    list[str] cloneClassEntries = [];
+    
+    for (CloneClassInfo cloneClass <- cloneClassData) {
+        list[str] fileEntries = [];
+        for (<str path, int startLine, int endLine> <- cloneClass.files) {
+            str fileEntry = "{
+                '    \"path\": \"<path>\",
+                '    \"startLine\": <startLine>,
+                '    \"endLine\": <endLine>
+                '}";
+            fileEntries += fileEntry;
+        }
+        str entry = "{
+            '  \"cloneID\": \"<cloneClass.cloneID>\",
+            '  \"files\": [<intercalate(",", fileEntries)>]
+            '}";
+        cloneClassEntries += entry;
+    }
+    
+    return cloneClassEntries;
+}
+
+public void exportJSON(list[CloneClassWithId] cloneClassesWithIds, CloneStats stats, map[str, FileCloneData] treeMapData, list[CloneClassInfo] cloneClassData) {
     loc visualizationDir = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/visualization/test|;
     ensureDirectoryExists(visualizationDir);
-    
-    // First, create clone IDs that match the treemap format
-    list[CloneClassWithId] cloneClassesWithIds = assignCloneIds(cloneClasses, "clone");
     
     // Stats.json (unchanged)
     str statsJSON = "{
@@ -68,95 +98,27 @@ public void exportJSON(list[CloneClass] cloneClasses, CloneStats stats, map[str,
         '}";
     writeJSONFile(visualizationDir + "/stats.json", statsJSON);
     
-    // BarChartData.json
-    println("Debug: About to calculate frequencies");
-    map[int, int] frequencies = calculateCloneSizeFrequencies(cloneClasses);
-    println("Debug: Got frequencies: <frequencies>");
+    // barChartData.json
+    println("Debug: Calculating bar chart frequencies");
+    map[int, int] frequencies = calculateCloneSizeFrequencies(cloneClassesWithIds);
     
     println("Debug: Creating entries list");
-    list[str] entries = [];
-    
-    // Convert the map to a list of tuples and sort it
-    list[tuple[int,int]] sortedFreqs = [<k, frequencies[k]> | k <- domain(frequencies)];
-    sortedFreqs = sort(sortedFreqs, bool(tuple[int,int] a, tuple[int,int] b) { 
-        return a[0] < b[0]; 
-    });
-    
-    println("Debug: Processing sorted frequencies");
-    for (<lineCount, freq> <- sortedFreqs) {
-        println("Debug: Processing lineCount <lineCount> with frequency <freq>");
-        str lineCountStr = "<lineCount>";
-        str freqStr = "<freq>";
-        str entry = "{\"lineCount\": " + lineCountStr + ", \"frequency\": " + freqStr + "}";
-        println("Debug: Created entry: <entry>");
-        entries += entry;
-    }
+    list[str] entries = createBarChartEntries(frequencies);
     
     str barChartJSON = "{\"cloneSizes\": [" + intercalate(",", entries) + "]}";
     writeJSONFile(visualizationDir + "/barChartData.json", barChartJSON);
     
-    // TreemapData.json
-    list[str] treeMapEntries = [];
-    for (str filePath <- domain(fileCloneData)) {
-        FileCloneData clonedata = fileCloneData[filePath];
-        str entry = "{
-            '  \"name\": \"<filePath>\",
-            '  \"clonedLines\": <clonedata.clonedLines>,
-            '  \"totalLines\": <clonedata.totalLines>,
-            '  \"clonePercentage\": <clonedata.clonePercentage>,
-            '  \"cloneIds\": [\"<intercalate("\",\"", clonedata.cloneIds)>\"]
-            '}";
-        treeMapEntries += entry;
-    }
-    
+    // treeMapData.json
+    println("Debug: Creating tree map entries");
+    list[str] treeMapEntries = createTreeMapEntries(treeMapData);
+
     str treeMapJSON = "{\"files\": [" + intercalate(",", treeMapEntries) + "]}";
-    writeJSONFile(visualizationDir + "/treemapData.json", treeMapJSON);
+    writeJSONFile(visualizationDir + "/treeMapData.json", treeMapJSON);
     
-    // Clone Groups export
-    list[str] groupEntries = [];
-    int cloneId = 1;  // Simple numeric ID
-    
-    for (CloneClassWithId cloneClass <- cloneClassesWithIds) {
-        list[str] fileEntries = [];
-        
-        for (loc location <- cloneClass.locations) {
-            // Extract only the file path part after "smallsql0.21_src/src/"
-            // This should not be hardcoded
-            str relativePath = location.path;
-            if (/.*?smallsql0\.21_src\/src\/(.*)/ := relativePath) {
-                relativePath = "smallsql0.21_src/src/<relativePath[1]>";
-            }
-            
-            // Format file entry with proper indentation
-            str fileEntry = "{
-                '                    \"path\": \"<relativePath>\",
-                '                    \"startLine\": <location.begin.line>,
-                '                    \"endLine\": <location.end.line>
-                '                }";
-            fileEntries += fileEntry;
-        }
-        
-        // Create descriptive name based on the pattern
-        str name = "Clone Pattern <cloneId>";
-        
-        // Format group entry with proper indentation
-        str groupEntry = "\"<cloneId>\": {
-            '            \"name\": \"<name>\",
-            '            \"files\": [
-            '                <intercalate(",\n                ", fileEntries)>
-            '            ]
-            '        }";
-        
-        groupEntries += groupEntry;
-        cloneId += 1;
-    }
-    
-    // Format the final JSON with proper indentation
-    str cloneGroupsJSON = "{
-        '    \"cloneGroups\": {
-        '        <intercalate(",\n        ", groupEntries)>
-        '    }
-        '}";
-    
-    writeJSONFile(visualizationDir + "/cloneGroups.json", cloneGroupsJSON);
+    // cloneClassData.json
+    println("Debug: Creating clone class entries");
+    list[str] cloneClassEntries = createCloneClassEntries(cloneClassData);
+
+    str cloneClassJSON = "{\"cloneClasses\": [" + intercalate(",", cloneClassEntries) + "]}";
+    writeJSONFile(visualizationDir + "/cloneClassData.json", cloneClassJSON);
 }

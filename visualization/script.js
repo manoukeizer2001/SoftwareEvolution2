@@ -211,7 +211,7 @@ async function createTreemap() {
 async function initializeCloneDropdown() {
     try {
         console.log('Fetching clone groups...');
-        const response = await fetch('/api/cloneGroups');
+        const response = await fetch('/api/cloneClassData');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -233,11 +233,11 @@ async function initializeCloneDropdown() {
         defaultOption.textContent = 'Select a clone group...';
         dropdown.appendChild(defaultOption);
 
-        // Add options for each clone group
-        Object.entries(data.cloneGroups).forEach(([id, group]) => {
+        // Add options for each clone class
+        data.cloneClasses.forEach((cloneClass, index) => {
             const option = document.createElement('option');
-            option.value = id;
-            option.textContent = `Clone Group ${id}`;
+            option.value = cloneClass.cloneID;
+            option.textContent = `Clone Group ${cloneClass.cloneID}`;
             dropdown.appendChild(option);
         });
 
@@ -245,8 +245,8 @@ async function initializeCloneDropdown() {
         dropdown.addEventListener('change', async function() {
             const selectedGroup = this.value;
             if (selectedGroup) {
-                const groupData = data.cloneGroups[selectedGroup];
-                await displayCloneGroup(groupData);
+                const groupData = data.cloneClasses.find(c => c.cloneID === selectedGroup);
+                await displayCloneClass(groupData);
             }
         });
 
@@ -257,9 +257,9 @@ async function initializeCloneDropdown() {
     }
 }
 
-async function displayCloneGroup(groupData) {
+async function displayCloneClass(groupData) {
     try {
-        console.log('Displaying clone group:', groupData);
+        console.log('Displaying clone class:', groupData);
         const fileList = document.getElementById('fileList');
         if (!fileList) {
             console.error('File list element not found');
@@ -365,6 +365,7 @@ async function fetchFileContent(filePath) {
     }
 }
 
+// Bar Chart
 async function createBarChart() {
     try {
         // Add title and explanation div before the barchart
@@ -468,7 +469,7 @@ async function createBarChart() {
     }
 }
 
-// Update the highlightTreemapFiles function
+// Interaction between bar chart and treemap
 function highlightTreemapFiles(lineCount) {
     console.log('Highlighting files with line count:', lineCount);
     
@@ -505,6 +506,7 @@ function highlightTreemapFiles(lineCount) {
     vegaView.run();
 }
 
+// Stats Banner
 async function loadAndDisplayStats() {
     try {
         console.log('Fetching stats...');
@@ -559,15 +561,10 @@ async function loadAndDisplayStats() {
 
 // Initialize when the page loads
 document.addEventListener('DOMContentLoaded', async () => {
-    console.log('DOM loaded, initializing stats...');
-    await loadAndDisplayStats();
-    console.log('DOM Content Loaded');
+    console.log('DOM loaded, initializing...');
     try {
-        console.log('Creating treemap...');
+        await loadAndDisplayStats();
         await createTreemap();
-        console.log('Treemap created');
-        
-        console.log('Initializing clone dropdown...');
         await initializeCloneDropdown();
         console.log('Clone dropdown initialized');
         

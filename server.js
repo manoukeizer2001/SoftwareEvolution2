@@ -115,25 +115,25 @@ app.get('/api/treemapData', (req, res) => {
     res.json(treemapData);
 });
 
-app.get('/api/cloneGroups', async (req, res) => {
+app.get('/api/cloneClassData', async (req, res) => {
     try {
         // Get the source directory from config
         const config = require('./config.json');
         const sourceDir = config.sourceDirectory;
         
         // Clear require cache
-        delete require.cache[require.resolve('./visualization/cloneGroups.json')];
-        const cloneGroups = require('./visualization/cloneGroups.json');
+        delete require.cache[require.resolve('./visualization/cloneClassData.json')];
+        const cloneClassData = require('./visualization/cloneClassData.json');
         
         // Set headers to prevent caching
         res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
         res.set('Expires', '-1');
         res.set('Pragma', 'no-cache');
         
-        res.json(cloneGroups);
+        res.json(cloneClassData);
     } catch (error) {
-        console.error('Error loading clone groups:', error);
-        res.status(500).json({ error: 'Failed to load clone groups' });
+        console.error('Error loading clone class data:', error);
+        res.status(500).json({ error: 'Failed to load clone class data' });
     }
 });
 

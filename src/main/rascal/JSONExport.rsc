@@ -85,7 +85,7 @@ private list[str] createCloneClassEntries(list[CloneClassInfo] cloneClassData) {
 }
 
 public void exportJSON(list[CloneClassWithId] cloneClassesWithIds, CloneStats stats, map[str, FileCloneData] treeMapData, list[CloneClassInfo] cloneClassData) {
-    loc visualizationDir = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/visualization/test|;
+    loc visualizationDir = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/visualization|;
     ensureDirectoryExists(visualizationDir);
     
     // Stats.json (unchanged)

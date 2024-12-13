@@ -19,7 +19,7 @@ list[Declaration] getASTs(loc projectLocation) {
 }
 
 // Minimum subtree size in terms of nodes
-int MIN_SUBTREE_SIZE = 4;
+int MIN_SUBTREE_SIZE = 10;
 
 // Count the number of nodes in a subtree
 int countNodes(node n) {

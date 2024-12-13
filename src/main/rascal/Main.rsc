@@ -6,9 +6,11 @@ import IO;
 import List;
 import CloneDetection;
 import Statistics;
+import CloneClassData;
 import JSONExport;
 import TreeMapData;
 import BarChartData;
+
 
 int main(loc projectLocation = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/smallsql0.21_src|) {
     if (!exists(projectLocation)) {
@@ -31,7 +33,7 @@ int main(loc projectLocation = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/s
     list[CloneClassWithId] cloneClassesWithIds = assignCloneIds(cloneClasses, "type1");
 
     // Add file clone data extraction
-    map[str, FileCloneData] fileCloneData = extractFileCloneData(cloneClassesWithIds, projectLocation);
+    map[str, FileCloneData] treeMapData = extractTreeMapData(cloneClassesWithIds, projectLocation);
     
     // Print file clone data in a formatted way
     // println("File Clone Data Summary:");
@@ -44,10 +46,22 @@ int main(loc projectLocation = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/s
     //     println("  Clone Classes: <size(fileCloneData[file].cloneIds)>");
     // }
 
-    // Add bar chart data extraction
+    // Extract clone class data
+    list[CloneClassInfo] cloneClassData = extractCloneClassData(cloneClassesWithIds, projectLocation);
+    
+    // Print the clone class data
+    for (CloneClassInfo info <- cloneClassData) {
+        str cloneID = info.cloneID;
+        list[tuple[str path, int startLine, int endLine]] files = info.files;
+        
+        println("Clone ID: <cloneID>");
+        for (tuple[str path, int startLine, int endLine] file <- files) {
+            println("  Path: <file.path>, Start Line: <file.startLine>, End Line: <file.endLine>");
+        }
+    }
     
     // Export results to JSON files
-    exportJSON(cloneClasses, stats, fileCloneData);
+    // exportJSON(cloneClasses, stats, treeMapData);
     
     return 0;
 }

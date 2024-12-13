@@ -200,4 +200,3 @@ public list[CloneClass] detectClones(list[Declaration] asts) {
     return cloneClasses;
 }
 
-

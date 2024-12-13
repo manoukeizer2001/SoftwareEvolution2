@@ -34,7 +34,7 @@ public int getLineCoverage(loc l) {
 }
 
 // Extract per-file clone data
-public map[str, FileCloneData] extractFileCloneData(list[CloneClassWithId] cloneClassesWithIds, loc projectLocation) {
+public map[str, FileCloneData] extractTreeMapData(list[CloneClassWithId] cloneClassesWithIds, loc projectLocation) {
     // Extract project name from projectLocation
     str projectName = substring(projectLocation.path, findLast(projectLocation.path, "/") + 1);
     
@@ -52,7 +52,7 @@ public map[str, FileCloneData] extractFileCloneData(list[CloneClassWithId] clone
             str fullPath = l.path;
             str projectName = substring(projectLocation.path, findLast(projectLocation.path, "/") + 1);
             int projectIndex = findLast(fullPath, projectName);
-            str filePath = projectName + "/" + substring(fullPath, projectIndex + size(projectName) + 1);
+            str filePath = projectName + "/" + substring(fullPath, projectIndex + size(projectName) + 1); // relative path
             
             // println("File path: <filePath>");
             

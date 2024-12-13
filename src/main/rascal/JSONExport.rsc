@@ -9,7 +9,7 @@ import Statistics;
 import BarChartData;
 import lang::java::m3::AST;
 import TreeMapData;
-import CloneGroupsExport;
+import CloneClassData;
 
 // Helper function to ensure directory exists
 void ensureDirectoryExists(loc dir) {

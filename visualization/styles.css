@@ -120,10 +120,30 @@ body {
 }
 
 .code-container {
-    height: 300px;
-    overflow-y: scroll;
-    background: white;
-    border-radius: 6px;
+    max-height: 500px;
+    overflow-y: auto;
+    position: relative;
+}
+
+.code-container pre {
+    margin: 0;
+    padding: 10px;
+}
+
+.line {
+    white-space: pre;
+    font-family: monospace;
+}
+
+.line.highlighted {
+    background-color: #fff3cd;
+}
+
+.line-number {
+    display: inline-block;
+    width: 40px;
+    color: #999;
+    user-select: none;
 }
 
 /* File button styles */

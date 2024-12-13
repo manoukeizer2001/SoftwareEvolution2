@@ -57,18 +57,19 @@ function createTreemapData(fileCloneData) {
         }
     ];
 
-    Object.entries(fileCloneData).forEach(([path, data]) => {
-        const shortPath = path.split('/').pop(); // Get just the filename
-        console.log(`Processing file: ${shortPath}, Clone Percentage: ${data.clonePercentage}`);
+    fileCloneData.forEach(file => {
+        const shortPath = file.name; // Already the short name
+        
         values.push({
-            "id": path,
-            "name": shortPath,
+            "id": file.fullPath,
+            "name": file.name,
+            "fullPath": file.fullPath,
             "parent": "root",
-            "size": data.clonedLines,
-            "totalLines": data.totalLines,
-            "clonePercentage": data.clonePercentage,
-            "cloneIds": data.cloneIds,
-            "cloneGroups": data.cloneIds.join(", ")
+            "size": file.size,              // Use size from JSON
+            "clonedLines": file.clonedLines,  // Use clonedLines from JSON
+            "totalLines": file.totalLines,    // Use totalLines from JSON
+            "clonePercentage": file.clonePercentage, // Use clonePercentage from JSON
+            "cloneGroups": file.cloneClasses  // Use cloneClasses from JSON
         });
     });
 
@@ -133,8 +134,8 @@ async function createTreemap() {
             "scales": [
                 {
                     "name": "color",
-                    "type": "sequential",
-                    "domain": {"data": "tree", "field": "clonePercentage"},
+                    "type": "threshold",
+                    "domain": [0.001, 1, 5, 10, 20, 30, 40, 50, 75, 100],
                     "range": [
                         "#2ecc71",  // green (0%)
                         "#fff68f",  // light yellow
@@ -167,7 +168,13 @@ async function createTreemap() {
                             "y2": {"field": "y1"},
                             "fill": {"scale": "color", "field": "clonePercentage"},
                             "tooltip": {
-                                "signal": "{'File': datum.name, 'Clone Lines': datum.size, 'Total Lines': datum.totalLines, 'Clone Percentage': datum.clonePercentage + '%', 'Clone Groups': datum.cloneGroups}"
+                                "signal": "{" +
+                                    "'File': datum.fullPath, " +
+                                    "'Clone Lines': datum.clonedLines, " +
+                                    "'Total Lines': datum.totalLines, " +
+                                    "'Clone Percentage': datum.clonePercentage + '%', " +
+                                    "'Clone Groups': datum.cloneGroups" +
+                                "}"
                             },
                             "opacity": [
                                 {
@@ -296,13 +303,8 @@ async function displayCloneClass(groupData) {
                 const lines = fileContent.split('\n');
                 let html = '';
                 
-                // Calculate the context window
-                const contextLines = 4;
-                const startContext = Math.max(0, file.startLine - contextLines - 1);
-                const endContext = Math.min(lines.length, file.endLine + contextLines);
-                
-                // Add line numbers and content for the context window
-                for (let i = startContext; i < endContext; i++) {
+                // Show all lines with line numbers, highlight clone region
+                for (let i = 0; i < lines.length; i++) {
                     const lineNumber = i + 1;
                     const isHighlighted = lineNumber >= file.startLine && lineNumber <= file.endLine;
                     const lineClass = isHighlighted ? 'line highlighted' : 'line';

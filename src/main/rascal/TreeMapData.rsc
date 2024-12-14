@@ -1,6 +1,5 @@
 module TreeMapData
 
-import CloneDetection;
 import IO;
 import List;
 import Map;
@@ -8,12 +7,7 @@ import Location;
 import Node;
 import String;
 import Util;
-
-// Type alias for clone classes with IDs
-alias CloneClassWithId = tuple[str id, str pattern, list[loc] locations];
-
-// Type alias for file clone data
-alias FileCloneData = tuple[int clonedLines, int totalLines, int clonePercentage, list[str] cloneIds];
+import DataTypes;
 
 // Helper function to find all Java files in a directory
 private list[loc] findJavaFiles(loc dir) {
@@ -26,20 +20,6 @@ private list[loc] findJavaFiles(loc dir) {
         }
     }
     return javaFiles;
-}
-
-// Assign unique IDs to clone classes
-public list[CloneClassWithId] assignCloneIds(list[CloneClass] cloneClasses, str idPrefix) {
-    list[CloneClassWithId] classesWithIds = [];
-    int id = 1;
-    for (CloneClass cls <- cloneClasses) {
-        str cloneId = "<idPrefix>-clone<id>";
-        str pattern = cls.pattern;
-        list[loc] locations = cls.locations;
-        classesWithIds += [<cloneId, pattern, locations>];
-        id += 1;
-    }
-    return classesWithIds;
 }
 
 // Calculate the number of lines covered by a loc

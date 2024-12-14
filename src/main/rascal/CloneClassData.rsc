@@ -5,12 +5,23 @@ import List;
 import Map;
 import String;
 import Location;
-import TreeMapData;
 import Util;
 import lang::java::m3::Core;
+import DataTypes;
 
-// Simple type definition matching JSON structure
-alias CloneClassInfo = tuple[str cloneID, list[tuple[str path, int startLine, int endLine]] files];
+// Assign unique IDs to clone classes
+public list[CloneClassWithId] assignCloneIds(list[CloneClass] cloneClasses, str idPrefix) {
+    list[CloneClassWithId] classesWithIds = [];
+    int id = 1;
+    for (CloneClass cls <- cloneClasses) {
+        str cloneId = "<idPrefix>-clone<id>";
+        str pattern = cls.pattern;
+        list[loc] locations = cls.locations;
+        classesWithIds += [<cloneId, pattern, locations>];
+        id += 1;
+    }
+    return classesWithIds;
+}
 
 // Add function to get all Java files
 private list[loc] getAllJavaFiles(loc projectLocation) {

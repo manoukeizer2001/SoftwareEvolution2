@@ -4,12 +4,10 @@ import IO;
 import String;
 import List;
 import Map;
-import CloneDetection;
 import Statistics;
 import BarChartData;
 import lang::java::m3::AST;
-import TreeMapData;
-import CloneClassData;
+import DataTypes;
 
 // Helper function to ensure directory exists
 void ensureDirectoryExists(loc dir) {

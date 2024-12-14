@@ -7,9 +7,7 @@ import List;
 import Map;
 import Location;
 import Node;
-
-// New type alias for clone classes
-alias CloneClass = tuple[str pattern, list[loc] locations];
+import DataTypes;
 
 // Step 1: Parse program and generate ASTs
 list[Declaration] getASTs(loc projectLocation) {
@@ -30,9 +28,35 @@ int countNodes(node n) {
     return count;
 }
 
+node normalizeForType2(node n) {
+    return visit(n) {
+        // Normalize types by converting them all to Type String
+        case Type _ => string()
+
+        // Normalize variable names
+        case \variable(str _, Expression _) => 
+            \variable("VAR", _)
+        case \variable(str _, Expression _, int _) => 
+            \variable("VAR", _, _)
+
+        // Normalize literals
+        case \number(_) => \number("CONST")
+        case \booleanLiteral(_) => \booleanLiteral("CONST")
+        case \stringLiteral(_, _) => \stringLiteral("CONST", "CONST")
+        case \characterLiteral(_) => \characterLiteral("CONST")
+        case \textBlock(_, _) => \textBlock("CONST", "CONST")
+
+        // Default: Preserve other constructs
+        // case _ => _
+    }
+}
+
+
+
+
 // Step 2: Gather all subtrees into a map[str, list[loc]]
 // We now use str as the key, obtained by toString(normalized) of the node.
-map[str, list[loc]] gatherSubtrees(list[Declaration] asts) {
+map[str, list[loc]] gatherSubtrees(list[Declaration] asts, int cloneType) {
     map[str, list[loc]] subtreeMap = ();
 
     for (Declaration ast <- asts) {
@@ -41,6 +65,9 @@ map[str, list[loc]] gatherSubtrees(list[Declaration] asts) {
                 if (n@src?) {
                     if (loc srcLoc := n@src) {
                         node normalized = unsetRec(n);
+                        if (cloneType == 2) {
+                            normalized = normalizeForType2(normalized); // Normalize for type-2 clones
+                        }
                         int size = countNodes(normalized);
                         // Only store if meets the minimum size requirement
                         if (size >= MIN_SUBTREE_SIZE) {
@@ -135,10 +162,10 @@ list[CloneClass] buildCloneClasses(map[str, list[loc]] subtrees) {
 }
 
 // Step 3: Detect Clones by traversing ASTs
-public list[CloneClass] detectClones(list[Declaration] asts) {
-    println("Starting clone detection using gathered subtrees.");
+public list[CloneClass] detectClones(list[Declaration] asts, int cloneType) {
+    println("Starting clone detection of type <cloneType> using gathered subtrees.");
 
-    map[str, list[loc]] subtrees = gatherSubtrees(asts);
+    map[str, list[loc]] subtrees = gatherSubtrees(asts, cloneType);
     println("Gathered <size(subtrees)> unique subtrees.");
 
     // Filter out smaller clones fully contained in larger ones
@@ -147,7 +174,7 @@ public list[CloneClass] detectClones(list[Declaration] asts) {
     // Convert directly to clone classes
     list[CloneClass] cloneClasses = buildCloneClasses(filteredSubtrees);
 
-    println("Detected <size(cloneClasses)> clone classes");
+    println("Detected <size(cloneClasses)> clone classes of type <cloneType>");
     // for (CloneClass cls <- cloneClasses) {
     //     println("\nClone Class:");
     //     println("  Pattern: <cls.pattern>");

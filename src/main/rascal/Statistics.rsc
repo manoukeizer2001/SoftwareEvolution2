@@ -1,12 +1,12 @@
 module Statistics
 
-import CloneDetection;
 import List;
 import Map;
 import IO;
 import lang::java::m3::AST;
 import Set;
 import String;
+import DataTypes;
 
 // Simplified statistics type focusing on the required metrics
 alias CloneStats = tuple[
@@ -18,10 +18,20 @@ alias CloneStats = tuple[
 ];
 
 // Calculate all statistics in one go
-public CloneStats calculateStatistics(list[CloneClass] cloneClasses, list[Declaration] asts) {
+public CloneStats calculateStatistics(list[CloneClass] cloneClasses, list[Declaration] asts, bool calculateVolume, str projectName) {
     // Calculate total source lines
-    println("Calculating total amount of source lines - might take a while");
-    int totalSourceLines = calculateTotalSourceLines(asts);
+    int totalSourceLines;
+
+    if (calculateVolume) {
+        println("Calculating total amount of source lines - might take a while");
+        totalSourceLines = calculateTotalSourceLines(asts);
+    } else {
+        totalSourceLines = 
+            projectName == "smallsql0.21_src" ? 24000 :
+            projectName == "hsqldb-2.3.1" ? 177000 :
+            50000;
+        println("Using placeholder value for total amount of source lines: <totalSourceLines>");
+    }
     
     // Calculate duplicated lines
     println("Calculating total amount of duplicated lines and percentage");

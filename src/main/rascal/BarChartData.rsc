@@ -4,8 +4,7 @@ import List;
 import Map;
 import IO;
 import lang::java::m3::AST;
-import CloneClassData;
-import TreeMapData;
+import DataTypes;
 
 public map[int, int] calculateCloneSizeFrequencies(list[CloneClassWithId] cloneClassesWithIds) {
     map[int, int] frequencies = ();

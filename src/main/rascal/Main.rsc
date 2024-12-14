@@ -10,6 +10,7 @@ import CloneClassData;
 import TreeMapData;
 import BarChartData;
 import JSONExport;
+import DataTypes;
 
 // smallsql0.21_src
 // hsqldb-2.3.1
@@ -27,27 +28,42 @@ For hsqldb-2.3.1 in config.json:
     "port": 3000
 } 
 */
-int main(loc projectLocation = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/hsqldb-2.3.1|) {
+
+/*
+Main() arguments:
+1. projectLocation: location of the project
+2. cloneType: type of clone to detect (1 or 2)
+3. calculateVolume: whether to calculate volume statistics
+4. projectName: name of the project (in case we don't want to calculate volume statistics, because it takes too long)
+If calculateVolume is false, placeholder values will be used for volume statistics
+for smallsql0.21_src, it's 24000
+for hsqldb-2.3.1, it's 177000
+for other projects, it's 50000
+*/
+
+int main(loc projectLocation = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/hsqldb-2.3.1|, int cloneType = 2, bool calculateVolume = false, str projectName = "hsqldb-2.3.1") {
     if (!exists(projectLocation)) {
         println("Error: Project path does not exist: <projectLocation>");
         return 1;
     }
-    
+
     println("Starting analysis of project at: <projectLocation>");
     
     list[Declaration] asts = getASTs(projectLocation);
     println("Number of ASTs: <size(asts)>");
   
     // Detect clones
-    list[CloneClass] cloneClasses = detectClones(asts);
+    list[CloneClass] cloneClasses = detectClones(asts, cloneType);
     
     // Calculate statistics
     println("Calculating statistics");
-    CloneStats stats = calculateStatistics(cloneClasses, asts);
+    CloneStats stats = calculateStatistics(cloneClasses, asts, calculateVolume, projectName);
     
     // Add treemap data extraction
     println("Assigning clone IDs");
-    list[CloneClassWithId] cloneClassesWithIds = assignCloneIds(cloneClasses, "type1");
+    str cloneIDprefix = "type<cloneType>";
+    // println("Clone ID prefix: <cloneIDprefix>");
+    list[CloneClassWithId] cloneClassesWithIds = assignCloneIds(cloneClasses, cloneIDprefix);
 
     // Add file clone data extraction
     println("Extracting treemap data");

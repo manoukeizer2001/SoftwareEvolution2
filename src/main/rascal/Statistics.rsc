@@ -13,8 +13,8 @@ alias CloneStats = tuple[
     real duplicatedLinesPercentage,  // Duplicated Lines percentage
     int numberOfClones,              // Total number of clone instances
     int numberOfCloneClasses,        // Number of clone classes
-    int biggestCloneSize,            // Size of the biggest clone (in lines)
-    int biggestCloneClassSize        // Size of the biggest clone class (number of members)
+    tuple[int size, str id] biggestClone,      // Size and ID of the biggest clone
+    tuple[int size, str id] biggestCloneClass  // Size and ID of the biggest clone class
 ];
 
 // Calculate all statistics in one go
@@ -44,16 +44,16 @@ public CloneStats calculateStatistics(list[CloneClass] cloneClasses, list[Declar
     println("Calculating total amount of clone classes");
     int numberOfCloneClasses = size(cloneClasses);
     println("Calculating size of the biggest clone");
-    int biggestCloneSize = calculateBiggestCloneSize(cloneClasses);
+    tuple[int size, str id] biggestClone = calculateBiggestCloneSize(cloneClasses);
     println("Calculating size of the biggest clone class");
-    int biggestCloneClassSize = calculateBiggestCloneClassSize(cloneClasses);
+    tuple[int size, str id] biggestCloneClass = calculateBiggestCloneClassSize(cloneClasses);
     
     return <
         duplicatedPercentage,
         numberOfClones,
         numberOfCloneClasses,
-        biggestCloneSize,
-        biggestCloneClassSize
+        calculateBiggestCloneSize(cloneClasses),
+        calculateBiggestCloneClassSize(cloneClasses)
     >;
 }
 
@@ -89,32 +89,40 @@ private int calculateTotalClones(list[CloneClass] cloneClasses) {
     return total;
 }
 
-private int calculateBiggestCloneSize(list[CloneClass] cloneClasses) {
-    if (isEmpty(cloneClasses)) return 0;
+private tuple[int size, str id] calculateBiggestCloneSize(list[CloneClass] cloneClasses) {
+    if (isEmpty(cloneClasses)) return <0, "">;
     
     int biggest = 0;
+    str biggestId = "";
+    int counter = 0;
     for (CloneClass cls <- cloneClasses) {
+        counter += 1;
         for (loc location <- cls.locations) {
             int currentSize = location.end.line - location.begin.line + 1;
             if (currentSize > biggest) {
                 biggest = currentSize;
+                biggestId = "Clone_<counter>";
             }
         }
     }
-    return biggest;
+    return <biggest, biggestId>;
 }
 
-private int calculateBiggestCloneClassSize(list[CloneClass] cloneClasses) {
-    if (isEmpty(cloneClasses)) return 0;
+private tuple[int size, str id] calculateBiggestCloneClassSize(list[CloneClass] cloneClasses) {
+    if (isEmpty(cloneClasses)) return <0, "">;
     
     int biggest = 0;
+    str biggestId = "";
+    int counter = 0;
     for (CloneClass cls <- cloneClasses) {
+        counter += 1;
         int currentSize = size(cls.locations);
         if (currentSize > biggest) {
             biggest = currentSize;
+            biggestId = "Clone_<counter>";
         }
     }
-    return biggest;
+    return <biggest, biggestId>;
 }
 
 public str removeComments(str source) {

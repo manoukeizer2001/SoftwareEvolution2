@@ -107,8 +107,14 @@ public void exportJSON(list[CloneClassWithId] cloneClassesWithIds, CloneStats st
         '  \"duplicatedLinesPercentage\": <stats.duplicatedLinesPercentage>,
         '  \"numberOfClones\": <stats.numberOfClones>,
         '  \"numberOfCloneClasses\": <stats.numberOfCloneClasses>,
-        '  \"biggestCloneSize\": <stats.biggestCloneSize>,
-        '  \"biggestCloneClassSize\": <stats.biggestCloneClassSize>
+        '  \"biggestClone\": {
+        '    \"size\": <stats.biggestClone.size>,
+        '    \"id\": \"<stats.biggestClone.id>\"
+        '  },
+        '  \"biggestCloneClass\": {
+        '    \"size\": <stats.biggestCloneClass.size>,
+        '    \"id\": \"<stats.biggestCloneClass.id>\"
+        '  }
         '}";
     println("Writing stats.json");
     writeJSONFile(visualizationDir + "/stats.json", statsJSON);

@@ -525,34 +525,28 @@ async function loadAndDisplayStats() {
             return;
         }
         
-        statsBanner.innerHTML = ''; // Clear existing content
-        
-        const formattedStats = [
-            { label: 'Duplicated Lines', value: stats.duplicatedLinesPercentage.toFixed(1) + '%' },
-            { label: 'Number of Clones', value: stats.numberOfClones.toLocaleString() },
-            { label: 'Clone Classes', value: stats.numberOfCloneClasses.toLocaleString() },
-            { label: 'Biggest Clone', value: stats.biggestCloneSize + ' lines' },
-            { label: 'Largest Clone Class', value: stats.biggestCloneClassSize + ' instances' }
-        ];
-        
-        formattedStats.forEach(stat => {
-            const statItem = document.createElement('div');
-            statItem.className = 'stat-item';
-            
-            const label = document.createElement('span');
-            label.className = 'stat-label';
-            label.style.color = '#1e4d6b';
-            label.textContent = stat.label + ':';
-            
-            const value = document.createElement('span');
-            value.className = 'stat-value';
-            value.style.color = '#1e4d6b';
-            value.textContent = stat.value;
-            
-            statItem.appendChild(label);
-            statItem.appendChild(value);
-            statsBanner.appendChild(statItem);
-        });
+        statsBanner.innerHTML = `
+            <div class="stat-item">
+                <span class="stat-label">Duplicated Lines:</span>
+                <span class="stat-value">${stats.duplicatedLinesPercentage.toFixed(1)}%</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Number of Clones:</span>
+                <span class="stat-value">${stats.numberOfClones.toLocaleString()}</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Clone Classes:</span>
+                <span class="stat-value">${stats.numberOfCloneClasses.toLocaleString()}</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Biggest Clone:</span>
+                <span class="stat-value">${stats.biggestClone.size} lines (ID: ${stats.biggestClone.id})</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Largest Clone Class:</span>
+                <span class="stat-value">${stats.biggestCloneClass.size} instances (ID: ${stats.biggestCloneClass.id})</span>
+            </div>
+        `;
         
         console.log('Stats banner updated successfully');
     } catch (error) {

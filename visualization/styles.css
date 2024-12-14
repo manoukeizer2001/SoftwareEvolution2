@@ -137,6 +137,41 @@ body {
 
 .line.highlighted {
     background-color: #fff3cd;
+    width: max-content;
+    display: block;
+    position: relative;
+}
+
+/* Make the highlight extend beyond the visible area */
+.line.highlighted::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50vw; /* Extend far to the left */
+    right: -50vw; /* Extend far to the right */
+    bottom: 0;
+    background-color: #fff3cd;
+    z-index: -1;
+}
+
+.line-number {
+    display: inline-block;
+    width: 40px;
+    color: #999;
+    user-select: none;
+    position: sticky;
+    left: 0;
+    background: white;
+}
+
+.code-container {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.line {
+    white-space: pre;
+    min-width: 100%;
 }
 
 .line-number {

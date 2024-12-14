@@ -41,7 +41,7 @@ for hsqldb-2.3.1, it's 177000
 for other projects, it's 50000
 */
 
-int main(loc projectLocation = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/hsqldb-2.3.1|, int cloneType = 2, bool calculateVolume = false, str projectName = "hsqldb-2.3.1") {
+int main(loc projectLocation = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/smallsql0.21_src|, int cloneType = 1, bool calculateVolume = false, str projectName = "smallsql0.21_src") {
     if (!exists(projectLocation)) {
         println("Error: Project path does not exist: <projectLocation>");
         return 1;
@@ -64,6 +64,17 @@ int main(loc projectLocation = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/h
     str cloneIDprefix = "type<cloneType>";
     // println("Clone ID prefix: <cloneIDprefix>");
     list[CloneClassWithId] cloneClassesWithIds = assignCloneIds(cloneClasses, cloneIDprefix);
+
+    // print type1-clone2 (the second clone class of type1)
+    // for (cloneClass <- cloneClassesWithIds) {
+    //     if (cloneClass.id == "type1-clone2") {
+    //         println("Content of type1-clone2:");
+    //         println("Pattern: <cloneClass.pattern>");
+    //         for (location <- cloneClass.locations) {
+    //             println("Location: <location>");
+    //         }
+    //     }
+    // }
 
     // Add file clone data extraction
     println("Extracting treemap data");

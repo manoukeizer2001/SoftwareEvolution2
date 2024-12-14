@@ -1,0 +1,1087 @@
+{"files": [{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionValue.java",
+  "clonedLines": 178,
+  "totalLines": 700,
+  "clonePercentage": 25,
+  "cloneIds": ["type1-clone5","type1-clone9","type1-clone15","type1-clone16","type1-clone54","type1-clone59","type1-clone70","type1-clone87","type1-clone91","type1-clone117","type1-clone159","type1-clone166","type1-clone182","type1-clone203","type1-clone205","type1-clone211","type1-clone236","type1-clone267","type1-clone294","type1-clone433","type1-clone451","type1-clone563","type1-clone567","type1-clone583","type1-clone593","type1-clone594","type1-clone614","type1-clone615","type1-clone626","type1-clone672","type1-clone750","type1-clone794","type1-clone798","type1-clone809","type1-clone870","type1-clone885","type1-clone886","type1-clone922","type1-clone1000","type1-clone1087","type1-clone1139","type1-clone1163","type1-clone1189","type1-clone1210","type1-clone1222","type1-clone1306","type1-clone1349","type1-clone1372","type1-clone1384","type1-clone1434","type1-clone1460","type1-clone1472","type1-clone1481","type1-clone1487","type1-clone1565","type1-clone1613","type1-clone1636"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionExp.java",
+  "clonedLines": 1,
+  "totalLines": 44,
+  "clonePercentage": 2,
+  "cloneIds": ["type1-clone1138"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/TestIdentifer.java",
+  "clonedLines": 4,
+  "totalLines": 65,
+  "clonePercentage": 6,
+  "cloneIds": ["type1-clone20","type1-clone280","type1-clone1045","type1-clone1551"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionCeiling.java",
+  "clonedLines": 1,
+  "totalLines": 44,
+  "clonePercentage": 2,
+  "cloneIds": ["type1-clone1138"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/TestAlterTable2.java",
+  "clonedLines": 49,
+  "totalLines": 82,
+  "clonePercentage": 59,
+  "cloneIds": ["type1-clone20","type1-clone142","type1-clone244","type1-clone280","type1-clone546","type1-clone589","type1-clone596","type1-clone952","type1-clone1048","type1-clone1192","type1-clone1258","type1-clone1289","type1-clone1374","type1-clone1461"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/SQLParser.java",
+  "clonedLines": 557,
+  "totalLines": 2007,
+  "clonePercentage": 27,
+  "cloneIds": ["type1-clone9","type1-clone17","type1-clone31","type1-clone90","type1-clone96","type1-clone101","type1-clone145","type1-clone151","type1-clone154","type1-clone160","type1-clone163","type1-clone164","type1-clone181","type1-clone193","type1-clone258","type1-clone263","type1-clone281","type1-clone286","type1-clone289","type1-clone296","type1-clone304","type1-clone331","type1-clone337","type1-clone339","type1-clone345","type1-clone351","type1-clone352","type1-clone353","type1-clone356","type1-clone368","type1-clone381","type1-clone408","type1-clone413","type1-clone418","type1-clone419","type1-clone428","type1-clone439","type1-clone462","type1-clone490","type1-clone492","type1-clone502","type1-clone504","type1-clone539","type1-clone572","type1-clone579","type1-clone580","type1-clone628","type1-clone632","type1-clone656","type1-clone657","type1-clone658","type1-clone662","type1-clone665","type1-clone668","type1-clone670","type1-clone682","type1-clone697","type1-clone710","type1-clone767","type1-clone768","type1-clone770","type1-clone793","type1-clone810","type1-clone812","type1-clone817","type1-clone819","type1-clone829","type1-clone843","type1-clone855","type1-clone896","type1-clone897","type1-clone934","type1-clone944","type1-clone948","type1-clone960","type1-clone965","type1-clone972","type1-clone1003","type1-clone1040","type1-clone1054","type1-clone1063","type1-clone1071","type1-clone1101","type1-clone1117","type1-clone1119","type1-clone1125","type1-clone1160","type1-clone1182","type1-clone1219","type1-clone1253","type1-clone1270","type1-clone1294","type1-clone1296","type1-clone1316","type1-clone1318","type1-clone1319","type1-clone1323","type1-clone1333","type1-clone1335","type1-clone1341","type1-clone1342","type1-clone1343","type1-clone1349","type1-clone1350","type1-clone1375","type1-clone1377","type1-clone1391","type1-clone1398","type1-clone1414","type1-clone1415","type1-clone1432","type1-clone1451","type1-clone1456","type1-clone1458","type1-clone1466","type1-clone1482","type1-clone1511","type1-clone1512","type1-clone1520","type1-clone1521","type1-clone1544","type1-clone1562","type1-clone1568","type1-clone1569","type1-clone1577","type1-clone1597","type1-clone1599","type1-clone1605","type1-clone1613","type1-clone1616"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/CommandCreateView.java",
+  "clonedLines": 9,
+  "totalLines": 59,
+  "clonePercentage": 15,
+  "cloneIds": ["type1-clone90","type1-clone164","type1-clone635","type1-clone684","type1-clone717","type1-clone845","type1-clone949","type1-clone1077","type1-clone1557"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionRight.java",
+  "clonedLines": 15,
+  "totalLines": 73,
+  "clonePercentage": 20,
+  "cloneIds": ["type1-clone216","type1-clone224","type1-clone287","type1-clone410","type1-clone457","type1-clone644","type1-clone646","type1-clone848","type1-clone1202","type1-clone1494","type1-clone1507"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/UnionAll.java",
+  "clonedLines": 32,
+  "totalLines": 256,
+  "clonePercentage": 12,
+  "cloneIds": ["type1-clone79","type1-clone90","type1-clone177","type1-clone178","type1-clone306","type1-clone652","type1-clone786","type1-clone933","type1-clone1166","type1-clone1277","type1-clone1371","type1-clone1477","type1-clone1638"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionLCase.java",
+  "clonedLines": 12,
+  "totalLines": 62,
+  "clonePercentage": 19,
+  "cloneIds": ["type1-clone411","type1-clone457","type1-clone1037","type1-clone1106","type1-clone1524","type1-clone1548"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/Command.java",
+  "clonedLines": 38,
+  "totalLines": 181,
+  "clonePercentage": 20,
+  "cloneIds": ["type1-clone64","type1-clone83","type1-clone90","type1-clone119","type1-clone232","type1-clone275","type1-clone545","type1-clone684","type1-clone752","type1-clone815","type1-clone886","type1-clone918","type1-clone936","type1-clone949","type1-clone1079","type1-clone1185","type1-clone1193","type1-clone1412","type1-clone1600","type1-clone1615"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionReturnString.java",
+  "clonedLines": 50,
+  "totalLines": 93,
+  "clonePercentage": 53,
+  "cloneIds": ["type1-clone108","type1-clone310","type1-clone457","type1-clone479","type1-clone514","type1-clone611","type1-clone751","type1-clone961","type1-clone1037","type1-clone1052","type1-clone1099","type1-clone1138","type1-clone1199","type1-clone1227","type1-clone1402","type1-clone1516","type1-clone1536"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/Language/Language_de.java",
+  "clonedLines": 3,
+  "totalLines": 184,
+  "clonePercentage": 1,
+  "cloneIds": ["type1-clone1543"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/TestExceptions.java",
+  "clonedLines": 19,
+  "totalLines": 140,
+  "clonePercentage": 13,
+  "cloneIds": ["type1-clone20","type1-clone245","type1-clone272","type1-clone280","type1-clone513","type1-clone522","type1-clone711","type1-clone850","type1-clone952","type1-clone956","type1-clone991","type1-clone1386","type1-clone1435","type1-clone1436","type1-clone1620"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionTimestampDiff.java",
+  "clonedLines": 30,
+  "totalLines": 170,
+  "clonePercentage": 17,
+  "cloneIds": ["type1-clone9","type1-clone18","type1-clone37","type1-clone67","type1-clone422","type1-clone457","type1-clone484","type1-clone613","type1-clone618","type1-clone1024","type1-clone1138","type1-clone1202","type1-clone1230","type1-clone1394","type1-clone1494","type1-clone1588","type1-clone1593"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/TableResult.java",
+  "clonedLines": 44,
+  "totalLines": 406,
+  "clonePercentage": 10,
+  "cloneIds": ["type1-clone10","type1-clone90","type1-clone130","type1-clone306","type1-clone329","type1-clone358","type1-clone365","type1-clone494","type1-clone533","type1-clone610","type1-clone731","type1-clone788","type1-clone818","type1-clone929","type1-clone962","type1-clone1050","type1-clone1066","type1-clone1223","type1-clone1356","type1-clone1465","type1-clone1553","type1-clone1561","type1-clone1595"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionATan.java",
+  "clonedLines": 1,
+  "totalLines": 44,
+  "clonePercentage": 2,
+  "cloneIds": ["type1-clone1138"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/TestTokenizer.java",
+  "clonedLines": 37,
+  "totalLines": 236,
+  "clonePercentage": 15,
+  "cloneIds": ["type1-clone99","type1-clone107","type1-clone134","type1-clone380","type1-clone474","type1-clone481","type1-clone991","type1-clone1031","type1-clone1175","type1-clone1179","type1-clone1386","type1-clone1621"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunction.java",
+  "clonedLines": 20,
+  "totalLines": 124,
+  "clonePercentage": 16,
+  "cloneIds": ["type1-clone426","type1-clone594","type1-clone868","type1-clone1025","type1-clone1340","type1-clone1434"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/StorePageLink.java",
+  "clonedLines": 2,
+  "totalLines": 53,
+  "clonePercentage": 3,
+  "cloneIds": ["type1-clone90","type1-clone494"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionSqrt.java",
+  "clonedLines": 1,
+  "totalLines": 44,
+  "clonePercentage": 2,
+  "cloneIds": ["type1-clone1138"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/TransactionStep.java",
+  "clonedLines": 3,
+  "totalLines": 59,
+  "clonePercentage": 5,
+  "cloneIds": ["type1-clone669","type1-clone769","type1-clone836"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/Logger.java",
+  "clonedLines": 1,
+  "totalLines": 59,
+  "clonePercentage": 1,
+  "cloneIds": ["type1-clone766"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/TestExceptionMethods.java",
+  "clonedLines": 128,
+  "totalLines": 309,
+  "clonePercentage": 41,
+  "cloneIds": ["type1-clone20","type1-clone107","type1-clone280","type1-clone325","type1-clone355","type1-clone478","type1-clone527","type1-clone557","type1-clone676","type1-clone952","type1-clone1259","type1-clone1304","type1-clone1322","type1-clone1453","type1-clone1461","type1-clone1527","type1-clone1534","type1-clone1580"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/TestGroupBy.java",
+  "clonedLines": 75,
+  "totalLines": 378,
+  "clonePercentage": 19,
+  "cloneIds": ["type1-clone20","type1-clone55","type1-clone75","type1-clone164","type1-clone280","type1-clone308","type1-clone332","type1-clone403","type1-clone609","type1-clone815","type1-clone827","type1-clone863","type1-clone881","type1-clone932","type1-clone952","type1-clone991","type1-clone1074","type1-clone1082","type1-clone1259","type1-clone1304","type1-clone1453","type1-clone1491","type1-clone1611"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/IndexDescriptions.java",
+  "clonedLines": 20,
+  "totalLines": 141,
+  "clonePercentage": 14,
+  "cloneIds": ["type1-clone27","type1-clone90","type1-clone228","type1-clone258","type1-clone402","type1-clone561","type1-clone565","type1-clone721","type1-clone1006","type1-clone1116","type1-clone1164","type1-clone1250","type1-clone1509"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/StoreNull.java",
+  "clonedLines": 5,
+  "totalLines": 133,
+  "clonePercentage": 3,
+  "cloneIds": ["type1-clone9","type1-clone90","type1-clone560","type1-clone1422"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/SmallSQLException.java",
+  "clonedLines": 33,
+  "totalLines": 227,
+  "clonePercentage": 14,
+  "cloneIds": ["type1-clone22","type1-clone195","type1-clone196","type1-clone441","type1-clone555","type1-clone572","type1-clone739","type1-clone815","type1-clone1010","type1-clone1021","type1-clone1068","type1-clone1070","type1-clone1285"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ColumnExpression.java",
+  "clonedLines": 1,
+  "totalLines": 91,
+  "clonePercentage": 1,
+  "cloneIds": ["type1-clone1163"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ForeignKeys.java",
+  "clonedLines": 12,
+  "totalLines": 76,
+  "clonePercentage": 15,
+  "cloneIds": ["type1-clone228","type1-clone402","type1-clone721","type1-clone1006","type1-clone1116","type1-clone1164","type1-clone1250"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionSin.java",
+  "clonedLines": 1,
+  "totalLines": 44,
+  "clonePercentage": 2,
+  "cloneIds": ["type1-clone1138"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionSign.java",
+  "clonedLines": 10,
+  "totalLines": 85,
+  "clonePercentage": 11,
+  "cloneIds": ["type1-clone9","type1-clone241","type1-clone307","type1-clone1226"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/TestMoneyRounding.java",
+  "clonedLines": 44,
+  "totalLines": 112,
+  "clonePercentage": 39,
+  "cloneIds": ["type1-clone20","type1-clone72","type1-clone103","type1-clone280","type1-clone316","type1-clone703","type1-clone815","type1-clone859","type1-clone893","type1-clone910","type1-clone952","type1-clone1259","type1-clone1289"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionYear.java",
+  "clonedLines": 2,
+  "totalLines": 54,
+  "clonePercentage": 3,
+  "cloneIds": ["type1-clone241","type1-clone737"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionDifference.java",
+  "clonedLines": 6,
+  "totalLines": 65,
+  "clonePercentage": 9,
+  "cloneIds": ["type1-clone1138","type1-clone1202","type1-clone1230","type1-clone1494"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/CommandSelect.java",
+  "clonedLines": 136,
+  "totalLines": 570,
+  "clonePercentage": 23,
+  "cloneIds": ["type1-clone23","type1-clone48","type1-clone64","type1-clone90","type1-clone104","type1-clone119","type1-clone155","type1-clone156","type1-clone161","type1-clone189","type1-clone199","type1-clone237","type1-clone254","type1-clone321","type1-clone334","type1-clone409","type1-clone424","type1-clone436","type1-clone510","type1-clone558","type1-clone588","type1-clone602","type1-clone608","type1-clone684","type1-clone689","type1-clone707","type1-clone713","type1-clone756","type1-clone788","type1-clone805","type1-clone815","type1-clone821","type1-clone834","type1-clone879","type1-clone891","type1-clone926","type1-clone949","type1-clone981","type1-clone1016","type1-clone1050","type1-clone1079","type1-clone1109","type1-clone1126","type1-clone1130","type1-clone1153","type1-clone1163","type1-clone1193","type1-clone1252","type1-clone1287","type1-clone1295","type1-clone1375","type1-clone1412","type1-clone1431","type1-clone1535","type1-clone1550","type1-clone1594","type1-clone1595","type1-clone1600","type1-clone1615","type1-clone1624"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/BenchTest.java",
+  "clonedLines": 460,
+  "totalLines": 753,
+  "clonePercentage": 61,
+  "cloneIds": ["type1-clone6","type1-clone28","type1-clone47","type1-clone58","type1-clone111","type1-clone137","type1-clone147","type1-clone169","type1-clone242","type1-clone278","type1-clone290","type1-clone303","type1-clone343","type1-clone344","type1-clone346","type1-clone347","type1-clone392","type1-clone394","type1-clone417","type1-clone447","type1-clone501","type1-clone512","type1-clone631","type1-clone640","type1-clone671","type1-clone678","type1-clone686","type1-clone692","type1-clone695","type1-clone708","type1-clone720","type1-clone729","type1-clone736","type1-clone745","type1-clone753","type1-clone790","type1-clone820","type1-clone826","type1-clone850","type1-clone875","type1-clone881","type1-clone884","type1-clone902","type1-clone904","type1-clone907","type1-clone908","type1-clone946","type1-clone952","type1-clone1013","type1-clone1017","type1-clone1059","type1-clone1067","type1-clone1083","type1-clone1107","type1-clone1129","type1-clone1132","type1-clone1134","type1-clone1167","type1-clone1194","type1-clone1196","type1-clone1206","type1-clone1211","type1-clone1242","type1-clone1259","type1-clone1260","type1-clone1275","type1-clone1281","type1-clone1282","type1-clone1288","type1-clone1304","type1-clone1315","type1-clone1337","type1-clone1348","type1-clone1358","type1-clone1361","type1-clone1376","type1-clone1385","type1-clone1404","type1-clone1452","type1-clone1453","type1-clone1469","type1-clone1514","type1-clone1537","type1-clone1580","type1-clone1586","type1-clone1589","type1-clone1610","type1-clone1616","type1-clone1629","type1-clone1637"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/Where.java",
+  "clonedLines": 60,
+  "totalLines": 187,
+  "clonePercentage": 32,
+  "cloneIds": ["type1-clone86","type1-clone174","type1-clone306","type1-clone354","type1-clone358","type1-clone437","type1-clone510","type1-clone553","type1-clone566","type1-clone570","type1-clone627","type1-clone683","type1-clone713","type1-clone734","type1-clone900","type1-clone939","type1-clone981","type1-clone1002","type1-clone1118","type1-clone1123","type1-clone1178","type1-clone1212","type1-clone1228","type1-clone1299","type1-clone1312","type1-clone1444","type1-clone1467","type1-clone1479","type1-clone1480","type1-clone1497"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionReturnP1StringAndBinary.java",
+  "clonedLines": 46,
+  "totalLines": 91,
+  "clonePercentage": 50,
+  "cloneIds": ["type1-clone108","type1-clone310","type1-clone457","type1-clone479","type1-clone514","type1-clone611","type1-clone751","type1-clone961","type1-clone1052","type1-clone1099","type1-clone1138","type1-clone1199","type1-clone1402","type1-clone1516","type1-clone1536"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/StorePageMap.java",
+  "clonedLines": 26,
+  "totalLines": 266,
+  "clonePercentage": 9,
+  "cloneIds": ["type1-clone228","type1-clone595","type1-clone709","type1-clone846","type1-clone1076","type1-clone1112","type1-clone1232","type1-clone1313","type1-clone1575"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/SSResultSet.java",
+  "clonedLines": 345,
+  "totalLines": 935,
+  "clonePercentage": 36,
+  "cloneIds": ["type1-clone42","type1-clone82","type1-clone135","type1-clone166","type1-clone194","type1-clone226","type1-clone230","type1-clone240","type1-clone260","type1-clone301","type1-clone377","type1-clone412","type1-clone414","type1-clone445","type1-clone456","type1-clone559","type1-clone593","type1-clone598","type1-clone612","type1-clone623","type1-clone637","type1-clone645","type1-clone653","type1-clone684","type1-clone716","type1-clone740","type1-clone764","type1-clone776","type1-clone791","type1-clone802","type1-clone803","type1-clone830","type1-clone832","type1-clone833","type1-clone841","type1-clone888","type1-clone925","type1-clone994","type1-clone1011","type1-clone1155","type1-clone1240","type1-clone1264","type1-clone1268","type1-clone1273","type1-clone1290","type1-clone1320","type1-clone1352","type1-clone1368","type1-clone1375","type1-clone1378","type1-clone1389","type1-clone1403","type1-clone1482","type1-clone1522","type1-clone1539","type1-clone1573","type1-clone1615","type1-clone1616"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionRepeat.java",
+  "clonedLines": 14,
+  "totalLines": 79,
+  "clonePercentage": 17,
+  "cloneIds": ["type1-clone77","type1-clone152","type1-clone208","type1-clone219","type1-clone224","type1-clone410","type1-clone457","type1-clone644","type1-clone940","type1-clone1456"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ForeignKey.java",
+  "clonedLines": 2,
+  "totalLines": 54,
+  "clonePercentage": 3,
+  "cloneIds": ["type1-clone1191","type1-clone1626"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/SQLToken.java",
+  "clonedLines": 16,
+  "totalLines": 65,
+  "clonePercentage": 24,
+  "cloneIds": ["type1-clone101","type1-clone164","type1-clone271","type1-clone523","type1-clone567","type1-clone635","type1-clone845","type1-clone984","type1-clone1000","type1-clone1172"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/SSDatabaseMetaData.java",
+  "clonedLines": 141,
+  "totalLines": 1039,
+  "clonePercentage": 13,
+  "cloneIds": ["type1-clone36","type1-clone90","type1-clone138","type1-clone246","type1-clone263","type1-clone315","type1-clone317","type1-clone469","type1-clone477","type1-clone500","type1-clone508","type1-clone539","type1-clone558","type1-clone622","type1-clone650","type1-clone679","type1-clone725","type1-clone748","type1-clone816","type1-clone828","type1-clone853","type1-clone860","type1-clone895","type1-clone950","type1-clone960","type1-clone1007","type1-clone1069","type1-clone1081","type1-clone1105","type1-clone1111","type1-clone1142","type1-clone1256","type1-clone1261","type1-clone1271","type1-clone1276","type1-clone1351","type1-clone1405","type1-clone1409","type1-clone1424","type1-clone1450","type1-clone1537","type1-clone1573","type1-clone1615","type1-clone1616","type1-clone1625","type1-clone1628"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/Join.java",
+  "clonedLines": 36,
+  "totalLines": 254,
+  "clonePercentage": 14,
+  "cloneIds": ["type1-clone32","type1-clone41","type1-clone79","type1-clone127","type1-clone306","type1-clone423","type1-clone488","type1-clone574","type1-clone683","type1-clone687","type1-clone746","type1-clone754","type1-clone785","type1-clone788","type1-clone912","type1-clone924","type1-clone983","type1-clone989","type1-clone1115","type1-clone1243","type1-clone1253","type1-clone1441","type1-clone1508","type1-clone1528"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/IndexDescription.java",
+  "clonedLines": 78,
+  "totalLines": 278,
+  "clonePercentage": 28,
+  "cloneIds": ["type1-clone40","type1-clone51","type1-clone85","type1-clone90","type1-clone139","type1-clone164","type1-clone201","type1-clone213","type1-clone235","type1-clone258","type1-clone289","type1-clone348","type1-clone379","type1-clone389","type1-clone418","type1-clone425","type1-clone453","type1-clone471","type1-clone495","type1-clone541","type1-clone543","type1-clone561","type1-clone576","type1-clone580","type1-clone769","type1-clone788","type1-clone815","type1-clone817","type1-clone824","type1-clone839","type1-clone864","type1-clone896","type1-clone897","type1-clone966","type1-clone973","type1-clone980","type1-clone992","type1-clone1022","type1-clone1028","type1-clone1362","type1-clone1457","type1-clone1509","type1-clone1547","type1-clone1549","type1-clone1557","type1-clone1615","type1-clone1622"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionRTrim.java",
+  "clonedLines": 14,
+  "totalLines": 76,
+  "clonePercentage": 18,
+  "cloneIds": ["type1-clone102","type1-clone224","type1-clone410","type1-clone411","type1-clone457","type1-clone459","type1-clone644","type1-clone848","type1-clone964","type1-clone1037","type1-clone1234"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionReturnP1Number.java",
+  "clonedLines": 22,
+  "totalLines": 98,
+  "clonePercentage": 22,
+  "cloneIds": ["type1-clone9","type1-clone19","type1-clone231","type1-clone438","type1-clone457","type1-clone699","type1-clone743","type1-clone1005","type1-clone1097","type1-clone1284","type1-clone1308","type1-clone1346","type1-clone1394"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/CommandInsert.java",
+  "clonedLines": 28,
+  "totalLines": 191,
+  "clonePercentage": 14,
+  "cloneIds": ["type1-clone66","type1-clone71","type1-clone90","type1-clone148","type1-clone164","type1-clone282","type1-clone348","type1-clone372","type1-clone395","type1-clone625","type1-clone635","type1-clone639","type1-clone684","type1-clone818","type1-clone845","type1-clone929","type1-clone949","type1-clone995","type1-clone1137","type1-clone1185","type1-clone1347"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionReplace.java",
+  "clonedLines": 22,
+  "totalLines": 110,
+  "clonePercentage": 20,
+  "cloneIds": ["type1-clone77","type1-clone152","type1-clone188","type1-clone208","type1-clone287","type1-clone457","type1-clone940","type1-clone1086","type1-clone1202","type1-clone1456","type1-clone1494"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/StoreNoCurrentRow.java",
+  "clonedLines": 3,
+  "totalLines": 125,
+  "clonePercentage": 2,
+  "cloneIds": ["type1-clone90","type1-clone560","type1-clone1422"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/SQLTokenizer.java",
+  "clonedLines": 68,
+  "totalLines": 947,
+  "clonePercentage": 7,
+  "cloneIds": ["type1-clone3","type1-clone95","type1-clone101","type1-clone149","type1-clone192","type1-clone360","type1-clone385","type1-clone732","type1-clone742","type1-clone777","type1-clone975","type1-clone1001","type1-clone1108","type1-clone1215","type1-clone1336","type1-clone1439","type1-clone1470","type1-clone1519","type1-clone1566"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/TableViewMap.java",
+  "clonedLines": 5,
+  "totalLines": 82,
+  "clonePercentage": 6,
+  "cloneIds": ["type1-clone164","type1-clone561"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/TestOther.java",
+  "clonedLines": 53,
+  "totalLines": 327,
+  "clonePercentage": 16,
+  "cloneIds": ["type1-clone20","type1-clone118","type1-clone137","type1-clone274","type1-clone280","type1-clone299","type1-clone376","type1-clone447","type1-clone671","type1-clone736","type1-clone753","type1-clone890","type1-clone920","type1-clone952","type1-clone1405","type1-clone1438","type1-clone1461","type1-clone1478","type1-clone1492","type1-clone1560","type1-clone1580"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionConvert.java",
+  "clonedLines": 35,
+  "totalLines": 264,
+  "clonePercentage": 13,
+  "cloneIds": ["type1-clone19","type1-clone68","type1-clone102","type1-clone203","type1-clone224","type1-clone229","type1-clone593","type1-clone603","type1-clone744","type1-clone858","type1-clone922","type1-clone1037","type1-clone1087","type1-clone1090","type1-clone1139","type1-clone1183","type1-clone1227","type1-clone1235","type1-clone1269","type1-clone1284","type1-clone1300","type1-clone1633"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionInsert.java",
+  "clonedLines": 20,
+  "totalLines": 90,
+  "clonePercentage": 22,
+  "cloneIds": ["type1-clone11","type1-clone73","type1-clone77","type1-clone208","type1-clone224","type1-clone287","type1-clone410","type1-clone457","type1-clone644","type1-clone940","type1-clone1202","type1-clone1456","type1-clone1494"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/CommandCreateDatabase.java",
+  "clonedLines": 12,
+  "totalLines": 61,
+  "clonePercentage": 19,
+  "cloneIds": ["type1-clone61","type1-clone90","type1-clone164","type1-clone444","type1-clone635","type1-clone655","type1-clone684","type1-clone845","type1-clone949","type1-clone1022","type1-clone1224"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/MutableLong.java",
+  "clonedLines": 23,
+  "totalLines": 70,
+  "clonePercentage": 32,
+  "cloneIds": ["type1-clone57","type1-clone106","type1-clone262","type1-clone384","type1-clone470","type1-clone475","type1-clone567","type1-clone917","type1-clone1000","type1-clone1023","type1-clone1209"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/TestStatement.java",
+  "clonedLines": 117,
+  "totalLines": 347,
+  "clonePercentage": 33,
+  "cloneIds": ["type1-clone20","type1-clone30","type1-clone111","type1-clone280","type1-clone311","type1-clone501","type1-clone736","type1-clone850","type1-clone932","type1-clone952","type1-clone991","type1-clone1036","type1-clone1128","type1-clone1145","type1-clone1192","type1-clone1304","type1-clone1359","type1-clone1400","type1-clone1453","type1-clone1461","type1-clone1485","type1-clone1551","type1-clone1582","type1-clone1596"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionRadians.java",
+  "clonedLines": 1,
+  "totalLines": 44,
+  "clonePercentage": 2,
+  "cloneIds": ["type1-clone1138"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionATan2.java",
+  "clonedLines": 6,
+  "totalLines": 48,
+  "clonePercentage": 12,
+  "cloneIds": ["type1-clone1138","type1-clone1202","type1-clone1230","type1-clone1494"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/TestDataTypes.java",
+  "clonedLines": 124,
+  "totalLines": 338,
+  "clonePercentage": 36,
+  "cloneIds": ["type1-clone1","type1-clone20","type1-clone21","type1-clone68","type1-clone72","type1-clone122","type1-clone259","type1-clone280","type1-clone285","type1-clone299","type1-clone316","type1-clone396","type1-clone420","type1-clone446","type1-clone450","type1-clone454","type1-clone455","type1-clone458","type1-clone516","type1-clone520","type1-clone552","type1-clone578","type1-clone581","type1-clone582","type1-clone584","type1-clone589","type1-clone597","type1-clone605","type1-clone648","type1-clone671","type1-clone703","type1-clone753","type1-clone760","type1-clone800","type1-clone815","type1-clone923","type1-clone931","type1-clone952","type1-clone999","type1-clone1060","type1-clone1091","type1-clone1094","type1-clone1102","type1-clone1110","type1-clone1151","type1-clone1162","type1-clone1188","type1-clone1216","type1-clone1257","type1-clone1259","type1-clone1265","type1-clone1338","type1-clone1345","type1-clone1360","type1-clone1369","type1-clone1399","type1-clone1580","type1-clone1630"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/NoFromResult.java",
+  "clonedLines": 22,
+  "totalLines": 153,
+  "clonePercentage": 14,
+  "cloneIds": ["type1-clone9","type1-clone133","type1-clone257","type1-clone324","type1-clone375","type1-clone683","type1-clone851","type1-clone928"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/SSDriver.java",
+  "clonedLines": 12,
+  "totalLines": 134,
+  "clonePercentage": 8,
+  "cloneIds": ["type1-clone465","type1-clone815","type1-clone881","type1-clone1443","type1-clone1611"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/Strings.java",
+  "clonedLines": 14,
+  "totalLines": 84,
+  "clonePercentage": 16,
+  "cloneIds": ["type1-clone228","type1-clone402","type1-clone565","type1-clone721","type1-clone1006","type1-clone1116","type1-clone1164","type1-clone1244","type1-clone1250"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionAbs.java",
+  "clonedLines": 18,
+  "totalLines": 111,
+  "clonePercentage": 16,
+  "cloneIds": ["type1-clone19","type1-clone50","type1-clone203","type1-clone231","type1-clone482","type1-clone743","type1-clone922","type1-clone1087","type1-clone1139","type1-clone1146","type1-clone1284"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionAscii.java",
+  "clonedLines": 8,
+  "totalLines": 65,
+  "clonePercentage": 12,
+  "cloneIds": ["type1-clone167","type1-clone410","type1-clone442","type1-clone644"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionASin.java",
+  "clonedLines": 1,
+  "totalLines": 44,
+  "clonePercentage": 2,
+  "cloneIds": ["type1-clone1138"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/StoreImpl.java",
+  "clonedLines": 302,
+  "totalLines": 1548,
+  "clonePercentage": 19,
+  "cloneIds": ["type1-clone2","type1-clone9","type1-clone43","type1-clone46","type1-clone49","type1-clone88","type1-clone90","type1-clone100","type1-clone113","type1-clone162","type1-clone171","type1-clone183","type1-clone213","type1-clone250","type1-clone273","type1-clone277","type1-clone291","type1-clone292","type1-clone302","type1-clone330","type1-clone362","type1-clone391","type1-clone393","type1-clone400","type1-clone407","type1-clone416","type1-clone427","type1-clone489","type1-clone494","type1-clone496","type1-clone503","type1-clone511","type1-clone518","type1-clone533","type1-clone541","type1-clone571","type1-clone590","type1-clone592","type1-clone624","type1-clone634","type1-clone663","type1-clone675","type1-clone715","type1-clone718","type1-clone722","type1-clone723","type1-clone746","type1-clone759","type1-clone763","type1-clone772","type1-clone781","type1-clone785","type1-clone801","type1-clone808","type1-clone852","type1-clone885","type1-clone938","type1-clone942","type1-clone943","type1-clone945","type1-clone962","type1-clone977","type1-clone985","type1-clone990","type1-clone1004","type1-clone1020","type1-clone1039","type1-clone1041","type1-clone1058","type1-clone1075","type1-clone1077","type1-clone1080","type1-clone1104","type1-clone1163","type1-clone1169","type1-clone1171","type1-clone1186","type1-clone1201","type1-clone1218","type1-clone1225","type1-clone1233","type1-clone1251","type1-clone1280","type1-clone1298","type1-clone1301","type1-clone1307","type1-clone1311","type1-clone1363","type1-clone1382","type1-clone1395","type1-clone1422","type1-clone1429","type1-clone1430","type1-clone1488","type1-clone1503","type1-clone1526","type1-clone1546","type1-clone1559","type1-clone1570","type1-clone1634"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/Store.java",
+  "clonedLines": 2,
+  "totalLines": 84,
+  "clonePercentage": 2,
+  "cloneIds": ["type1-clone90","type1-clone1422"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/Scrollable.java",
+  "clonedLines": 64,
+  "totalLines": 245,
+  "clonePercentage": 26,
+  "cloneIds": ["type1-clone74","type1-clone324","type1-clone421","type1-clone434","type1-clone437","type1-clone493","type1-clone553","type1-clone566","type1-clone570","type1-clone683","type1-clone831","type1-clone900","type1-clone939","type1-clone968","type1-clone997","type1-clone1064","type1-clone1103","type1-clone1118","type1-clone1121","type1-clone1123","type1-clone1150","type1-clone1178","type1-clone1212","type1-clone1312","type1-clone1366","type1-clone1437","type1-clone1444","type1-clone1449","type1-clone1476","type1-clone1480","type1-clone1608","type1-clone1631"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/MutableNumeric.java",
+  "clonedLines": 187,
+  "totalLines": 594,
+  "clonePercentage": 31,
+  "cloneIds": ["type1-clone15","type1-clone26","type1-clone36","type1-clone186","type1-clone197","type1-clone198","type1-clone206","type1-clone256","type1-clone279","type1-clone363","type1-clone373","type1-clone382","type1-clone387","type1-clone415","type1-clone432","type1-clone473","type1-clone477","type1-clone507","type1-clone517","type1-clone537","type1-clone540","type1-clone564","type1-clone567","type1-clone569","type1-clone591","type1-clone600","type1-clone616","type1-clone620","type1-clone714","type1-clone762","type1-clone775","type1-clone787","type1-clone838","type1-clone876","type1-clone903","type1-clone915","type1-clone916","type1-clone935","type1-clone959","type1-clone971","type1-clone979","type1-clone986","type1-clone998","type1-clone1000","type1-clone1053","type1-clone1057","type1-clone1061","type1-clone1111","type1-clone1114","type1-clone1189","type1-clone1245","type1-clone1324","type1-clone1354","type1-clone1355","type1-clone1372","type1-clone1427","type1-clone1428","type1-clone1448","type1-clone1459","type1-clone1488","type1-clone1503","type1-clone1554","type1-clone1567","type1-clone1574","type1-clone1579","type1-clone1603","type1-clone1619","type1-clone1627"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionSubstring.java",
+  "clonedLines": 20,
+  "totalLines": 88,
+  "clonePercentage": 22,
+  "cloneIds": ["type1-clone11","type1-clone224","type1-clone287","type1-clone410","type1-clone457","type1-clone485","type1-clone644","type1-clone848","type1-clone1202","type1-clone1229","type1-clone1493","type1-clone1494"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionChar.java",
+  "clonedLines": 1,
+  "totalLines": 62,
+  "clonePercentage": 1,
+  "cloneIds": ["type1-clone457"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/Money.java",
+  "clonedLines": 40,
+  "totalLines": 141,
+  "clonePercentage": 28,
+  "cloneIds": ["type1-clone117","type1-clone121","type1-clone125","type1-clone208","type1-clone323","type1-clone496","type1-clone511","type1-clone634","type1-clone723","type1-clone759","type1-clone852","type1-clone977","type1-clone1004","type1-clone1039","type1-clone1055","type1-clone1104","type1-clone1189","type1-clone1249","type1-clone1279","type1-clone1324","type1-clone1363","type1-clone1395","type1-clone1456","type1-clone1559","type1-clone1623"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionDayOfYear.java",
+  "clonedLines": 2,
+  "totalLines": 54,
+  "clonePercentage": 3,
+  "cloneIds": ["type1-clone241","type1-clone737"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/TestLanguage.java",
+  "clonedLines": 62,
+  "totalLines": 286,
+  "clonePercentage": 21,
+  "cloneIds": ["type1-clone36","type1-clone94","type1-clone107","type1-clone120","type1-clone134","type1-clone251","type1-clone474","type1-clone477","type1-clone589","type1-clone629","type1-clone712","type1-clone789","type1-clone837","type1-clone1042","type1-clone1073","type1-clone1179","type1-clone1292","type1-clone1401","type1-clone1405","type1-clone1502","type1-clone1537","type1-clone1616"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/TestAlterTable.java",
+  "clonedLines": 73,
+  "totalLines": 117,
+  "clonePercentage": 62,
+  "cloneIds": ["type1-clone20","type1-clone72","type1-clone142","type1-clone212","type1-clone249","type1-clone280","type1-clone596","type1-clone736","type1-clone815","type1-clone881","type1-clone890","type1-clone952","type1-clone988","type1-clone1048","type1-clone1192","type1-clone1236","type1-clone1258","type1-clone1259","type1-clone1289","type1-clone1328","type1-clone1461","type1-clone1611"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/View.java",
+  "clonedLines": 41,
+  "totalLines": 146,
+  "clonePercentage": 28,
+  "cloneIds": ["type1-clone51","type1-clone90","type1-clone164","type1-clone199","type1-clone369","type1-clone466","type1-clone550","type1-clone573","type1-clone579","type1-clone664","type1-clone769","type1-clone811","type1-clone824","type1-clone864","type1-clone892","type1-clone963","type1-clone966","type1-clone1003","type1-clone1032","type1-clone1098","type1-clone1184","type1-clone1330","type1-clone1386","type1-clone1397","type1-clone1462","type1-clone1509","type1-clone1531","type1-clone1549","type1-clone1557","type1-clone1572"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/DataSource.java",
+  "clonedLines": 3,
+  "totalLines": 95,
+  "clonePercentage": 3,
+  "cloneIds": ["type1-clone90","type1-clone683","type1-clone788"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionRound.java",
+  "clonedLines": 36,
+  "totalLines": 71,
+  "clonePercentage": 50,
+  "cloneIds": ["type1-clone38","type1-clone173","type1-clone388","type1-clone971","type1-clone1033","type1-clone1138","type1-clone1159","type1-clone1202","type1-clone1230","type1-clone1274","type1-clone1440","type1-clone1494","type1-clone1525"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionMinute.java",
+  "clonedLines": 2,
+  "totalLines": 54,
+  "clonePercentage": 3,
+  "cloneIds": ["type1-clone241","type1-clone737"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionLTrim.java",
+  "clonedLines": 12,
+  "totalLines": 78,
+  "clonePercentage": 15,
+  "cloneIds": ["type1-clone224","type1-clone410","type1-clone411","type1-clone457","type1-clone644","type1-clone646","type1-clone848","type1-clone1037","type1-clone1229"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionName.java",
+  "clonedLines": 22,
+  "totalLines": 234,
+  "clonePercentage": 9,
+  "cloneIds": ["type1-clone9","type1-clone23","type1-clone164","type1-clone199","type1-clone237","type1-clone369","type1-clone431","type1-clone529","type1-clone533","type1-clone594","type1-clone954","type1-clone962","type1-clone1077","type1-clone1096","type1-clone1434","type1-clone1462"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/Columns.java",
+  "clonedLines": 14,
+  "totalLines": 161,
+  "clonePercentage": 8,
+  "cloneIds": ["type1-clone164","type1-clone228","type1-clone402","type1-clone721","type1-clone1006","type1-clone1077","type1-clone1116","type1-clone1164","type1-clone1250"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/CommandTable.java",
+  "clonedLines": 18,
+  "totalLines": 139,
+  "clonePercentage": 12,
+  "cloneIds": ["type1-clone9","type1-clone90","type1-clone164","type1-clone222","type1-clone263","type1-clone530","type1-clone635","type1-clone684","type1-clone717","type1-clone788","type1-clone845","type1-clone949","type1-clone955","type1-clone1077","type1-clone1122","type1-clone1238"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/TestTransactions.java",
+  "clonedLines": 226,
+  "totalLines": 509,
+  "clonePercentage": 44,
+  "cloneIds": ["type1-clone20","type1-clone45","type1-clone58","type1-clone64","type1-clone112","type1-clone119","type1-clone207","type1-clone212","type1-clone247","type1-clone248","type1-clone266","type1-clone270","type1-clone278","type1-clone280","type1-clone318","type1-clone325","type1-clone499","type1-clone535","type1-clone557","type1-clone601","type1-clone636","type1-clone638","type1-clone815","type1-clone820","type1-clone881","type1-clone905","type1-clone953","type1-clone1135","type1-clone1152","type1-clone1156","type1-clone1165","type1-clone1190","type1-clone1192","type1-clone1200","type1-clone1207","type1-clone1328","type1-clone1404","type1-clone1413","type1-clone1418","type1-clone1446","type1-clone1461","type1-clone1463","type1-clone1489","type1-clone1500","type1-clone1517","type1-clone1523","type1-clone1583","type1-clone1590","type1-clone1602","type1-clone1611"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionFloor.java",
+  "clonedLines": 9,
+  "totalLines": 53,
+  "clonePercentage": 16,
+  "cloneIds": ["type1-clone203","type1-clone922","type1-clone1087","type1-clone1139","type1-clone1146"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionArithmetic.java",
+  "clonedLines": 106,
+  "totalLines": 1015,
+  "clonePercentage": 10,
+  "cloneIds": ["type1-clone81","type1-clone93","type1-clone110","type1-clone150","type1-clone187","type1-clone209","type1-clone227","type1-clone231","type1-clone328","type1-clone338","type1-clone371","type1-clone383","type1-clone422","type1-clone423","type1-clone457","type1-clone488","type1-clone491","type1-clone515","type1-clone587","type1-clone594","type1-clone685","type1-clone706","type1-clone724","type1-clone743","type1-clone744","type1-clone872","type1-clone930","type1-clone974","type1-clone989","type1-clone1025","type1-clone1138","type1-clone1163","type1-clone1170","type1-clone1286","type1-clone1308","type1-clone1309","type1-clone1310","type1-clone1346","type1-clone1353","type1-clone1394","type1-clone1421","type1-clone1434"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/TableStorePage.java",
+  "clonedLines": 6,
+  "totalLines": 79,
+  "clonePercentage": 7,
+  "cloneIds": ["type1-clone90","type1-clone494","type1-clone533","type1-clone539","type1-clone960","type1-clone962"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/TestThreads.java",
+  "clonedLines": 91,
+  "totalLines": 177,
+  "clonePercentage": 51,
+  "cloneIds": ["type1-clone20","type1-clone128","type1-clone280","type1-clone309","type1-clone319","type1-clone325","type1-clone366","type1-clone397","type1-clone568","type1-clone606","type1-clone630","type1-clone636","type1-clone799","type1-clone849","type1-clone869","type1-clone952","type1-clone993","type1-clone1051","type1-clone1092","type1-clone1174","type1-clone1237","type1-clone1321","type1-clone1327","type1-clone1413","type1-clone1420"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionLocate.java",
+  "clonedLines": 5,
+  "totalLines": 65,
+  "clonePercentage": 7,
+  "cloneIds": ["type1-clone1202","type1-clone1230","type1-clone1494"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ViewResult.java",
+  "clonedLines": 13,
+  "totalLines": 283,
+  "clonePercentage": 4,
+  "cloneIds": ["type1-clone90","type1-clone550","type1-clone573","type1-clone963","type1-clone1553","type1-clone1572","type1-clone1573","type1-clone1615","type1-clone1616"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionReturnFloat.java",
+  "clonedLines": 23,
+  "totalLines": 87,
+  "clonePercentage": 26,
+  "cloneIds": ["type1-clone203","type1-clone231","type1-clone328","type1-clone438","type1-clone457","type1-clone699","type1-clone743","type1-clone922","type1-clone1037","type1-clone1085","type1-clone1087","type1-clone1097","type1-clone1139","type1-clone1227"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/TestJoins.java",
+  "clonedLines": 56,
+  "totalLines": 218,
+  "clonePercentage": 25,
+  "cloneIds": ["type1-clone20","type1-clone129","type1-clone245","type1-clone264","type1-clone280","type1-clone299","type1-clone312","type1-clone443","type1-clone513","type1-clone519","type1-clone522","type1-clone585","type1-clone690","type1-clone901","type1-clone911","type1-clone921","type1-clone927","type1-clone932","type1-clone947","type1-clone952","type1-clone956","type1-clone987","type1-clone1136","type1-clone1176","type1-clone1259","type1-clone1289","type1-clone1304","type1-clone1453","type1-clone1580"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/GroupResult.java",
+  "clonedLines": 32,
+  "totalLines": 254,
+  "clonePercentage": 12,
+  "cloneIds": ["type1-clone29","type1-clone189","type1-clone199","type1-clone233","type1-clone254","type1-clone483","type1-clone673","type1-clone897","type1-clone1072","type1-clone1093","type1-clone1130","type1-clone1163","type1-clone1221","type1-clone1266","type1-clone1393","type1-clone1462","type1-clone1482","type1-clone1506"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/MemoryStream.java",
+  "clonedLines": 81,
+  "totalLines": 163,
+  "clonePercentage": 49,
+  "cloneIds": ["type1-clone171","type1-clone486","type1-clone496","type1-clone509","type1-clone511","type1-clone634","type1-clone696","type1-clone718","type1-clone723","type1-clone728","type1-clone759","type1-clone772","type1-clone852","type1-clone878","type1-clone977","type1-clone1004","type1-clone1029","type1-clone1039","type1-clone1104","type1-clone1148","type1-clone1225","type1-clone1363","type1-clone1395","type1-clone1416","type1-clone1430","type1-clone1454","type1-clone1483","type1-clone1559","type1-clone1578","type1-clone1581"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/JoinScrollIndex.java",
+  "clonedLines": 8,
+  "totalLines": 111,
+  "clonePercentage": 7,
+  "cloneIds": ["type1-clone126","type1-clone912","type1-clone924","type1-clone1253","type1-clone1392","type1-clone1528","type1-clone1614"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/TestDeleteUpdate.java",
+  "clonedLines": 19,
+  "totalLines": 162,
+  "clonePercentage": 11,
+  "cloneIds": ["type1-clone20","type1-clone164","type1-clone280","type1-clone952","type1-clone1254"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionReturnP1.java",
+  "clonedLines": 13,
+  "totalLines": 109,
+  "clonePercentage": 11,
+  "cloneIds": ["type1-clone93","type1-clone209","type1-clone328","type1-clone371","type1-clone383","type1-clone457","type1-clone515","type1-clone744","type1-clone1037","type1-clone1227","type1-clone1310"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/Expressions.java",
+  "clonedLines": 29,
+  "totalLines": 135,
+  "clonePercentage": 21,
+  "cloneIds": ["type1-clone52","type1-clone228","type1-clone399","type1-clone402","type1-clone595","type1-clone721","type1-clone919","type1-clone1006","type1-clone1116","type1-clone1163","type1-clone1244","type1-clone1250","type1-clone1255"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/CommandDrop.java",
+  "clonedLines": 18,
+  "totalLines": 76,
+  "clonePercentage": 23,
+  "cloneIds": ["type1-clone9","type1-clone61","type1-clone90","type1-clone164","type1-clone263","type1-clone444","type1-clone480","type1-clone530","type1-clone635","type1-clone655","type1-clone684","type1-clone746","type1-clone785","type1-clone845","type1-clone949","type1-clone955","type1-clone1224"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionCase.java",
+  "clonedLines": 12,
+  "totalLines": 215,
+  "clonePercentage": 5,
+  "cloneIds": ["type1-clone32","type1-clone204","type1-clone210","type1-clone814","type1-clone1025","type1-clone1163","type1-clone1340"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/TestResultSet.java",
+  "clonedLines": 58,
+  "totalLines": 282,
+  "clonePercentage": 20,
+  "cloneIds": ["type1-clone6","type1-clone20","type1-clone24","type1-clone92","type1-clone111","type1-clone280","type1-clone501","type1-clone586","type1-clone813","type1-clone820","type1-clone932","type1-clone952","type1-clone991","type1-clone1404","type1-clone1496","type1-clone1534","type1-clone1583","type1-clone1586"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/MemoryResult.java",
+  "clonedLines": 43,
+  "totalLines": 334,
+  "clonePercentage": 12,
+  "cloneIds": ["type1-clone9","type1-clone43","type1-clone74","type1-clone133","type1-clone226","type1-clone324","type1-clone375","type1-clone421","type1-clone434","type1-clone493","type1-clone717","type1-clone781","type1-clone831","type1-clone851","type1-clone968","type1-clone997","type1-clone1015","type1-clone1077","type1-clone1103","type1-clone1121","type1-clone1150","type1-clone1231","type1-clone1449","type1-clone1553","type1-clone1557","type1-clone1608","type1-clone1631"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/TestOrderBy.java",
+  "clonedLines": 385,
+  "totalLines": 821,
+  "clonePercentage": 46,
+  "cloneIds": ["type1-clone20","type1-clone44","type1-clone56","type1-clone97","type1-clone105","type1-clone111","type1-clone168","type1-clone215","type1-clone218","type1-clone253","type1-clone280","type1-clone293","type1-clone298","type1-clone308","type1-clone322","type1-clone333","type1-clone340","type1-clone361","type1-clone435","type1-clone478","type1-clone501","type1-clone525","type1-clone557","type1-clone642","type1-clone659","type1-clone705","type1-clone711","type1-clone733","type1-clone736","type1-clone747","type1-clone780","type1-clone796","type1-clone807","type1-clone815","type1-clone827","type1-clone850","type1-clone857","type1-clone863","type1-clone865","type1-clone881","type1-clone884","type1-clone911","type1-clone932","type1-clone947","type1-clone952","type1-clone991","type1-clone1035","type1-clone1056","type1-clone1084","type1-clone1088","type1-clone1127","type1-clone1143","type1-clone1144","type1-clone1158","type1-clone1177","type1-clone1198","type1-clone1239","type1-clone1257","type1-clone1259","type1-clone1297","type1-clone1304","type1-clone1339","type1-clone1367","type1-clone1380","type1-clone1381","type1-clone1423","type1-clone1442","type1-clone1447","type1-clone1453","type1-clone1533","type1-clone1583","type1-clone1587","type1-clone1589","type1-clone1611"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/FileIndexNode.java",
+  "clonedLines": 19,
+  "totalLines": 99,
+  "clonePercentage": 19,
+  "cloneIds": ["type1-clone238","type1-clone320","type1-clone466","type1-clone521","type1-clone551","type1-clone677","type1-clone847","type1-clone978","type1-clone1365","type1-clone1397","type1-clone1542","type1-clone1578"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/SSConnection.java",
+  "clonedLines": 64,
+  "totalLines": 392,
+  "clonePercentage": 16,
+  "cloneIds": ["type1-clone84","type1-clone90","type1-clone164","type1-clone234","type1-clone263","type1-clone276","type1-clone313","type1-clone559","type1-clone562","type1-clone621","type1-clone693","type1-clone757","type1-clone764","type1-clone769","type1-clone783","type1-clone791","type1-clone815","type1-clone887","type1-clone889","type1-clone1157","type1-clone1220","type1-clone1386","type1-clone1387","type1-clone1410","type1-clone1475","type1-clone1584","type1-clone1615"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionCot.java",
+  "clonedLines": 1,
+  "totalLines": 44,
+  "clonePercentage": 2,
+  "cloneIds": ["type1-clone1138"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/Identity.java",
+  "clonedLines": 29,
+  "totalLines": 124,
+  "clonePercentage": 23,
+  "cloneIds": ["type1-clone90","type1-clone106","type1-clone213","type1-clone250","type1-clone262","type1-clone294","type1-clone384","type1-clone489","type1-clone496","type1-clone511","type1-clone634","type1-clone669","type1-clone723","type1-clone759","type1-clone769","type1-clone836","type1-clone852","type1-clone977","type1-clone985","type1-clone1004","type1-clone1039","type1-clone1104","type1-clone1163","type1-clone1209","type1-clone1363","type1-clone1395","type1-clone1559"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionDayOfWeek.java",
+  "clonedLines": 1,
+  "totalLines": 53,
+  "clonePercentage": 1,
+  "cloneIds": ["type1-clone241"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/MutableDouble.java",
+  "clonedLines": 17,
+  "totalLines": 70,
+  "clonePercentage": 24,
+  "cloneIds": ["type1-clone57","type1-clone305","type1-clone384","type1-clone475","type1-clone567","type1-clone871","type1-clone1000","type1-clone1023","type1-clone1209"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionDegrees.java",
+  "clonedLines": 1,
+  "totalLines": 44,
+  "clonePercentage": 2,
+  "cloneIds": ["type1-clone1138"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionCos.java",
+  "clonedLines": 1,
+  "totalLines": 44,
+  "clonePercentage": 2,
+  "cloneIds": ["type1-clone1138"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionDayOfMonth.java",
+  "clonedLines": 2,
+  "totalLines": 54,
+  "clonePercentage": 3,
+  "cloneIds": ["type1-clone241","type1-clone737"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/SSCallableStatement.java",
+  "clonedLines": 217,
+  "totalLines": 405,
+  "clonePercentage": 53,
+  "cloneIds": ["type1-clone4","type1-clone42","type1-clone90","type1-clone98","type1-clone180","type1-clone230","type1-clone240","type1-clone255","type1-clone301","type1-clone401","type1-clone412","type1-clone414","type1-clone456","type1-clone559","type1-clone612","type1-clone623","type1-clone637","type1-clone649","type1-clone653","type1-clone716","type1-clone776","type1-clone803","type1-clone833","type1-clone914","type1-clone925","type1-clone941","type1-clone957","type1-clone1011","type1-clone1049","type1-clone1155","type1-clone1240","type1-clone1264","type1-clone1268","type1-clone1320","type1-clone1352","type1-clone1368","type1-clone1386","type1-clone1518","type1-clone1573","type1-clone1615","type1-clone1616"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/Distinct.java",
+  "clonedLines": 52,
+  "totalLines": 145,
+  "clonePercentage": 35,
+  "cloneIds": ["type1-clone79","type1-clone86","type1-clone306","type1-clone553","type1-clone566","type1-clone570","type1-clone683","type1-clone900","type1-clone933","type1-clone939","type1-clone1002","type1-clone1118","type1-clone1123","type1-clone1178","type1-clone1212","type1-clone1228","type1-clone1299","type1-clone1312","type1-clone1467","type1-clone1479","type1-clone1480","type1-clone1497"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/FileIndex.java",
+  "clonedLines": 14,
+  "totalLines": 114,
+  "clonePercentage": 12,
+  "cloneIds": ["type1-clone51","type1-clone213","type1-clone370","type1-clone580","type1-clone604","type1-clone669","type1-clone769","type1-clone836","type1-clone864","type1-clone1549"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/CommandDelete.java",
+  "clonedLines": 5,
+  "totalLines": 60,
+  "clonePercentage": 8,
+  "cloneIds": ["type1-clone90","type1-clone189","type1-clone684","type1-clone949","type1-clone995"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionSpace.java",
+  "clonedLines": 1,
+  "totalLines": 69,
+  "clonePercentage": 1,
+  "cloneIds": ["type1-clone457"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionTimestampAdd.java",
+  "clonedLines": 21,
+  "totalLines": 144,
+  "clonePercentage": 14,
+  "cloneIds": ["type1-clone9","type1-clone37","type1-clone67","type1-clone284","type1-clone457","type1-clone613","type1-clone1005","type1-clone1024","type1-clone1138","type1-clone1202","type1-clone1230","type1-clone1309","type1-clone1494"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/Database.java",
+  "clonedLines": 198,
+  "totalLines": 546,
+  "clonePercentage": 36,
+  "cloneIds": ["type1-clone27","type1-clone53","type1-clone61","type1-clone90","type1-clone124","type1-clone146","type1-clone157","type1-clone164","type1-clone179","type1-clone217","type1-clone243","type1-clone263","type1-clone289","type1-clone300","type1-clone326","type1-clone357","type1-clone425","type1-clone463","type1-clone467","type1-clone469","type1-clone480","type1-clone506","type1-clone524","type1-clone538","type1-clone548","type1-clone558","type1-clone625","type1-clone635","type1-clone647","type1-clone755","type1-clone761","type1-clone792","type1-clone839","type1-clone845","type1-clone885","type1-clone913","type1-clone943","type1-clone970","type1-clone1044","type1-clone1080","type1-clone1142","type1-clone1191","type1-clone1213","type1-clone1238","type1-clone1241","type1-clone1283","type1-clone1386","type1-clone1406","type1-clone1409","type1-clone1411","type1-clone1464","type1-clone1499","type1-clone1509","type1-clone1537","type1-clone1545","type1-clone1550","type1-clone1573","type1-clone1607","type1-clone1609","type1-clone1615","type1-clone1616","type1-clone1626"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/BasicTestCase.java",
+  "clonedLines": 121,
+  "totalLines": 373,
+  "clonePercentage": 32,
+  "cloneIds": ["type1-clone13","type1-clone20","type1-clone35","type1-clone58","type1-clone60","type1-clone78","type1-clone107","type1-clone109","type1-clone143","type1-clone164","type1-clone166","type1-clone184","type1-clone205","type1-clone261","type1-clone272","type1-clone280","type1-clone349","type1-clone364","type1-clone468","type1-clone476","type1-clone526","type1-clone598","type1-clone615","type1-clone633","type1-clone698","type1-clone700","type1-clone727","type1-clone758","type1-clone762","type1-clone766","type1-clone773","type1-clone784","type1-clone806","type1-clone809","type1-clone850","type1-clone859","type1-clone873","type1-clone882","type1-clone884","type1-clone910","type1-clone952","type1-clone1014","type1-clone1069","type1-clone1085","type1-clone1111","type1-clone1149","type1-clone1181","type1-clone1189","type1-clone1248","type1-clone1259","type1-clone1291","type1-clone1315","type1-clone1357","type1-clone1386","type1-clone1436","type1-clone1461","type1-clone1481","type1-clone1527","type1-clone1532","type1-clone1539","type1-clone1540","type1-clone1551","type1-clone1564","type1-clone1613","type1-clone1636"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionUCase.java",
+  "clonedLines": 12,
+  "totalLines": 62,
+  "clonePercentage": 19,
+  "cloneIds": ["type1-clone411","type1-clone457","type1-clone1037","type1-clone1106","type1-clone1524","type1-clone1548"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionPower.java",
+  "clonedLines": 6,
+  "totalLines": 48,
+  "clonePercentage": 12,
+  "cloneIds": ["type1-clone1138","type1-clone1202","type1-clone1230","type1-clone1494"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/RowSource.java",
+  "clonedLines": 10,
+  "totalLines": 203,
+  "clonePercentage": 4,
+  "cloneIds": ["type1-clone164","type1-clone683","type1-clone841"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/AllTests.java",
+  "clonedLines": 16,
+  "totalLines": 134,
+  "clonePercentage": 11,
+  "cloneIds": ["type1-clone78","type1-clone465","type1-clone815","type1-clone850","type1-clone881","type1-clone1168","type1-clone1315","type1-clone1399","type1-clone1435","type1-clone1513","type1-clone1611"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/TableStorePageInsert.java",
+  "clonedLines": 4,
+  "totalLines": 73,
+  "clonePercentage": 5,
+  "cloneIds": ["type1-clone90","type1-clone494","type1-clone726"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/Language/Language_it.java",
+  "clonedLines": 3,
+  "totalLines": 185,
+  "clonePercentage": 1,
+  "cloneIds": ["type1-clone1543"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/DateTime.java",
+  "clonedLines": 228,
+  "totalLines": 802,
+  "clonePercentage": 28,
+  "cloneIds": ["type1-clone36","type1-clone54","type1-clone140","type1-clone221","type1-clone223","type1-clone335","type1-clone342","type1-clone406","type1-clone477","type1-clone497","type1-clone542","type1-clone554","type1-clone599","type1-clone719","type1-clone727","type1-clone750","type1-clone795","type1-clone799","type1-clone835","type1-clone842","type1-clone862","type1-clone874","type1-clone951","type1-clone958","type1-clone967","type1-clone1008","type1-clone1065","type1-clone1100","type1-clone1111","type1-clone1131","type1-clone1147","type1-clone1154","type1-clone1189","type1-clone1235","type1-clone1263","type1-clone1293","type1-clone1326","type1-clone1329","type1-clone1370","type1-clone1405","type1-clone1461","type1-clone1502","type1-clone1563","type1-clone1598","type1-clone1604"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/TestDBMetaData.java",
+  "clonedLines": 71,
+  "totalLines": 310,
+  "clonePercentage": 22,
+  "cloneIds": ["type1-clone20","type1-clone107","type1-clone138","type1-clone246","type1-clone280","type1-clone299","type1-clone315","type1-clone317","type1-clone508","type1-clone650","type1-clone679","type1-clone725","type1-clone816","type1-clone828","type1-clone895","type1-clone950","type1-clone952","type1-clone1007","type1-clone1045","type1-clone1081","type1-clone1105","type1-clone1181","type1-clone1256","type1-clone1261","type1-clone1271","type1-clone1484","type1-clone1580","type1-clone1625","type1-clone1628"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/LongList.java",
+  "clonedLines": 16,
+  "totalLines": 86,
+  "clonePercentage": 18,
+  "cloneIds": ["type1-clone228","type1-clone399","type1-clone402","type1-clone595","type1-clone721","type1-clone919","type1-clone1006","type1-clone1116","type1-clone1250"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/TestOperatoren.java",
+  "clonedLines": 108,
+  "totalLines": 281,
+  "clonePercentage": 38,
+  "cloneIds": ["type1-clone20","type1-clone129","type1-clone172","type1-clone245","type1-clone264","type1-clone280","type1-clone311","type1-clone312","type1-clone316","type1-clone443","type1-clone513","type1-clone519","type1-clone522","type1-clone585","type1-clone690","type1-clone703","type1-clone815","type1-clone881","type1-clone901","type1-clone921","type1-clone927","type1-clone932","type1-clone952","type1-clone956","type1-clone987","type1-clone1136","type1-clone1176","type1-clone1259","type1-clone1289","type1-clone1304","type1-clone1399","type1-clone1453","type1-clone1611"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/SSResultSetMetaData.java",
+  "clonedLines": 16,
+  "totalLines": 316,
+  "clonePercentage": 5,
+  "cloneIds": ["type1-clone464","type1-clone534","type1-clone899","type1-clone969","type1-clone1180","type1-clone1471"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/CommandUpdate.java",
+  "clonedLines": 6,
+  "totalLines": 114,
+  "clonePercentage": 5,
+  "cloneIds": ["type1-clone90","type1-clone189","type1-clone321","type1-clone684","type1-clone949","type1-clone995"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/SortedResult.java",
+  "clonedLines": 85,
+  "totalLines": 317,
+  "clonePercentage": 26,
+  "cloneIds": ["type1-clone7","type1-clone86","type1-clone174","type1-clone306","type1-clone324","type1-clone341","type1-clone378","type1-clone437","type1-clone440","type1-clone448","type1-clone553","type1-clone566","type1-clone570","type1-clone617","type1-clone683","type1-clone734","type1-clone900","type1-clone939","type1-clone1002","type1-clone1019","type1-clone1072","type1-clone1115","type1-clone1118","type1-clone1121","type1-clone1123","type1-clone1161","type1-clone1178","type1-clone1212","type1-clone1299","type1-clone1312","type1-clone1433","type1-clone1437","type1-clone1444","type1-clone1480","type1-clone1576"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionLog.java",
+  "clonedLines": 1,
+  "totalLines": 44,
+  "clonePercentage": 2,
+  "cloneIds": ["type1-clone1138"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/IndexNode.java",
+  "clonedLines": 63,
+  "totalLines": 451,
+  "clonePercentage": 13,
+  "cloneIds": ["type1-clone9","type1-clone39","type1-clone65","type1-clone336","type1-clone370","type1-clone404","type1-clone460","type1-clone472","type1-clone547","type1-clone680","type1-clone688","type1-clone704","type1-clone856","type1-clone880","type1-clone894","type1-clone982","type1-clone996","type1-clone1034","type1-clone1133","type1-clone1204","type1-clone1247","type1-clone1272","type1-clone1303","type1-clone1332","type1-clone1373","type1-clone1383","type1-clone1419","type1-clone1473","type1-clone1474","type1-clone1505","type1-clone1510","type1-clone1542","type1-clone1591","type1-clone1618"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/IndexNodeScrollStatus.java",
+  "clonedLines": 1,
+  "totalLines": 83,
+  "clonePercentage": 1,
+  "cloneIds": ["type1-clone982"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionInSelect.java",
+  "clonedLines": 12,
+  "totalLines": 75,
+  "clonePercentage": 16,
+  "cloneIds": ["type1-clone66","type1-clone90","type1-clone148","type1-clone282","type1-clone338","type1-clone539","type1-clone960","type1-clone1347","type1-clone1537","type1-clone1616"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/TableView.java",
+  "clonedLines": 52,
+  "totalLines": 194,
+  "clonePercentage": 26,
+  "cloneIds": ["type1-clone51","type1-clone85","type1-clone90","type1-clone164","type1-clone201","type1-clone213","type1-clone235","type1-clone389","type1-clone471","type1-clone495","type1-clone506","type1-clone576","type1-clone635","type1-clone769","type1-clone788","type1-clone815","type1-clone824","type1-clone839","type1-clone845","type1-clone864","type1-clone966","type1-clone970","type1-clone973","type1-clone980","type1-clone1022","type1-clone1028","type1-clone1317","type1-clone1362","type1-clone1375","type1-clone1509","type1-clone1615"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/SSSavepoint.java",
+  "clonedLines": 3,
+  "totalLines": 64,
+  "clonePercentage": 4,
+  "cloneIds": ["type1-clone164","type1-clone635","type1-clone845"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionLog10.java",
+  "clonedLines": 1,
+  "totalLines": 46,
+  "clonePercentage": 2,
+  "cloneIds": ["type1-clone1138"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/SSPreparedStatement.java",
+  "clonedLines": 71,
+  "totalLines": 338,
+  "clonePercentage": 21,
+  "cloneIds": ["type1-clone76","type1-clone82","type1-clone90","type1-clone123","type1-clone153","type1-clone176","type1-clone200","type1-clone230","type1-clone240","type1-clone265","type1-clone377","type1-clone386","type1-clone405","type1-clone412","type1-clone445","type1-clone452","type1-clone456","type1-clone487","type1-clone607","type1-clone653","type1-clone749","type1-clone776","type1-clone802","type1-clone877","type1-clone888","type1-clone1026","type1-clone1046","type1-clone1049","type1-clone1078","type1-clone1141","type1-clone1217","type1-clone1240","type1-clone1268","type1-clone1290","type1-clone1302","type1-clone1368","type1-clone1378","type1-clone1379","type1-clone1386","type1-clone1461","type1-clone1518","type1-clone1573","type1-clone1606","type1-clone1615","type1-clone1616"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionSoundex.java",
+  "clonedLines": 8,
+  "totalLines": 125,
+  "clonePercentage": 6,
+  "cloneIds": ["type1-clone411","type1-clone457","type1-clone1037","type1-clone1038"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/Expression.java",
+  "clonedLines": 27,
+  "totalLines": 235,
+  "clonePercentage": 11,
+  "cloneIds": ["type1-clone40","type1-clone152","type1-clone164","type1-clone203","type1-clone528","type1-clone635","type1-clone746","type1-clone785","type1-clone804","type1-clone937","type1-clone1025","type1-clone1087","type1-clone1340","type1-clone1434","type1-clone1445","type1-clone1472","type1-clone1504"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/Index.java",
+  "clonedLines": 105,
+  "totalLines": 547,
+  "clonePercentage": 19,
+  "cloneIds": ["type1-clone9","type1-clone12","type1-clone25","type1-clone89","type1-clone136","type1-clone190","type1-clone191","type1-clone206","type1-clone288","type1-clone314","type1-clone336","type1-clone359","type1-clone370","type1-clone430","type1-clone532","type1-clone580","type1-clone701","type1-clone797","type1-clone861","type1-clone898","type1-clone982","type1-clone1012","type1-clone1027","type1-clone1029","type1-clone1030","type1-clone1043","type1-clone1093","type1-clone1113","type1-clone1163","type1-clone1173","type1-clone1197","type1-clone1214","type1-clone1267","type1-clone1407","type1-clone1419","type1-clone1425","type1-clone1426","type1-clone1490","type1-clone1498","type1-clone1501","type1-clone1529","type1-clone1552","type1-clone1558","type1-clone1618"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionBitLen.java",
+  "clonedLines": 15,
+  "totalLines": 64,
+  "clonePercentage": 23,
+  "cloneIds": ["type1-clone269","type1-clone410","type1-clone644","type1-clone1037","type1-clone1047","type1-clone1138","type1-clone1227"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionMod.java",
+  "clonedLines": 6,
+  "totalLines": 50,
+  "clonePercentage": 12,
+  "cloneIds": ["type1-clone1138","type1-clone1202","type1-clone1230","type1-clone1494"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/CreateFile.java",
+  "clonedLines": 13,
+  "totalLines": 92,
+  "clonePercentage": 14,
+  "cloneIds": ["type1-clone90","type1-clone453","type1-clone521","type1-clone539","type1-clone667","type1-clone769","type1-clone799","type1-clone883","type1-clone960","type1-clone978","type1-clone1509","type1-clone1601"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/MutableInteger.java",
+  "clonedLines": 15,
+  "totalLines": 70,
+  "clonePercentage": 21,
+  "cloneIds": ["type1-clone57","type1-clone384","type1-clone470","type1-clone475","type1-clone567","type1-clone917","type1-clone1000"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/LongTreeList.java",
+  "clonedLines": 130,
+  "totalLines": 623,
+  "clonePercentage": 20,
+  "cloneIds": ["type1-clone8","type1-clone80","type1-clone114","type1-clone132","type1-clone158","type1-clone165","type1-clone185","type1-clone295","type1-clone367","type1-clone390","type1-clone461","type1-clone496","type1-clone531","type1-clone537","type1-clone544","type1-clone577","type1-clone660","type1-clone661","type1-clone675","type1-clone694","type1-clone735","type1-clone738","type1-clone765","type1-clone771","type1-clone778","type1-clone779","type1-clone782","type1-clone867","type1-clone1004","type1-clone1006","type1-clone1009","type1-clone1034","type1-clone1089","type1-clone1104","type1-clone1140","type1-clone1246","type1-clone1262","type1-clone1278","type1-clone1331","type1-clone1363","type1-clone1395","type1-clone1408","type1-clone1455","type1-clone1503","type1-clone1515","type1-clone1542","type1-clone1559","type1-clone1571","type1-clone1585","type1-clone1592","type1-clone1617"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionLeft.java",
+  "clonedLines": 16,
+  "totalLines": 73,
+  "clonePercentage": 21,
+  "cloneIds": ["type1-clone102","type1-clone216","type1-clone224","type1-clone287","type1-clone410","type1-clone457","type1-clone644","type1-clone848","type1-clone1202","type1-clone1234","type1-clone1494","type1-clone1507"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionTan.java",
+  "clonedLines": 1,
+  "totalLines": 44,
+  "clonePercentage": 2,
+  "cloneIds": ["type1-clone1138"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/Utils.java",
+  "clonedLines": 126,
+  "totalLines": 477,
+  "clonePercentage": 26,
+  "cloneIds": ["type1-clone14","type1-clone33","type1-clone60","type1-clone63","type1-clone69","type1-clone90","type1-clone100","type1-clone115","type1-clone116","type1-clone131","type1-clone143","type1-clone144","type1-clone164","type1-clone170","type1-clone202","type1-clone252","type1-clone268","type1-clone305","type1-clone327","type1-clone398","type1-clone449","type1-clone476","type1-clone496","type1-clone511","type1-clone575","type1-clone633","type1-clone634","type1-clone662","type1-clone700","type1-clone723","type1-clone741","type1-clone758","type1-clone759","type1-clone762","type1-clone823","type1-clone852","type1-clone885","type1-clone906","type1-clone972","type1-clone977","type1-clone1004","type1-clone1029","type1-clone1039","type1-clone1095","type1-clone1104","type1-clone1111","type1-clone1149","type1-clone1187","type1-clone1209","type1-clone1231","type1-clone1305","type1-clone1363","type1-clone1388","type1-clone1390","type1-clone1395","type1-clone1509","type1-clone1529","type1-clone1532","type1-clone1538","type1-clone1541","type1-clone1556","type1-clone1559","type1-clone1564","type1-clone1601","type1-clone1612","type1-clone1613","type1-clone1616","type1-clone1635"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/CommandSet.java",
+  "clonedLines": 6,
+  "totalLines": 57,
+  "clonePercentage": 10,
+  "cloneIds": ["type1-clone9","type1-clone90","type1-clone684","type1-clone746","type1-clone785","type1-clone949"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/IndexScrollStatus.java",
+  "clonedLines": 50,
+  "totalLines": 186,
+  "clonePercentage": 26,
+  "cloneIds": ["type1-clone25","type1-clone34","type1-clone126","type1-clone141","type1-clone505","type1-clone543","type1-clone580","type1-clone774","type1-clone886","type1-clone894","type1-clone992","type1-clone1133","type1-clone1203","type1-clone1204","type1-clone1303","type1-clone1325","type1-clone1334","type1-clone1392","type1-clone1417","type1-clone1426"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/JoinScroll.java",
+  "clonedLines": 37,
+  "totalLines": 181,
+  "clonePercentage": 20,
+  "cloneIds": ["type1-clone32","type1-clone127","type1-clone350","type1-clone423","type1-clone429","type1-clone488","type1-clone549","type1-clone574","type1-clone651","type1-clone654","type1-clone702","type1-clone746","type1-clone785","type1-clone924","type1-clone983","type1-clone989","type1-clone1062","type1-clone1253","type1-clone1396","type1-clone1508","type1-clone1614"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/tools/CommandLine.java",
+  "clonedLines": 14,
+  "totalLines": 82,
+  "clonePercentage": 17,
+  "cloneIds": ["type1-clone78","type1-clone283","type1-clone844","type1-clone881","type1-clone952","type1-clone1258","type1-clone1265","type1-clone1282","type1-clone1315","type1-clone1616"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/StorePage.java",
+  "clonedLines": 8,
+  "totalLines": 91,
+  "clonePercentage": 8,
+  "cloneIds": ["type1-clone453","type1-clone769","type1-clone1549","type1-clone1573","type1-clone1615","type1-clone1616"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionOctetLen.java",
+  "clonedLines": 15,
+  "totalLines": 64,
+  "clonePercentage": 23,
+  "cloneIds": ["type1-clone269","type1-clone410","type1-clone644","type1-clone1037","type1-clone1047","type1-clone1138","type1-clone1227"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionTruncate.java",
+  "clonedLines": 36,
+  "totalLines": 71,
+  "clonePercentage": 50,
+  "cloneIds": ["type1-clone38","type1-clone173","type1-clone388","type1-clone971","type1-clone1033","type1-clone1138","type1-clone1159","type1-clone1202","type1-clone1230","type1-clone1274","type1-clone1440","type1-clone1494","type1-clone1525"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/Column.java",
+  "clonedLines": 15,
+  "totalLines": 182,
+  "clonePercentage": 8,
+  "cloneIds": ["type1-clone54","type1-clone90","type1-clone164","type1-clone540","type1-clone635","type1-clone769","type1-clone842","type1-clone845","type1-clone935","type1-clone970","type1-clone1616"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionMonth.java",
+  "clonedLines": 2,
+  "totalLines": 54,
+  "clonePercentage": 3,
+  "cloneIds": ["type1-clone241","type1-clone737"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/MutableFloat.java",
+  "clonedLines": 20,
+  "totalLines": 70,
+  "clonePercentage": 28,
+  "cloneIds": ["type1-clone57","type1-clone305","type1-clone384","type1-clone475","type1-clone567","type1-clone871","type1-clone917","type1-clone1000","type1-clone1023","type1-clone1209"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/TableViewResult.java",
+  "clonedLines": 15,
+  "totalLines": 118,
+  "clonePercentage": 12,
+  "cloneIds": ["type1-clone79","type1-clone90","type1-clone395","type1-clone528","type1-clone539","type1-clone561","type1-clone937","type1-clone960","type1-clone1137","type1-clone1393","type1-clone1504","type1-clone1553"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionLength.java",
+  "clonedLines": 4,
+  "totalLines": 55,
+  "clonePercentage": 7,
+  "cloneIds": ["type1-clone410","type1-clone459","type1-clone644","type1-clone964"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/LongLongList.java",
+  "clonedLines": 12,
+  "totalLines": 86,
+  "clonePercentage": 13,
+  "cloneIds": ["type1-clone228","type1-clone399","type1-clone402","type1-clone595","type1-clone919"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionACos.java",
+  "clonedLines": 1,
+  "totalLines": 44,
+  "clonePercentage": 2,
+  "cloneIds": ["type1-clone1138"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/SSStatement.java",
+  "clonedLines": 62,
+  "totalLines": 413,
+  "clonePercentage": 15,
+  "cloneIds": ["type1-clone76","type1-clone78","type1-clone90","type1-clone153","type1-clone164","type1-clone176","type1-clone194","type1-clone200","type1-clone234","type1-clone265","type1-clone386","type1-clone405","type1-clone452","type1-clone487","type1-clone539","type1-clone607","type1-clone608","type1-clone645","type1-clone749","type1-clone877","type1-clone960","type1-clone1026","type1-clone1046","type1-clone1078","type1-clone1141","type1-clone1217","type1-clone1257","type1-clone1273","type1-clone1302","type1-clone1379","type1-clone1386","type1-clone1461","type1-clone1475","type1-clone1573","type1-clone1606","type1-clone1615","type1-clone1616"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/Language/Language.java",
+  "clonedLines": 14,
+  "totalLines": 629,
+  "clonePercentage": 2,
+  "cloneIds": ["type1-clone175","type1-clone374","type1-clone498","type1-clone643","type1-clone666","type1-clone674","type1-clone1208"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionReturnInt.java",
+  "clonedLines": 14,
+  "totalLines": 97,
+  "clonePercentage": 14,
+  "cloneIds": ["type1-clone422","type1-clone457","type1-clone484","type1-clone1037","type1-clone1227","type1-clone1394","type1-clone1588"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionCharLen.java",
+  "clonedLines": 7,
+  "totalLines": 60,
+  "clonePercentage": 11,
+  "cloneIds": ["type1-clone410","type1-clone644","type1-clone1037","type1-clone1138","type1-clone1227"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionRand.java",
+  "clonedLines": 3,
+  "totalLines": 57,
+  "clonePercentage": 5,
+  "cloneIds": ["type1-clone1138","type1-clone1344"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/ExpressionFunctionHour.java",
+  "clonedLines": 2,
+  "totalLines": 54,
+  "clonePercentage": 3,
+  "cloneIds": ["type1-clone241","type1-clone737"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/Table.java",
+  "clonedLines": 160,
+  "totalLines": 568,
+  "clonePercentage": 28,
+  "cloneIds": ["type1-clone9","type1-clone27","type1-clone51","type1-clone62","type1-clone90","type1-clone124","type1-clone164","type1-clone217","type1-clone220","type1-clone239","type1-clone297","type1-clone379","type1-clone453","type1-clone506","type1-clone524","type1-clone536","type1-clone548","type1-clone556","type1-clone619","type1-clone625","type1-clone641","type1-clone664","type1-clone667","type1-clone669","type1-clone681","type1-clone730","type1-clone769","type1-clone811","type1-clone822","type1-clone824","type1-clone825","type1-clone836","type1-clone840","type1-clone854","type1-clone864","type1-clone866","type1-clone883","type1-clone892","type1-clone966","type1-clone976","type1-clone1018","type1-clone1032","type1-clone1098","type1-clone1120","type1-clone1122","type1-clone1124","type1-clone1184","type1-clone1205","type1-clone1314","type1-clone1330","type1-clone1364","type1-clone1457","type1-clone1468","type1-clone1495","type1-clone1509","type1-clone1530","type1-clone1531","type1-clone1547","type1-clone1549","type1-clone1555","type1-clone1622","type1-clone1632"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/TestScrollable.java",
+  "clonedLines": 70,
+  "totalLines": 319,
+  "clonePercentage": 21,
+  "cloneIds": ["type1-clone20","type1-clone58","type1-clone78","type1-clone111","type1-clone212","type1-clone214","type1-clone225","type1-clone280","type1-clone501","type1-clone557","type1-clone691","type1-clone820","type1-clone1135","type1-clone1192","type1-clone1328","type1-clone1404","type1-clone1461","type1-clone1534","type1-clone1583"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/DataSources.java",
+  "clonedLines": 9,
+  "totalLines": 62,
+  "clonePercentage": 14,
+  "cloneIds": ["type1-clone228","type1-clone402","type1-clone721","type1-clone919","type1-clone1006","type1-clone1116"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/database/Lobs.java",
+  "clonedLines": 2,
+  "totalLines": 58,
+  "clonePercentage": 3,
+  "cloneIds": ["type1-clone494","type1-clone1509"]
+},{
+  "name": "smallsql0.21_src/src/smallsql/junit/TestFunctions.java",
+  "clonedLines": 42,
+  "totalLines": 418,
+  "clonePercentage": 10,
+  "cloneIds": ["type1-clone20","type1-clone72","type1-clone245","type1-clone280","type1-clone316","type1-clone513","type1-clone522","type1-clone703","type1-clone815","type1-clone881","type1-clone909","type1-clone952","type1-clone956","type1-clone1195","type1-clone1259","type1-clone1289","type1-clone1486","type1-clone1611"]
+}]}

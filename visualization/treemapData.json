@@ -1,52 +1,4377 @@
-{
-    "files": {
-        "dummy_project/src/Calculator.java": {
-            "clonedLines": 22,
-            "totalLines": 120,
-            "clonePercentage": 18,
-            "cloneIds": ["2", "3", "4"]
-        },
-        "dummy_project/src/MathUtils.java": {
-            "clonedLines": 15,
-            "totalLines": 80,
-            "clonePercentage": 19,
-            "cloneIds": ["2", "3"]
-        },
-        "dummy_project/src/AddTwoNumbers.java": {
-            "clonedLines": 3,
-            "totalLines": 40,
-            "clonePercentage": 8,
-            "cloneIds": ["1"]
-        },
-        "dummy_project/src/SumTwoNumbers.java": {
-            "clonedLines": 3,
-            "totalLines": 35,
-            "clonePercentage": 9,
-            "cloneIds": ["1"]
-        },
-        "dummy_project/src/StringUtils.java": {
-            "clonedLines": 9,
-            "totalLines": 75,
-            "clonePercentage": 12,
-            "cloneIds": ["4"]
-        },
-        "dummy_project/src/DataValidator.java": {
-            "clonedLines": 11,
-            "totalLines": 60,
-            "clonePercentage": 18,
-            "cloneIds": ["5"]
-        },
-        "dummy_project/src/InputChecker.java": {
-            "clonedLines": 11,
-            "totalLines": 55,
-            "clonePercentage": 20,
-            "cloneIds": ["5"]
-        },
-        "dummy_project/src/UniqueImplementation.java": {
-            "clonedLines": 0,
-            "totalLines": 45,
-            "clonePercentage": 0,
-            "cloneIds": []
-        }
-    }
-} 
+{"files": [{
+  "name": "Collection.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/Collection.java",
+  "size": 71,
+  "clonedLines": 0,
+  "totalLines": 71,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCXADataSource.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/pool/JDBCXADataSource.java",
+  "size": 211,
+  "clonedLines": 0,
+  "totalLines": 211,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RefCapablePropertyResourceBundle.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/RefCapablePropertyResourceBundle.java",
+  "size": 472,
+  "clonedLines": 10,
+  "totalLines": 472,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone222, type2-clone362, type2-clone408"
+},{
+  "name": "NodeAVL.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/index/NodeAVL.java",
+  "size": 303,
+  "clonedLines": 0,
+  "totalLines": 303,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "OpTypes.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/OpTypes.java",
+  "size": 125,
+  "clonedLines": 0,
+  "totalLines": 125,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "LobStoreRAFile.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/LobStoreRAFile.java",
+  "size": 189,
+  "clonedLines": 0,
+  "totalLines": 189,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCSQLXML.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCSQLXML.java",
+  "size": 3141,
+  "clonedLines": 20,
+  "totalLines": 3141,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone68, type2-clone152, type2-clone456"
+},{
+  "name": "Trigger.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/Trigger.java",
+  "size": 128,
+  "clonedLines": 0,
+  "totalLines": 128,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Transfer.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/Transfer.java",
+  "size": 1290,
+  "clonedLines": 0,
+  "totalLines": 1290,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowInputTextLog.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/rowio/RowInputTextLog.java",
+  "size": 553,
+  "clonedLines": 0,
+  "totalLines": 553,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestJDBCGeneratedColumns.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestJDBCGeneratedColumns.java",
+  "size": 279,
+  "clonedLines": 6,
+  "totalLines": 279,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone115, type2-clone407"
+},{
+  "name": "ClobInputStream.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/ClobInputStream.java",
+  "size": 173,
+  "clonedLines": 10,
+  "totalLines": 173,
+  "clonePercentage": 5.0,
+  "cloneClasses": "type2-clone28, type2-clone131"
+},{
+  "name": "FileUtil.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/FileUtil.java",
+  "size": 600,
+  "clonedLines": 0,
+  "totalLines": 600,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Option.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/preprocessor/Option.java",
+  "size": 101,
+  "clonedLines": 0,
+  "totalLines": 101,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCCallableStatement.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCCallableStatement.java",
+  "size": 4997,
+  "clonedLines": 29,
+  "totalLines": 4997,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone60, type2-clone75, type2-clone109, type2-clone124, type2-clone194, type2-clone209, type2-clone298, type2-clone402, type2-clone435, type2-clone436"
+},{
+  "name": "Set.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/Set.java",
+  "size": 76,
+  "clonedLines": 0,
+  "totalLines": 76,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "LobStoreMem.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/LobStoreMem.java",
+  "size": 159,
+  "clonedLines": 0,
+  "totalLines": 159,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "BlobInputStream.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/BlobInputStream.java",
+  "size": 156,
+  "clonedLines": 10,
+  "totalLines": 156,
+  "clonePercentage": 6.0,
+  "cloneClasses": "type2-clone28, type2-clone131"
+},{
+  "name": "ColumnBase.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/ColumnBase.java",
+  "size": 157,
+  "clonedLines": 0,
+  "totalLines": 157,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "DatabaseInformationMain.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/dbinfo/DatabaseInformationMain.java",
+  "size": 3602,
+  "clonedLines": 85,
+  "totalLines": 3602,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone20, type2-clone33, type2-clone55, type2-clone61, type2-clone76, type2-clone114, type2-clone130, type2-clone140, type2-clone192, type2-clone227, type2-clone231, type2-clone252, type2-clone324, type2-clone330, type2-clone333, type2-clone359, type2-clone361, type2-clone377, type2-clone390, type2-clone391, type2-clone394, type2-clone399, type2-clone401, type2-clone403, type2-clone457"
+},{
+  "name": "JDBCDriver.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCDriver.java",
+  "size": 576,
+  "clonedLines": 0,
+  "totalLines": 576,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "WrapperIterator.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/WrapperIterator.java",
+  "size": 214,
+  "clonedLines": 0,
+  "totalLines": 214,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ServerConfiguration.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/server/ServerConfiguration.java",
+  "size": 292,
+  "clonedLines": 0,
+  "totalLines": 292,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowSetNavigator.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/navigator/RowSetNavigator.java",
+  "size": 334,
+  "clonedLines": 0,
+  "totalLines": 334,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Line.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/preprocessor/Line.java",
+  "size": 163,
+  "clonedLines": 0,
+  "totalLines": 163,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TextFileSettings.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/TextFileSettings.java",
+  "size": 287,
+  "clonedLines": 0,
+  "totalLines": 287,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "AuthFunctionBean.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/auth/AuthFunctionBean.java",
+  "size": 62,
+  "clonedLines": 0,
+  "totalLines": 62,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "StatementSession.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/StatementSession.java",
+  "size": 733,
+  "clonedLines": 15,
+  "totalLines": 733,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone2, type2-clone43, type2-clone111, type2-clone137, type2-clone421, type2-clone448"
+},{
+  "name": "RandomAccessInterface.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/RandomAccessInterface.java",
+  "size": 72,
+  "clonedLines": 0,
+  "totalLines": 72,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCBlobClient.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCBlobClient.java",
+  "size": 395,
+  "clonedLines": 1,
+  "totalLines": 395,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone131"
+},{
+  "name": "TextFileReader.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/TextFileReader.java",
+  "size": 316,
+  "clonedLines": 0,
+  "totalLines": 316,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "IntArrayCachedObject.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/IntArrayCachedObject.java",
+  "size": 108,
+  "clonedLines": 0,
+  "totalLines": 108,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "CommonSwing.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/CommonSwing.java",
+  "size": 239,
+  "clonedLines": 0,
+  "totalLines": 239,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Charset.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/Charset.java",
+  "size": 276,
+  "clonedLines": 0,
+  "totalLines": 276,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ThreadFactory.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/ThreadFactory.java",
+  "size": 42,
+  "clonedLines": 0,
+  "totalLines": 42,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "FunctionSQL.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/FunctionSQL.java",
+  "size": 2142,
+  "clonedLines": 232,
+  "totalLines": 2142,
+  "clonePercentage": 10.0,
+  "cloneClasses": "type2-clone19, type2-clone25, type2-clone26, type2-clone34, type2-clone41, type2-clone42, type2-clone47, type2-clone62, type2-clone63, type2-clone69, type2-clone74, type2-clone82, type2-clone91, type2-clone107, type2-clone116, type2-clone164, type2-clone179, type2-clone250, type2-clone291, type2-clone307, type2-clone311, type2-clone322, type2-clone338, type2-clone343, type2-clone350, type2-clone384, type2-clone432"
+},{
+  "name": "Session.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/Session.java",
+  "size": 2304,
+  "clonedLines": 46,
+  "totalLines": 2304,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone54, type2-clone234, type2-clone267"
+},{
+  "name": "TransferDb.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/TransferDb.java",
+  "size": 951,
+  "clonedLines": 3,
+  "totalLines": 951,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone216"
+},{
+  "name": "JDBCClobClient.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCClobClient.java",
+  "size": 761,
+  "clonedLines": 6,
+  "totalLines": 761,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone357"
+},{
+  "name": "RAFile.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/RAFile.java",
+  "size": 501,
+  "clonedLines": 12,
+  "totalLines": 501,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone35"
+},{
+  "name": "RAShadowFile.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/RAShadowFile.java",
+  "size": 346,
+  "clonedLines": 3,
+  "totalLines": 346,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone39"
+},{
+  "name": "JDBCRowId.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCRowId.java",
+  "size": 223,
+  "clonedLines": 0,
+  "totalLines": 223,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ExpressionTable.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/ExpressionTable.java",
+  "size": 270,
+  "clonedLines": 0,
+  "totalLines": 270,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "BasicTextJdkLogFormatter.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/BasicTextJdkLogFormatter.java",
+  "size": 84,
+  "clonedLines": 0,
+  "totalLines": 84,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "NodeAVLDiskLarge.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/index/NodeAVLDiskLarge.java",
+  "size": 550,
+  "clonedLines": 29,
+  "totalLines": 550,
+  "clonePercentage": 5.0,
+  "cloneClasses": "type2-clone72, type2-clone215, type2-clone230, type2-clone265, type2-clone293, type2-clone406"
+},{
+  "name": "TransactionManagerMV2PL.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/TransactionManagerMV2PL.java",
+  "size": 565,
+  "clonedLines": 0,
+  "totalLines": 565,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowStoreAVLMemory.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/RowStoreAVLMemory.java",
+  "size": 199,
+  "clonedLines": 0,
+  "totalLines": 199,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Testdb.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/sample/Testdb.java",
+  "size": 203,
+  "clonedLines": 0,
+  "totalLines": 203,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "SQLStatements.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/SQLStatements.java",
+  "size": 100,
+  "clonedLines": 0,
+  "totalLines": 100,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestCascade.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestCascade.java",
+  "size": 180,
+  "clonedLines": 0,
+  "totalLines": 180,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowStoreAVL.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/RowStoreAVL.java",
+  "size": 656,
+  "clonedLines": 6,
+  "totalLines": 656,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone318"
+},{
+  "name": "SqltoolRB.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/cmdline/SqltoolRB.java",
+  "size": 344,
+  "clonedLines": 0,
+  "totalLines": 344,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "HsqlArrayHeap.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/HsqlArrayHeap.java",
+  "size": 331,
+  "clonedLines": 0,
+  "totalLines": 331,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "HsqlSocketFactory.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/server/HsqlSocketFactory.java",
+  "size": 221,
+  "clonedLines": 0,
+  "totalLines": 221,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "HsqlTimer.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/HsqlTimer.java",
+  "size": 958,
+  "clonedLines": 10,
+  "totalLines": 958,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone441"
+},{
+  "name": "View.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/View.java",
+  "size": 288,
+  "clonedLines": 0,
+  "totalLines": 288,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ConnectionSetting.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/ConnectionSetting.java",
+  "size": 101,
+  "clonedLines": 0,
+  "totalLines": 101,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Index.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/index/Index.java",
+  "size": 259,
+  "clonedLines": 0,
+  "totalLines": 259,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RCData.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/RCData.java",
+  "size": 500,
+  "clonedLines": 0,
+  "totalLines": 500,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "NodeAVLDisk.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/index/NodeAVLDisk.java",
+  "size": 565,
+  "clonedLines": 26,
+  "totalLines": 565,
+  "clonePercentage": 4.0,
+  "cloneClasses": "type2-clone72, type2-clone215, type2-clone230, type2-clone265, type2-clone293, type2-clone352"
+},{
+  "name": "JDBCResultSetMetaData.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCResultSetMetaData.java",
+  "size": 1037,
+  "clonedLines": 9,
+  "totalLines": 1037,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone333, type2-clone455"
+},{
+  "name": "StatementResultUpdate.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/StatementResultUpdate.java",
+  "size": 244,
+  "clonedLines": 2,
+  "totalLines": 244,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone453"
+},{
+  "name": "DatabaseManager.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/DatabaseManager.java",
+  "size": 1365,
+  "clonedLines": 61,
+  "totalLines": 1365,
+  "clonePercentage": 4.0,
+  "cloneClasses": "type2-clone65, type2-clone77, type2-clone87, type2-clone134, type2-clone292, type2-clone423, type2-clone427"
+},{
+  "name": "TestLikePredicateOptimizations.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestLikePredicateOptimizations.java",
+  "size": 313,
+  "clonedLines": 0,
+  "totalLines": 313,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "SimpleStore.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/SimpleStore.java",
+  "size": 215,
+  "clonedLines": 0,
+  "totalLines": 215,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Right.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/rights/Right.java",
+  "size": 1001,
+  "clonedLines": 12,
+  "totalLines": 1001,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone239, type2-clone297, type2-clone313, type2-clone344"
+},{
+  "name": "JDBCSavepoint.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCSavepoint.java",
+  "size": 138,
+  "clonedLines": 0,
+  "totalLines": 138,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "DatabaseURL.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/DatabaseURL.java",
+  "size": 402,
+  "clonedLines": 0,
+  "totalLines": 402,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JavaSystem.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/java/JavaSystem.java",
+  "size": 147,
+  "clonedLines": 0,
+  "totalLines": 147,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowAVLDiskData.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/RowAVLDiskData.java",
+  "size": 237,
+  "clonedLines": 0,
+  "totalLines": 237,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCDataSource.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCDataSource.java",
+  "size": 275,
+  "clonedLines": 0,
+  "totalLines": 275,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "IntKeyHashMap.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/IntKeyHashMap.java",
+  "size": 186,
+  "clonedLines": 0,
+  "totalLines": 186,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "StatementProcedure.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/StatementProcedure.java",
+  "size": 396,
+  "clonedLines": 3,
+  "totalLines": 396,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone161"
+},{
+  "name": "TarReader.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/tar/TarReader.java",
+  "size": 798,
+  "clonedLines": 12,
+  "totalLines": 798,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone12, type2-clone156, type2-clone424"
+},{
+  "name": "JDBCColumnMetaData.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCColumnMetaData.java",
+  "size": 161,
+  "clonedLines": 0,
+  "totalLines": 161,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RB.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/tar/RB.java",
+  "size": 179,
+  "clonedLines": 0,
+  "totalLines": 179,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "OtherType.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/OtherType.java",
+  "size": 197,
+  "clonedLines": 0,
+  "totalLines": 197,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Grantee.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/rights/Grantee.java",
+  "size": 1222,
+  "clonedLines": 0,
+  "totalLines": 1222,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "MD5.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/MD5.java",
+  "size": 181,
+  "clonedLines": 0,
+  "totalLines": 181,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "HsqldbSlaveAuthBean.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/auth/HsqldbSlaveAuthBean.java",
+  "size": 175,
+  "clonedLines": 0,
+  "totalLines": 175,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "SessionInterface.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/SessionInterface.java",
+  "size": 154,
+  "clonedLines": 0,
+  "totalLines": 154,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "LobData.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/LobData.java",
+  "size": 56,
+  "clonedLines": 0,
+  "totalLines": 56,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "WebServer.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/doc/verbatim/src/org/hsqldb/server/WebServer.java",
+  "size": 280,
+  "clonedLines": 0,
+  "totalLines": 280,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Collation.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/Collation.java",
+  "size": 568,
+  "clonedLines": 0,
+  "totalLines": 568,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "CountdownInputStream.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/CountdownInputStream.java",
+  "size": 149,
+  "clonedLines": 0,
+  "totalLines": 149,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestSchemaParse.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestSchemaParse.java",
+  "size": 1022,
+  "clonedLines": 0,
+  "totalLines": 1022,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCPreparedStatement.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCPreparedStatement.java",
+  "size": 4738,
+  "clonedLines": 25,
+  "totalLines": 4738,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone126, type2-clone229, type2-clone436"
+},{
+  "name": "Server.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/Server.java",
+  "size": 36,
+  "clonedLines": 0,
+  "totalLines": 36,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Grid.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/Grid.java",
+  "size": 615,
+  "clonedLines": 2,
+  "totalLines": 615,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone48"
+},{
+  "name": "ConnectionDialog.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/ConnectionDialog.java",
+  "size": 352,
+  "clonedLines": 3,
+  "totalLines": 352,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone147, type2-clone323"
+},{
+  "name": "LongValueHashMap.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/LongValueHashMap.java",
+  "size": 220,
+  "clonedLines": 0,
+  "totalLines": 220,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestMultiInsert.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestMultiInsert.java",
+  "size": 160,
+  "clonedLines": 0,
+  "totalLines": 160,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestHSQLDB.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestHSQLDB.java",
+  "size": 97,
+  "clonedLines": 0,
+  "totalLines": 97,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "StatementDMQL.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/StatementDMQL.java",
+  "size": 822,
+  "clonedLines": 3,
+  "totalLines": 822,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone161"
+},{
+  "name": "SqlToolError.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/cmdline/SqlToolError.java",
+  "size": 65,
+  "clonedLines": 0,
+  "totalLines": 65,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TransferSQLText.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/TransferSQLText.java",
+  "size": 865,
+  "clonedLines": 21,
+  "totalLines": 865,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone118, type2-clone216, type2-clone302"
+},{
+  "name": "IndexAVLMemory.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/index/IndexAVLMemory.java",
+  "size": 559,
+  "clonedLines": 23,
+  "totalLines": 559,
+  "clonePercentage": 4.0,
+  "cloneClasses": "type2-clone6, type2-clone110, type2-clone138, type2-clone264, type2-clone305"
+},{
+  "name": "jdbcDriver.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbcDriver.java",
+  "size": 36,
+  "clonedLines": 0,
+  "totalLines": 36,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RangeIterator.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/navigator/RangeIterator.java",
+  "size": 60,
+  "clonedLines": 0,
+  "totalLines": 60,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "KMPSearchAlgorithm.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/KMPSearchAlgorithm.java",
+  "size": 560,
+  "clonedLines": 44,
+  "totalLines": 560,
+  "clonePercentage": 7.0,
+  "cloneClasses": "type2-clone31, type2-clone169, type2-clone303"
+},{
+  "name": "RAFileHybrid.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/RAFileHybrid.java",
+  "size": 194,
+  "clonedLines": 0,
+  "totalLines": 194,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowSetNavigatorDataChangeMemory.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/navigator/RowSetNavigatorDataChangeMemory.java",
+  "size": 216,
+  "clonedLines": 0,
+  "totalLines": 216,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ScriptWriterEncode.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/scriptio/ScriptWriterEncode.java",
+  "size": 159,
+  "clonedLines": 2,
+  "totalLines": 159,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone79"
+},{
+  "name": "RangeGroup.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/RangeGroup.java",
+  "size": 108,
+  "clonedLines": 0,
+  "totalLines": 108,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TarGenerator.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/tar/TarGenerator.java",
+  "size": 726,
+  "clonedLines": 3,
+  "totalLines": 726,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone424"
+},{
+  "name": "TestPreparedSubQueries.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestPreparedSubQueries.java",
+  "size": 318,
+  "clonedLines": 0,
+  "totalLines": 318,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RAStorageWrapper.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/RAStorageWrapper.java",
+  "size": 115,
+  "clonedLines": 0,
+  "totalLines": 115,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Preprocessor.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/preprocessor/Preprocessor.java",
+  "size": 738,
+  "clonedLines": 0,
+  "totalLines": 738,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "CountUpDownLatch.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/CountUpDownLatch.java",
+  "size": 95,
+  "clonedLines": 0,
+  "totalLines": 95,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "LongKeyLongValueHashMap.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/LongKeyLongValueHashMap.java",
+  "size": 209,
+  "clonedLines": 0,
+  "totalLines": 209,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "IndexAVL.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/index/IndexAVL.java",
+  "size": 2037,
+  "clonedLines": 30,
+  "totalLines": 2037,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone6, type2-clone110, type2-clone138, type2-clone264, type2-clone289, type2-clone305, type2-clone389"
+},{
+  "name": "AuthUtils.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/auth/AuthUtils.java",
+  "size": 100,
+  "clonedLines": 0,
+  "totalLines": 100,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCXAConnectionWrapper.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/pool/JDBCXAConnectionWrapper.java",
+  "size": 189,
+  "clonedLines": 0,
+  "totalLines": 189,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "IntKeyIntValueHashMap.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/IntKeyIntValueHashMap.java",
+  "size": 202,
+  "clonedLines": 0,
+  "totalLines": 202,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ExpressionArithmetic.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/ExpressionArithmetic.java",
+  "size": 661,
+  "clonedLines": 26,
+  "totalLines": 661,
+  "clonePercentage": 3.0,
+  "cloneClasses": "type2-clone176, type2-clone182, type2-clone187, type2-clone204, type2-clone210, type2-clone266, type2-clone310, type2-clone320, type2-clone381, type2-clone414"
+},{
+  "name": "LockFile.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/LockFile.java",
+  "size": 2390,
+  "clonedLines": 0,
+  "totalLines": 2390,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "BitMap.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/map/BitMap.java",
+  "size": 707,
+  "clonedLines": 18,
+  "totalLines": 707,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone27, type2-clone121, type2-clone166, type2-clone208, type2-clone226, type2-clone248"
+},{
+  "name": "DatabaseManager.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/DatabaseManager.java",
+  "size": 532,
+  "clonedLines": 34,
+  "totalLines": 532,
+  "clonePercentage": 6.0,
+  "cloneClasses": "type2-clone380, type2-clone446"
+},{
+  "name": "RowStoreAVLDisk.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/RowStoreAVLDisk.java",
+  "size": 471,
+  "clonedLines": 6,
+  "totalLines": 471,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone318"
+},{
+  "name": "AppendableException.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/AppendableException.java",
+  "size": 99,
+  "clonedLines": 0,
+  "totalLines": 99,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "LineType.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/preprocessor/LineType.java",
+  "size": 128,
+  "clonedLines": 0,
+  "totalLines": 128,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "LineReader.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/LineReader.java",
+  "size": 128,
+  "clonedLines": 0,
+  "totalLines": 128,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowDiskDataChange.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/RowDiskDataChange.java",
+  "size": 176,
+  "clonedLines": 0,
+  "totalLines": 176,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowSetNavigatorDataChange.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/navigator/RowSetNavigatorDataChange.java",
+  "size": 80,
+  "clonedLines": 0,
+  "totalLines": 80,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ClearTests.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/ClearTests.java",
+  "size": 50,
+  "clonedLines": 0,
+  "totalLines": 50,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestStoredProcedure.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestStoredProcedure.java",
+  "size": 564,
+  "clonedLines": 0,
+  "totalLines": 564,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "BitType.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/BitType.java",
+  "size": 580,
+  "clonedLines": 0,
+  "totalLines": 580,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCUtil.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCUtil.java",
+  "size": 959,
+  "clonedLines": 0,
+  "totalLines": 959,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ExpressionLogical.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/ExpressionLogical.java",
+  "size": 2364,
+  "clonedLines": 65,
+  "totalLines": 2364,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone21, type2-clone88, type2-clone128, type2-clone139, type2-clone172, type2-clone182, type2-clone187, type2-clone204, type2-clone210, type2-clone266, type2-clone279, type2-clone290, type2-clone310, type2-clone315, type2-clone368, type2-clone414, type2-clone452"
+},{
+  "name": "TestLibSpeed.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestLibSpeed.java",
+  "size": 239,
+  "clonedLines": 0,
+  "totalLines": 239,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestBench.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestBench.java",
+  "size": 1098,
+  "clonedLines": 15,
+  "totalLines": 1098,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone14, type2-clone93, type2-clone223, type2-clone281, type2-clone284, type2-clone376"
+},{
+  "name": "TestHarness.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestHarness.java",
+  "size": 278,
+  "clonedLines": 0,
+  "totalLines": 278,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCConnectionEventListener.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCConnectionEventListener.java",
+  "size": 41,
+  "clonedLines": 0,
+  "totalLines": 41,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCXAConnection.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/pool/JDBCXAConnection.java",
+  "size": 95,
+  "clonedLines": 0,
+  "totalLines": 95,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestUtil.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestUtil.java",
+  "size": 1370,
+  "clonedLines": 11,
+  "totalLines": 1370,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone7, type2-clone274, type2-clone329"
+},{
+  "name": "RowStoreAVLHybrid.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/RowStoreAVLHybrid.java",
+  "size": 407,
+  "clonedLines": 6,
+  "totalLines": 407,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone318"
+},{
+  "name": "Schema.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/Schema.java",
+  "size": 379,
+  "clonedLines": 0,
+  "totalLines": 379,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JavaObjectData.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/JavaObjectData.java",
+  "size": 134,
+  "clonedLines": 0,
+  "totalLines": 134,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestBug778213.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestBug778213.java",
+  "size": 191,
+  "clonedLines": 0,
+  "totalLines": 191,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TarMalformatException.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/tar/TarMalformatException.java",
+  "size": 40,
+  "clonedLines": 0,
+  "totalLines": 40,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "BinaryData.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/BinaryData.java",
+  "size": 313,
+  "clonedLines": 1,
+  "totalLines": 313,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone131"
+},{
+  "name": "HashIndex.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/map/HashIndex.java",
+  "size": 272,
+  "clonedLines": 0,
+  "totalLines": 272,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Storage.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/Storage.java",
+  "size": 71,
+  "clonedLines": 0,
+  "totalLines": 71,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ArrayUtil.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/ArrayUtil.java",
+  "size": 1723,
+  "clonedLines": 20,
+  "totalLines": 1723,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone188, type2-clone189, type2-clone212, type2-clone228, type2-clone258, type2-clone325"
+},{
+  "name": "HsqlDateTime.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/HsqlDateTime.java",
+  "size": 927,
+  "clonedLines": 4,
+  "totalLines": 927,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone49"
+},{
+  "name": "StatementSchema.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/StatementSchema.java",
+  "size": 1565,
+  "clonedLines": 34,
+  "totalLines": 1565,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone32, type2-clone71, type2-clone103, type2-clone120, type2-clone356, type2-clone379, type2-clone458"
+},{
+  "name": "TestPreparedStatements.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestPreparedStatements.java",
+  "size": 223,
+  "clonedLines": 0,
+  "totalLines": 223,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TableUtil.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/TableUtil.java",
+  "size": 114,
+  "clonedLines": 0,
+  "totalLines": 114,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ResourceBundleHandler.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/resources/ResourceBundleHandler.java",
+  "size": 246,
+  "clonedLines": 0,
+  "totalLines": 246,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowInputBinary.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/rowio/RowInputBinary.java",
+  "size": 317,
+  "clonedLines": 1,
+  "totalLines": 317,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone29"
+},{
+  "name": "HsqlThreadFactory.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/HsqlThreadFactory.java",
+  "size": 111,
+  "clonedLines": 0,
+  "totalLines": 111,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RAFileInJar.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/RAFileInJar.java",
+  "size": 277,
+  "clonedLines": 12,
+  "totalLines": 277,
+  "clonePercentage": 4.0,
+  "cloneClasses": "type2-clone145"
+},{
+  "name": "JDBCStatement.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCStatement.java",
+  "size": 1828,
+  "clonedLines": 1,
+  "totalLines": 1828,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone229"
+},{
+  "name": "ResultConstants.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/result/ResultConstants.java",
+  "size": 729,
+  "clonedLines": 0,
+  "totalLines": 729,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "SchemaObject.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/SchemaObject.java",
+  "size": 155,
+  "clonedLines": 0,
+  "totalLines": 155,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ServerConstants.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/server/ServerConstants.java",
+  "size": 82,
+  "clonedLines": 0,
+  "totalLines": 82,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowIterator.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/navigator/RowIterator.java",
+  "size": 57,
+  "clonedLines": 0,
+  "totalLines": 57,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowAction.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/RowAction.java",
+  "size": 933,
+  "clonedLines": 38,
+  "totalLines": 933,
+  "clonePercentage": 4.0,
+  "cloneClasses": "type2-clone217, type2-clone345"
+},{
+  "name": "LongLookup.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/LongLookup.java",
+  "size": 53,
+  "clonedLines": 0,
+  "totalLines": 53,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ConnectionTypesSample.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/sample/ConnectionTypesSample.java",
+  "size": 54,
+  "clonedLines": 0,
+  "totalLines": 54,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "OdbcPacketInputStream.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/server/OdbcPacketInputStream.java",
+  "size": 226,
+  "clonedLines": 2,
+  "totalLines": 226,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone149"
+},{
+  "name": "HsqlDeque.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/HsqlDeque.java",
+  "size": 360,
+  "clonedLines": 10,
+  "totalLines": 360,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone101, type2-clone386"
+},{
+  "name": "Statement.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/Statement.java",
+  "size": 274,
+  "clonedLines": 0,
+  "totalLines": 274,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestDbBackup.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestDbBackup.java",
+  "size": 625,
+  "clonedLines": 8,
+  "totalLines": 625,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone300"
+},{
+  "name": "IntervalMonthData.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/IntervalMonthData.java",
+  "size": 115,
+  "clonedLines": 0,
+  "totalLines": 115,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ObjectComparator.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/ObjectComparator.java",
+  "size": 41,
+  "clonedLines": 0,
+  "totalLines": 41,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "PersistentStore.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/PersistentStore.java",
+  "size": 169,
+  "clonedLines": 0,
+  "totalLines": 169,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestSql.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestSql.java",
+  "size": 937,
+  "clonedLines": 0,
+  "totalLines": 937,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestObjectSize.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestObjectSize.java",
+  "size": 76,
+  "clonedLines": 0,
+  "totalLines": 76,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Result.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/result/Result.java",
+  "size": 1608,
+  "clonedLines": 0,
+  "totalLines": 1608,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "StringInputStream.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/StringInputStream.java",
+  "size": 81,
+  "clonedLines": 0,
+  "totalLines": 81,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ExpressionAccessor.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/ExpressionAccessor.java",
+  "size": 201,
+  "clonedLines": 0,
+  "totalLines": 201,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Server.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/server/Server.java",
+  "size": 2535,
+  "clonedLines": 0,
+  "totalLines": 2535,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestUpdatableResults.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestUpdatableResults.java",
+  "size": 101,
+  "clonedLines": 0,
+  "totalLines": 101,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Token.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/cmdline/sqltool/Token.java",
+  "size": 153,
+  "clonedLines": 0,
+  "totalLines": 153,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ExpressionArrayAggregate.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/ExpressionArrayAggregate.java",
+  "size": 414,
+  "clonedLines": 2,
+  "totalLines": 414,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone154, type2-clone294"
+},{
+  "name": "SqlFileScanner.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/cmdline/sqltool/SqlFileScanner.java",
+  "size": 1106,
+  "clonedLines": 5,
+  "totalLines": 1106,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone125, type2-clone398"
+},{
+  "name": "DoubleIntIndex.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/DoubleIntIndex.java",
+  "size": 866,
+  "clonedLines": 8,
+  "totalLines": 866,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone193"
+},{
+  "name": "TarFileOutputStream.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/tar/TarFileOutputStream.java",
+  "size": 372,
+  "clonedLines": 0,
+  "totalLines": 372,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestInstantiation.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestInstantiation.java",
+  "size": 79,
+  "clonedLines": 0,
+  "totalLines": 79,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "StatementManager.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/StatementManager.java",
+  "size": 390,
+  "clonedLines": 0,
+  "totalLines": 390,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Table.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/Table.java",
+  "size": 3001,
+  "clonedLines": 29,
+  "totalLines": 3001,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone86, type2-clone340, type2-clone347, type2-clone425"
+},{
+  "name": "DataSpaceManagerSimple.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/DataSpaceManagerSimple.java",
+  "size": 216,
+  "clonedLines": 1,
+  "totalLines": 216,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone1"
+},{
+  "name": "ReadWriteLockDummy.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/ReadWriteLockDummy.java",
+  "size": 70,
+  "clonedLines": 0,
+  "totalLines": 70,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ErrorCode.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/error/ErrorCode.java",
+  "size": 687,
+  "clonedLines": 0,
+  "totalLines": 687,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "OrderedLongKeyHashMap.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/OrderedLongKeyHashMap.java",
+  "size": 244,
+  "clonedLines": 0,
+  "totalLines": 244,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RAFileNIO.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/RAFileNIO.java",
+  "size": 550,
+  "clonedLines": 0,
+  "totalLines": 550,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "StringUtil.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/StringUtil.java",
+  "size": 413,
+  "clonedLines": 0,
+  "totalLines": 413,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TokenList.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/cmdline/sqltool/TokenList.java",
+  "size": 60,
+  "clonedLines": 0,
+  "totalLines": 60,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCConnection.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCConnection.java",
+  "size": 3866,
+  "clonedLines": 0,
+  "totalLines": 3866,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowOutputBinary.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/rowio/RowOutputBinary.java",
+  "size": 480,
+  "clonedLines": 2,
+  "totalLines": 480,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone280"
+},{
+  "name": "LobStore.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/LobStore.java",
+  "size": 57,
+  "clonedLines": 0,
+  "totalLines": 57,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ParserDDL.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/ParserDDL.java",
+  "size": 5206,
+  "clonedLines": 48,
+  "totalLines": 5206,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone83, type2-clone188, type2-clone375, type2-clone382"
+},{
+  "name": "TarFileInputStream.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/tar/TarFileInputStream.java",
+  "size": 307,
+  "clonedLines": 0,
+  "totalLines": 307,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TriggerSample.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/sample/TriggerSample.java",
+  "size": 505,
+  "clonedLines": 0,
+  "totalLines": 505,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "PersistentStoreCollection.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/PersistentStoreCollection.java",
+  "size": 41,
+  "clonedLines": 0,
+  "totalLines": 41,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "PreprocessorException.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/preprocessor/PreprocessorException.java",
+  "size": 47,
+  "clonedLines": 0,
+  "totalLines": 47,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowAVL.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/RowAVL.java",
+  "size": 215,
+  "clonedLines": 0,
+  "totalLines": 215,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "SqlFileEmbedder.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/sample/SqlFileEmbedder.java",
+  "size": 150,
+  "clonedLines": 0,
+  "totalLines": 150,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestBatchExecution.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestBatchExecution.java",
+  "size": 444,
+  "clonedLines": 3,
+  "totalLines": 444,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone262"
+},{
+  "name": "CharacterType.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/CharacterType.java",
+  "size": 1156,
+  "clonedLines": 10,
+  "totalLines": 1156,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone416, type2-clone433"
+},{
+  "name": "Constraint.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/Constraint.java",
+  "size": 1015,
+  "clonedLines": 0,
+  "totalLines": 1015,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ScriptWriterBase.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/scriptio/ScriptWriterBase.java",
+  "size": 445,
+  "clonedLines": 2,
+  "totalLines": 445,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone79"
+},{
+  "name": "DatabaseInformationFull.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/dbinfo/DatabaseInformationFull.java",
+  "size": 8622,
+  "clonedLines": 674,
+  "totalLines": 8622,
+  "clonePercentage": 7.0,
+  "cloneClasses": "type2-clone5, type2-clone13, type2-clone15, type2-clone33, type2-clone52, type2-clone55, type2-clone59, type2-clone61, type2-clone64, type2-clone66, type2-clone67, type2-clone70, type2-clone76, type2-clone78, type2-clone99, type2-clone114, type2-clone122, type2-clone123, type2-clone130, type2-clone140, type2-clone153, type2-clone155, type2-clone160, type2-clone174, type2-clone175, type2-clone180, type2-clone183, type2-clone192, type2-clone201, type2-clone202, type2-clone207, type2-clone225, type2-clone227, type2-clone231, type2-clone235, type2-clone245, type2-clone247, type2-clone251, type2-clone252, type2-clone254, type2-clone256, type2-clone261, type2-clone283, type2-clone296, type2-clone301, type2-clone346, type2-clone354, type2-clone355, type2-clone361, type2-clone363, type2-clone367, type2-clone369, type2-clone394, type2-clone397, type2-clone399, type2-clone400, type2-clone401, type2-clone403, type2-clone404, type2-clone405, type2-clone415, type2-clone429, type2-clone430, type2-clone440, type2-clone451, type2-clone454"
+},{
+  "name": "ExpressionOrderBy.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/ExpressionOrderBy.java",
+  "size": 147,
+  "clonedLines": 0,
+  "totalLines": 147,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ServerConnection.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/server/ServerConnection.java",
+  "size": 1982,
+  "clonedLines": 0,
+  "totalLines": 1982,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "SqlServerTransferHelper.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/SqlServerTransferHelper.java",
+  "size": 131,
+  "clonedLines": 0,
+  "totalLines": 131,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "BlobData.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/BlobData.java",
+  "size": 96,
+  "clonedLines": 0,
+  "totalLines": 96,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ArraySort.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/ArraySort.java",
+  "size": 207,
+  "clonedLines": 8,
+  "totalLines": 207,
+  "clonePercentage": 3.0,
+  "cloneClasses": "type2-clone193"
+},{
+  "name": "StatementCommand.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/StatementCommand.java",
+  "size": 1352,
+  "clonedLines": 29,
+  "totalLines": 1352,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone90, type2-clone137, type2-clone287, type2-clone395, type2-clone448"
+},{
+  "name": "TableSpaceManagerSimple.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/TableSpaceManagerSimple.java",
+  "size": 106,
+  "clonedLines": 0,
+  "totalLines": 106,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "BooleanType.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/BooleanType.java",
+  "size": 297,
+  "clonedLines": 4,
+  "totalLines": 297,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone97"
+},{
+  "name": "SchemaManager.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/SchemaManager.java",
+  "size": 2903,
+  "clonedLines": 0,
+  "totalLines": 2903,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ParserCommand.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/ParserCommand.java",
+  "size": 2288,
+  "clonedLines": 63,
+  "totalLines": 2288,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone80, type2-clone150, type2-clone358"
+},{
+  "name": "DenyException.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/auth/DenyException.java",
+  "size": 40,
+  "clonedLines": 0,
+  "totalLines": 40,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "MultiValueHashMap.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/MultiValueHashMap.java",
+  "size": 204,
+  "clonedLines": 0,
+  "totalLines": 204,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "DirectoryBlockCachedObject.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/DirectoryBlockCachedObject.java",
+  "size": 151,
+  "clonedLines": 0,
+  "totalLines": 151,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowOutputBinary180.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/rowio/RowOutputBinary180.java",
+  "size": 97,
+  "clonedLines": 0,
+  "totalLines": 97,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "HsqlHeap.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/HsqlHeap.java",
+  "size": 103,
+  "clonedLines": 0,
+  "totalLines": 103,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TarHeaderField.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/tar/TarHeaderField.java",
+  "size": 119,
+  "clonedLines": 0,
+  "totalLines": 119,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ConstraintCore.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/ConstraintCore.java",
+  "size": 95,
+  "clonedLines": 0,
+  "totalLines": 95,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCBlob.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCBlob.java",
+  "size": 788,
+  "clonedLines": 23,
+  "totalLines": 788,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone58, type2-clone141, type2-clone364, type2-clone396"
+},{
+  "name": "HsqlSocketFactorySecure.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/server/HsqlSocketFactorySecure.java",
+  "size": 404,
+  "clonedLines": 0,
+  "totalLines": 404,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ClobData.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/ClobData.java",
+  "size": 85,
+  "clonedLines": 0,
+  "totalLines": 85,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowStoreDataChange.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/RowStoreDataChange.java",
+  "size": 85,
+  "clonedLines": 0,
+  "totalLines": 85,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "CharArrayWriter.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/CharArrayWriter.java",
+  "size": 186,
+  "clonedLines": 0,
+  "totalLines": 186,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "CachedObject.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/CachedObject.java",
+  "size": 90,
+  "clonedLines": 0,
+  "totalLines": 90,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Crypto.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/Crypto.java",
+  "size": 216,
+  "clonedLines": 12,
+  "totalLines": 216,
+  "clonePercentage": 5.0,
+  "cloneClasses": "type2-clone22"
+},{
+  "name": "TestAcl.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestAcl.java",
+  "size": 426,
+  "clonedLines": 0,
+  "totalLines": 426,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "OrderedIntKeyHashMap.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/OrderedIntKeyHashMap.java",
+  "size": 201,
+  "clonedLines": 0,
+  "totalLines": 201,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Tree.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/Tree.java",
+  "size": 536,
+  "clonedLines": 8,
+  "totalLines": 536,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone112, type2-clone445"
+},{
+  "name": "IntKeyHashMapConcurrent.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/IntKeyHashMapConcurrent.java",
+  "size": 240,
+  "clonedLines": 0,
+  "totalLines": 240,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "StatementHandler.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/StatementHandler.java",
+  "size": 231,
+  "clonedLines": 0,
+  "totalLines": 231,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ArrayListIdentity.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/ArrayListIdentity.java",
+  "size": 46,
+  "clonedLines": 0,
+  "totalLines": 46,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "GrantConstants.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/rights/GrantConstants.java",
+  "size": 69,
+  "clonedLines": 0,
+  "totalLines": 69,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ServerAcl.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/server/ServerAcl.java",
+  "size": 525,
+  "clonedLines": 0,
+  "totalLines": 525,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "McKoiTransferHelper.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/McKoiTransferHelper.java",
+  "size": 84,
+  "clonedLines": 0,
+  "totalLines": 84,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCPool.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCPool.java",
+  "size": 537,
+  "clonedLines": 0,
+  "totalLines": 537,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Database.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/Database.java",
+  "size": 949,
+  "clonedLines": 0,
+  "totalLines": 949,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCClob.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCClob.java",
+  "size": 919,
+  "clonedLines": 10,
+  "totalLines": 919,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone257, type2-clone364, type2-clone396"
+},{
+  "name": "AllSimpleTests.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/AllSimpleTests.java",
+  "size": 74,
+  "clonedLines": 0,
+  "totalLines": 74,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "OdbcPacketOutputStream.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/server/OdbcPacketOutputStream.java",
+  "size": 157,
+  "clonedLines": 3,
+  "totalLines": 157,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone171"
+},{
+  "name": "QuerySpecification.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/QuerySpecification.java",
+  "size": 2591,
+  "clonedLines": 5,
+  "totalLines": 2591,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone206, type2-clone213"
+},{
+  "name": "JDBCNClob.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCNClob.java",
+  "size": 83,
+  "clonedLines": 0,
+  "totalLines": 83,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCPooledDataSource.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/pool/JDBCPooledDataSource.java",
+  "size": 113,
+  "clonedLines": 0,
+  "totalLines": 113,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "FileRecordReader.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/cmdline/sqltool/FileRecordReader.java",
+  "size": 174,
+  "clonedLines": 0,
+  "totalLines": 174,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestScriptRunner.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestScriptRunner.java",
+  "size": 374,
+  "clonedLines": 0,
+  "totalLines": 374,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowStoreAVLHybridExtended.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/RowStoreAVLHybridExtended.java",
+  "size": 257,
+  "clonedLines": 6,
+  "totalLines": 257,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone318"
+},{
+  "name": "PIFGenerator.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/tar/PIFGenerator.java",
+  "size": 181,
+  "clonedLines": 0,
+  "totalLines": 181,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TimestampData.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/TimestampData.java",
+  "size": 114,
+  "clonedLines": 3,
+  "totalLines": 114,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone444"
+},{
+  "name": "RowAVLDisk.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/RowAVLDisk.java",
+  "size": 401,
+  "clonedLines": 0,
+  "totalLines": 401,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Tokens.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/Tokens.java",
+  "size": 2595,
+  "clonedLines": 0,
+  "totalLines": 2595,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "HsqldbTransferHelper.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/HsqldbTransferHelper.java",
+  "size": 111,
+  "clonedLines": 0,
+  "totalLines": 111,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "PreprocessorAntTask.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/preprocessor/PreprocessorAntTask.java",
+  "size": 243,
+  "clonedLines": 0,
+  "totalLines": 243,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "FontDialogSwing.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/FontDialogSwing.java",
+  "size": 326,
+  "clonedLines": 0,
+  "totalLines": 326,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "BaseHashMap.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/map/BaseHashMap.java",
+  "size": 1700,
+  "clonedLines": 20,
+  "totalLines": 1700,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone143, type2-clone370"
+},{
+  "name": "TestTriggers.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestTriggers.java",
+  "size": 174,
+  "clonedLines": 0,
+  "totalLines": 174,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestCollation.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestCollation.java",
+  "size": 256,
+  "clonedLines": 0,
+  "totalLines": 256,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TransactionManagerCommon.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/TransactionManagerCommon.java",
+  "size": 864,
+  "clonedLines": 0,
+  "totalLines": 864,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TokenSource.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/cmdline/sqltool/TokenSource.java",
+  "size": 40,
+  "clonedLines": 0,
+  "totalLines": 40,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestJDBCSavepoints.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestJDBCSavepoints.java",
+  "size": 566,
+  "clonedLines": 0,
+  "totalLines": 566,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "HashSet.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/HashSet.java",
+  "size": 212,
+  "clonedLines": 0,
+  "totalLines": 212,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestDateTime.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestDateTime.java",
+  "size": 335,
+  "clonedLines": 0,
+  "totalLines": 335,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "SqlFile.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/cmdline/SqlFile.java",
+  "size": 6358,
+  "clonedLines": 200,
+  "totalLines": 6358,
+  "clonePercentage": 3.0,
+  "cloneClasses": "type2-clone73, type2-clone84, type2-clone89, type2-clone100, type2-clone106, type2-clone117, type2-clone127, type2-clone129, type2-clone165, type2-clone173, type2-clone178, type2-clone191, type2-clone220, type2-clone240, type2-clone242, type2-clone243, type2-clone263, type2-clone271, type2-clone276, type2-clone278, type2-clone288, type2-clone304, type2-clone327, type2-clone348, type2-clone360, type2-clone373, type2-clone378, type2-clone417, type2-clone419, type2-clone426, type2-clone447, type2-clone450"
+},{
+  "name": "RowInputBinary180.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/rowio/RowInputBinary180.java",
+  "size": 98,
+  "clonedLines": 0,
+  "totalLines": 98,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "SessionContext.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/SessionContext.java",
+  "size": 349,
+  "clonedLines": 2,
+  "totalLines": 349,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone374"
+},{
+  "name": "GranteeManager.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/rights/GranteeManager.java",
+  "size": 810,
+  "clonedLines": 2,
+  "totalLines": 810,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone214"
+},{
+  "name": "BaseList.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/BaseList.java",
+  "size": 205,
+  "clonedLines": 0,
+  "totalLines": 205,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "IntervalSecondData.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/IntervalSecondData.java",
+  "size": 185,
+  "clonedLines": 0,
+  "totalLines": 185,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ScriptWriterText.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/scriptio/ScriptWriterText.java",
+  "size": 321,
+  "clonedLines": 0,
+  "totalLines": 321,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestScripts.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestScripts.java",
+  "size": 206,
+  "clonedLines": 0,
+  "totalLines": 206,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "NumberType.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/NumberType.java",
+  "size": 2029,
+  "clonedLines": 21,
+  "totalLines": 2029,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone81, type2-clone253, type2-clone413"
+},{
+  "name": "TestBatchBug.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestBatchBug.java",
+  "size": 232,
+  "clonedLines": 0,
+  "totalLines": 232,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Servlet.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/server/Servlet.java",
+  "size": 345,
+  "clonedLines": 0,
+  "totalLines": 345,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ExpressionOp.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/ExpressionOp.java",
+  "size": 914,
+  "clonedLines": 30,
+  "totalLines": 914,
+  "clonePercentage": 3.0,
+  "cloneClasses": "type2-clone50, type2-clone135, type2-clone162, type2-clone176"
+},{
+  "name": "StatementQuery.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/StatementQuery.java",
+  "size": 118,
+  "clonedLines": 0,
+  "totalLines": 118,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Log.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/Log.java",
+  "size": 879,
+  "clonedLines": 15,
+  "totalLines": 879,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone38"
+},{
+  "name": "InputStreamInterface.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/InputStreamInterface.java",
+  "size": 62,
+  "clonedLines": 0,
+  "totalLines": 62,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "SortAndSlice.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/SortAndSlice.java",
+  "size": 497,
+  "clonedLines": 4,
+  "totalLines": 497,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone40"
+},{
+  "name": "HsqlException.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/HsqlException.java",
+  "size": 169,
+  "clonedLines": 0,
+  "totalLines": 169,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "SimpleLog.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/SimpleLog.java",
+  "size": 242,
+  "clonedLines": 0,
+  "totalLines": 242,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "OrderedIntHashSet.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/OrderedIntHashSet.java",
+  "size": 161,
+  "clonedLines": 6,
+  "totalLines": 161,
+  "clonePercentage": 3.0,
+  "cloneClasses": "type2-clone158, type2-clone449"
+},{
+  "name": "BlobDataID.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/BlobDataID.java",
+  "size": 273,
+  "clonedLines": 0,
+  "totalLines": 273,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestBase.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/doc/verbatim/src/org/hsqldb/test/TestBase.java",
+  "size": 193,
+  "clonedLines": 0,
+  "totalLines": 193,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "StatementInsert.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/StatementInsert.java",
+  "size": 210,
+  "clonedLines": 6,
+  "totalLines": 210,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone132"
+},{
+  "name": "TransactionManagerMVCC.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/TransactionManagerMVCC.java",
+  "size": 982,
+  "clonedLines": 4,
+  "totalLines": 982,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone148"
+},{
+  "name": "TestDima.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestDima.java",
+  "size": 219,
+  "clonedLines": 0,
+  "totalLines": 219,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RAFileSimple.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/RAFileSimple.java",
+  "size": 158,
+  "clonedLines": 0,
+  "totalLines": 158,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "PersistentStoreCollectionDatabase.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/PersistentStoreCollectionDatabase.java",
+  "size": 141,
+  "clonedLines": 0,
+  "totalLines": 141,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCBlobFile.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCBlobFile.java",
+  "size": 915,
+  "clonedLines": 21,
+  "totalLines": 915,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone244, type2-clone306"
+},{
+  "name": "JaasAuthBean.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/auth/JaasAuthBean.java",
+  "size": 301,
+  "clonedLines": 0,
+  "totalLines": 301,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Iterator.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/Iterator.java",
+  "size": 55,
+  "clonedLines": 0,
+  "totalLines": 55,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCBench.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/JDBCBench.java",
+  "size": 1115,
+  "clonedLines": 24,
+  "totalLines": 1115,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone14, type2-clone93, type2-clone223, type2-clone281, type2-clone284, type2-clone376, type2-clone422"
+},{
+  "name": "Expression.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/Expression.java",
+  "size": 2140,
+  "clonedLines": 7,
+  "totalLines": 2140,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone105, type2-clone154, type2-clone241, type2-clone277, type2-clone294"
+},{
+  "name": "ExpressionAggregate.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/ExpressionAggregate.java",
+  "size": 320,
+  "clonedLines": 0,
+  "totalLines": 320,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "DatabaseManagerSample.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/sample/DatabaseManagerSample.java",
+  "size": 52,
+  "clonedLines": 0,
+  "totalLines": 52,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Cache.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/Cache.java",
+  "size": 440,
+  "clonedLines": 3,
+  "totalLines": 440,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone289"
+},{
+  "name": "StatementExpression.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/StatementExpression.java",
+  "size": 197,
+  "clonedLines": 3,
+  "totalLines": 197,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone161"
+},{
+  "name": "SessionManager.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/SessionManager.java",
+  "size": 303,
+  "clonedLines": 0,
+  "totalLines": 303,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "AbstractTestOdbc.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/AbstractTestOdbc.java",
+  "size": 223,
+  "clonedLines": 0,
+  "totalLines": 223,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "HsqlArrayList.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/HsqlArrayList.java",
+  "size": 399,
+  "clonedLines": 0,
+  "totalLines": 399,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCClobFile.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCClobFile.java",
+  "size": 1192,
+  "clonedLines": 21,
+  "totalLines": 1192,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone244, type2-clone306"
+},{
+  "name": "ClobDataID.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/ClobDataID.java",
+  "size": 268,
+  "clonedLines": 4,
+  "totalLines": 268,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone113, type2-clone131"
+},{
+  "name": "ColumnSchema.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/ColumnSchema.java",
+  "size": 414,
+  "clonedLines": 0,
+  "totalLines": 414,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "NullType.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/NullType.java",
+  "size": 119,
+  "clonedLines": 0,
+  "totalLines": 119,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestAllTypes.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestAllTypes.java",
+  "size": 461,
+  "clonedLines": 26,
+  "totalLines": 461,
+  "clonePercentage": 5.0,
+  "cloneClasses": "type2-clone53, type2-clone119, type2-clone190, type2-clone199, type2-clone393"
+},{
+  "name": "HSQLDialect.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/integration/hibernate/src/org/hibernate/dialect/HSQLDialect.java",
+  "size": 707,
+  "clonedLines": 0,
+  "totalLines": 707,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Like.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/Like.java",
+  "size": 447,
+  "clonedLines": 0,
+  "totalLines": 447,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "LdapAuthBean.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/auth/LdapAuthBean.java",
+  "size": 749,
+  "clonedLines": 0,
+  "totalLines": 749,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TransferHelper.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/TransferHelper.java",
+  "size": 207,
+  "clonedLines": 0,
+  "totalLines": 207,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RefCapableRBInterface.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/RefCapableRBInterface.java",
+  "size": 50,
+  "clonedLines": 0,
+  "totalLines": 50,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Token.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/preprocessor/Token.java",
+  "size": 107,
+  "clonedLines": 0,
+  "totalLines": 107,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "FunctionSQLInvoked.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/FunctionSQLInvoked.java",
+  "size": 335,
+  "clonedLines": 0,
+  "totalLines": 335,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCDataSourceFactory.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCDataSourceFactory.java",
+  "size": 235,
+  "clonedLines": 0,
+  "totalLines": 235,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "FileArchiver.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/FileArchiver.java",
+  "size": 242,
+  "clonedLines": 0,
+  "totalLines": 242,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestMultipleConnections.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestMultipleConnections.java",
+  "size": 101,
+  "clonedLines": 0,
+  "totalLines": 101,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ScriptRunner.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/ScriptRunner.java",
+  "size": 310,
+  "clonedLines": 0,
+  "totalLines": 310,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCResultSet.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCResultSet.java",
+  "size": 7664,
+  "clonedLines": 50,
+  "totalLines": 7664,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone60, type2-clone75, type2-clone109, type2-clone124, type2-clone194, type2-clone209, type2-clone236, type2-clone269, type2-clone298, type2-clone402, type2-clone435, type2-clone436"
+},{
+  "name": "TestQuotes.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestQuotes.java",
+  "size": 158,
+  "clonedLines": 0,
+  "totalLines": 158,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "AuthBeanMultiplexer.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/auth/AuthBeanMultiplexer.java",
+  "size": 275,
+  "clonedLines": 0,
+  "totalLines": 275,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestSqlPersistent.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestSqlPersistent.java",
+  "size": 601,
+  "clonedLines": 0,
+  "totalLines": 601,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TransferTable.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/TransferTable.java",
+  "size": 471,
+  "clonedLines": 0,
+  "totalLines": 471,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JdbcAppClass.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/integration/extAuthWithSpring/src/org/hsqldb/sample/JdbcAppClass.java",
+  "size": 110,
+  "clonedLines": 0,
+  "totalLines": 110,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "StringConverter.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/StringConverter.java",
+  "size": 845,
+  "clonedLines": 18,
+  "totalLines": 845,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone23, type2-clone51, type2-clone312, type2-clone316, type2-clone328, type2-clone353, type2-clone439"
+},{
+  "name": "SqlFileEmbedder.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/doc/verbatim/src/org/hsqldb/sample/SqlFileEmbedder.java",
+  "size": 150,
+  "clonedLines": 0,
+  "totalLines": 150,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ReusableObjectCache.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/map/ReusableObjectCache.java",
+  "size": 61,
+  "clonedLines": 0,
+  "totalLines": 61,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TriggerSample.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/doc/verbatim/src/org/hsqldb/sample/TriggerSample.java",
+  "size": 505,
+  "clonedLines": 0,
+  "totalLines": 505,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "SqlTool.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/cmdline/SqlTool.java",
+  "size": 784,
+  "clonedLines": 5,
+  "totalLines": 784,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone304"
+},{
+  "name": "DataAccessPoint.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/DataAccessPoint.java",
+  "size": 138,
+  "clonedLines": 0,
+  "totalLines": 138,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "DataOutputStream.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/DataOutputStream.java",
+  "size": 212,
+  "clonedLines": 6,
+  "totalLines": 212,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone177"
+},{
+  "name": "RoutineSchema.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/RoutineSchema.java",
+  "size": 350,
+  "clonedLines": 0,
+  "totalLines": 350,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "DataFileCacheSession.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/DataFileCacheSession.java",
+  "size": 163,
+  "clonedLines": 0,
+  "totalLines": 163,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "OrderedLongHashSet.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/OrderedLongHashSet.java",
+  "size": 161,
+  "clonedLines": 6,
+  "totalLines": 161,
+  "clonePercentage": 3.0,
+  "cloneClasses": "type2-clone158, type2-clone449"
+},{
+  "name": "HsqlServerFactory.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/server/HsqlServerFactory.java",
+  "size": 92,
+  "clonedLines": 0,
+  "totalLines": 92,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "IntervalType.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/IntervalType.java",
+  "size": 1659,
+  "clonedLines": 44,
+  "totalLines": 1659,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone181, type2-clone185, type2-clone186, type2-clone203, type2-clone275, type2-clone336, type2-clone371"
+},{
+  "name": "ClosableCharArrayWriter.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/ClosableCharArrayWriter.java",
+  "size": 462,
+  "clonedLines": 5,
+  "totalLines": 462,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone221"
+},{
+  "name": "SqlToolSprayer.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/cmdline/SqlToolSprayer.java",
+  "size": 179,
+  "clonedLines": 0,
+  "totalLines": 179,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestUpdatableResultSets.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestUpdatableResultSets.java",
+  "size": 289,
+  "clonedLines": 0,
+  "totalLines": 289,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ExpressionColumnAccessor.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/ExpressionColumnAccessor.java",
+  "size": 172,
+  "clonedLines": 0,
+  "totalLines": 172,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "LongKeyHashMap.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/LongKeyHashMap.java",
+  "size": 274,
+  "clonedLines": 0,
+  "totalLines": 274,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Defines.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/preprocessor/Defines.java",
+  "size": 202,
+  "clonedLines": 0,
+  "totalLines": 202,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ParserRoutine.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/ParserRoutine.java",
+  "size": 2234,
+  "clonedLines": 30,
+  "totalLines": 2234,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone57, type2-clone151, type2-clone232, type2-clone385"
+},{
+  "name": "StatementCursor.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/StatementCursor.java",
+  "size": 102,
+  "clonedLines": 0,
+  "totalLines": 102,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "HsqlProperties.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/HsqlProperties.java",
+  "size": 582,
+  "clonedLines": 16,
+  "totalLines": 582,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone3, type2-clone30, type2-clone94, type2-clone205"
+},{
+  "name": "JDBCArrayBasic.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCArrayBasic.java",
+  "size": 559,
+  "clonedLines": 0,
+  "totalLines": 559,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "OdbcUtil.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/server/OdbcUtil.java",
+  "size": 291,
+  "clonedLines": 20,
+  "totalLines": 291,
+  "clonePercentage": 6.0,
+  "cloneClasses": "type2-clone263"
+},{
+  "name": "OracleTransferHelper.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/OracleTransferHelper.java",
+  "size": 183,
+  "clonedLines": 0,
+  "totalLines": 183,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ParserDML.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/ParserDML.java",
+  "size": 1252,
+  "clonedLines": 9,
+  "totalLines": 1252,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone255"
+},{
+  "name": "FrameworkLogger.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/FrameworkLogger.java",
+  "size": 641,
+  "clonedLines": 0,
+  "totalLines": 641,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Routine.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/Routine.java",
+  "size": 1414,
+  "clonedLines": 9,
+  "totalLines": 1414,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone4, type2-clone142"
+},{
+  "name": "TestNullInUnion.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestNullInUnion.java",
+  "size": 84,
+  "clonedLines": 0,
+  "totalLines": 84,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "DataFileDefrag.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/DataFileDefrag.java",
+  "size": 225,
+  "clonedLines": 0,
+  "totalLines": 225,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestCacheSize.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestCacheSize.java",
+  "size": 1038,
+  "clonedLines": 87,
+  "totalLines": 1038,
+  "clonePercentage": 8.0,
+  "cloneClasses": "type2-clone10, type2-clone53, type2-clone119, type2-clone167, type2-clone190, type2-clone199, type2-clone259, type2-clone365, type2-clone393, type2-clone410"
+},{
+  "name": "LineGroupReader.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/LineGroupReader.java",
+  "size": 223,
+  "clonedLines": 0,
+  "totalLines": 223,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowInputTextQuoted.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/rowio/RowInputTextQuoted.java",
+  "size": 152,
+  "clonedLines": 0,
+  "totalLines": 152,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "HashMap.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/HashMap.java",
+  "size": 223,
+  "clonedLines": 0,
+  "totalLines": 223,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "DITableInfo.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/dbinfo/DITableInfo.java",
+  "size": 264,
+  "clonedLines": 0,
+  "totalLines": 264,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "StatementDML.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/StatementDML.java",
+  "size": 1624,
+  "clonedLines": 11,
+  "totalLines": 1624,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone17, type2-clone409"
+},{
+  "name": "Tokenizer.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/preprocessor/Tokenizer.java",
+  "size": 245,
+  "clonedLines": 0,
+  "totalLines": 245,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "MainInvoker.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/MainInvoker.java",
+  "size": 148,
+  "clonedLines": 0,
+  "totalLines": 148,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ValuePoolHashMap.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/map/ValuePoolHashMap.java",
+  "size": 414,
+  "clonedLines": 0,
+  "totalLines": 414,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestOdbcTypes.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestOdbcTypes.java",
+  "size": 1721,
+  "clonedLines": 0,
+  "totalLines": 1721,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TableWorks.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/TableWorks.java",
+  "size": 1341,
+  "clonedLines": 0,
+  "totalLines": 1341,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "DbBackup.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/tar/DbBackup.java",
+  "size": 552,
+  "clonedLines": 9,
+  "totalLines": 552,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone12, type2-clone133, type2-clone286"
+},{
+  "name": "TestLobs.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestLobs.java",
+  "size": 1010,
+  "clonedLines": 2,
+  "totalLines": 1010,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone295"
+},{
+  "name": "TransferCommon.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/TransferCommon.java",
+  "size": 163,
+  "clonedLines": 0,
+  "totalLines": 163,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "StatementSet.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/StatementSet.java",
+  "size": 426,
+  "clonedLines": 3,
+  "totalLines": 426,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone161"
+},{
+  "name": "LongKeyIntValueHashMap.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/LongKeyIntValueHashMap.java",
+  "size": 213,
+  "clonedLines": 0,
+  "totalLines": 213,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "IntKeyLongValueHashMap.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/IntKeyLongValueHashMap.java",
+  "size": 107,
+  "clonedLines": 0,
+  "totalLines": 107,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCPooledConnection.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/pool/JDBCPooledConnection.java",
+  "size": 208,
+  "clonedLines": 0,
+  "totalLines": 208,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestBug808460.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestBug808460.java",
+  "size": 92,
+  "clonedLines": 0,
+  "totalLines": 92,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "HsqldbTestCase.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/HsqldbTestCase.java",
+  "size": 170,
+  "clonedLines": 0,
+  "totalLines": 170,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "User.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/rights/User.java",
+  "size": 243,
+  "clonedLines": 3,
+  "totalLines": 243,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone366"
+},{
+  "name": "StopWatch.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/StopWatch.java",
+  "size": 187,
+  "clonedLines": 0,
+  "totalLines": 187,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowOutputBinaryEncode.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/rowio/RowOutputBinaryEncode.java",
+  "size": 98,
+  "clonedLines": 0,
+  "totalLines": 98,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "StatementSchemaDefinition.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/StatementSchemaDefinition.java",
+  "size": 244,
+  "clonedLines": 0,
+  "totalLines": 244,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Types.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/Types.java",
+  "size": 796,
+  "clonedLines": 0,
+  "totalLines": 796,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "PIFData.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/tar/PIFData.java",
+  "size": 116,
+  "clonedLines": 0,
+  "totalLines": 116,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "InputStreamWrapper.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/InputStreamWrapper.java",
+  "size": 123,
+  "clonedLines": 3,
+  "totalLines": 123,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone39"
+},{
+  "name": "UserTypeModifier.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/UserTypeModifier.java",
+  "size": 231,
+  "clonedLines": 0,
+  "totalLines": 231,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RecoverableOdbcFailure.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/server/RecoverableOdbcFailure.java",
+  "size": 83,
+  "clonedLines": 0,
+  "totalLines": 83,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ServerProperties.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/server/ServerProperties.java",
+  "size": 333,
+  "clonedLines": 0,
+  "totalLines": 333,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Parser.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/preprocessor/Parser.java",
+  "size": 277,
+  "clonedLines": 0,
+  "totalLines": 277,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowSetNavigatorClient.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/navigator/RowSetNavigatorClient.java",
+  "size": 274,
+  "clonedLines": 2,
+  "totalLines": 274,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone197"
+},{
+  "name": "ResultProperties.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/result/ResultProperties.java",
+  "size": 150,
+  "clonedLines": 4,
+  "totalLines": 150,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone431"
+},{
+  "name": "DataSpaceManagerBlocks.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/DataSpaceManagerBlocks.java",
+  "size": 933,
+  "clonedLines": 1,
+  "totalLines": 933,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone1"
+},{
+  "name": "Tokens.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/doc/verbatim/src/org/hsqldb/Tokens.java",
+  "size": 2595,
+  "clonedLines": 0,
+  "totalLines": 2595,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RangeVariableJoined.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/RangeVariableJoined.java",
+  "size": 391,
+  "clonedLines": 4,
+  "totalLines": 391,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone108, type2-clone270, type2-clone442"
+},{
+  "name": "Traceable.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/Traceable.java",
+  "size": 45,
+  "clonedLines": 0,
+  "totalLines": 45,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "HsqlByteArrayOutputStream.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/HsqlByteArrayOutputStream.java",
+  "size": 411,
+  "clonedLines": 8,
+  "totalLines": 411,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone341"
+},{
+  "name": "BlaineTrig.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/BlaineTrig.java",
+  "size": 44,
+  "clonedLines": 0,
+  "totalLines": 44,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "IntValueHashMap.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/IntValueHashMap.java",
+  "size": 269,
+  "clonedLines": 0,
+  "totalLines": 269,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "SchemaObjectSet.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/SchemaObjectSet.java",
+  "size": 559,
+  "clonedLines": 0,
+  "totalLines": 559,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestTextTable.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestTextTable.java",
+  "size": 569,
+  "clonedLines": 0,
+  "totalLines": 569,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "InOutUtil.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/InOutUtil.java",
+  "size": 259,
+  "clonedLines": 0,
+  "totalLines": 259,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "HSQLBug.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/HSQLBug.java",
+  "size": 114,
+  "clonedLines": 0,
+  "totalLines": 114,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowAVLDiskLarge.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/RowAVLDiskLarge.java",
+  "size": 102,
+  "clonedLines": 0,
+  "totalLines": 102,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCTypes.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/JDBCTypes.java",
+  "size": 146,
+  "clonedLines": 0,
+  "totalLines": 146,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "BinaryType.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/BinaryType.java",
+  "size": 790,
+  "clonedLines": 0,
+  "totalLines": 790,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowOutputTextQuoted.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/rowio/RowOutputTextQuoted.java",
+  "size": 73,
+  "clonedLines": 0,
+  "totalLines": 73,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TextTable.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/TextTable.java",
+  "size": 371,
+  "clonedLines": 2,
+  "totalLines": 371,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone347"
+},{
+  "name": "JDBCStatementBase.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCStatementBase.java",
+  "size": 353,
+  "clonedLines": 0,
+  "totalLines": 353,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "BasicResolver.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/preprocessor/BasicResolver.java",
+  "size": 81,
+  "clonedLines": 0,
+  "totalLines": 81,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "SqlInvariants.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/SqlInvariants.java",
+  "size": 159,
+  "clonedLines": 0,
+  "totalLines": 159,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowActionBase.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/RowActionBase.java",
+  "size": 96,
+  "clonedLines": 0,
+  "totalLines": 96,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowSetNavigatorData.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/navigator/RowSetNavigatorData.java",
+  "size": 701,
+  "clonedLines": 2,
+  "totalLines": 701,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone197"
+},{
+  "name": "TestHTTPKeepAlive.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestHTTPKeepAlive.java",
+  "size": 189,
+  "clonedLines": 0,
+  "totalLines": 189,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Servlet.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/doc/verbatim/src/org/hsqldb/server/Servlet.java",
+  "size": 345,
+  "clonedLines": 0,
+  "totalLines": 345,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TriggerDefSQL.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/TriggerDefSQL.java",
+  "size": 119,
+  "clonedLines": 1,
+  "totalLines": 119,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone326"
+},{
+  "name": "OrderedHashSet.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/OrderedHashSet.java",
+  "size": 203,
+  "clonedLines": 6,
+  "totalLines": 203,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone8, type2-clone449"
+},{
+  "name": "StringComparator.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/StringComparator.java",
+  "size": 60,
+  "clonedLines": 0,
+  "totalLines": 60,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ClosableByteArrayOutputStream.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/ClosableByteArrayOutputStream.java",
+  "size": 455,
+  "clonedLines": 5,
+  "totalLines": 455,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone221"
+},{
+  "name": "StatementSimple.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/StatementSimple.java",
+  "size": 226,
+  "clonedLines": 2,
+  "totalLines": 226,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone9"
+},{
+  "name": "DataFileCache.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/DataFileCache.java",
+  "size": 1688,
+  "clonedLines": 4,
+  "totalLines": 1688,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone249"
+},{
+  "name": "ClientConnectionHTTP.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/ClientConnectionHTTP.java",
+  "size": 168,
+  "clonedLines": 0,
+  "totalLines": 168,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestTextTables.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestTextTables.java",
+  "size": 285,
+  "clonedLines": 0,
+  "totalLines": 285,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "HSQLDialect.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/integration/hibernate_3_3_1/src/org/hibernate/dialect/HSQLDialect.java",
+  "size": 651,
+  "clonedLines": 0,
+  "totalLines": 651,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Error.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/error/Error.java",
+  "size": 317,
+  "clonedLines": 0,
+  "totalLines": 317,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCXAResource.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/pool/JDBCXAResource.java",
+  "size": 478,
+  "clonedLines": 0,
+  "totalLines": 478,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestBase.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestBase.java",
+  "size": 193,
+  "clonedLines": 0,
+  "totalLines": 193,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "QueryExpression.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/QueryExpression.java",
+  "size": 1134,
+  "clonedLines": 0,
+  "totalLines": 1134,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TableSpaceManagerBlocks.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/TableSpaceManagerBlocks.java",
+  "size": 281,
+  "clonedLines": 0,
+  "totalLines": 281,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ResultLob.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/result/ResultLob.java",
+  "size": 719,
+  "clonedLines": 0,
+  "totalLines": 719,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "DatabaseManagerCommon.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/DatabaseManagerCommon.java",
+  "size": 385,
+  "clonedLines": 0,
+  "totalLines": 385,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ParserBase.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/ParserBase.java",
+  "size": 849,
+  "clonedLines": 43,
+  "totalLines": 849,
+  "clonePercentage": 5.0,
+  "cloneClasses": "type2-clone98, type2-clone238"
+},{
+  "name": "OdbcPreparedStatement.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/server/OdbcPreparedStatement.java",
+  "size": 115,
+  "clonedLines": 0,
+  "totalLines": 115,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestOdbcService.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestOdbcService.java",
+  "size": 396,
+  "clonedLines": 0,
+  "totalLines": 396,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Type.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/Type.java",
+  "size": 1231,
+  "clonedLines": 0,
+  "totalLines": 1231,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "BlockObjectStore.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/BlockObjectStore.java",
+  "size": 140,
+  "clonedLines": 0,
+  "totalLines": 140,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "HsqlSocketRequestHandler.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/server/HsqlSocketRequestHandler.java",
+  "size": 51,
+  "clonedLines": 0,
+  "totalLines": 51,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowInputBase.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/rowio/RowInputBase.java",
+  "size": 333,
+  "clonedLines": 4,
+  "totalLines": 333,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone339"
+},{
+  "name": "ParserDQL.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/ParserDQL.java",
+  "size": 6674,
+  "clonedLines": 75,
+  "totalLines": 6674,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone46, type2-clone218, type2-clone314, type2-clone337, type2-clone383, type2-clone412"
+},{
+  "name": "Trigger.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/doc/verbatim/src/org/hsqldb/Trigger.java",
+  "size": 128,
+  "clonedLines": 0,
+  "totalLines": 128,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "SessionData.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/SessionData.java",
+  "size": 706,
+  "clonedLines": 0,
+  "totalLines": 706,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestKarl.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestKarl.java",
+  "size": 307,
+  "clonedLines": 0,
+  "totalLines": 307,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestBug1191815.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestBug1191815.java",
+  "size": 128,
+  "clonedLines": 0,
+  "totalLines": 128,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "StatementPortal.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/server/StatementPortal.java",
+  "size": 138,
+  "clonedLines": 0,
+  "totalLines": 138,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "PostgresTransferHelper.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/PostgresTransferHelper.java",
+  "size": 168,
+  "clonedLines": 0,
+  "totalLines": 168,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RangeVariableResolver.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/RangeVariableResolver.java",
+  "size": 1561,
+  "clonedLines": 5,
+  "totalLines": 1561,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone219, type2-clone437"
+},{
+  "name": "TransactionManager.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/TransactionManager.java",
+  "size": 125,
+  "clonedLines": 0,
+  "totalLines": 125,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "HsqlDatabaseProperties.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/HsqlDatabaseProperties.java",
+  "size": 1013,
+  "clonedLines": 22,
+  "totalLines": 1013,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone56, type2-clone157, type2-clone331"
+},{
+  "name": "ExpressionLike.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/ExpressionLike.java",
+  "size": 373,
+  "clonedLines": 7,
+  "totalLines": 373,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone204, type2-clone266, type2-clone320, type2-clone381"
+},{
+  "name": "TestNitin.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestNitin.java",
+  "size": 92,
+  "clonedLines": 0,
+  "totalLines": 92,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "HelperFactory.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/HelperFactory.java",
+  "size": 70,
+  "clonedLines": 0,
+  "totalLines": 70,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCCommonDataSource.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCCommonDataSource.java",
+  "size": 351,
+  "clonedLines": 0,
+  "totalLines": 351,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TransactionManager2PL.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/TransactionManager2PL.java",
+  "size": 338,
+  "clonedLines": 0,
+  "totalLines": 338,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestTypeConversion.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestTypeConversion.java",
+  "size": 203,
+  "clonedLines": 0,
+  "totalLines": 203,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TableBase.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/TableBase.java",
+  "size": 564,
+  "clonedLines": 0,
+  "totalLines": 564,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "IntLookup.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/IntLookup.java",
+  "size": 53,
+  "clonedLines": 0,
+  "totalLines": 53,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TableDerived.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/TableDerived.java",
+  "size": 455,
+  "clonedLines": 0,
+  "totalLines": 455,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Waiter.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/Waiter.java",
+  "size": 122,
+  "clonedLines": 0,
+  "totalLines": 122,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Document.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/preprocessor/Document.java",
+  "size": 292,
+  "clonedLines": 0,
+  "totalLines": 292,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ConnectionDialogCommon.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/ConnectionDialogCommon.java",
+  "size": 332,
+  "clonedLines": 0,
+  "totalLines": 332,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ExpressionColumn.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/ExpressionColumn.java",
+  "size": 1251,
+  "clonedLines": 3,
+  "totalLines": 1251,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone241, type2-clone277"
+},{
+  "name": "RowType.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/RowType.java",
+  "size": 503,
+  "clonedLines": 7,
+  "totalLines": 503,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone144, type2-clone434"
+},{
+  "name": "RowInputBinaryDecode.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/rowio/RowInputBinaryDecode.java",
+  "size": 68,
+  "clonedLines": 0,
+  "totalLines": 68,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Scanner.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/Scanner.java",
+  "size": 2597,
+  "clonedLines": 0,
+  "totalLines": 2597,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "HsqlList.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/HsqlList.java",
+  "size": 60,
+  "clonedLines": 0,
+  "totalLines": 60,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ResultMetaData.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/result/ResultMetaData.java",
+  "size": 529,
+  "clonedLines": 0,
+  "totalLines": 529,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "DatabaseInformation.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/dbinfo/DatabaseInformation.java",
+  "size": 382,
+  "clonedLines": 0,
+  "totalLines": 382,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "InformixTransferHelper.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/InformixTransferHelper.java",
+  "size": 95,
+  "clonedLines": 0,
+  "totalLines": 95,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TriggerDef.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/TriggerDef.java",
+  "size": 689,
+  "clonedLines": 2,
+  "totalLines": 689,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone326"
+},{
+  "name": "ArrayCounter.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/ArrayCounter.java",
+  "size": 152,
+  "clonedLines": 0,
+  "totalLines": 152,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TriggerClass.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TriggerClass.java",
+  "size": 57,
+  "clonedLines": 0,
+  "totalLines": 57,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestViewAsterisks.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestViewAsterisks.java",
+  "size": 591,
+  "clonedLines": 0,
+  "totalLines": 591,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ScriptReaderBase.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/scriptio/ScriptReaderBase.java",
+  "size": 123,
+  "clonedLines": 0,
+  "totalLines": 123,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Testdb.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/doc/verbatim/src/org/hsqldb/sample/Testdb.java",
+  "size": 203,
+  "clonedLines": 0,
+  "totalLines": 203,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "BlobType.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/BlobType.java",
+  "size": 317,
+  "clonedLines": 0,
+  "totalLines": 317,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TimeData.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/TimeData.java",
+  "size": 108,
+  "clonedLines": 3,
+  "totalLines": 108,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone444"
+},{
+  "name": "RowOutputBase.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/rowio/RowOutputBase.java",
+  "size": 310,
+  "clonedLines": 0,
+  "totalLines": 310,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowSetNavigatorDataTable.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/navigator/RowSetNavigatorDataTable.java",
+  "size": 629,
+  "clonedLines": 14,
+  "totalLines": 629,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone146, type2-clone438"
+},{
+  "name": "RowOutputInterface.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/rowio/RowOutputInterface.java",
+  "size": 96,
+  "clonedLines": 0,
+  "totalLines": 96,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestSubselect.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestSubselect.java",
+  "size": 447,
+  "clonedLines": 0,
+  "totalLines": 447,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ValidatingResourceBundle.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/ValidatingResourceBundle.java",
+  "size": 286,
+  "clonedLines": 0,
+  "totalLines": 286,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ReaderInputStream.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/ReaderInputStream.java",
+  "size": 76,
+  "clonedLines": 0,
+  "totalLines": 76,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "AllTests.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/AllTests.java",
+  "size": 89,
+  "clonedLines": 0,
+  "totalLines": 89,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ArrayType.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/ArrayType.java",
+  "size": 527,
+  "clonedLines": 7,
+  "totalLines": 527,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone102, type2-clone144"
+},{
+  "name": "TransferResultSet.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/TransferResultSet.java",
+  "size": 172,
+  "clonedLines": 12,
+  "totalLines": 172,
+  "clonePercentage": 6.0,
+  "cloneClasses": "type2-clone16, type2-clone334"
+},{
+  "name": "CachedObjectBase.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/CachedObjectBase.java",
+  "size": 126,
+  "clonedLines": 0,
+  "totalLines": 126,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "DTIType.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/DTIType.java",
+  "size": 489,
+  "clonedLines": 0,
+  "totalLines": 489,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestHashStructures.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestHashStructures.java",
+  "size": 567,
+  "clonedLines": 0,
+  "totalLines": 567,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "PgType.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/server/PgType.java",
+  "size": 540,
+  "clonedLines": 0,
+  "totalLines": 540,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TypeInvariants.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/TypeInvariants.java",
+  "size": 96,
+  "clonedLines": 0,
+  "totalLines": 96,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "IResolver.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/preprocessor/IResolver.java",
+  "size": 54,
+  "clonedLines": 0,
+  "totalLines": 54,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestDatetimeSimple.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestDatetimeSimple.java",
+  "size": 311,
+  "clonedLines": 0,
+  "totalLines": 311,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ClobType.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/ClobType.java",
+  "size": 229,
+  "clonedLines": 0,
+  "totalLines": 229,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "HsqlNameManager.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/HsqlNameManager.java",
+  "size": 585,
+  "clonedLines": 0,
+  "totalLines": 585,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "DataSpaceManager.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/DataSpaceManager.java",
+  "size": 75,
+  "clonedLines": 0,
+  "totalLines": 75,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "CSVWriter.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/CSVWriter.java",
+  "size": 141,
+  "clonedLines": 0,
+  "totalLines": 141,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "HsqlTaskQueue.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/HsqlTaskQueue.java",
+  "size": 169,
+  "clonedLines": 0,
+  "totalLines": 169,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Calculator.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/cmdline/sqltool/Calculator.java",
+  "size": 396,
+  "clonedLines": 6,
+  "totalLines": 396,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone335"
+},{
+  "name": "RowStoreAVLDiskData.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/RowStoreAVLDiskData.java",
+  "size": 286,
+  "clonedLines": 0,
+  "totalLines": 286,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestBug785429.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestBug785429.java",
+  "size": 185,
+  "clonedLines": 0,
+  "totalLines": 185,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TableSorter.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/TableSorter.java",
+  "size": 622,
+  "clonedLines": 0,
+  "totalLines": 622,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestGroupByHaving.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestGroupByHaving.java",
+  "size": 355,
+  "clonedLines": 0,
+  "totalLines": 355,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestStressInsert.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestStressInsert.java",
+  "size": 224,
+  "clonedLines": 0,
+  "totalLines": 224,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowInputText.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/rowio/RowInputText.java",
+  "size": 567,
+  "clonedLines": 0,
+  "totalLines": 567,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Logger.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/Logger.java",
+  "size": 2472,
+  "clonedLines": 0,
+  "totalLines": 2472,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "BitMapCachedObject.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/BitMapCachedObject.java",
+  "size": 111,
+  "clonedLines": 0,
+  "totalLines": 111,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "WebServer.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/server/WebServer.java",
+  "size": 280,
+  "clonedLines": 0,
+  "totalLines": 280,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "GridSwing.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/GridSwing.java",
+  "size": 235,
+  "clonedLines": 0,
+  "totalLines": 235,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowOutputTextLog.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/rowio/RowOutputTextLog.java",
+  "size": 297,
+  "clonedLines": 2,
+  "totalLines": 297,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone388"
+},{
+  "name": "TestSubQueriesInPreparedStatements.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestSubQueriesInPreparedStatements.java",
+  "size": 161,
+  "clonedLines": 2,
+  "totalLines": 161,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone262"
+},{
+  "name": "DateTimeType.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/types/DateTimeType.java",
+  "size": 1934,
+  "clonedLines": 52,
+  "totalLines": 1934,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone104, type2-clone159, type2-clone196, type2-clone198, type2-clone246, type2-clone285, type2-clone289, type2-clone319, type2-clone321, type2-clone372, type2-clone387, type2-clone392"
+},{
+  "name": "ConnectionDialogSwing.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/ConnectionDialogSwing.java",
+  "size": 392,
+  "clonedLines": 3,
+  "totalLines": 392,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone147, type2-clone323"
+},{
+  "name": "CodeSwitcher.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/CodeSwitcher.java",
+  "size": 536,
+  "clonedLines": 0,
+  "totalLines": 536,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "SetFunction.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/SetFunction.java",
+  "size": 678,
+  "clonedLines": 0,
+  "totalLines": 678,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "DataAccessPointException.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/DataAccessPointException.java",
+  "size": 48,
+  "clonedLines": 0,
+  "totalLines": 48,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "StatementTypes.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/StatementTypes.java",
+  "size": 300,
+  "clonedLines": 0,
+  "totalLines": 300,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ScriptReaderDecode.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/scriptio/ScriptReaderDecode.java",
+  "size": 145,
+  "clonedLines": 0,
+  "totalLines": 145,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "FileAccess.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/FileAccess.java",
+  "size": 71,
+  "clonedLines": 0,
+  "totalLines": 71,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "NumberSequence.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/NumberSequence.java",
+  "size": 752,
+  "clonedLines": 4,
+  "totalLines": 752,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone351"
+},{
+  "name": "JDBCArray.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCArray.java",
+  "size": 609,
+  "clonedLines": 0,
+  "totalLines": 609,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ValuePool.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/map/ValuePool.java",
+  "size": 213,
+  "clonedLines": 0,
+  "totalLines": 213,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "StatementCompound.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/StatementCompound.java",
+  "size": 982,
+  "clonedLines": 4,
+  "totalLines": 982,
+  "clonePercentage": 0.0,
+  "cloneClasses": "type2-clone211"
+},{
+  "name": "TestScript.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestScript.java",
+  "size": 106,
+  "clonedLines": 0,
+  "totalLines": 106,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "FindFile.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/sample/FindFile.java",
+  "size": 258,
+  "clonedLines": 0,
+  "totalLines": 258,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TextCache.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/TextCache.java",
+  "size": 474,
+  "clonedLines": 0,
+  "totalLines": 474,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "Row.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/Row.java",
+  "size": 200,
+  "clonedLines": 0,
+  "totalLines": 200,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "UserManager.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/rights/UserManager.java",
+  "size": 488,
+  "clonedLines": 0,
+  "totalLines": 488,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "AntResolver.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/preprocessor/AntResolver.java",
+  "size": 62,
+  "clonedLines": 0,
+  "totalLines": 62,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowInputInterface.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/rowio/RowInputInterface.java",
+  "size": 73,
+  "clonedLines": 0,
+  "totalLines": 73,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TableSpaceManager.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/TableSpaceManager.java",
+  "size": 69,
+  "clonedLines": 0,
+  "totalLines": 69,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestJavaFunctions.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestJavaFunctions.java",
+  "size": 209,
+  "clonedLines": 0,
+  "totalLines": 209,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "LongDeque.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/LongDeque.java",
+  "size": 335,
+  "clonedLines": 10,
+  "totalLines": 335,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone101, type2-clone386"
+},{
+  "name": "HsqlByteArrayInputStream.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/HsqlByteArrayInputStream.java",
+  "size": 278,
+  "clonedLines": 4,
+  "totalLines": 278,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone29, type2-clone233"
+},{
+  "name": "ScriptReaderText.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/scriptio/ScriptReaderText.java",
+  "size": 332,
+  "clonedLines": 0,
+  "totalLines": 332,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCParameterMetaData.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCParameterMetaData.java",
+  "size": 477,
+  "clonedLines": 5,
+  "totalLines": 477,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone333"
+},{
+  "name": "SpringExtAuth.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/integration/extAuthWithSpring/src/org/hsqldb/sample/SpringExtAuth.java",
+  "size": 176,
+  "clonedLines": 0,
+  "totalLines": 176,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCXID.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/pool/JDBCXID.java",
+  "size": 225,
+  "clonedLines": 0,
+  "totalLines": 225,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ClientConnection.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/ClientConnection.java",
+  "size": 669,
+  "clonedLines": 0,
+  "totalLines": 669,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "JDBCDatabaseMetaData.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/jdbc/JDBCDatabaseMetaData.java",
+  "size": 6347,
+  "clonedLines": 0,
+  "totalLines": 6347,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "LobManager.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/LobManager.java",
+  "size": 2296,
+  "clonedLines": 48,
+  "totalLines": 2296,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone44, type2-clone95, type2-clone184, type2-clone237, type2-clone260, type2-clone268, type2-clone342, type2-clone428"
+},{
+  "name": "DatabaseManagerSwing.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/util/DatabaseManagerSwing.java",
+  "size": 3095,
+  "clonedLines": 69,
+  "totalLines": 3095,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone65, type2-clone77, type2-clone87, type2-clone96, type2-clone134, type2-clone163, type2-clone292, type2-clone423, type2-clone427"
+},{
+  "name": "PersistentStoreCollectionSession.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/PersistentStoreCollectionSession.java",
+  "size": 432,
+  "clonedLines": 0,
+  "totalLines": 432,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestMerge.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestMerge.java",
+  "size": 436,
+  "clonedLines": 0,
+  "totalLines": 436,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "ExpressionValue.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/ExpressionValue.java",
+  "size": 117,
+  "clonedLines": 0,
+  "totalLines": 117,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "WebServerConnection.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/server/WebServerConnection.java",
+  "size": 591,
+  "clonedLines": 0,
+  "totalLines": 591,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestINPredicateParameterizationAndCorrelation.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestINPredicateParameterizationAndCorrelation.java",
+  "size": 222,
+  "clonedLines": 0,
+  "totalLines": 222,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RangeVariable.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/RangeVariable.java",
+  "size": 2006,
+  "clonedLines": 37,
+  "totalLines": 2006,
+  "clonePercentage": 1.0,
+  "cloneClasses": "type2-clone37, type2-clone45, type2-clone92, type2-clone108, type2-clone136, type2-clone224, type2-clone270, type2-clone420, type2-clone442, type2-clone443"
+},{
+  "name": "Token.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/Token.java",
+  "size": 290,
+  "clonedLines": 0,
+  "totalLines": 290,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "RowOutputText.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/rowio/RowOutputText.java",
+  "size": 384,
+  "clonedLines": 0,
+  "totalLines": 384,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "LobStoreInJar.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/persist/LobStoreInJar.java",
+  "size": 169,
+  "clonedLines": 0,
+  "totalLines": 169,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "HashMappedList.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/lib/HashMappedList.java",
+  "size": 239,
+  "clonedLines": 6,
+  "totalLines": 239,
+  "clonePercentage": 2.0,
+  "cloneClasses": "type2-clone8, type2-clone449"
+},{
+  "name": "TestDataStructures.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestDataStructures.java",
+  "size": 502,
+  "clonedLines": 0,
+  "totalLines": 502,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "TestDatabaseMetaData.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/test/TestDatabaseMetaData.java",
+  "size": 295,
+  "clonedLines": 0,
+  "totalLines": 295,
+  "clonePercentage": 0.0,
+  "cloneClasses": "None"
+},{
+  "name": "FunctionCustom.java",
+  "fullPath": "hsqldb-2.3.1/hsqldb/src/org/hsqldb/FunctionCustom.java",
+  "size": 3831,
+  "clonedLines": 230,
+  "totalLines": 3831,
+  "clonePercentage": 6.0,
+  "cloneClasses": "type2-clone11, type2-clone18, type2-clone24, type2-clone25, type2-clone26, type2-clone36, type2-clone63, type2-clone74, type2-clone82, type2-clone85, type2-clone91, type2-clone116, type2-clone164, type2-clone168, type2-clone170, type2-clone195, type2-clone200, type2-clone272, type2-clone273, type2-clone282, type2-clone299, type2-clone308, type2-clone309, type2-clone317, type2-clone332, type2-clone338, type2-clone349, type2-clone384, type2-clone411, type2-clone418"
+}]}

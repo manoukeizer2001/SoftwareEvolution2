@@ -1,24 +1,7 @@
 {
-    "projectStats": {
-        "duplicatedLines": {
-            "value": "24%",
-            "label": "Duplicated Lines"
-        },
-        "numberOfClones": {
-            "value": "101",
-            "label": "Number of Clones"
-        },
-        "cloneClasses": {
-            "value": "16",
-            "label": "Clone Classes"
-        },
-        "biggestClone": {
-            "value": "28 lines",
-            "label": "Biggest Clone"
-        },
-        "biggestCloneClass": {
-            "value": "5 members",
-            "label": "Biggest Clone Class"
-        }
-    }
-} 
+  "duplicatedLinesPercentage": 2.014689266,
+  "numberOfClones": 1325,
+  "numberOfCloneClasses": 458,
+  "biggestCloneSize": 60,
+  "biggestCloneClassSize": 21
+}

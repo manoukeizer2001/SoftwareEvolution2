@@ -17,16 +17,22 @@ list[Declaration] getASTs(loc projectLocation) {
 }
 
 // Minimum subtree size in terms of nodes
-int MIN_SUBTREE_SIZE = 10;
+int MIN_SUBTREE_SIZE = 20;
 
 // Count the number of nodes in a subtree
 int countNodes(node n) {
-    int count = 1; // count this node
-    for (node child <- n) {
-        count += countNodes(child);
+    int count = 0; // Initialize count
+
+    // Define the visit function to traverse nodes
+    visit(n) {
+        case node _: {
+            count += 1; // Count the current node
+        }
     }
+
     return count;
 }
+
 
 node normalizeForType2(node n) {
     return visit(n) {
@@ -51,11 +57,7 @@ node normalizeForType2(node n) {
     }
 }
 
-
-
-
 // Step 2: Gather all subtrees into a map[str, list[loc]]
-// We now use str as the key, obtained by toString(normalized) of the node.
 map[str, list[loc]] gatherSubtrees(list[Declaration] asts, int cloneType) {
     map[str, list[loc]] subtreeMap = ();
 
@@ -64,12 +66,16 @@ map[str, list[loc]] gatherSubtrees(list[Declaration] asts, int cloneType) {
             case node n: {
                 if (n@src?) {
                     if (loc srcLoc := n@src) {
+                        // println("Source location: <srcLoc>");
                         node normalized = unsetRec(n);
+                        // println("Normalized node: <normalized>");
                         if (cloneType == 2) {
                             normalized = normalizeForType2(normalized); // Normalize for type-2 clones
                         }
+
                         int size = countNodes(normalized);
-                        // Only store if meets the minimum size requirement
+                        // println("Size of normalized node: <size>");
+            
                         if (size >= MIN_SUBTREE_SIZE) {
                             str subtreeId = toString(normalized);
                             if (subtreeId notin subtreeMap) {
@@ -83,7 +89,7 @@ map[str, list[loc]] gatherSubtrees(list[Declaration] asts, int cloneType) {
             }
         }
     }
-
+    // println("Subtree map: <domain(subtreeMap)>");
     // Filter the map to only keep entries with more than one location
     return (key : subtreeMap[key] | key <- subtreeMap, size(subtreeMap[key]) > 1);
 }

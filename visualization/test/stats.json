@@ -1,0 +1,7 @@
+{
+  "duplicatedLinesPercentage": 21.33357624,
+  "numberOfClones": 7030,
+  "numberOfCloneClasses": 1638,
+  "biggestCloneSize": 13,
+  "biggestCloneClassSize": 138
+}

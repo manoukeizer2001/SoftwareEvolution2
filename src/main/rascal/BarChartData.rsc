@@ -7,18 +7,12 @@ import lang::java::m3::AST;
 import CloneClassData;
 import TreeMapData;
 
-// public alias BarChartData = map[int, int];
-
 public map[int, int] calculateCloneSizeFrequencies(list[CloneClassWithId] cloneClassesWithIds) {
-    // println("Debug: Starting calculateCloneSizeFrequencies");
-    // println("Debug: Number of clone classes: <size(cloneClassesWithIds)>");
-    
     map[int, int] frequencies = ();
     
     int count = 0;
     for (CloneClassWithId cls <- cloneClassesWithIds) {
         count += 1;
-        // println("Debug: Processing clone class <count>");
         // println("Debug: Number of locations: <size(cls.locations)>");
         
         if (!isEmpty(cls.locations)) {
@@ -33,6 +27,6 @@ public map[int, int] calculateCloneSizeFrequencies(list[CloneClassWithId] cloneC
         }
     }
     
-    println("Debug: Final frequencies map: <frequencies>");
+    // println("Debug: Final frequencies map: <frequencies>");
     return frequencies;
 }

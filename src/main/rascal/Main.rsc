@@ -11,7 +11,23 @@ import TreeMapData;
 import BarChartData;
 import JSONExport;
 
-int main(loc projectLocation = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/smallsql0.21_src|) {
+// smallsql0.21_src
+// hsqldb-2.3.1
+
+/*
+For smallsql0.21_src in config.json:
+{
+    "sourceDirectory": "smallsql0.21_src/src",
+    "port": 3000
+} 
+
+For hsqldb-2.3.1 in config.json:
+{
+    "sourceDirectory": "hsqldb-2.3.1/hsqldb",
+    "port": 3000
+} 
+*/
+int main(loc projectLocation = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/hsqldb-2.3.1|) {
     if (!exists(projectLocation)) {
         println("Error: Project path does not exist: <projectLocation>");
         return 1;
@@ -26,12 +42,15 @@ int main(loc projectLocation = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/s
     list[CloneClass] cloneClasses = detectClones(asts);
     
     // Calculate statistics
+    println("Calculating statistics");
     CloneStats stats = calculateStatistics(cloneClasses, asts);
     
     // Add treemap data extraction
+    println("Assigning clone IDs");
     list[CloneClassWithId] cloneClassesWithIds = assignCloneIds(cloneClasses, "type1");
 
     // Add file clone data extraction
+    println("Extracting treemap data");
     map[str, FileCloneData] treeMapData = extractTreeMapData(cloneClassesWithIds, projectLocation);
     
     // Print file clone data in a formatted way
@@ -46,6 +65,7 @@ int main(loc projectLocation = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/s
     // }
 
     // Extract clone class data
+    println("Extracting clone class data");
     list[CloneClassInfo] cloneClassData = extractCloneClassData(cloneClassesWithIds, projectLocation);
     
     // Print the clone class data
@@ -60,6 +80,7 @@ int main(loc projectLocation = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/s
     // }
     
     // Export results to JSON files
+    println("Exporting results to JSON files");
     exportJSON(cloneClassesWithIds, stats, treeMapData, cloneClassData);
     
     return 0;

@@ -73,7 +73,7 @@ private list[str] createTreeMapEntries(map[str, FileCloneData] treeMapData) {
             '}";
         treeMapEntries += entry;
     }
-    println("Done creating tree map entries");
+    // println("Done creating tree map entries");
     return treeMapEntries;
 }
 
@@ -112,29 +112,33 @@ public void exportJSON(list[CloneClassWithId] cloneClassesWithIds, CloneStats st
         '  \"biggestCloneSize\": <stats.biggestCloneSize>,
         '  \"biggestCloneClassSize\": <stats.biggestCloneClassSize>
         '}";
+    println("Writing stats.json");
     writeJSONFile(visualizationDir + "/stats.json", statsJSON);
     
     // barChartData.json
-    println("Debug: Calculating bar chart frequencies");
+    // println("Calculating bar chart frequencies");
     map[int, int] frequencies = calculateCloneSizeFrequencies(cloneClassesWithIds);
     
-    println("Debug: Creating entries list");
+    // println("Creating bar chart entries list");
     list[str] entries = createBarChartEntries(frequencies);
     
     str barChartJSON = "{\"cloneSizes\": [" + intercalate(",", entries) + "]}";
+    println("Writing barChartData.json");
     writeJSONFile(visualizationDir + "/barChartData.json", barChartJSON);
     
     // treeMapData.json
-    println("Debug: Creating tree map entries");
+    // println("Creating tree map entries");
     list[str] treeMapEntries = createTreeMapEntries(treeMapData);
 
     str treeMapJSON = "{\"files\": [" + intercalate(",", treeMapEntries) + "]}";
+    println("Writing treeMapData.json");
     writeJSONFile(visualizationDir + "/treeMapData.json", treeMapJSON);
     
     // cloneClassData.json
-    println("Debug: Creating clone class entries");
+    // println("Creating clone class entries");
     list[str] cloneClassEntries = createCloneClassEntries(cloneClassData);
 
     str cloneClassJSON = "{\"cloneClasses\": [" + intercalate(",", cloneClassEntries) + "]}";
+    println("Writing cloneClassData.json");
     writeJSONFile(visualizationDir + "/cloneClassData.json", cloneClassJSON);
 }

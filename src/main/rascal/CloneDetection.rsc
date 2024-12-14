@@ -61,103 +61,63 @@ map[str, list[loc]] gatherSubtrees(list[Declaration] asts) {
     return (key : subtreeMap[key] | key <- subtreeMap, size(subtreeMap[key]) > 1);
 }
 
-// Utility: get the length of a pattern by one of its occurrences
-// int getLength(str key, map[str, list[loc]] nodes) {
-//     list[loc] locs = nodes[key];
-//     loc first = locs[0];
-//     return first.end - first.begin;
-// }
-
-// Utility: get the length of a pattern by one of its occurrences
-int getLength(str key, map[str, list[loc]] nodes) {
-    list[loc] locs = nodes[key];
-    loc first = locs[0];
-    int length = first.end - first.begin; // works if first is offset-based
-    return length;
-}
-
-// Check if all occurrences of 'smaller' are contained in some occurrences of 'larger'
-bool isAlwaysContained(str smaller, str larger, map[str, list[loc]] nodes) {
-    list[loc] smallerLocs = nodes[smaller];
-    list[loc] largerLocs = nodes[larger];
-
-    for (loc sLoc <- smallerLocs) {
-        bool containedSomewhere = false;
-        for (loc lLoc <- largerLocs) {
-            if (isStrictlyContainedIn(sLoc, lLoc)) {
-                containedSomewhere = true;
-                break;
-            }
-        }
-        if (!containedSomewhere) {
-            return false; // Found a smaller occurrence not contained in 'larger'
-        }
-    }
-    return true;
-}
-
-// Filter out subtree patterns that are strictly and exclusively contained within larger patterns
 map[str, list[loc]] filterContainedSubtrees(map[str, list[loc]] subtrees) {
-    // Sort patterns by size (descending)
-    // println("Nodes: <domain(nodes)>");
-
-    // println("Patterns:");
-    list[str] patterns = [ k | k <- domain(subtrees) ];
-
-    // patterns = sort(patterns, (str k1, str k2) {
-    //     return getLength(k2, nodes) - getLength(k1, nodes);
-    // });
-    
     set[str] discard = {};
-    
-    // Compare each smaller pattern with larger ones
-    for (i <- [0..size(patterns)-1]) {
-        str largeKey = patterns[i];
-        if (largeKey in discard) continue;
 
-        for (j <- [i+1..size(patterns)-1]) {
-            str smallKey = patterns[j];
-            if (smallKey in discard) continue;
-            
-            // Check if smaller is always contained in the larger
-            if (isAlwaysContained(smallKey, largeKey, subtrees)) {
-                // Before discarding, check if smallKey appears somewhere outside largeKey
-                bool appearsOutside = false;
-                list[loc] smallerLocs = subtrees[smallKey];
-                list[loc] largerLocs = subtrees[largeKey];
+    // Iterate through every pattern
+    for (str key1 <- subtrees) {
+        if (key1 in discard) continue;
 
-                // Check if there's an occurrence of smallKey not contained by largeKey
-                for (loc sLoc <- smallerLocs) {
-                    bool containedSomewhere = false;
-                    for (loc lLoc <- largerLocs) {
-                        if (isStrictlyContainedIn(sLoc, lLoc)) {
-                            containedSomewhere = true;
-                            break;
-                        }
-                    }
-                    if (!containedSomewhere) {
-                        appearsOutside = true;
+        list[loc] key1Locs = subtrees[key1];
+        bool fullyContained = true;
+
+        // Track which locations of key1 are covered by other patterns
+        set[loc] coveredLocations = {};
+
+        // Compare key1 against all other patterns
+        for (str key2 <- subtrees) {
+            if (key1 == key2 || key2 in discard) continue;
+
+            list[loc] key2Locs = subtrees[key2];
+
+            // Check if each location of key1 is contained in key2
+            for (loc loc1 <- key1Locs) {
+                if (loc1 in coveredLocations) continue; // Already covered
+
+                for (loc loc2 <- key2Locs) {
+                    if (isStrictlyContainedIn(loc1, loc2)) {
+                        coveredLocations += loc1;
                         break;
                     }
                 }
-
-                // If smaller never appears outside, discard it
-                if (!appearsOutside) {
-                    discard += smallKey;
-                }
             }
+        }
+
+        // Check if all locations of key1 are covered by other patterns
+        for (loc loc1 <- key1Locs) {
+            if (loc1 notin coveredLocations) {
+                fullyContained = false;
+                break;
+            }
+        }
+
+        // If all locations are covered, mark key1 for discard
+        if (fullyContained) {
+            discard += key1;
         }
     }
 
-    // Rebuild nodes without discarded ones
+    // Rebuild the map without discarded patterns
     map[str, list[loc]] filtered = ();
     for (str k <- subtrees) {
         if (k notin discard) {
             filtered[k] = subtrees[k];
         }
     }
+
     return filtered;
 }
+
 
 // New function to build clone classes
 list[CloneClass] buildCloneClasses(map[str, list[loc]] subtrees) {
@@ -187,7 +147,7 @@ public list[CloneClass] detectClones(list[Declaration] asts) {
     // Convert directly to clone classes
     list[CloneClass] cloneClasses = buildCloneClasses(filteredSubtrees);
 
-    println("Detected <size(cloneClasses)> clone classes:");
+    println("Detected <size(cloneClasses)> clone classes");
     // for (CloneClass cls <- cloneClasses) {
     //     println("\nClone Class:");
     //     println("  Pattern: <cls.pattern>");
@@ -199,4 +159,5 @@ public list[CloneClass] detectClones(list[Declaration] asts) {
 
     return cloneClasses;
 }
+
 

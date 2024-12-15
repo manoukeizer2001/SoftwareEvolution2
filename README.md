@@ -1,7 +1,7 @@
 # Initilization
 
-The current project is set to run the smallsql0.21_src file. If you want to run a different file, you can change the file name in the config.json file. Don't alter the port number.
-
+The projet is set to perform clone detection in Java projects. To specify the project path, adjust the 'projectLocation' argument in main().
+The main() method also provides an option to calculate volume (which can take a while) or use a placeholder value for it instead. Toggling this option requires adjusting the projectName and calculateVolume arguments in main().
 
 # How to run the Clone Detection
 
@@ -12,7 +12,7 @@ Open your Rascal Terminal and run the following commands:
 import Main;
 main();
 ```
-This will add 4 json files to the visualization folder.
+After successful analysis, 4 json projects containing results will be added to the 'visualization' directory.
 
 
 # How to run the Visualization

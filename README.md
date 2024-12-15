@@ -1,6 +1,6 @@
 # Initilization
 
-The projet is set to perform clone detection in Java projects. To specify the project path, adjust the 'projectLocation' argument in main().
+The projet is set to perform clone detection in Java projects. To specify the project path, adjust the ```projectLocation``` argument in ```main()```.
 The main() method also provides an option to calculate volume (which can take a while) or use a placeholder value for it instead. Toggling this option requires adjusting the projectName and calculateVolume arguments in main().
 
 # How to run the Clone Detection

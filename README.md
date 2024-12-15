@@ -12,7 +12,7 @@ Open your Rascal Terminal and run the following commands:
 import Main;
 main();
 ```
-After successful analysis, 4 json projects containing results will be added to the 'visualization' directory.
+After a successful analysis, four JSON files containing the results will be generated in the *visualization* directory.
 
 
 # How to run the Visualization

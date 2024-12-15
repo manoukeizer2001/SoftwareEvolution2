@@ -16,32 +16,20 @@ import DataTypes;
 // hsqldb-2.3.1
 
 /*
-For smallsql0.21_src in config.json:
-{
-    "sourceDirectory": "smallsql0.21_src/src",
-    "port": 3000
-} 
-
-For hsqldb-2.3.1 in config.json:
-{
-    "sourceDirectory": "hsqldb-2.3.1/hsqldb",
-    "port": 3000
-} 
-*/
-
-/*
 Main() arguments:
 1. projectLocation: location of the project
 2. cloneType: type of clone to detect (1 or 2)
-3. calculateVolume: whether to calculate volume statistics
-4. projectName: name of the project (in case we don't want to calculate volume statistics, because it takes too long)
+3. calculateVolume: whether to calculate volume statistics 
+(in case we don't want to calculate volume statistics, because it takes too long)
+4. projectName: name of the project 
+
 If calculateVolume is false, placeholder values will be used for volume statistics
 for smallsql0.21_src, it's 24501
 for hsqldb-2.3.1, it's 175647
 for other projects, it's 50000
 */
 
-int main(loc projectLocation = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/hsqldb-2.3.1|, int cloneType = 1, bool calculateVolume = false, str projectName = "hsqldb-2.3.1") {
+int main(loc projectLocation = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/smallsql0.21_src|, int cloneType = 1, bool calculateVolume = false, str projectName = "smallsql0.21_src") {
     if (!exists(projectLocation)) {
         println("Error: Project path does not exist: <projectLocation>");
         return 1;

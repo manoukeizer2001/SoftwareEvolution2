@@ -9,8 +9,7 @@ import Location;
 import Node;
 import DataTypes;
 
-// At the top of the file with other constants
-int MIN_SUBTREE_SIZE = 20;
+int MIN_SUBTREE_SIZE = 20; // Minimum size of a subtree to be considered a clone
 
 // Step 1: Parse program and generate ASTs
 list[Declaration] getASTs(loc projectLocation) {
@@ -93,6 +92,64 @@ node normalizeForType2(node n) {
     }
 }
 
+// Step 3: Combine sequential subtrees
+map[str, list[loc]] combineSequentialSubtrees(map[str, list[loc]] subtrees) {
+    map[str, list[loc]] sequentialSubtrees = ();
+    
+    // Group by file
+    map[str, list[tuple[str pattern, loc location]]] fileGroups = ();
+    for (str pattern <- subtrees) {
+        for (loc location <- subtrees[pattern]) {
+            if (location.uri notin fileGroups) {
+                fileGroups[location.uri] = [];
+            }
+            fileGroups[location.uri] += [<pattern, location>];
+        }
+    }
+    
+    // Process each file - single pass
+    for (str file <- fileGroups) {
+        // Sort locations by start line
+        list[tuple[str pattern, loc location]] sortedLocs = 
+            sort(fileGroups[file], bool(tuple[str,loc] a, tuple[str,loc] b) {
+                return a[1].begin.line < b[1].begin.line;
+            });
+        
+        // Try to combine sequences
+        int i = 0;
+        while (i < size(sortedLocs)) {
+            int j = i + 1;
+            list[tuple[str pattern, loc location]] currentSequence = [sortedLocs[i]];
+            
+            // Try to extend the sequence as much as possible in one go
+            while (j < size(sortedLocs) && 
+                   !isContainedIn(sortedLocs[j-1][1], sortedLocs[j][1]) &&
+                   !isContainedIn(sortedLocs[j][1], sortedLocs[j-1][1]) &&
+                   isNearby(sortedLocs[j][1], sortedLocs[j-1][1], 2)) {
+                currentSequence += sortedLocs[j];
+                j += 1;
+            }
+            
+            // If we found a sequence longer than 1, create a new combination
+            if (size(currentSequence) > 1) {
+                str combinedPattern = intercalate("+", [s[0] | s <- currentSequence]);
+                loc combinedLoc = cover([s[1] | s <- currentSequence]);
+                
+                if (combinedPattern notin sequentialSubtrees) {
+                    sequentialSubtrees[combinedPattern] = [];
+                }
+                sequentialSubtrees[combinedPattern] += combinedLoc;
+            }
+            
+            i = j;
+        }
+    }
+    
+    return (key : sequentialSubtrees[key] | key <- sequentialSubtrees, 
+            size(sequentialSubtrees[key]) > 1);
+}
+
+// Step 4: Filter out smaller clones fully contained in larger ones
 map[str, list[loc]] filterContainedSubtrees(map[str, list[loc]] subtrees) {
     set[str] discard = {};
 
@@ -151,8 +208,6 @@ map[str, list[loc]] filterContainedSubtrees(map[str, list[loc]] subtrees) {
 }
 
 
-
-// New function to build clone classes
 list[CloneClass] buildCloneClasses(map[str, list[loc]] subtrees) {
     list[CloneClass] classes = [];
     
@@ -167,64 +222,7 @@ list[CloneClass] buildCloneClasses(map[str, list[loc]] subtrees) {
     return classes;
 }
 
-// New function to combine sequential subtrees
-map[str, list[loc]] combineSequentialSubtrees(map[str, list[loc]] subtrees) {
-    map[str, list[loc]] sequentialSubtrees = ();
-    
-    // Group by file
-    map[str, list[tuple[str pattern, loc location]]] fileGroups = ();
-    for (str pattern <- subtrees) {
-        for (loc location <- subtrees[pattern]) {
-            if (location.uri notin fileGroups) {
-                fileGroups[location.uri] = [];
-            }
-            fileGroups[location.uri] += [<pattern, location>];
-        }
-    }
-    
-    // Process each file - single pass
-    for (str file <- fileGroups) {
-        // Sort locations by start line
-        list[tuple[str pattern, loc location]] sortedLocs = 
-            sort(fileGroups[file], bool(tuple[str,loc] a, tuple[str,loc] b) {
-                return a[1].begin.line < b[1].begin.line;
-            });
-        
-        // Try to combine sequences
-        int i = 0;
-        while (i < size(sortedLocs)) {
-            int j = i + 1;
-            list[tuple[str pattern, loc location]] currentSequence = [sortedLocs[i]];
-            
-            // Try to extend the sequence as much as possible in one go
-            while (j < size(sortedLocs) && 
-                   !isContainedIn(sortedLocs[j-1][1], sortedLocs[j][1]) &&
-                   !isContainedIn(sortedLocs[j][1], sortedLocs[j-1][1]) &&
-                   isNearby(sortedLocs[j][1], sortedLocs[j-1][1], 2)) {
-                currentSequence += sortedLocs[j];
-                j += 1;
-            }
-            
-            // If we found a sequence longer than 1, create a new combination
-            if (size(currentSequence) > 1) {
-                str combinedPattern = intercalate("+", [s[0] | s <- currentSequence]);
-                loc combinedLoc = cover([s[1] | s <- currentSequence]);
-                
-                if (combinedPattern notin sequentialSubtrees) {
-                    sequentialSubtrees[combinedPattern] = [];
-                }
-                sequentialSubtrees[combinedPattern] += combinedLoc;
-            }
-            
-            i = j;
-        }
-    }
-    
-    return (key : sequentialSubtrees[key] | key <- sequentialSubtrees, 
-            size(sequentialSubtrees[key]) > 1);
-}
-
-// Step 3: Detect Clones by traversing ASTs
+// Main function to detect clones
 public list[CloneClass] detectClones(list[Declaration] asts, int cloneType) {
     println("Starting clone detection of type <cloneType> using gathered subtrees.");
 
@@ -241,7 +239,7 @@ public list[CloneClass] detectClones(list[Declaration] asts, int cloneType) {
 
     // Filter out smaller clones fully contained in larger ones
     map[str, list[loc]] filteredSubtrees = filterContainedSubtrees(combinedSubtrees);
-    // map[str, list[loc]] filteredSubtrees = filterContainedSubtrees(subtrees);
+    // map[str, list[loc]] filteredSubtrees = filterContainedSubtrees(subtrees); // without sequential subtrees
 
     // Convert directly to clone classes
     list[CloneClass] cloneClasses = buildCloneClasses(filteredSubtrees);

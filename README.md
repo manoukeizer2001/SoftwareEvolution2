@@ -40,8 +40,8 @@ Additionally you may change the port in *config.json*.
 - `script.js` - Handles user interactions in the visualization.
 
 ## Directories
-`visualization/` - Where JSON results are saved for visualization.
-`src/` - Contains files for clone detection analysis and exporting JSON data.
+- `visualization/` - Where JSON results are saved for visualization.
+- `src/` - Contains files for clone detection analysis and exporting JSON data.
 
 
 # Extra note

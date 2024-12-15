@@ -14,7 +14,6 @@ main();
 ```
 After a successful analysis, four JSON files containing the results will be generated in the *visualization* directory.
 
-
 # How to run the Visualization
 
 Make sure you have Node.js installed. If you don't have it, you can install it from https://nodejs.org/.

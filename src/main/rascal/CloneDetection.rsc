@@ -171,46 +171,57 @@ list[CloneClass] buildCloneClasses(map[str, list[loc]] subtrees) {
 map[str, list[loc]] combineSequentialSubtrees(map[str, list[loc]] subtrees) {
     map[str, list[loc]] sequentialSubtrees = ();
     
-    // For each pattern
-    for (str pattern1 <- subtrees) {
-        for (str pattern2 <- subtrees) {
-            if (pattern1 == pattern2) continue;
-            
-            list[loc] locs1 = subtrees[pattern1];
-            list[loc] locs2 = subtrees[pattern2];
-            
-            // Try to combine locations from both patterns
-            list[loc] combinedLocs = [];
-            
-            for (loc loc1 <- locs1) {
-                for (loc loc2 <- locs2) {
-                    // Check for containment/overlap or if loc2 is sequential to loc1 in the same line
-                    if (isContainedIn(loc1, loc2)) {
-                        loc combinedLoc = cover([loc1, loc2]);
-                        combinedLocs += combinedLoc;
-                    }
-                    // Check if loc2 is sequential to loc1 in the next adjacent line
-                    loc expandedLoc1 = loc1;
-                    expandedLoc1.end.line += 1;  // Extend loc1 by one line
-                    expandedLoc1.end.column = 1000;  // Use a large column number to cover the whole next line
-
-                    if (isContainedIn(loc2, expandedLoc1)) {
-                        loc combinedLoc = cover([loc1, loc2]);
-                        combinedLocs += combinedLoc;
-                    }
-                }
+    // Group by file
+    map[str, list[tuple[str pattern, loc location]]] fileGroups = ();
+    for (str pattern <- subtrees) {
+        for (loc location <- subtrees[pattern]) {
+            if (location.uri notin fileGroups) {
+                fileGroups[location.uri] = [];
             }
-            
-            // If we found sequential locations, add them as a new pattern
-            if (size(combinedLocs) > 1) {
-                str combinedPattern = pattern1 + "+" + pattern2;
-                sequentialSubtrees[combinedPattern] = combinedLocs;
-            }
+            fileGroups[location.uri] += [<pattern, location>];
         }
     }
     
-    // Filter to keep only entries with more than one location
-    return (key : sequentialSubtrees[key] | key <- sequentialSubtrees, size(sequentialSubtrees[key]) > 1);
+    // Process each file - single pass
+    for (str file <- fileGroups) {
+        // Sort locations by start line
+        list[tuple[str pattern, loc location]] sortedLocs = 
+            sort(fileGroups[file], bool(tuple[str,loc] a, tuple[str,loc] b) {
+                return a[1].begin.line < b[1].begin.line;
+            });
+        
+        // Try to combine sequences
+        int i = 0;
+        while (i < size(sortedLocs)) {
+            int j = i + 1;
+            list[tuple[str pattern, loc location]] currentSequence = [sortedLocs[i]];
+            
+            // Try to extend the sequence as much as possible in one go
+            while (j < size(sortedLocs) && 
+                   !isContainedIn(sortedLocs[j-1][1], sortedLocs[j][1]) &&
+                   !isContainedIn(sortedLocs[j][1], sortedLocs[j-1][1]) &&
+                   isNearby(sortedLocs[j][1], sortedLocs[j-1][1], 2)) {
+                currentSequence += sortedLocs[j];
+                j += 1;
+            }
+            
+            // If we found a sequence longer than 1, create a new combination
+            if (size(currentSequence) > 1) {
+                str combinedPattern = intercalate("+", [s[0] | s <- currentSequence]);
+                loc combinedLoc = cover([s[1] | s <- currentSequence]);
+                
+                if (combinedPattern notin sequentialSubtrees) {
+                    sequentialSubtrees[combinedPattern] = [];
+                }
+                sequentialSubtrees[combinedPattern] += combinedLoc;
+            }
+            
+            i = j;
+        }
+    }
+    
+    return (key : sequentialSubtrees[key] | key <- sequentialSubtrees, 
+            size(sequentialSubtrees[key]) > 1);
 }
 
 // Step 3: Detect Clones by traversing ASTs
@@ -230,11 +241,24 @@ public list[CloneClass] detectClones(list[Declaration] asts, int cloneType) {
 
     // Filter out smaller clones fully contained in larger ones
     map[str, list[loc]] filteredSubtrees = filterContainedSubtrees(combinedSubtrees);
+    // map[str, list[loc]] filteredSubtrees = filterContainedSubtrees(subtrees);
 
     // Convert directly to clone classes
     list[CloneClass] cloneClasses = buildCloneClasses(filteredSubtrees);
 
     println("Detected <size(cloneClasses)> clone classes of type <cloneType>");
     return cloneClasses;
+}
+
+bool isNearby(loc loc2, loc loc1, int gap) {
+    // Check if locations are in the same file
+    if (loc2.uri != loc1.uri) return false;
+    
+    // Get end line of first location and start line of second
+    int loc1EndLine = loc1.end.line;
+    int loc2StartLine = loc2.begin.line;
+    
+    // Check if they're within the acceptable gap
+    return (loc2StartLine - loc1EndLine) <= gap;
 }
 

@@ -54,6 +54,7 @@ public map[str, FileCloneData] extractTreeMapData(list[CloneClassWithId] cloneCl
                 continue;
             }
             
+            // Calculate the number of lines covered by the clone
             int clonedLines = getLineCoverage(l);
             FileCloneData currentData = fileData[filePath];
             

@@ -20,6 +20,7 @@ public list[CloneClassWithId] assignCloneIds(list[CloneClass] cloneClasses, str 
         classesWithIds += [<cloneId, pattern, locations>];
         id += 1;
     }
+    
     return classesWithIds;
 }
 

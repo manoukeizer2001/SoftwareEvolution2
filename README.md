@@ -27,5 +27,7 @@ node server.js
 If everything is set up correctly, you should see a message in the terminal saying that the server is running on port 3000.
 Open your browser and go to http://localhost:3000
 
+Additionally you may change the port in *config.json*
+
 # Extra note
 Do it in this order. If Clone Detection has not been run, the visualization will not work as it has no data to display.

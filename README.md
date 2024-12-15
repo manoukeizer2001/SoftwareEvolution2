@@ -27,7 +27,22 @@ node server.js
 If everything is set up correctly, you should see a message in the terminal saying that the server is running on port 3000.
 Open your browser and go to http://localhost:3000
 
-Additionally you may change the port in *config.json*
+Additionally you may change the port in *config.json*.
+
+## File Structure
+
+- `Main.rsc` - Entry point for the clone detection process. Modify this to set the project path and toggle options for volume calculation.
+- `JSONExport.rsc` - JSON file exporter. Gathers analysis data and stores them into JSON files.
+- `CloneDetection.rsc` - Algorithm for identifying and analyzing clones in the project.
+- `BarChartData.rsc`, `CloneClassData.rsc`, `TreeMapData.rsc`, `Statistics.rsc` - Helper modules for processing and extracting data for visualizations.
+- `Util.rsc`, `DataTypes.rsc` - General helper modules
+- `server.js` - The backend server for the visualization tool.
+- `script.js` - Handles user interactions in the visualization.
+
+## Directories
+`visualization/` - Where JSON results are saved for visualization.
+`src/` - Contains files for clone detection analysis and exporting JSON data.
+
 
 # Extra note
 Do it in this order. If Clone Detection has not been run, the visualization will not work as it has no data to display.

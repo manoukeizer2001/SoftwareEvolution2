@@ -27,8 +27,8 @@ public CloneStats calculateStatistics(list[CloneClass] cloneClasses, list[Declar
         totalSourceLines = calculateTotalSourceLines(asts);
     } else {
         totalSourceLines = 
-            projectName == "smallsql0.21_src" ? 24000 :
-            projectName == "hsqldb-2.3.1" ? 177000 :
+            projectName == "smallsql0.21_src" ? 24501 :
+            projectName == "hsqldb-2.3.1" ? 175647 :
             50000;
         println("Using placeholder value for total amount of source lines: <totalSourceLines>");
     }

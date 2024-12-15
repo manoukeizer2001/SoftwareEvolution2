@@ -36,12 +36,12 @@ Main() arguments:
 3. calculateVolume: whether to calculate volume statistics
 4. projectName: name of the project (in case we don't want to calculate volume statistics, because it takes too long)
 If calculateVolume is false, placeholder values will be used for volume statistics
-for smallsql0.21_src, it's 24000
-for hsqldb-2.3.1, it's 177000
+for smallsql0.21_src, it's 24501
+for hsqldb-2.3.1, it's 175647
 for other projects, it's 50000
 */
 
-int main(loc projectLocation = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/smallsql0.21_src|, int cloneType = 1, bool calculateVolume = false, str projectName = "smallsql0.21_src") {
+int main(loc projectLocation = |home:///Documents/UVA_SE/SE/SoftwareEvolution2/hsqldb-2.3.1|, int cloneType = 1, bool calculateVolume = false, str projectName = "hsqldb-2.3.1") {
     if (!exists(projectLocation)) {
         println("Error: Project path does not exist: <projectLocation>");
         return 1;

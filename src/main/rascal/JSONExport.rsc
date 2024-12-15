@@ -71,6 +71,7 @@ private list[str] createTreeMapEntries(map[str, FileCloneData] treeMapData) {
             '}";
         treeMapEntries += entry;
     }
+    
     // println("Done creating tree map entries");
     return treeMapEntries;
 }

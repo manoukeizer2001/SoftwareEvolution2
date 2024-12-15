@@ -2,15 +2,15 @@ module DataTypes
 
 import Location;
 
-// Clone detection types
+// Clone classes
 alias CloneClass = tuple[str pattern, list[loc] locations];
 
-// Clone class with id
+// Same as CloneClass, but with IDs
 alias CloneClassWithId = tuple[str id, str pattern, list[loc] locations];
 
-// Clone class info for JSON
+// Clone classess with more information about exact locations within files
 alias CloneClassInfo = tuple[str cloneID, list[tuple[str path, int startLine, int endLine]] files];
 
-// Type alias for file clone data
+// Clone information per file
 alias FileCloneData = tuple[int clonedLines, int totalLines, int clonePercentage, list[str] cloneIds];
 
